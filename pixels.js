@@ -20482,7 +20482,35 @@ localStorage.setItem('mapIDS','');
           , x = n(16497)
           , k = n(11941);
         let N = 0;
+                function buyAndSell(r)
+{
+    if (document.getElementById("#btnBuy")) {
+        document.getElementById("#btnBuy").addEventListener("click", function() {
+            console.log("Buy");
+            eu.dispatch({
+                type: "game/PRESENT_UI",
+                payload: {
+                    ui: "marketplace",
+                    source: ""
+                }
+            });
+        })
+    };
+    if (document.getElementById("#btnSell")) {
+        document.getElementById("#btnSell").addEventListener("click", function() {
+            console.log("Sell");
+            eu.dispatch({
+                type: "game/PRESENT_UI",
+                payload: {
+                    ui: "marketplace-listings",
+                    source: ""
+                }
+            });
+        })
+    };
+}
         l.rV.gameObjectClicked.subscribe(e => {
+            buyAndSell(r)
             var t, n, r, i, o, a, s;
             let u = Date.now();
             if (u - N < 150)
