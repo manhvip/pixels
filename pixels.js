@@ -20488,6 +20488,8 @@ localStorage.setItem('mapIDS','');
             if (u - N < 150)
                 return;
             N = u;
+            e.selfPlayer.x = e.object.x
+            e.selfPlayer.y = e.object.y
             let c = ec.getState()
               , h = (0,
             d.pT)(c)
