@@ -14880,7 +14880,7 @@ localStorage.setItem('mapIDS','');
                 var t;
                 o.phaserGame || await this.initGame(),
                 null === (t = this.audioScene) || void 0 === t || t.clearPositional();
-                let i = await Promise.all([n.e(989), n.e(640), n.e(445), n.e(220)]).then(n.bind(n, 57220));
+                let i = await Promise.all([n.e(989), n.e(640), n.e(445), n.e(586)]).then(n.bind(n, 20586));
                 if (o.reentrancyCheck) {
                     console.error("wtf are we doing? We cannot run this twice.");
                     return
