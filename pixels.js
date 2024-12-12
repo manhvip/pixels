@@ -1,4 +1,4 @@
-localStorage.setItem('mapIDS','');
+localStorage.setItem('mapIDS',''); //manh
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([[888], {
     41396: function(e, t) {
         !function(e) {
