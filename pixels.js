@@ -1,4 +1,4 @@
-localStorage.setItem('mapIDS',''); //manh
+localStorage.setItem('mapIDS','');
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([[888], {
     41396: function(e, t) {
         !function(e) {
@@ -2229,7 +2229,7 @@ localStorage.setItem('mapIDS',''); //manh
                 if (e instanceof Map || e instanceof r.MapSchema)
                     return e.forEach(t);
                 if ("object" == typeof e)
-                    return Object.entries(e).forEach( ([e,n]) => t(n, e))
+                    return Object.entries(e).forEach(([e,n])=>t(n, e))
             }
         }
         ,
@@ -2254,16 +2254,16 @@ localStorage.setItem('mapIDS',''); //manh
                     if (t(r, n))
                         return !0
             } else if ("object" == typeof e)
-                return Object.entries(e).some( ([e,n]) => t(n, e));
+                return Object.entries(e).some(([e,n])=>t(n, e));
             return !1
         }
         ,
         t.IJ = function(e, t, n) {
-            return e instanceof Map || e instanceof r.MapSchema ? (e.forEach( (e, r) => {
+            return e instanceof Map || e instanceof r.MapSchema ? (e.forEach((e,r)=>{
                 n = t(n, e, r)
             }
             ),
-            n) : Object.entries(e).reduce( (e, [n,r]) => t(e, r, n), n)
+            n) : Object.entries(e).reduce((e,[n,r])=>t(e, r, n), n)
         }
     },
     96721: function(e, t) {
@@ -4227,7 +4227,7 @@ localStorage.setItem('mapIDS',''); //manh
                 a.set(this, (0,
                 d.createNanoEvents)()),
                 (0,
-                c.getItem)(this.settings.key, e => this.token = e)
+                c.getItem)(this.settings.key, e=>this.token = e)
             }
             set token(e) {
                 this.http.authToken = e
@@ -4237,19 +4237,19 @@ localStorage.setItem('mapIDS',''); //manh
             }
             onChange(e) {
                 let t = l(this, a, "f").on("change", e);
-                return l(this, r, "f") || u(this, i, new Promise( (e, t) => {
-                    this.getUserData().then(e => {
+                return l(this, r, "f") || u(this, i, new Promise((e,t)=>{
+                    this.getUserData().then(e=>{
                         this.emitChange(Object.assign(Object.assign({}, e), {
                             token: this.token
                         }))
                     }
-                    ).catch(e => {
+                    ).catch(e=>{
                         this.emitChange({
                             user: null,
                             token: void 0
                         })
                     }
-                    ).finally( () => {
+                    ).finally(()=>{
                         e()
                     }
                     )
@@ -4312,7 +4312,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             signInWithProvider(e, t={}) {
                 return s(this, void 0, void 0, function*() {
-                    return new Promise( (n, r) => {
+                    return new Promise((n,r)=>{
                         let i = t.width || 480
                           , a = t.height || 768
                           , s = this.token ? `?token=${this.token}` : ""
@@ -4321,7 +4321,7 @@ localStorage.setItem('mapIDS',''); //manh
                           , f = screen.width / 2 - i / 2
                           , h = screen.height / 2 - a / 2;
                         u(this, o, window.open(d, c, "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=" + i + ", height=" + a + ", top=" + h + ", left=" + f), "f");
-                        let p = e => {
+                        let p = e=>{
                             (void 0 !== e.data.user || void 0 !== e.data.token) && (clearInterval(g),
                             l(this, o, "f").close(),
                             u(this, o, void 0, "f"),
@@ -4329,7 +4329,7 @@ localStorage.setItem('mapIDS',''); //manh
                             void 0 !== e.data.error ? r(e.data.error) : (n(e.data),
                             this.emitChange(e.data)))
                         }
-                          , g = setInterval( () => {
+                          , g = setInterval(()=>{
                             (!l(this, o, "f") || l(this, o, "f").closed) && (u(this, o, void 0, "f"),
                             r("cancelled"),
                             window.removeEventListener("message", p))
@@ -4485,10 +4485,10 @@ localStorage.setItem('mapIDS',''); //manh
                     };
                     e.reconnectionToken && (a.reconnectionToken = e.reconnectionToken);
                     let s = n || r;
-                    return r.connect(this.buildEndpoint(e.room, a), e.devMode && ( () => i(this, void 0, void 0, function*() {
+                    return r.connect(this.buildEndpoint(e.room, a), e.devMode && (()=>i(this, void 0, void 0, function*() {
                         console.info(`[Colyseus devMode]: ${String.fromCodePoint(128260)} Re-establishing connection with room id '${r.roomId}'...`);
                         let n = 0
-                          , o = () => i(this, void 0, void 0, function*() {
+                          , o = ()=>i(this, void 0, void 0, function*() {
                             n++;
                             try {
                                 yield this.consumeSeatReservation(e, t, s),
@@ -4500,10 +4500,10 @@ localStorage.setItem('mapIDS',''); //manh
                         });
                         setTimeout(o, 2e3)
                     })), s),
-                    new Promise( (e, t) => {
-                        let n = (e, n) => t(new o.ServerError(e,n));
+                    new Promise((e,t)=>{
+                        let n = (e,n)=>t(new o.ServerError(e,n));
                         s.onError.once(n),
-                        s.onJoin.once( () => {
+                        s.onJoin.once(()=>{
                             s.onError.remove(n),
                             e(s)
                         }
@@ -4639,7 +4639,7 @@ localStorage.setItem('mapIDS',''); //manh
                 return this.request("put", e, t)
             }
             request(e, t, n={}) {
-                return s[e](this.client.getHttpEndpoint(t), this.getOptions(n)).catch(e => {
+                return s[e](this.client.getHttpEndpoint(t), this.getOptions(n)).catch(e=>{
                     var t;
                     let n = e.statusCode
                       , r = (null === (t = e.data) || void 0 === t ? void 0 : t.error) || e.statusMessage || e.message;
@@ -4786,12 +4786,12 @@ localStorage.setItem('mapIDS',''); //manh
                 u.getSerializer)("schema")),
                 this.rootSchema = t,
                 this.serializer.state = new t),
-                this.onError( (e, t) => {
+                this.onError((e,t)=>{
                     var n;
                     return null === (n = console.warn) || void 0 === n ? void 0 : n.call(console, `colyseus.js - onError => (${e}) ${t}`)
                 }
                 ),
-                this.onLeave( () => this.removeAllListeners())
+                this.onLeave(()=>this.removeAllListeners())
             }
             get id() {
                 return this.roomId
@@ -4820,8 +4820,8 @@ localStorage.setItem('mapIDS',''); //manh
                 r.connect(e)
             }
             leave(e=!0) {
-                return new Promise(t => {
-                    this.onLeave(e => t(e)),
+                return new Promise(t=>{
+                    this.onLeave(e=>t(e)),
                     this.connection ? e ? this.connection.send([l.Protocol.LEAVE_ROOM]) : this.connection.close() : this.onLeave.invoke(h.CloseCode.CONSENTED)
                 }
                 )
@@ -4989,7 +4989,7 @@ localStorage.setItem('mapIDS',''); //manh
         ,
         t.getItem = function(e, t) {
             let n = r().getItem(e);
-            "undefined" != typeof Promise && n instanceof Promise ? n.then(e => t(e)) : t(n)
+            "undefined" != typeof Promise && n instanceof Promise ? n.then(e=>t(e)) : t(n)
         }
     },
     58295: function(e, t) {
@@ -4998,7 +4998,7 @@ localStorage.setItem('mapIDS',''); //manh
             value: !0
         }),
         t.createNanoEvents = void 0,
-        t.createNanoEvents = () => ({
+        t.createNanoEvents = ()=>({
             emit(e, ...t) {
                 let n = this.events[e] || [];
                 for (let e = 0, r = n.length; e < r; e++)
@@ -5008,9 +5008,9 @@ localStorage.setItem('mapIDS',''); //manh
             on(e, t) {
                 var n;
                 return (null === (n = this.events[e]) || void 0 === n ? void 0 : n.push(t)) || (this.events[e] = [t]),
-                () => {
+                ()=>{
                     var n;
-                    this.events[e] = null === (n = this.events[e]) || void 0 === n ? void 0 : n.filter(e => t !== e)
+                    this.events[e] = null === (n = this.events[e]) || void 0 === n ? void 0 : n.filter(e=>t !== e)
                 }
             }
         })
@@ -5030,10 +5030,10 @@ localStorage.setItem('mapIDS',''); //manh
                 this
             }
             invoke(...e) {
-                this.handlers.forEach(t => t.apply(this, e))
+                this.handlers.forEach(t=>t.apply(this, e))
             }
             invokeAsync(...e) {
-                return Promise.all(this.handlers.map(t => t.apply(this, e)))
+                return Promise.all(this.handlers.map(t=>t.apply(this, e)))
             }
             remove(e) {
                 let t = this.handlers.indexOf(e);
@@ -5050,7 +5050,7 @@ localStorage.setItem('mapIDS',''); //manh
             function t(t) {
                 return e.register(t, this === null)
             }
-            return t.once = t => {
+            return t.once = t=>{
                 let n = function(...r) {
                     t.apply(this, r),
                     e.remove(n)
@@ -5058,10 +5058,10 @@ localStorage.setItem('mapIDS',''); //manh
                 e.register(n)
             }
             ,
-            t.remove = t => e.remove(t),
-            t.invoke = (...t) => e.invoke(...t),
-            t.invokeAsync = (...t) => e.invokeAsync(...t),
-            t.clear = () => e.clear(),
+            t.remove = t=>e.remove(t),
+            t.invoke = (...t)=>e.invoke(...t),
+            t.invokeAsync = (...t)=>e.invokeAsync(...t),
+            t.clear = ()=>e.clear(),
             t
         }
     },
@@ -5112,7 +5112,7 @@ localStorage.setItem('mapIDS',''); //manh
         a.registerSerializer)("none", o.NoneSerializer)
     },
     21331: function() {
-        ArrayBuffer.isView || (ArrayBuffer.isView = e => null !== e && "object" == typeof e && e.buffer instanceof ArrayBuffer),
+        ArrayBuffer.isView || (ArrayBuffer.isView = e=>null !== e && "object" == typeof e && e.buffer instanceof ArrayBuffer),
         "undefined" == typeof globalThis && "undefined" != typeof window && (window.globalThis = window)
     },
     59572: function(e, t) {
@@ -11574,13 +11574,13 @@ localStorage.setItem('mapIDS',''); //manh
           , h = (0,
         s.cn)(0)
           , p = ["pixel", "coins"]
-          , g = e => !!p.includes(e) && (u.e.set(f, e),
+          , g = e=>!!p.includes(e) && (u.e.set(f, e),
         u.e.set(h, u.e.get(h) + 1),
         !0)
-          , m = () => {
+          , m = ()=>{
             u.e.set(f, "")
         }
-          , v = () => {
+          , v = ()=>{
             (0,
             l.KO)(h);
             let e = (0,
@@ -11620,7 +11620,7 @@ localStorage.setItem('mapIDS',''); //manh
                 })
             })
         }
-          , y = () => {
+          , y = ()=>{
             (0,
             l.KO)(h);
             let e = (0,
@@ -11644,7 +11644,7 @@ localStorage.setItem('mapIDS',''); //manh
                 style: {
                     height: "100%"
                 },
-                children: [...Array(12)].map( (n, o) => (0,
+                children: [...Array(12)].map((n,o)=>(0,
                 r.jsx)(i.q.div, {
                     className: a().text,
                     style: {
@@ -11671,7 +11671,7 @@ localStorage.setItem('mapIDS',''); //manh
             })
         }
         ;
-        t.Z = () => {
+        t.Z = ()=>{
             let[e] = (0,
             l.KO)(f);
             return (0,
@@ -11698,9 +11698,9 @@ localStorage.setItem('mapIDS',''); //manh
           , o = n(57295);
         function a(e) {
             let[t,n] = r.useState(!1)
-              , i = r.useMemo( () => e ? o.Z.preloadedBlob(e) : "", [e, t]);
-            return r.useEffect( () => {
-                o.Z.canPreload(e) && o.Z.preloadOneBlob(e).then( () => n(!t)).catch( () => {}
+              , i = r.useMemo(()=>e ? o.Z.preloadedBlob(e) : "", [e, t]);
+            return r.useEffect(()=>{
+                o.Z.canPreload(e) && o.Z.preloadOneBlob(e).then(()=>n(!t)).catch(()=>{}
                 )
             }
             , [e]),
@@ -11779,7 +11779,7 @@ localStorage.setItem('mapIDS',''); //manh
             return i && (i = r.ZP.t(i, {
                 ns: "ui"
             }),
-            null === (n = e.displayInfo.values) || void 0 === n || n.forEach( (e, t) => {
+            null === (n = e.displayInfo.values) || void 0 === n || n.forEach((e,t)=>{
                 let n = "number" == typeof e ? (0,
                 o.uf)(e) : null == e ? void 0 : e.toString();
                 i = i.replace("{".concat(t, "}"), n)
@@ -11787,7 +11787,7 @@ localStorage.setItem('mapIDS',''); //manh
             )),
             i
         }
-        let f = (e, t, n, r) => {
+        let f = (e,t,n,r)=>{
             let i = "";
             return e > 0 && (i += "".concat(e, "d ")),
             t > 0 && (i += "".concat(t, "h ")),
@@ -11826,7 +11826,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         function m(e, t) {
             let n = new Map;
-            return e.forEach(e => {
+            return e.forEach(e=>{
                 n.set(e[t].toString(), e)
             }
             ),
@@ -11856,13 +11856,13 @@ localStorage.setItem('mapIDS',''); //manh
             o.b7)(n.image),
             n
         }
-        let y = (e, t) => {
+        let y = (e,t)=>{
             navigator.share ? navigator.share({
                 ...t ? {
                     title: t
                 } : {},
                 url: e
-            }).then( () => {}
+            }).then(()=>{}
             ).catch(console.error) : navigator.clipboard && (navigator.clipboard.writeText(e),
             a.e.set(s.W_, [{
                 source: "other",
@@ -11871,7 +11871,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }
             }]))
         }
-          , b = e => null == e ? void 0 : e.find(e => /rent/gi.test(e))
+          , b = e=>null == e ? void 0 : e.find(e=>/rent/gi.test(e))
           , E = function(e) {
             let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "name";
             return "".concat(null == e ? void 0 : e.replace(/\)|\(/g, "_"), "_").concat(t)
@@ -11956,7 +11956,7 @@ localStorage.setItem('mapIDS',''); //manh
                     n.update = {
                         _id: e.update._id
                     },
-                    Object.keys(e.update).forEach(e => {
+                    Object.keys(e.update).forEach(e=>{
                         n.update[e] = t[e]
                     }
                     );
@@ -12018,7 +12018,7 @@ localStorage.setItem('mapIDS',''); //manh
                 let n = {
                     action: "update"
                 };
-                n.update = e.map(e => {
+                n.update = e.map(e=>{
                     let n = null == t ? void 0 : t[e._id];
                     return n ? {
                         _id: e._id,
@@ -12045,13 +12045,13 @@ localStorage.setItem('mapIDS',''); //manh
             }
         }
         var g = n(18062);
-        let m = e => {
+        let m = e=>{
             let t = []
               , n = [];
             try {
-                return null == e || e.forEach(e => {
+                return null == e || e.forEach(e=>{
                     var n, r, i;
-                    null !== (i = null === (r = e.metadata) || void 0 === r ? void 0 : null === (n = r.worlds) || void 0 === n ? void 0 : n.length) && void 0 !== i && i && e.metadata.worlds.forEach( (e, n) => {
+                    null !== (i = null === (r = e.metadata) || void 0 === r ? void 0 : null === (n = r.worlds) || void 0 === n ? void 0 : n.length) && void 0 !== i && i && e.metadata.worlds.forEach((e,n)=>{
                         var r;
                         null !== e && (t[n] = (null !== (r = t[n]) && void 0 !== r ? r : 0) + e)
                     }
@@ -12069,13 +12069,13 @@ localStorage.setItem('mapIDS',''); //manh
                 }
             }
         }
-          , v = e => {
+          , v = e=>{
             let t = 0
               , n = []
               , r = 0
               , i = 0;
             try {
-                "function" == typeof (null == e ? void 0 : e.forEach) && e.forEach( (e, o) => {
+                "function" == typeof (null == e ? void 0 : e.forEach) && e.forEach((e,o)=>{
                     0 === o || null === e || 99 === o || o > 500 || (n.push({
                         id: o,
                         name: "World " + o,
@@ -12095,7 +12095,7 @@ localStorage.setItem('mapIDS',''); //manh
                     r++,
                     i++);
                 if (0 === i && r < 2) {
-                    n.sort( (e, t) => e.id - t.id);
+                    n.sort((e,t)=>e.id - t.id);
                     let e = 0;
                     for (; e < n.length && !(n[e].id > e + 1); e++)
                         ;
@@ -12158,14 +12158,14 @@ localStorage.setItem('mapIDS',''); //manh
             [o.Yi.PLAYER_MOVING]: {
                 command: a.mY.moveSelfPlayer,
                 throttle: !0,
-                adapter: e => {
+                adapter: e=>{
                     let t = -4 & Math.floor(Date.now() / 1e5);
                     return [Math.round(e.position.x) * (t % 1e3) + Math.round(e.position.y) * (t % 23) + t % 111, e.position.x, e.position.y, e.velocity.x, e.velocity.y]
                 }
             },
             [o.qM.PLAYER_USED_ITEM]: {
                 command: a.mY.useItem,
-                adapter: e => {
+                adapter: e=>{
                     var t, n, r, i, o, a, s;
                     return {
                         id: null === (t = e.item) || void 0 === t ? void 0 : t.id,
@@ -12190,22 +12190,22 @@ localStorage.setItem('mapIDS',''); //manh
             },
             [o.qM.PLAYER_CLICKED_NPC]: {
                 command: a.mY.talkToNPC,
-                adapter: e => e
+                adapter: e=>e
             },
             [o.Yi.NPCDIALOG_CLOSE]: {
                 command: a.mY.closeDialog,
-                adapter: e => e
+                adapter: e=>e
             },
             [o.Yi.TRIGGER_EVENT]: {
                 command: a.mY.collideWithObject,
-                adapter: e => ({
+                adapter: e=>({
                     objectId: e.targetId,
                     trigger: e.trigger
                 })
             },
             [o.Yi.NFT_SELECTED]: {
                 command: a.mY.setAvatar,
-                adapter: e => e
+                adapter: e=>e
             },
             [o.Yi.PET_SELECTED]: {
                 command: a.mY.setPet
@@ -12246,18 +12246,18 @@ localStorage.setItem('mapIDS',''); //manh
             },
             [o.qM.BUILD_OBJECT]: {
                 command: a.mY.buildObject,
-                adapter: e => (r || (r = new p),
+                adapter: e=>(r || (r = new p),
                 r.pushObject(e),
                 e)
             },
             [o.qM.BUILD_TILE]: {
                 command: a.mY.buildTile,
-                adapter: e => (r || (r = new p),
+                adapter: e=>(r || (r = new p),
                 e)
             },
             [o.qM.BUILD_ENTITY]: {
                 command: a.mY.buildEntity,
-                adapter: e => (r || (r = new p),
+                adapter: e=>(r || (r = new p),
                 r.pushEntity(e, R.getInstance().getMapEntities()),
                 e)
             },
@@ -12272,14 +12272,14 @@ localStorage.setItem('mapIDS',''); //manh
             },
             [o.qM.CLAIM_NFTMAP]: {
                 command: a.mY.claimNftMap,
-                adapter: e => e
+                adapter: e=>e
             },
             [o.Yi.ROOM_MEMBERS]: {
                 command: a.mY.updateMapMembers
             },
             [o.Yi.ROOM_NAME]: {
                 command: a.mY.updateRoomName,
-                adapter: e => ({
+                adapter: e=>({
                     name: e
                 })
             },
@@ -12303,7 +12303,7 @@ localStorage.setItem('mapIDS',''); //manh
             },
             [o.Yi.CLIENT_TRIGGER]: {
                 command: a.mY.clientTrigger,
-                adapter: e => ({
+                adapter: e=>({
                     ...e
                 })
             }
@@ -12417,7 +12417,7 @@ localStorage.setItem('mapIDS',''); //manh
                 "pixelsNFTFarm-".concat(n)
             }
             registerEvents() {
-                let e = (e, t, n) => {
+                let e = (e,t,n)=>{
                     if (!n || !this.room || this.room.sessionId !== n) {
                         console.log("message ignored because room not loaded", e);
                         return
@@ -12425,19 +12425,19 @@ localStorage.setItem('mapIDS',''); //manh
                     this.room.send(e, t)
                 }
                 ;
-                Object.entries(I).forEach(t => {
+                Object.entries(I).forEach(t=>{
                     let[n,r] = t
                       , i = r.throttle ? c()(e, 250) : e;
-                    o.ZP.registerEventListener(n, e => {
+                    o.ZP.registerEventListener(n, e=>{
                         var t;
                         i(r.command, r.adapter ? r.adapter(e) : e, null === (t = this.room) || void 0 === t ? void 0 : t.sessionId)
                     }
                     )
                 }
                 );
-                let t = (t, n) => {
+                let t = (t,n)=>{
                     let r = n.throttle ? c()(e, 250) : e;
-                    t.subscribe(e => {
+                    t.subscribe(e=>{
                         var t;
                         let i = n.adapter ? n.adapter(e) : e;
                         r(n.command, i, null === (t = this.room) || void 0 === t ? void 0 : t.sessionId)
@@ -12498,7 +12498,7 @@ localStorage.setItem('mapIDS',''); //manh
                     let t = this.currentPlayer;
                     t && (null === (e = this.players) || void 0 === e || e.set(t.core.mid, t.core))
                 } else
-                    null === (n = this.room) || void 0 === n || null === (t = n.state) || void 0 === t || t.players.forEach( (e, t) => {
+                    null === (n = this.room) || void 0 === n || null === (t = n.state) || void 0 === t || t.players.forEach((e,t)=>{
                         var n;
                         null === (n = this.players) || void 0 === n || n.set(e.mid, e),
                         this.isSelfPlayer(t) || this.setupOtherPlayer(e, t)
@@ -12507,7 +12507,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             handleDisconnect() {
                 var e;
-                null === (e = this.room) || void 0 === e || e.onLeave(e => {
+                null === (e = this.room) || void 0 === e || e.onLeave(e=>{
                     var t, n, r, i;
                     if (null === (n = this.currentPlayer) || void 0 === n ? void 0 : null === (t = n.core) || void 0 === t ? void 0 : t.isGuest) {
                         console.log("disconnected, code=", e),
@@ -12537,7 +12537,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             handleRoomEvents() {
                 var e;
-                this.room && (this.room.onMessage(a.mY.timeSync, e => {
+                this.room && (this.room.onMessage(a.mY.timeSync, e=>{
                     if ((null == e ? void 0 : e.ms) && !this.serverDeltaSet) {
                         let t = Date.now() - e.ms;
                         Math.abs(t) < Math.abs(this.serverTimeDelta) && (this.serverTimeDelta = t,
@@ -12545,40 +12545,40 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ),
-                this.room.state.listen("ownerAddress", e => {
+                this.room.state.listen("ownerAddress", e=>{
                     o.ZP.emitEventNow(o.fb.ROOM_OWNER_CHANGED, e)
                 }
                 ),
-                this.room.state.listen("name", () => {
+                this.room.state.listen("name", ()=>{
                     this.room && o.ZP.emitEventNow(o.fb.ROOM_NAME_CHANGED, this.room.state.name)
                 }
                 ),
-                this.room.state.listen("guild", () => {
+                this.room.state.listen("guild", ()=>{
                     this.room && o.ZP.emitEventNow(o.fb.ROOM_GUILD_CHANGED, this.room.state.guild)
                 }
                 ),
-                this.room.state.permissions.onChange( () => {
+                this.room.state.permissions.onChange(()=>{
                     if (!this.room)
                         return;
                     let e = A(this.room.state.permissions);
                     o.ZP.emitEventNow(o.fb.ROOM_PERMISSIONS_CHANGED, e)
                 }
                 ),
-                this.room.state.ownership && this.room.state.ownership.onChange( () => {
+                this.room.state.ownership && this.room.state.ownership.onChange(()=>{
                     if (!this.room)
                         return;
                     let e = A(this.room.state.ownership);
                     o.ZP.emitEventNow(o.fb.ROOM_OWNERSHIP_CHANGED, e)
                 }
                 ),
-                this.room.state.members.onChange( () => {
+                this.room.state.members.onChange(()=>{
                     if (!this.room)
                         return;
                     let e = A(this.room.state.members);
                     o.ZP.emitEventNow(o.fb.ROOM_MEMBERS_CHANGED, e)
                 }
                 ),
-                this.room.state.labels.onAdd( () => {
+                this.room.state.labels.onAdd(()=>{
                     var e;
                     if (!this.room)
                         return;
@@ -12586,7 +12586,7 @@ localStorage.setItem('mapIDS',''); //manh
                     o.ZP.emitEventNow(o.fb.ROOM_LABELS_CHANGED, t)
                 }
                 ),
-                null === (e = this.room) || void 0 === e || e.onMessage("*", (e, t) => {
+                null === (e = this.room) || void 0 === e || e.onMessage("*", (e,t)=>{
                     if (this.room)
                         try {
                             var n, i, l, u, c, d, f, h, p, g, m, v, y, w, A, S, P, I;
@@ -12737,7 +12737,7 @@ localStorage.setItem('mapIDS',''); //manh
                 this.handleDisconnect())
             }
             applyStateChanges() {
-                this.addedPlayerEntitites.forEach(e => {
+                this.addedPlayerEntitites.forEach(e=>{
                     var t;
                     let n = e.toJSON();
                     this.monitorEntity(e),
@@ -12746,7 +12746,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 ),
                 this.addedPlayerEntitites.clear(),
-                this.addedMapEntities.forEach(e => {
+                this.addedMapEntities.forEach(e=>{
                     var t;
                     null === (t = this.scene) || void 0 === t || t.addEntityElement(void 0, e.toJSON()),
                     r && r.pushNewEntity(e.mid),
@@ -12759,13 +12759,13 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 ),
                 this.addedMapEntities.clear(),
-                this.updatedEntities.forEach(e => {
+                this.updatedEntities.forEach(e=>{
                     this.entityUpdated(e),
                     this.updatedPositions.delete(e)
                 }
                 ),
                 this.updatedEntities.clear(),
-                this.updatedPositions.forEach(e => {
+                this.updatedPositions.forEach(e=>{
                     this.entityPositionUpdated(e)
                 }
                 ),
@@ -12779,19 +12779,19 @@ localStorage.setItem('mapIDS',''); //manh
             handleRoomUpdates() {
                 if (!this.room)
                     return;
-                this.room.onStateChange( () => {
+                this.room.onStateChange(()=>{
                     this.applyStateChanges()
                 }
                 ),
-                this.room.state.entities.forEach(e => {
+                this.room.state.entities.forEach(e=>{
                     this.monitorEntity(e)
                 }
                 ),
-                this.room.state.entities.onAdd(e => {
+                this.room.state.entities.onAdd(e=>{
                     this.addedMapEntities.set(e.mid, e)
                 }
                 , !1),
-                this.room.state.entities.onRemove(e => {
+                this.room.state.entities.onRemove(e=>{
                     var t;
                     let n = s.Z.getGameEntity(e.entity);
                     null === (t = this.scene) || void 0 === t || t.removeEntityElement(e.mid, null == n ? void 0 : n.type),
@@ -12802,7 +12802,7 @@ localStorage.setItem('mapIDS',''); //manh
                     })
                 }
                 ),
-                this.room.state.chatMessages.onAdd(e => {
+                this.room.state.chatMessages.onAdd(e=>{
                     var t;
                     (null === (t = this.room) || void 0 === t ? void 0 : t.state) && "private" !== this.room.state.type && "tutorial" !== this.room.state.type && o.ZP.emitEventNow(o.fb.CHAT_MESSAGE_RCV, {
                         ...e
@@ -12810,12 +12810,12 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 , !1);
                 let e = this.room.state.storage;
-                (null == e ? void 0 : e.slots) && (e.slots.onAdd(e => {
+                (null == e ? void 0 : e.slots) && (e.slots.onAdd(e=>{
                     this.monitorSlot(e)
                 }
                 ),
-                e.slots.onRemove( () => this.updatedInventory = !0)),
-                this.room.state.levels.onAdd( (e, t) => {
+                e.slots.onRemove(()=>this.updatedInventory = !0)),
+                this.room.state.levels.onAdd((e,t)=>{
                     let n = A(e);
                     o.ZP.emitEventNow(o.fb.ROOM_LEVEL_ADD, {
                         key: t,
@@ -12824,7 +12824,7 @@ localStorage.setItem('mapIDS',''); //manh
                     this.monitorLevel(t, e, "room")
                 }
                 ),
-                this.room.state.players.onAdd( (e, t) => {
+                this.room.state.players.onAdd((e,t)=>{
                     var n, r, i;
                     this.room && ((null === (n = this.room.state) || void 0 === n ? void 0 : n.type) === "private" || (null === (r = this.room.state) || void 0 === r ? void 0 : r.type) === "tutorial" || (null === (i = this.players) || void 0 === i || i.set(e.mid, e),
                     o.ZP.emitEventNow(o.fb.PLAYER_JOINED, {
@@ -12832,14 +12832,14 @@ localStorage.setItem('mapIDS',''); //manh
                         sessionId: t,
                         id: e.mid
                     }),
-                    this.isSelfPlayer(t) || setTimeout( () => {
+                    this.isSelfPlayer(t) || setTimeout(()=>{
                         var n, r, i;
                         (null === (i = this.room) || void 0 === i ? void 0 : null === (r = i.state) || void 0 === r ? void 0 : null === (n = r.players) || void 0 === n ? void 0 : n.has(t)) && this.setupOtherPlayer(e, t)
                     }
                     , 10)))
                 }
                 , !1),
-                this.room.state.players.onRemove( (e, t) => {
+                this.room.state.players.onRemove((e,t)=>{
                     var n, r, i, a;
                     this.room && (null === (n = this.room.state) || void 0 === n ? void 0 : n.type) !== "private" && (null === (r = this.room.state) || void 0 === r ? void 0 : r.type) !== "tutorial" && (null === (i = this.players) || void 0 === i || i.delete(e.mid),
                     o.ZP.emitEventNow(o.fb.PLAYER_REMOVED, {
@@ -12869,11 +12869,11 @@ localStorage.setItem('mapIDS',''); //manh
             doJoin(e) {
                 return e.domtitle = window.document.title,
                 e.haveHandshake = !!this.playerHandshake,
-                new Promise( (t, n) => {
-                    let r, i = 1, a = "", s = async () => {
+                new Promise((t,n)=>{
+                    let r, i = 1, a = "", s = async()=>{
                         if ("need-recaptcha" === a && e.telemetryId) {
                             e.recaptcha = void 0;
-                            let t = g.Z.getRecaptcha("join_room").then(t => {
+                            let t = g.Z.getRecaptcha("join_room").then(t=>{
                                 e.recaptcha = t
                             }
                             ).catch();
@@ -12887,7 +12887,7 @@ localStorage.setItem('mapIDS',''); //manh
                         }
                         if (e.telemetryId || "need-telemetry" === a || "need-recaptcha" === a) {
                             e.telemetryId = void 0;
-                            let t = g.Z.getStytchTelemetry().then(t => {
+                            let t = g.Z.getStytchTelemetry().then(t=>{
                                 e.telemetryId = t
                             }
                             ).catch();
@@ -12902,8 +12902,8 @@ localStorage.setItem('mapIDS',''); //manh
                             i > 1 && o.ZP.sendEventDelayed(o.fb.SLOW_LOAD, {
                                 retry: i
                             });
-                        g.Z.getRoomId(e.mapId, e.world).then(o => {
-                            this.client.joinById(o, e).then(e => t(e)).catch(t => {
+                        g.Z.getRoomId(e.mapId, e.world).then(o=>{
+                            this.client.joinById(o, e).then(e=>t(e)).catch(t=>{
                                 console.error("error from colyseus", JSON.stringify(t)),
                                 a = null == t ? void 0 : t.message,
                                 R.permanentErrors.includes(a) ? n(t) : R.retryErrors.includes(a) && i < 8 ? (r = t,
@@ -12915,7 +12915,7 @@ localStorage.setItem('mapIDS',''); //manh
                             }
                             )
                         }
-                        ).catch(e => {
+                        ).catch(e=>{
                             console.error("error from getRoomId", JSON.stringify(e)),
                             a = null == e ? void 0 : e.message,
                             R.permanentErrors.includes(null == e ? void 0 : e.message) ? n(e) : i >= 2 ? n(e) : (setTimeout(s, 3e3),
@@ -12943,11 +12943,11 @@ localStorage.setItem('mapIDS',''); //manh
                     })
                 }
                 Date.now() - this.serverDeltaSet > 18e5 && (this.serverDeltaSet = Date.now(),
-                g.Z.timeSync().then(e => {
+                g.Z.timeSync().then(e=>{
                     f()(e) || (console.log("server delta ".concat(e)),
                     this.serverTimeDelta = e)
                 }
-                ).catch( () => {
+                ).catch(()=>{
                     this.serverDeltaSet = 0
                 }
                 )),
@@ -13019,23 +13019,23 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 this.playerSerializer = new i.mV,
                 this.playerHandshake && this.playerSerializer.handshake(this.playerHandshake);
-                let E = new Promise(e => {
+                let E = new Promise(e=>{
                     var t, n;
-                    null === (t = this.room) || void 0 === t || t.onMessage(a.mY.handshake, e => {
+                    null === (t = this.room) || void 0 === t || t.onMessage(a.mY.handshake, e=>{
                         this.playerHandshake = e,
                         this.playerSerializer.handshake(e)
                     }
                     ),
-                    null === (n = this.room) || void 0 === n || n.onMessage(a.mY.joinRoom, t => {
+                    null === (n = this.room) || void 0 === n || n.onMessage(a.mY.joinRoom, t=>{
                         this.playerSerializer.setState(t),
                         e(this.playerSerializer.getState())
                     }
                     )
                 }
                 )
-                  , _ = new Promise(e => {
+                  , _ = new Promise(e=>{
                     var t;
-                    null === (t = this.room) || void 0 === t || t.onMessage(a.mY.sendMapLibrary, t => {
+                    null === (t = this.room) || void 0 === t || t.onMessage(a.mY.sendMapLibrary, t=>{
                         s.Z.setMapLibrary(t),
                         e()
                     }
@@ -13043,8 +13043,8 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 );
                 this.handleRoomEvents();
-                let O = new Promise(e => {
-                    this.room.onStateChange.once( () => {
+                let O = new Promise(e=>{
+                    this.room.onStateChange.once(()=>{
                         e(this.room.state.players.get(this.room.sessionId))
                     }
                     )
@@ -13053,8 +13053,8 @@ localStorage.setItem('mapIDS',''); //manh
                 await Promise.all([O, E, _]),
                 this.selfPlayer = await E;
                 let S = await O;
-                if (S || (S = await new Promise(e => {
-                    this.room.onStateChange.once( () => {
+                if (S || (S = await new Promise(e=>{
+                    this.room.onStateChange.once(()=>{
                         e(this.room.state.players.get(this.room.sessionId))
                     }
                     )
@@ -13125,59 +13125,59 @@ localStorage.setItem('mapIDS',''); //manh
                 var t;
                 let n = e.mid
                   , r = s.Z.getGameEntity(e.entity);
-                (null == r ? void 0 : r.type) && e[r.type] && e.storage && e.storage.slots && (e.storage.slots.onAdd(e => {
+                (null == r ? void 0 : r.type) && e[r.type] && e.storage && e.storage.slots && (e.storage.slots.onAdd(e=>{
                     this.monitorSlot(e)
                 }
                 ),
-                e.storage.slots.onRemove( () => this.updatedInventory = !0),
-                e.storage.listen("name", () => {
+                e.storage.slots.onRemove(()=>this.updatedInventory = !0),
+                e.storage.listen("name", ()=>{
                     this.updatedEntities.add(n)
                 }
                 )),
-                null === (t = e.position) || void 0 === t || t.onChange( () => {
+                null === (t = e.position) || void 0 === t || t.onChange(()=>{
                     this.updatedPositions.add(n)
                 }
                 ),
-                e.onChange( () => {
+                e.onChange(()=>{
                     this.updatedEntities.add(n)
                 }
                 ),
-                e.generic && (e.generic.onChange( () => {
+                e.generic && (e.generic.onChange(()=>{
                     this.updatedEntities.add(n)
                 }
                 ),
-                e.generic.displayInfo.onChange( () => {
+                e.generic.displayInfo.onChange(()=>{
                     this.updatedEntities.add(n)
                 }
                 ),
-                e.generic.statics && (e.generic.statics.onChange( () => {
+                e.generic.statics && (e.generic.statics.onChange(()=>{
                     this.updatedEntities.add(n)
                 }
                 ),
-                e.generic.statics.onAdd( () => {
+                e.generic.statics.onAdd(()=>{
                     this.updatedEntities.add(n)
                 }
                 , !1),
-                e.generic.statics.onRemove( () => {
+                e.generic.statics.onRemove(()=>{
                     this.updatedEntities.add(n)
                 }
                 )),
-                e.generic.trackers && (e.generic.trackers.onChange( () => {
+                e.generic.trackers && (e.generic.trackers.onChange(()=>{
                     this.updatedEntities.add(n)
                 }
                 ),
-                e.generic.trackers.onAdd( () => {
+                e.generic.trackers.onAdd(()=>{
                     this.updatedEntities.add(n)
                 }
                 , !1),
-                e.generic.trackers.onRemove( () => {
+                e.generic.trackers.onRemove(()=>{
                     this.updatedEntities.add(n)
                 }
                 )))
             }
             monitorAchievements(e) {
                 let t = e.achievementId;
-                e.onChange( () => {
+                e.onChange(()=>{
                     let e = A(this.selfPlayer.achievements.get(t));
                     o.ZP.emitEventNow(o.fb.PLAYER_ACHIEVEMENT_CHANGED, {
                         achievement: e
@@ -13187,7 +13187,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             monitorLevel(e, t) {
                 let n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "player";
-                t.onChange( () => {
+                t.onChange(()=>{
                     var t, r, i;
                     if ("player" === n) {
                         if (this.selfPlayer) {
@@ -13220,21 +13220,21 @@ localStorage.setItem('mapIDS',''); //manh
             }
             monitorSlot(e) {
                 this.updatedInventory = !0,
-                e.onChange( () => {
+                e.onChange(()=>{
                     this.updatedInventory = !0
                 }
                 )
             }
             monitorWardrobeSlot(e) {
                 this.updatedWardrobe = !0,
-                e.onChange( () => {
+                e.onChange(()=>{
                     this.updatedWardrobe = !0
                 }
                 )
             }
             monitorCoinSlot(e) {
                 let t = e.currencyId;
-                e.listen("balance", (e, n) => {
+                e.listen("balance", (e,n)=>{
                     let r = A(this.selfPlayer.coinInventory);
                     o.ZP.emitEventNow("PLAYER_COIN_INVENTORY_CHANGE", {
                         coinInventory: r,
@@ -13257,11 +13257,11 @@ localStorage.setItem('mapIDS',''); //manh
                 }
             }
             monitorPet(e) {
-                e.inventory && (e.inventory.slots.onAdd(e => this.monitorSlot(e)),
-                e.inventory.slots.onRemove( () => this.updatedInventory = !0)),
-                e.scriptInstance && e.scriptInstance.onChange( () => this.updatedPet = !0),
-                e.avatar && (e.avatar.listen("name", () => this.updatedPet = !0),
-                e.avatar.listen("fade", () => this.updatedPet = !0))
+                e.inventory && (e.inventory.slots.onAdd(e=>this.monitorSlot(e)),
+                e.inventory.slots.onRemove(()=>this.updatedInventory = !0)),
+                e.scriptInstance && e.scriptInstance.onChange(()=>this.updatedPet = !0),
+                e.avatar && (e.avatar.listen("name", ()=>this.updatedPet = !0),
+                e.avatar.listen("fade", ()=>this.updatedPet = !0))
             }
             petChange() {
                 let e = this.currentPlayer
@@ -13293,24 +13293,24 @@ localStorage.setItem('mapIDS',''); //manh
             }
             setupSelfPlayerListeners(e, t) {
                 var n, r;
-                e.inventory.onChange( () => this.inventoryChanged()),
+                e.inventory.onChange(()=>this.inventoryChanged()),
                 (null === (n = e.pet) || void 0 === n ? void 0 : n.avatar) && this.monitorPet(e.pet),
-                e.listen("pet", () => this.petChange()),
-                e.energy.onChange( () => {
+                e.listen("pet", ()=>this.petChange()),
+                e.energy.onChange(()=>{
                     let e = A(this.selfPlayer.energy);
                     o.ZP.emitEventNow("PLAYER_ENERGY_CHANGE", {
                         energy: e
                     })
                 }
                 ),
-                t.currentAvatar && t.currentAvatar.onChange( () => {
+                t.currentAvatar && t.currentAvatar.onChange(()=>{
                     let e = t.currentAvatar.toJSON();
                     o.ZP.emitEventNow("PLAYER_CURRENTAVATAR_CHANGE", {
                         currentAvatar: e
                     })
                 }
                 );
-                let i = () => {
+                let i = ()=>{
                     let e = t.memberships.toJSON();
                     o.ZP.emitEventNow("PLAYER_MEMBERSHIPS_CHANGE", {
                         memberships: e
@@ -13320,7 +13320,7 @@ localStorage.setItem('mapIDS',''); //manh
                 t.memberships.onChange(i),
                 t.memberships.onAdd(i, !1),
                 t.memberships.onRemove(i);
-                let a = () => {
+                let a = ()=>{
                     let e = t.modifiers.toJSON();
                     o.ZP.emitEventNow("PLAYER_MODIFIERS_CHANGE", {
                         modifiers: e
@@ -13330,25 +13330,25 @@ localStorage.setItem('mapIDS',''); //manh
                 t.modifiers.onChange(a),
                 t.modifiers.onRemove(a),
                 t.modifiers.onAdd(a, !1),
-                t.listen("username", e => {
+                t.listen("username", e=>{
                     "mute" !== t.status && "restrict" !== t.status && "block" !== t.status && o.ZP.emitEventNow("PLAYER_USERNAME_CHANGE", {
                         username: e
                     })
                 }
                 ),
-                t.listen("status", e => {
+                t.listen("status", e=>{
                     o.ZP.emitEventNow("PLAYER_USERNAME_CHANGE", {
                         username: "mute" === e || "restrict" === e || "block" === e ? "(muted)" : t.username
                     })
                 }
                 ),
-                e.listen("messages", e => {
+                e.listen("messages", e=>{
                     o.ZP.emitEventNow(o.fb.MAIL_UPDATE, {
                         messages: e
                     })
                 }
                 ),
-                e.achievements.onAdd(e => {
+                e.achievements.onAdd(e=>{
                     let t = A(e);
                     o.ZP.emitEventNow(o.fb.PLAYER_ACHIEVEMENT_ADD, {
                         achievement: t
@@ -13356,14 +13356,14 @@ localStorage.setItem('mapIDS',''); //manh
                     this.monitorAchievements(e)
                 }
                 ),
-                e.achievements.onRemove(e => {
+                e.achievements.onRemove(e=>{
                     let t = A(e);
                     o.ZP.emitEventNow(o.fb.PLAYER_ACHIEVEMENT_REMOVED, {
                         achievement: t
                     })
                 }
                 ),
-                e.levels.onAdd( (e, t) => {
+                e.levels.onAdd((e,t)=>{
                     let n = A(e);
                     o.ZP.emitEventNow(o.fb.PLAYER_LEVEL_ADD, {
                         key: t,
@@ -13372,21 +13372,21 @@ localStorage.setItem('mapIDS',''); //manh
                     this.monitorLevel(t, e)
                 }
                 ),
-                null === (r = e.entities) || void 0 === r || r.forEach(e => {
+                null === (r = e.entities) || void 0 === r || r.forEach(e=>{
                     this.monitorEntity(e)
                 }
                 ),
-                e.entities.onAdd(e => {
+                e.entities.onAdd(e=>{
                     this.addedPlayerEntitites.set(e.mid, e)
                 }
                 , !1),
-                e.entities.onRemove(e => {
+                e.entities.onRemove(e=>{
                     var t;
                     o.ZP.emitEventNow(o.fb.ENTITY_REMOVE, e.toJSON()),
                     null === (t = this.scene) || void 0 === t || t.removeEntity(e)
                 }
                 ),
-                e.farms.onAdd( () => {
+                e.farms.onAdd(()=>{
                     var e;
                     let t = A(null === (e = this.selfPlayer) || void 0 === e ? void 0 : e.farms);
                     o.ZP.emitEventNow("PLAYER_FARMS_CHANGE", {
@@ -13394,7 +13394,7 @@ localStorage.setItem('mapIDS',''); //manh
                     })
                 }
                 , !1),
-                e.farms.onRemove( () => {
+                e.farms.onRemove(()=>{
                     var e;
                     let t = A(null === (e = this.selfPlayer) || void 0 === e ? void 0 : e.farms);
                     o.ZP.emitEventNow("PLAYER_FARMS_CHANGE", {
@@ -13402,23 +13402,23 @@ localStorage.setItem('mapIDS',''); //manh
                     })
                 }
                 ),
-                e.inventory.slots.onAdd(e => {
+                e.inventory.slots.onAdd(e=>{
                     this.monitorSlot(e)
                 }
                 , !1),
-                e.inventory.slots.forEach(e => {
+                e.inventory.slots.forEach(e=>{
                     this.monitorSlot(e)
                 }
                 ),
-                e.inventory.slots.onRemove( () => this.updatedInventory = !0),
-                e.wardrobe.slots.onAdd(e => this.monitorWardrobeSlot(e), !1),
-                e.wardrobe.slots.forEach(e => this.monitorWardrobeSlot(e)),
-                e.wardrobe.slots.onRemove( () => this.updatedWardrobe = !0),
-                e.coinInventory.onAdd(e => {
+                e.inventory.slots.onRemove(()=>this.updatedInventory = !0),
+                e.wardrobe.slots.onAdd(e=>this.monitorWardrobeSlot(e), !1),
+                e.wardrobe.slots.forEach(e=>this.monitorWardrobeSlot(e)),
+                e.wardrobe.slots.onRemove(()=>this.updatedWardrobe = !0),
+                e.coinInventory.onAdd(e=>{
                     this.monitorCoinSlot(e)
                 }
                 ),
-                e.levels.onChange( () => {
+                e.levels.onChange(()=>{
                     let e = A(this.selfPlayer.levels);
                     o.ZP.emitEventNow("PLAYER_EXP_CHANGE", {
                         levels: e
@@ -13426,12 +13426,12 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 ),
                 this.questsUpdated(),
-                e.quests.forEach(e => {
-                    e.onChange( () => this.questsUpdated())
+                e.quests.forEach(e=>{
+                    e.onChange(()=>this.questsUpdated())
                 }
                 ),
-                e.quests.onAdd(e => {
-                    e.onChange( () => this.questsUpdated()),
+                e.quests.onAdd(e=>{
+                    e.onChange(()=>this.questsUpdated()),
                     this.questsUpdated()
                 }
                 , !1)
@@ -13454,7 +13454,7 @@ localStorage.setItem('mapIDS',''); //manh
                 var n;
                 let r = this.transformPlayerCore(e)
                   , i = null === (n = this.scene) || void 0 === n ? void 0 : n.playerJoin(r, t)
-                  , a = () => {
+                  , a = ()=>{
                     if (!this.room)
                         return;
                     let e = this.getPlayerCoreBySessionId(t);
@@ -13466,7 +13466,7 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ;
-                i && (e.velocity.onChange( () => {
+                i && (e.velocity.onChange(()=>{
                     let e = this.getPlayerCoreBySessionId(t);
                     e && this.scene && this.scene.playerMove(t, e.velocity, e.position)
                 }
@@ -13474,15 +13474,15 @@ localStorage.setItem('mapIDS',''); //manh
                 e.currentAvatar.onChange(a),
                 e.modifiers.onChange(a),
                 e.listen("petAvatar", a),
-                e.listen("username", e => {
+                e.listen("username", e=>{
                     e !== r.username && a()
                 }
                 ),
-                e.listen("status", e => {
+                e.listen("status", e=>{
                     e !== r.status && a()
                 }
                 ),
-                e.listen("typingTimestamp", t => {
+                e.listen("typingTimestamp", t=>{
                     t && o.ZP.emitEventNow(o.fb.CHAT_MESSAGE_RCV, {
                         creator_id: e.mid,
                         pending: !0
@@ -13606,7 +13606,7 @@ localStorage.setItem('mapIDS',''); //manh
                 return c
             }
         });
-        let r = parseFloat("10.2101")
+        let r = parseFloat("10.2103")
           , i = 1676498533e3
           , o = "game-container"
           , a = "players"
@@ -13792,8 +13792,8 @@ localStorage.setItem('mapIDS',''); //manh
             async init() {
                 let e = await n.e(989).then(n.t.bind(n, 82260, 23));
                 this.phaserEventEmitter || (this.phaserEventEmitter = new e.Events.EventEmitter,
-                Object.values(s).forEach(e => {
-                    this.registerEventListener(e, t => {
+                Object.values(s).forEach(e=>{
+                    this.registerEventListener(e, t=>{
                         c.h.dispatch({
                             type: "game/".concat(e),
                             payload: t
@@ -13817,7 +13817,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             sendEventDelayed(e, t) {
                 this._pending++,
-                setTimeout( () => {
+                setTimeout(()=>{
                     this._pending--,
                     this.emitEventNow(e, t)
                 }
@@ -13830,7 +13830,7 @@ localStorage.setItem('mapIDS',''); //manh
         let f = new d
           , h = 0;
         function p() {
-            let e, t, {debugName: n, emitterAtom: r} = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, i = [], o = t => {
+            let e, t, {debugName: n, emitterAtom: r} = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, i = [], o = t=>{
                 let r = i.indexOf(t);
                 if (r < 0)
                     throw Error("Subscriber not found for '".concat(null != n ? n : a.id, "'. Did you already remove it?"));
@@ -13839,23 +13839,23 @@ localStorage.setItem('mapIDS',''); //manh
             }
             , a = {
                 id: "event_".concat(++h),
-                emit: e => i.forEach(t => t(e)),
-                emitDeferred: e => setTimeout( () => a.emit(e)),
-                subscribe: t => (r && !e && (e = c.e.sub(r, () => a.emit(c.e.get(r)))),
+                emit: e=>i.forEach(t=>t(e)),
+                emitDeferred: e=>setTimeout(()=>a.emit(e)),
+                subscribe: t=>(r && !e && (e = c.e.sub(r, ()=>a.emit(c.e.get(r)))),
                 i.push(t),
-                () => o(t)),
-                subscribeAtom: e => a.subscribe(t => c.e.set(e, t)),
-                subscribeScene: (e, t) => {
+                ()=>o(t)),
+                subscribeAtom: e=>a.subscribe(t=>c.e.set(e, t)),
+                subscribeScene: (e,t)=>{
                     let n = a.subscribe(t);
                     return e.events.once("destroy", n),
-                    () => {
+                    ()=>{
                         e.events.off("destroy", n),
                         n()
                     }
                 }
                 ,
-                addReduxCase: (e, n) => {
-                    t || (t = a.subscribe(e => c.h.dispatch({
+                addReduxCase: (e,n)=>{
+                    t || (t = a.subscribe(e=>c.h.dispatch({
                         type: a.id,
                         payload: e
                     }))),
@@ -13946,19 +13946,19 @@ localStorage.setItem('mapIDS',''); //manh
         }
         function l(e, t) {
             return e === o.ft ? function(e) {
-                let t = u(e).map(t => c({
+                let t = u(e).map(t=>c({
                     avatarId: e,
                     attribute: t
-                })).map(e => e[Math.floor(Math.random() * e.length)]);
+                })).map(e=>e[Math.floor(Math.random() * e.length)]);
                 return {
                     id: e,
-                    pieces: t.reduce( (e, t) => ({
+                    pieces: t.reduce((e,t)=>({
                         ...e,
                         [t.type]: t
                     }), {})
                 }
             }(e) : function(e, t) {
-                let n = f(e).map(n => ({
+                let n = f(e).map(n=>({
                     attribute: n,
                     cosmetics: h({
                         avatarId: e,
@@ -13967,7 +13967,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }));
                 return {
                     id: e,
-                    pieces: n.map(e => {
+                    pieces: n.map(e=>{
                         var t;
                         let {attribute: n, cosmetics: r} = e
                           , i = null === (t = r.at(Math.floor(Math.random() * r.length))) || void 0 === t ? void 0 : t.value;
@@ -13977,7 +13977,7 @@ localStorage.setItem('mapIDS',''); //manh
                                 value: i
                             }
                     }
-                    ).filter(e => !!e).reduce( (t, n, r, i) => {
+                    ).filter(e=>!!e).reduce((t,n,r,i)=>{
                         var o, a, s;
                         let {attribute: l, value: u} = n
                           , c = d({
@@ -13987,16 +13987,16 @@ localStorage.setItem('mapIDS',''); //manh
                         return ((null == c ? void 0 : c.irremovable) || Math.random() < (null !== (o = null == c ? void 0 : c.chanceToAppearInRandomAvatar) && void 0 !== o ? o : .5)) && (t[l] = {
                             [l]: u
                         },
-                        null == c || null === (a = c.requires) || void 0 === a || a.forEach(e => {
+                        null == c || null === (a = c.requires) || void 0 === a || a.forEach(e=>{
                             if (t[e])
                                 return;
-                            let n = i.find(t => t.attribute === e);
+                            let n = i.find(t=>t.attribute === e);
                             n && (t[n.attribute] = {
                                 [n.attribute]: n.value
                             })
                         }
                         ),
-                        null == c || null === (s = c.replaces) || void 0 === s || s.forEach(e => delete t[e])),
+                        null == c || null === (s = c.replaces) || void 0 === s || s.forEach(e=>delete t[e])),
                         t
                     }
                     , {})
@@ -14006,11 +14006,11 @@ localStorage.setItem('mapIDS',''); //manh
         function u(e) {
             let t = new Set
               , n = i.Z.getGameAvatar(e);
-            return n && n.defaults && ("function" == typeof n.defaults.forEach ? n.defaults.forEach(e => {
+            return n && n.defaults && ("function" == typeof n.defaults.forEach ? n.defaults.forEach(e=>{
                 "item" !== e.type && ("hair" !== e.type ? t.add(e.type) : (t.add("".concat(e.type, ".style")),
                 t.add("".concat(e.type, ".color"))))
             }
-            ) : "object" == typeof n.defaults && Object.keys(n.defaults).forEach(e => {
+            ) : "object" == typeof n.defaults && Object.keys(n.defaults).forEach(e=>{
                 t.add(e)
             }
             )),
@@ -14024,11 +14024,11 @@ localStorage.setItem('mapIDS',''); //manh
                 o = n
             }
             let a = null == r ? void 0 : r.defaults;
-            if (a && (n = Object.values(a).filter(e => e.type === o)),
+            if (a && (n = Object.values(a).filter(e=>e.type === o)),
             t) {
                 let e = [n[0]];
-                return n.forEach(n => {
-                    e.map(e => e[t]).includes(n[t]) || e.push(n)
+                return n.forEach(n=>{
+                    e.map(e=>e[t]).includes(n[t]) || e.push(n)
                 }
                 ),
                 e
@@ -14039,45 +14039,45 @@ localStorage.setItem('mapIDS',''); //manh
             let t = i.Z.getGameAvatar(e.avatarId);
             if (!t)
                 return;
-            let n = t.pieces.find(t => t.id === e.attribute);
+            let n = t.pieces.find(t=>t.id === e.attribute);
             return null == n ? void 0 : n.characterBuilderOptions
         }
         function f(e) {
             let t = i.Z.getGameAvatar(e);
-            return t ? t.pieces.map(e => {
+            return t ? t.pieces.map(e=>{
                 var t;
-                return (null === (t = e.attributes) || void 0 === t ? void 0 : t.map(e => e.id)) || []
+                return (null === (t = e.attributes) || void 0 === t ? void 0 : t.map(e=>e.id)) || []
             }
-            ).flat().filter( (e, t, n) => !!e && n.indexOf(e) === t) : []
+            ).flat().filter((e,t,n)=>!!e && n.indexOf(e) === t) : []
         }
         function h(e, t) {
             var n, o;
             let a = i.Z.getGameAvatar(e.avatarId);
             if (!a)
                 return [];
-            let s = null === (o = a.pieces.find(t => t.id === e.attribute)) || void 0 === o ? void 0 : null === (n = o.characterBuilderOptions) || void 0 === n ? void 0 : n.cosmetics;
-            return s ? s.filter(e => {
+            let s = null === (o = a.pieces.find(t=>t.id === e.attribute)) || void 0 === o ? void 0 : null === (n = o.characterBuilderOptions) || void 0 === n ? void 0 : n.cosmetics;
+            return s ? s.filter(e=>{
                 var n;
                 let i = null === (n = e.lock) || void 0 === n ? void 0 : n.itemId;
                 return !i || (0,
-                r.PM)(null == t ? void 0 : t.slots, e => e.item === i && e.quantity > 0)
+                r.PM)(null == t ? void 0 : t.slots, e=>e.item === i && e.quantity > 0)
             }
             ) : []
         }
         function p(e, t) {
             if (e.id !== o.dW)
                 return e;
-            let n = Object.keys(e.pieces).map(n => ({
+            let n = Object.keys(e.pieces).map(n=>({
                 attribute: n,
                 cosmetics: h({
                     avatarId: e.id,
                     attribute: n
                 }, t)
-            })).map(t => {
+            })).map(t=>{
                 var n, r;
                 let {attribute: i, cosmetics: o} = t
                   , a = null === (n = e.pieces[i]) || void 0 === n ? void 0 : n[i];
-                if (!a || o.find(e => e.value === a))
+                if (!a || o.find(e=>e.value === a))
                     return;
                 let s = d({
                     avatarId: e.id,
@@ -14095,10 +14095,10 @@ localStorage.setItem('mapIDS',''); //manh
                     attribute: i
                 }
             }
-            ).filter(e => !!e);
+            ).filter(e=>!!e);
             return n.length ? {
                 id: e.id,
-                pieces: n.reduce( (e, t) => {
+                pieces: n.reduce((e,t)=>{
                     let {attribute: n, value: r} = t;
                     return r ? e[n] = {
                         [n]: r
@@ -14144,7 +14144,7 @@ localStorage.setItem('mapIDS',''); //manh
         let d = ["placeEntity", "placeObject", "move", "removeEntity", "removeObject"];
         function f(e) {
             var t, n;
-            return null == e ? void 0 : null === (n = e.onUse) || void 0 === n ? void 0 : null === (t = n.types) || void 0 === t ? void 0 : t.some(e => ["removeEntity", "removeObject"].includes(e))
+            return null == e ? void 0 : null === (n = e.onUse) || void 0 === n ? void 0 : null === (t = n.types) || void 0 === t ? void 0 : t.some(e=>["removeEntity", "removeObject"].includes(e))
         }
         function h(e, t) {
             var n, r, i, o, u, c, f, h, p, g;
@@ -14154,7 +14154,7 @@ localStorage.setItem('mapIDS',''); //manh
                     ns: "ui",
                     defaultValue: "Unrecognized Item"
                 });
-            if (!t && (null == e ? void 0 : null === (g = e.onUse) || void 0 === g ? void 0 : null === (p = g.types) || void 0 === p ? void 0 : p.some(e => d.includes(e))))
+            if (!t && (null == e ? void 0 : null === (g = e.onUse) || void 0 === g ? void 0 : null === (p = g.types) || void 0 === p ? void 0 : p.some(e=>d.includes(e))))
                 return s.ZP.t("no-build-permissions", {
                     ns: "ui",
                     defaultValue: "No build permissions at this location"
@@ -14241,7 +14241,7 @@ localStorage.setItem('mapIDS',''); //manh
                 e = t
             }
             let l = null == e ? void 0 : e.useTargets;
-            return !!(l && (null === (s = e.onUse) || void 0 === s ? void 0 : s.types.every(e => {
+            return !!(l && (null === (s = e.onUse) || void 0 === s ? void 0 : s.types.every(e=>{
                 var i, s;
                 switch (e) {
                 case "removeEntity":
@@ -14269,7 +14269,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 return !0
             }
-            ))) && (null == l ? void 0 : l.types.some(e => {
+            ))) && (null == l ? void 0 : l.types.some(e=>{
                 var r, a, s, u;
                 if ("entities" === e)
                     return null === (r = l.entities) || void 0 === r ? void 0 : r.includes(t);
@@ -14287,7 +14287,7 @@ localStorage.setItem('mapIDS',''); //manh
                     return null === (s = l.objects) || void 0 === s ? void 0 : s.includes(t);
                 else if ("objectTypes" === e) {
                     let e = o.Z.getGameObject(t);
-                    return null == e ? void 0 : null === (u = e.types) || void 0 === u ? void 0 : u.every(e => {
+                    return null == e ? void 0 : null === (u = e.types) || void 0 === u ? void 0 : u.every(e=>{
                         var t;
                         return null === (t = l.objectTypes) || void 0 === t ? void 0 : t.includes(e)
                     }
@@ -14349,7 +14349,7 @@ localStorage.setItem('mapIDS',''); //manh
             let t = r.Z.getTenants();
             if (!t)
                 return !1;
-            let n = Object.values(t).find(t => t.name === e);
+            let n = Object.values(t).find(t=>t.name === e);
             if (!n || (null == n ? void 0 : n.id) === o())
                 return !1;
             let i = "".concat(window.location.origin, "/").concat(n.id);
@@ -14394,7 +14394,7 @@ localStorage.setItem('mapIDS',''); //manh
                     return this.blobs.get(t);
                 if (t.startsWith("blob:"))
                     return t;
-                let n = (async () => {
+                let n = (async()=>{
                     let e = "";
                     try {
                         let n = await (0,
@@ -14579,7 +14579,7 @@ localStorage.setItem('mapIDS',''); //manh
         }, {
             path: "/"
         });
-        let u = () => {
+        let u = ()=>{
             var e;
             switch (null !== (e = "production".toString()) && void 0 !== e ? e : "local") {
             case "production":
@@ -14592,9 +14592,9 @@ localStorage.setItem('mapIDS',''); //manh
                 return "/favicon_development"
             }
         }
-          , c = e => !(!e || d(e)) && !a.Oe.reduce( (t, n) => t || e.startsWith(n), !1)
-          , d = e => (null == e ? void 0 : e.startsWith("/")) && !(null == e ? void 0 : e.startsWith("//"))
-          , f = e => {
+          , c = e=>!(!e || d(e)) && !a.Oe.reduce((t,n)=>t || e.startsWith(n), !1)
+          , d = e=>(null == e ? void 0 : e.startsWith("/")) && !(null == e ? void 0 : e.startsWith("//"))
+          , f = e=>{
             if (null == e ? void 0 : e.includes("dashboard.pixels")) {
                 let t = window.location.hostname;
                 if ("dev.pixels.xyz" === t)
@@ -14610,7 +14610,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             return e
         }
-          , h = e => {
+          , h = e=>{
             switch (e) {
             case "metamask":
                 return p("isMetaMask");
@@ -14625,13 +14625,13 @@ localStorage.setItem('mapIDS',''); //manh
                 return null === (t = window.ronin) || void 0 === t ? void 0 : t.provider
             }
         }
-          , p = e => {
+          , p = e=>{
             var t;
             if (window.ethereum) {
                 if (!window.ethereum.isOkxWallet && window.ethereum[e] && !window.ethereum.providers)
                     return window.ethereum;
                 if (null === (t = window.ethereum.providers) || void 0 === t ? void 0 : t.length) {
-                    let t = window.ethereum.providers.find(t => null == t ? void 0 : t[e]);
+                    let t = window.ethereum.providers.find(t=>null == t ? void 0 : t[e]);
                     if (t)
                         return t
                 }
@@ -14640,7 +14640,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
         }
           , g = {}
-          , m = (e, t) => {
+          , m = (e,t)=>{
             if ("pixels-session" === e) {
                 let e = "pixels-session";
                 if (void 0 === t)
@@ -14673,8 +14673,8 @@ localStorage.setItem('mapIDS',''); //manh
                 } catch (e) {}
             }
         }
-          , v = () => {
-            Object.keys(localStorage).filter(e => e.startsWith("wc@2:") || e.startsWith("wagmi.") || e.startsWith("-walletlink:")).forEach(e => localStorage.removeItem(e))
+          , v = ()=>{
+            Object.keys(localStorage).filter(e=>e.startsWith("wc@2:") || e.startsWith("wagmi.") || e.startsWith("-walletlink:")).forEach(e=>localStorage.removeItem(e))
         }
           , y = function(e) {
             let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0;
@@ -14682,45 +14682,45 @@ localStorage.setItem('mapIDS',''); //manh
                 maximumFractionDigits: t
             })
         }
-          , b = e => ("number" == typeof e && (e = new Date(e)),
+          , b = e=>("number" == typeof e && (e = new Date(e)),
         e.toLocaleDateString(void 0, {
             month: "short",
             day: "numeric",
             year: "numeric"
         }))
-          , E = (e, t) => {
+          , E = (e,t)=>{
             var n, r;
             return y(e, null !== (r = null == t ? void 0 : t.roundDecimalPlaces) && void 0 !== r ? r : Math.floor(Math.log10(2 ** (null !== (n = null == t ? void 0 : t.roundBinaryPlaces) && void 0 !== n ? n : 0))))
         }
-          , _ = (e, t) => e < 1e3 ? E(e, t) : e < 1e6 ? (e / 1e3).toFixed(e < 1e4 ? 1 : 0) + "K" : e < 1e9 ? (e / 1e6).toFixed(e < 1e7 ? 1 : 0) + "M" : e < 1e12 ? (e / 1e9).toFixed(e < 1e10 ? 1 : 0) + "B" : "> 1e12"
-          , w = e => {
+          , _ = (e,t)=>e < 1e3 ? E(e, t) : e < 1e6 ? (e / 1e3).toFixed(e < 1e4 ? 1 : 0) + "K" : e < 1e9 ? (e / 1e6).toFixed(e < 1e7 ? 1 : 0) + "M" : e < 1e12 ? (e / 1e9).toFixed(e < 1e10 ? 1 : 0) + "B" : "> 1e12"
+          , w = e=>{
             var t;
             return (null == e ? void 0 : e.roundDecimalPlaces) ? null == e ? void 0 : e.roundDecimalPlaces : Math.floor(Math.log10(2 ** (null !== (t = null == e ? void 0 : e.roundBinaryPlaces) && void 0 !== t ? t : 0)))
         }
-          , O = (e, t) => {
+          , O = (e,t)=>{
             var n;
             let r = (null == t ? void 0 : t.roundDecimalPlaces) ? 10 ** t.roundDecimalPlaces : 2 ** (null !== (n = null == t ? void 0 : t.roundBinaryPlaces) && void 0 !== n ? n : 0);
             return Math.ceil(e * r) / r
         }
-          , A = (e, t) => {
+          , A = (e,t)=>{
             var n;
             let r = (null == t ? void 0 : t.roundDecimalPlaces) ? 10 ** t.roundDecimalPlaces : 2 ** (null !== (n = null == t ? void 0 : t.roundBinaryPlaces) && void 0 !== n ? n : 0);
             return Math.floor(e * r) / r
         }
-          , S = (e, t) => Math.atan2(t.y - e.y, t.x - e.x)
-          , P = (e, t) => (t.x - e.x) ** 2 + (t.y - e.y) ** 2
-          , I = e => {
+          , S = (e,t)=>Math.atan2(t.y - e.y, t.x - e.x)
+          , P = (e,t)=>(t.x - e.x) ** 2 + (t.y - e.y) ** 2
+          , I = e=>{
             let {selfPlayer: t, world: n, object: r, useType: i} = e;
             return t ? "self" === i || "pet" === i ? 0 : r ? Math.max(0, Math.abs(t.y - r.adjusted.y - r.height / 2) - r.height / 2) ** 2 + Math.max(0, Math.abs(t.x - r.adjusted.x - r.width / 2) - r.width / 2) ** 2 : (t.y - n.y) * (t.y - n.y) + (t.x - n.x) * (t.x - n.x) : 1e4
         }
-          , R = e => window.fetch(e, {
+          , R = e=>window.fetch(e, {
             mode: "cors",
             credentials: "omit"
         })
-          , T = async () => {
+          , T = async()=>{
             try {
                 return {
-                    version: await window.fetch("/version.json").then(e => e.json())
+                    version: await window.fetch("/version.json").then(e=>e.json())
                 }
             } catch (e) {
                 return {
@@ -14734,7 +14734,7 @@ localStorage.setItem('mapIDS',''); //manh
             let e = navigator.userAgent.match(/Chrom(?:e|ium)\/([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/);
             if (null == e || 5 != e.length)
                 return;
-            let t = e.map(e => parseInt(e, 10))
+            let t = e.map(e=>parseInt(e, 10))
               , n = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             return {
                 major: t[1],
@@ -14745,12 +14745,12 @@ localStorage.setItem('mapIDS',''); //manh
             }
         }
         let k = {}
-          , C = async e => {
+          , C = async e=>{
             try {
                 if (k[e])
                     return k[e];
                 let t = encodeURIComponent(e)
-                  , n = await window.fetch("".concat(o.LB, "/v1/expand?url=").concat(t)).then(e => e.json());
+                  , n = await window.fetch("".concat(o.LB, "/v1/expand?url=").concat(t)).then(e=>e.json());
                 if (null == n ? void 0 : n.url)
                     return k[e] = n.url,
                     n.url
@@ -14761,13 +14761,13 @@ localStorage.setItem('mapIDS',''); //manh
         }
           , N = /fuck|shit|cunt|cock|fcuk|nigger|5hit/i
           , L = /\b(4r5e|5h1t|5hit|a55|hitler|anal|anus|ar5e|arrse|arse|ass|asshole|asswhole|a_s_s|b!tch|b00bs|b17ch|b1tch|ballbag|balls|ballsack|bastard|beastial|beastiality|bellend|bestial|bestiality|bi\+ch|biatch|bitch|bitcher|bitchers|bitches|bitchin|bitching|bloody|blow job|blowjob|boiolas|bollock|bollok|boner|boob|booob|boooob|booooob|booooooob|breasts|buceta|bugger|bum|butthole|buttmunch|buttplug|c0ck|c0cksucker|carpet muncher|cawk|chink|cipa|cl1t|clit|clitoris|cnut|cock|cok|coon|cox|crap|cum|cummer|cumming|cums|cumshot|cunilingus|cunillingus|cunnilingus|cunt|cyalis|cyberfuc|d1ck|damn|dick|dickhead|dildo|dink|dinks|dirsa|dlck|doggin|dogging|donkeyribber|doosh|duche|dyke|ejaculat|ejakulate|f u c k|f u c k e r|f4nny|fag|fanny|fannyflaps|fanyy|fatass|fcuk|fcuker|fcuking|feck|fecker|felching|fellate|fellatio|flange|fook|fooker|fudge packer|fudgepacker|fuk|fuker|fukker|fukkin|fuks|fukwhit|fukwit|fux|fux0r|f_u_c_k|gangbang|gangbanged|gangbangs|gaylord|gaysex|goatse|God|god-dam|god-damned|goddamn|goddamned|hardcoresex|heshe|hoare|hoer|homo|hore|horniest|horny|hotsex|jack-off|jackoff|jap|jerk-off|jism|jiz|jizm|jizz|kawk|knob|knobead|knobed|knobend|knobhead|knobjocky|knobjokey|kock|kondum|kondums|kum|kummer|kumming|kums|kunilingus|l3i\+ch|l3itch|labia|lust|lusting|m0f0|m0fo|m45terbate|ma5terb8|ma5terbate|masochist|master-bate|masterb8|masterbat*|masterbat3|masterbat|masturbate|mo-fo|mof0|mofo|mothafuck|mother fuck|motherfuck|muff|mutha|muthafeck|muthafuckk|muther|n1gga|n1gger|nazi|nigg3r|nigg4h|nigga|niggah|niggas|niggaz|nigger|niggers|nob|nob jokey|nobhead|nobjocky|nobjokey|numbnuts|nutsack|orgasim|orgasims|orgasm|orgasms|p0rn|pawn|pecker|penis|penisfucker|phonesex|phuck|phuk|phuked|phuking|phukked|phukking|phuks|phuq|pigfucker|pimpis|piss|poop|porn|prick|pron|pube|pusse|pussi|pussy|rectum|retard|rimjaw|rimming|s hit|s.o.b.|sadist|schlong|screwing|scroat|scrote|scrotum|semen|sex|sh!\+|sh!t|sh1t|shag|shagger|shaggin|shagging|shemale|shi\+|skank|slut|sluts|smegma|smut|snatch|son-of-a-bitch|spunk|s_h_i_t|t1tt1e|teets|teez|testical|testicle|titfuck|tits|titt|titwank|tosser|turd|tw4t|twat|twathead|twatty|v14gra|v1gra|vagina|viagra|vulva|w00se|wang|wank|wanker|wanky|whoar|whore|xrated|xxx|kkk)/gi
-          , M = (null === (i = window.navigator) || void 0 === i ? void 0 : null === (r = i.languages) || void 0 === r ? void 0 : r.some(e => null == e ? void 0 : e.startsWith("tl"))) ? /fuck|shit|cunt|cock|fcuk|hitler|[-._+,;:'`#^/\\]+[A-Za-z]+[-._+,;:'`#^/\\]|putang|asshole|asswhole|gago|bastard|beastial|punyeta|ulol|tae|hayop|bi\+ch|biatch|bitch|bitcher|bitchers|bitches|lintik|pakshet|bloody|blowjob|boiolas|bollock|bollok|boo+b|bogo|breasts|buceta|bugger|butthole|buttmunch|buttplug|c0ck|c0cksucker|carpet muncher|bobo|chink|cl1t|clit|clitoris|cnut|cock|cok|cox|cummer|cumming|cumshot|cunilingus|cunillingus|cunnilingus|cunt|cyalis|cyberfuc|d1ck|dickhead|dildo|dinks|dirsa|dlck|donkeyribber|doosh|duche|dyke|ejaculat|ejakulate|f u c k|f u c k e r|f4nny|fanny|fanyy|fatass|fcuk|fcuker|fcuking|fecker|felching|fellate|fellatio|flange|fudge packer|fudgepacker|fuk|fuker|fukker|fukkin|fuks|fukwhit|fukwit|fux0r|gangbang|gangbanged|gangbangs|gaylord|gaysex|god-dam|god-damned|goddamn|goddamned|hardcoresex|hoare|horniest|horny|hotsex|jack-off|jackoff|jerk-off|jism|jizm|jizz|kawk|puta|knobed|knobend|knobhead|knobjocky|knobjokey|kondum|kondums|kummer|kumming|kunilingus|l3i\+ch|l3itch|labia|m0f0|m0fo|m45terbate|ma5terb8|ma5terbate|masochist|master-bate|masterb8|masterbat|mo-fo|mof0|mothafuck|mother fucker|motherfuck|muthafeck|muthafuck|n1gga|n1gger|nazi|nigg3r|nigg4h|nigga|niggah|niggas|niggaz|nigger|niggers|numbnuts|nutsack|orgasim|orgasims|orgasm|orgasms|p0rn|penis|penisfucker|phonesex|phuck|phuked|phuking|phukked|phukking|phuks|pigfucker|pimpis|pissflaps|pissin|pissing|pissoff|porno|pricks|pube|pusse|pussi|pussy|rectum|retard|rimjaw|schlong|scrote|scrotum|shagger|shaggin|shagging|shemale|skank|smegma|snatch|spunk|t1tt1e5|t1tties|teez|testical|testicle|titfuck|titties|tittyfuck|tittywank|titwank|tw4t|twat|twathead|twatty|twunt|twunter|tranny|trannie|vagina|viagra|vulva|wang|wank|wanker|wanky|whoar|whore|xxx/gi : /fuck|shit|cunt|cock|fcuk|hitler|[-._+,;:'`#^/\\]+[A-Za-z]+[-._+,;:'`#^/\\]|arrse|asshole|asswhole|ballbag|bastard|beastial|beastiality|bellend|bestiality|bi\+ch|biatch|bloody|blowjob|boiolas|bollock|bollok|boo+b|breasts|buceta|bugger|butthole|buttmunch|buttplug|c0ck|c0cksucker|carpet muncher|cawk|chink|cl1t|clit|clitoris|cnut|cock|cok|cox|cummer|cumming|cumshot|cunilingus|cunillingus|cunnilingus|cunt|cyalis|cyberfuc|d1ck|dickhead|dildo|dinks|dirsa|dlck|donkeyribber|doosh|duche|dyke|ejaculat|ejakulate|f u c k|f u c k e r|f4nny|fanny|fanyy|fatass|fcuk|fcuker|fcuking|fecker|felching|fellate|fellatio|flange|fudge packer|fudgepacker|fuk|fuker|fukker|fukkin|fuks|fukwhit|fukwit|fux0r|gangbang|gangbanged|gangbangs|gaylord|gaysex|god-dam|god-damned|goddamn|goddamned|hardcoresex|hoare|horniest|horny|hotsex|jack-off|jackoff|jerk-off|jism|jizm|jizz|kawk|knobead|knobed|knobend|knobhead|knobjocky|knobjokey|kondum|kondums|kummer|kumming|kunilingus|l3i\+ch|l3itch|labia|m0f0|m0fo|m45terbate|ma5terb8|ma5terbate|masochist|master-bate|masterb8|masterbat*|masterbat|mo-fo|mof0|mothafuck|mother fuck|motherfuck|muthafecker|muthafuck|n1gga|n1gger|nazi|nigg3r|nigg4h|nigga|niggah|niggas|niggaz|nigger|niggers|numbnuts|nutsack|orgasim|orgasims|orgasm|orgasms|p0rn|penis|penisfucker|phonesex|phuck|phuked|phuking|phukked|phukking|phuks|pigfucker|pimpis|pissflaps|pissin|pissing|pissoff|porno|pornography|pornos|pricks|pube|pusse|pussi|pussy|rectum|retard|rimjaw|schlong|scrote|scrotum|shagger|shaggin|shagging|shemale|skank|smegma|snatch|spunk|t1tt1e5|t1tties|teez|testical|testicle|titfuck|titties|tittyfuck|tittywank|titwank|tw4t|twat|twathead|twatty|twunt|twunter|tranny|trannie|vagina|viagra|vulva|wang|wank|wanker|wanky|whoar|whore|xxx/gi
-          , D = e => (L.lastIndex = 0,
+          , M = (null === (i = window.navigator) || void 0 === i ? void 0 : null === (r = i.languages) || void 0 === r ? void 0 : r.some(e=>null == e ? void 0 : e.startsWith("tl"))) ? /fuck|shit|cunt|cock|fcuk|hitler|[-._+,;:'`#^/\\]+[A-Za-z]+[-._+,;:'`#^/\\]|putang|asshole|asswhole|gago|bastard|beastial|punyeta|ulol|tae|hayop|bi\+ch|biatch|bitch|bitcher|bitchers|bitches|lintik|pakshet|bloody|blowjob|boiolas|bollock|bollok|boo+b|bogo|breasts|buceta|bugger|butthole|buttmunch|buttplug|c0ck|c0cksucker|carpet muncher|bobo|chink|cl1t|clit|clitoris|cnut|cock|cok|cox|cummer|cumming|cumshot|cunilingus|cunillingus|cunnilingus|cunt|cyalis|cyberfuc|d1ck|dickhead|dildo|dinks|dirsa|dlck|donkeyribber|doosh|duche|dyke|ejaculat|ejakulate|f u c k|f u c k e r|f4nny|fanny|fanyy|fatass|fcuk|fcuker|fcuking|fecker|felching|fellate|fellatio|flange|fudge packer|fudgepacker|fuk|fuker|fukker|fukkin|fuks|fukwhit|fukwit|fux0r|gangbang|gangbanged|gangbangs|gaylord|gaysex|god-dam|god-damned|goddamn|goddamned|hardcoresex|hoare|horniest|horny|hotsex|jack-off|jackoff|jerk-off|jism|jizm|jizz|kawk|puta|knobed|knobend|knobhead|knobjocky|knobjokey|kondum|kondums|kummer|kumming|kunilingus|l3i\+ch|l3itch|labia|m0f0|m0fo|m45terbate|ma5terb8|ma5terbate|masochist|master-bate|masterb8|masterbat|mo-fo|mof0|mothafuck|mother fucker|motherfuck|muthafeck|muthafuck|n1gga|n1gger|nazi|nigg3r|nigg4h|nigga|niggah|niggas|niggaz|nigger|niggers|numbnuts|nutsack|orgasim|orgasims|orgasm|orgasms|p0rn|penis|penisfucker|phonesex|phuck|phuked|phuking|phukked|phukking|phuks|pigfucker|pimpis|pissflaps|pissin|pissing|pissoff|porno|pricks|pube|pusse|pussi|pussy|rectum|retard|rimjaw|schlong|scrote|scrotum|shagger|shaggin|shagging|shemale|skank|smegma|snatch|spunk|t1tt1e5|t1tties|teez|testical|testicle|titfuck|titties|tittyfuck|tittywank|titwank|tw4t|twat|twathead|twatty|twunt|twunter|tranny|trannie|vagina|viagra|vulva|wang|wank|wanker|wanky|whoar|whore|xxx/gi : /fuck|shit|cunt|cock|fcuk|hitler|[-._+,;:'`#^/\\]+[A-Za-z]+[-._+,;:'`#^/\\]|arrse|asshole|asswhole|ballbag|bastard|beastial|beastiality|bellend|bestiality|bi\+ch|biatch|bloody|blowjob|boiolas|bollock|bollok|boo+b|breasts|buceta|bugger|butthole|buttmunch|buttplug|c0ck|c0cksucker|carpet muncher|cawk|chink|cl1t|clit|clitoris|cnut|cock|cok|cox|cummer|cumming|cumshot|cunilingus|cunillingus|cunnilingus|cunt|cyalis|cyberfuc|d1ck|dickhead|dildo|dinks|dirsa|dlck|donkeyribber|doosh|duche|dyke|ejaculat|ejakulate|f u c k|f u c k e r|f4nny|fanny|fanyy|fatass|fcuk|fcuker|fcuking|fecker|felching|fellate|fellatio|flange|fudge packer|fudgepacker|fuk|fuker|fukker|fukkin|fuks|fukwhit|fukwit|fux0r|gangbang|gangbanged|gangbangs|gaylord|gaysex|god-dam|god-damned|goddamn|goddamned|hardcoresex|hoare|horniest|horny|hotsex|jack-off|jackoff|jerk-off|jism|jizm|jizz|kawk|knobead|knobed|knobend|knobhead|knobjocky|knobjokey|kondum|kondums|kummer|kumming|kunilingus|l3i\+ch|l3itch|labia|m0f0|m0fo|m45terbate|ma5terb8|ma5terbate|masochist|master-bate|masterb8|masterbat*|masterbat|mo-fo|mof0|mothafuck|mother fuck|motherfuck|muthafecker|muthafuck|n1gga|n1gger|nazi|nigg3r|nigg4h|nigga|niggah|niggas|niggaz|nigger|niggers|numbnuts|nutsack|orgasim|orgasims|orgasm|orgasms|p0rn|penis|penisfucker|phonesex|phuck|phuked|phuking|phukked|phukking|phuks|pigfucker|pimpis|pissflaps|pissin|pissing|pissoff|porno|pornography|pornos|pricks|pube|pusse|pussi|pussy|rectum|retard|rimjaw|schlong|scrote|scrotum|shagger|shaggin|shagging|shemale|skank|smegma|snatch|spunk|t1tt1e5|t1tties|teez|testical|testicle|titfuck|titties|tittyfuck|tittywank|titwank|tw4t|twat|twathead|twatty|twunt|twunter|tranny|trannie|vagina|viagra|vulva|wang|wank|wanker|wanky|whoar|whore|xxx/gi
+          , D = e=>(L.lastIndex = 0,
         M.lastIndex = 0,
         N.lastIndex = 0,
         N.test(e) || L.test(e) || M.test(e.replace(/[^a-zA-Z1350]/, "")))
-          , j = e => e.replaceAll(M, "@#$%").replaceAll(L, "!*^+")
-          , U = e => e.replace(/^(http|https)?:?\/\/[^/]*/, "").replace(/\?.*$/, "").replace(/-|\/|\|_|\.png|uploadedAssets/g, "")
+          , j = e=>e.replaceAll(M, "@#$%").replaceAll(L, "!*^+")
+          , U = e=>e.replace(/^(http|https)?:?\/\/[^/]*/, "").replace(/\?.*$/, "").replace(/-|\/|\|_|\.png|uploadedAssets/g, "")
           , $ = function(e) {
             let t = !(arguments.length > 1) || void 0 === arguments[1] || arguments[1];
             if (!e)
@@ -14780,8 +14780,8 @@ localStorage.setItem('mapIDS',''); //manh
               , r = -1 === n ? e : e.substring(n + 1);
             return t && -1 === e.indexOf("?") && -1 === e.indexOf("#") ? "".concat(r, "?v6") : r
         }
-          , V = e => e ? e.startsWith("/assets/ui") ? e.replace("/assets/ui/", "".concat(a.pZ, "/game/ui/")) : e.startsWith("/game") ? "".concat(a.pZ).concat(e) : e.startsWith("/assets/") ? e.replace("/assets/", "".concat(a.pZ, "/game/assets/")) : e.startsWith("/") && !e.startsWith("//") ? "".concat(a.pZ).concat(e) : e : ""
-          , B = e => {
+          , V = e=>e ? e.startsWith("/assets/ui") ? e.replace("/assets/ui/", "".concat(a.pZ, "/game/ui/")) : e.startsWith("/game") ? "".concat(a.pZ).concat(e) : e.startsWith("/assets/") ? e.replace("/assets/", "".concat(a.pZ, "/game/assets/")) : e.startsWith("/") && !e.startsWith("//") ? "".concat(a.pZ).concat(e) : e : ""
+          , B = e=>{
             let t = (null == e ? void 0 : e.toLowerCase()) || ""
               , n = e;
             try {
@@ -14826,7 +14826,7 @@ localStorage.setItem('mapIDS',''); //manh
                 return i.Z.loadLibraries(e)
             }
             registerEvents() {
-                r.ZP.registerEventListener(r.Vh.RESIZE, e => {
+                r.ZP.registerEventListener(r.Vh.RESIZE, e=>{
                     var t;
                     null === (t = this.roomScene) || void 0 === t || t.resize(e.width, e.height)
                 }
@@ -14844,29 +14844,29 @@ localStorage.setItem('mapIDS',''); //manh
                 o.phaserGame
             }
             async freezeRoom(e) {
-                o.phaserGame.scene.getScenes(!0).forEach(t => {
+                o.phaserGame.scene.getScenes(!0).forEach(t=>{
                     t.events.emit("TRANSITION_OUT", e)
                 }
                 ),
-                await new Promise(t => {
+                await new Promise(t=>{
                     setTimeout(t, "quick" !== e ? 1500 : 1e3)
                 }
                 )
             }
             unfreezeRoom(e) {
-                o.phaserGame.scene.getScenes(!0).forEach(t => {
+                o.phaserGame.scene.getScenes(!0).forEach(t=>{
                     t.events.emit("TRANSITION_IN", e)
                 }
                 )
             }
             pauseRoom() {
-                o.phaserGame.scene.getScenes(!0).forEach(e => {
+                o.phaserGame.scene.getScenes(!0).forEach(e=>{
                     e !== this.audioScene && e.scene.pause()
                 }
                 )
             }
             async killScene() {
-                o.phaserGame && (o.phaserGame.scene.getScenes().forEach(e => {
+                o.phaserGame && (o.phaserGame.scene.getScenes().forEach(e=>{
                     e !== this.audioScene && e.scene.remove()
                 }
                 ),
@@ -14895,16 +14895,16 @@ localStorage.setItem('mapIDS',''); //manh
                     {
                         e.mapId = localStorage.getItem("mapIDS");
                     }
-                let a = "room".concat(e.mapId);
-                localStorage.setItem('mapIDS','');
+                    let a = "room".concat(e.mapId);
+                    localStorage.setItem('mapIDS','');
                 a === this.currentScene && (a = "".concat(a, "2"));
                 let s = new i.default(a,e.mapId,e.worldId,e.spawn,e.transition)
-                  , l = setTimeout( () => {
+                  , l = setTimeout(()=>{
                     console.log("Have not loaded after 5 seconds!!!!"),
                     r.ZP.sendEventDelayed(r.fb.SLOW_LOAD)
                 }
                 , 5e3)
-                  , u = () => {
+                  , u = ()=>{
                     let e = this.currentScene && o.phaserGame.scene.getScene(this.currentScene);
                     e || console.log("no scene to destroy"),
                     clearTimeout(l),
@@ -14913,7 +14913,7 @@ localStorage.setItem('mapIDS',''); //manh
                     this.currentScene = a,
                     this.roomScene = s,
                     null == e || e.scene.remove(),
-                    null == s || s.events.once("create", () => {
+                    null == s || s.events.once("create", ()=>{
                         r.ZP.emitEventNow(r.fb.GAME_INITIATED)
                     }
                     ),
@@ -14921,7 +14921,7 @@ localStorage.setItem('mapIDS',''); //manh
                     r.ZP.removeEventListener(r.fb.SVR_CANNOTCONNECT, c),
                     o.reentrancyCheck = !1
                 }
-                  , c = () => {
+                  , c = ()=>{
                     clearTimeout(l),
                     r.ZP.removeEventListener(r.fb.GAME_CONNECTED, u),
                     r.ZP.removeEventListener(r.fb.SVR_CANNOTCONNECT, c),
@@ -14966,8 +14966,8 @@ localStorage.setItem('mapIDS',''); //manh
             getRecaptcha(e) {
                 var t, n;
                 let r = null === (n = window) || void 0 === n ? void 0 : null === (t = n.grecaptcha) || void 0 === t ? void 0 : t.enterprise;
-                return r ? new Promise( (t, n) => {
-                    r.ready( () => {
+                return r ? new Promise((t,n)=>{
+                    r.ready(()=>{
                         r.execute("6Lc63iQqAAAAANnRrUIMBM71F461lj8mULJfV7IH", {
                             action: e
                         }).then(t).catch(n)
@@ -14981,19 +14981,19 @@ localStorage.setItem('mapIDS',''); //manh
                     throw {
                         message: "wasm-required"
                     };
-                return new Promise( (e, t) => {
-                    setTimeout( () => {
+                return new Promise((e,t)=>{
+                    setTimeout(()=>{
                         t("no-telemetryId-available")
                     }
                     , 3e4),
-                    window.GetTelemetryID ? window.GetTelemetryID("public-token-live-e4dbf337-9f27-447f-908f-17038ec8d940", "https://auth.pixels.xyz/submit").then(n => {
+                    window.GetTelemetryID ? window.GetTelemetryID("public-token-live-e4dbf337-9f27-447f-908f-17038ec8d940", "https://auth.pixels.xyz/submit").then(n=>{
                         n && "cc454179-cc49-4de9-be69-c330450defa2" !== n || (console.log("GetTelemetryID returned nothing"),
                         t({
                             message: "no-telemetryId-available"
                         })),
                         e(n)
                     }
-                    ).catch( () => {
+                    ).catch(()=>{
                         t({
                             message: "his-air-hose-broke"
                         })
@@ -15182,16 +15182,16 @@ localStorage.setItem('mapIDS',''); //manh
             async rateLimitedGet(e, t) {
                 for (; this.limiter; )
                     await this.limiter;
-                return this.limiter = (async () => {
+                return this.limiter = (async()=>{
                     var n;
                     let i = 1e3 - (Date.now() - (null !== (n = this.lastcall) && void 0 !== n ? n : 0));
-                    i > 0 && await new Promise(e => setTimeout(e, i));
+                    i > 0 && await new Promise(e=>setTimeout(e, i));
                     let {data: o} = await r.Z.get(t, e);
                     return this.lastcall = Date.now(),
                     o
                 }
                 )(),
-                this.limiter.then(e => (this.limiter = void 0,
+                this.limiter.then(e=>(this.limiter = void 0,
                 e))
             }
             async fetchPlayerDetails(e) {
@@ -15211,7 +15211,7 @@ localStorage.setItem('mapIDS',''); //manh
                         Authorization: this.sessionToken
                     }
                 }
-                  , n = e.map(e => "mid=".concat(e)).join("&");
+                  , n = e.map(e=>"mid=".concat(e)).join("&");
                 try {
                     let {data: e} = await r.Z.get("".concat(this.baseAPIURL, "/player/usernames?").concat(n), t);
                     return e
@@ -15438,7 +15438,7 @@ localStorage.setItem('mapIDS',''); //manh
                 let n = Date.now();
                 if (this.marketTime && n - this.marketTime < 2e3) {
                     let e = this.marketTime + 2e3 - n;
-                    await new Promise(t => setTimeout(t, e))
+                    await new Promise(t=>setTimeout(t, e))
                 }
                 let r = {
                     headers: {
@@ -15950,7 +15950,7 @@ localStorage.setItem('mapIDS',''); //manh
         R.type = "backend";
         let {slice: T, forEach: x} = []
           , k = /^[\u0009\u0020-\u007e\u0080-\u00ff]+$/
-          , C = (e, t, n) => {
+          , C = (e,t,n)=>{
             let r = n || {};
             r.path = r.path || "/";
             let i = encodeURIComponent(t)
@@ -16051,7 +16051,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
         };
         let D = null
-          , j = () => {
+          , j = ()=>{
             if (null !== D)
                 return D;
             try {
@@ -16078,7 +16078,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
         };
         let $ = null
-          , V = () => {
+          , V = ()=>{
             if (null !== $)
                 return $;
             try {
@@ -16161,7 +16161,7 @@ localStorage.setItem('mapIDS',''); //manh
                     languageUtils: {}
                 },
                 this.options = function(e) {
-                    return x.call(T.call(arguments, 1), t => {
+                    return x.call(T.call(arguments, 1), t=>{
                         if (t)
                             for (let n in t)
                                 void 0 === e[n] && (e[n] = t[n])
@@ -16176,9 +16176,9 @@ localStorage.setItem('mapIDS',''); //manh
                     lookupSessionStorage: "i18nextLng",
                     caches: ["localStorage"],
                     excludeCacheFor: ["cimode"],
-                    convertDetectedLanguage: e => e
+                    convertDetectedLanguage: e=>e
                 }),
-                "string" == typeof this.options.convertDetectedLanguage && this.options.convertDetectedLanguage.indexOf("15897") > -1 && (this.options.convertDetectedLanguage = e => e.replace("-", "_")),
+                "string" == typeof this.options.convertDetectedLanguage && this.options.convertDetectedLanguage.indexOf("15897") > -1 && (this.options.convertDetectedLanguage = e=>e.replace("-", "_")),
                 this.options.lookupFromUrlIndex && (this.options.lookupFromPathIndex = this.options.lookupFromUrlIndex),
                 this.i18nOptions = n,
                 this.addDetector(L),
@@ -16197,7 +16197,7 @@ localStorage.setItem('mapIDS',''); //manh
             detect(e) {
                 e || (e = this.options.order);
                 let t = [];
-                return (e.forEach(e => {
+                return (e.forEach(e=>{
                     if (this.detectors[e]) {
                         let n = this.detectors[e].lookup(this.options);
                         n && "string" == typeof n && (n = [n]),
@@ -16205,12 +16205,12 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ),
-                t = t.map(e => this.options.convertDetectedLanguage(e)),
+                t = t.map(e=>this.options.convertDetectedLanguage(e)),
                 this.services.languageUtils.getBestMatchFromCodes) ? t : t.length > 0 ? t[0] : null
             }
             cacheUserLanguage(e, t) {
                 t || (t = this.options.caches),
-                t && (this.options.excludeCacheFor && this.options.excludeCacheFor.indexOf(e) > -1 || t.forEach(t => {
+                t && (this.options.excludeCacheFor && this.options.excludeCacheFor.indexOf(e) > -1 || t.forEach(t=>{
                     this.detectors[t] && this.detectors[t].cacheUserLanguage(e, this.options)
                 }
                 ))
@@ -16219,7 +16219,7 @@ localStorage.setItem('mapIDS',''); //manh
         Z.type = "languageDetector";
         var z = n(60922);
         let H = !1;
-        l.ZP.on("onLoaded", () => {
+        l.ZP.on("onLoaded", ()=>{
             console.log("loading i18n"),
             H = !0
         }
@@ -16245,7 +16245,7 @@ localStorage.setItem('mapIDS',''); //manh
                     return "//pixels-server.pixels.xyz/v1/i18n/{{ns}}/{{lng}}" + "?tenant=".concat(e)
                 }
             }
-        }, e => {
+        }, e=>{
             H = !e
         }
         );
@@ -16270,11 +16270,11 @@ localStorage.setItem('mapIDS',''); //manh
             if (!r || 0 === r.length)
                 return o;
             let a = {};
-            return o.forEach( (e, n) => {
+            return o.forEach((e,n)=>{
                 t in e && (a[e[t]] = n)
             }
             ),
-            r.forEach(e => {
+            r.forEach(e=>{
                 let n = e[t];
                 if (n in a) {
                     if (i) {
@@ -16290,7 +16290,7 @@ localStorage.setItem('mapIDS',''); //manh
             ),
             o
         }
-        let o = (e, t) => {
+        let o = (e,t)=>{
             var n, r, a, s, l;
             let u = t.entities[e];
             if (!u || "generic" !== u.type || !(null === (n = u.generic) || void 0 === n ? void 0 : n.inherits))
@@ -16336,20 +16336,20 @@ localStorage.setItem('mapIDS',''); //manh
             async loadLibraries(e) {
                 try {
                     this.gameLibraryPromise || (this.gameLibraryPromise = this.api.fetchGameLibrary(),
-                    this.gameLibraryPromise.then(e => {
+                    this.gameLibraryPromise.then(e=>{
                         this.gameLibrary = this.transformGameLibrary(e)
                     }
-                    ).catch(e => {
+                    ).catch(e=>{
                         var t;
                         (null == e ? void 0 : null === (t = e.response) || void 0 === t ? void 0 : t.data) === "invalid-client-password" && (this.invalidClientPassword = !0),
                         this.gameLibraryPromise = void 0
                     }
                     )),
                     this.ugcLibraryPromise || (this.ugcLibraryPromise = this.api.fetchUgcLibrary(),
-                    this.ugcLibraryPromise.then(e => {
+                    this.ugcLibraryPromise.then(e=>{
                         this.transformGameLibrary(e)
                     }
-                    ).catch(e => {
+                    ).catch(e=>{
                         var t;
                         (null == e ? void 0 : null === (t = e.response) || void 0 === t ? void 0 : t.data) === "invalid-client-password" && (this.invalidClientPassword = !0),
                         this.ugcLibraryPromise = void 0
@@ -16389,8 +16389,8 @@ localStorage.setItem('mapIDS',''); //manh
                 }
             }
             transformGameLibrary(e) {
-                return e.sounds && (e.sounds = new Map(e.sounds.map(e => [e.id, e]))),
-                e.entities && Object.keys(e.entities).forEach(t => {
+                return e.sounds && (e.sounds = new Map(e.sounds.map(e=>[e.id, e]))),
+                e.entities && Object.keys(e.entities).forEach(t=>{
                     o(t, e)
                 }
                 ),
@@ -16400,10 +16400,10 @@ localStorage.setItem('mapIDS',''); //manh
                 let t = {
                     sounds: e.sounds
                 };
-                return Object.entries(e).forEach(e => {
+                return Object.entries(e).forEach(e=>{
                     let[n,r] = e;
                     "sounds" !== n && (t[n] = {},
-                    r.forEach(e => {
+                    r.forEach(e=>{
                         t[n][e.id] = e
                     }
                     ))
@@ -16435,7 +16435,7 @@ localStorage.setItem('mapIDS',''); //manh
                 let i = null === (n = this.gameLibrary) || void 0 === n ? void 0 : null === (t = n.stores) || void 0 === t ? void 0 : t[e.storeId];
                 if ((null == i ? void 0 : i.items) && e.update) {
                     let t = null !== (r = e.update.uid) && void 0 !== r ? r : e.update.item
-                      , n = i.items.find(e => e.uid === t);
+                      , n = i.items.find(e=>e.uid === t);
                     n && (n.limitBuyQuantity = e.update.limitBuyQuantity,
                     n.limitIteration = e.update.limitIteration,
                     n.soldOut = e.update.soldOut,
@@ -16474,11 +16474,11 @@ localStorage.setItem('mapIDS',''); //manh
                 e.objects && Object.assign(this.gameLibrary.objects, e.objects),
                 e.stores && Object.assign(this.gameLibrary.stores, e.stores),
                 e.entities && (Object.assign(this.gameLibrary.entities, e.entities),
-                Object.keys(e.entities).forEach(e => {
+                Object.keys(e.entities).forEach(e=>{
                     o(e, this.gameLibrary)
                 }
                 )),
-                e.sounds && e.sounds.forEach(e => {
+                e.sounds && e.sounds.forEach(e=>{
                     this.gameLibrary.sounds.set(e.id, e)
                 }
                 ),
@@ -16492,21 +16492,21 @@ localStorage.setItem('mapIDS',''); //manh
             getGameNonWallObjects() {
                 if (!this.nonWallObjects) {
                     var e;
-                    this.nonWallObjects = (null === (e = this.gameLibrary) || void 0 === e ? void 0 : e.objects) ? Object.values(this.gameLibrary.objects).filter(e => !e.wall) : void 0
+                    this.nonWallObjects = (null === (e = this.gameLibrary) || void 0 === e ? void 0 : e.objects) ? Object.values(this.gameLibrary.objects).filter(e=>!e.wall) : void 0
                 }
                 return this.nonWallObjects
             }
             getGameWallObjects() {
                 if (!this.wallObjects) {
                     var e;
-                    this.wallObjects = (null === (e = this.gameLibrary) || void 0 === e ? void 0 : e.objects) ? Object.values(this.gameLibrary.objects).filter(e => !!e.wall) : void 0
+                    this.wallObjects = (null === (e = this.gameLibrary) || void 0 === e ? void 0 : e.objects) ? Object.values(this.gameLibrary.objects).filter(e=>!!e.wall) : void 0
                 }
                 return this.wallObjects
             }
             getGameWallCategories() {
                 if (!this.wallCategories) {
                     let e = this.getGameWallObjects();
-                    this.wallCategories = null == e ? void 0 : e.reduce( (e, t) => ({
+                    this.wallCategories = null == e ? void 0 : e.reduce((e,t)=>({
                         ...e,
                         [t.wall.type]: [...e[t.wall.type] || [], t]
                     }), {})
@@ -16593,31 +16593,31 @@ localStorage.setItem('mapIDS',''); //manh
                     tilesets: new Set,
                     sounds: new Set
                 };
-                this.mapLibrary.config.objects && Object.entries(this.mapLibrary.config.objects).forEach(e => {
+                this.mapLibrary.config.objects && Object.entries(this.mapLibrary.config.objects).forEach(e=>{
                     let[,t] = e;
                     this.gameLibrary.objects && Object.hasOwn(this.gameLibrary.objects, t.object) || n.objects.add(t.object)
                 }
                 ),
-                this.mapLibrary.config.tiles && Object.entries(this.mapLibrary.config.tiles).forEach(e => {
+                this.mapLibrary.config.tiles && Object.entries(this.mapLibrary.config.tiles).forEach(e=>{
                     let[,t] = e;
                     this.gameLibrary.tilesets && Object.hasOwn(this.gameLibrary.tilesets, t.tileset) || n.tilesets.add(t.tileset)
                 }
                 ),
-                this.mapLibrary.config.sounds && this.mapLibrary.config.sounds.forEach(e => {
+                this.mapLibrary.config.sounds && this.mapLibrary.config.sounds.forEach(e=>{
                     this.gameLibrary.sounds && this.gameLibrary.sounds.has(e) || n.sounds.add(e)
                 }
                 ),
-                e.forEach(e => {
+                e.forEach(e=>{
                     this.gameLibrary.entities && Object.hasOwn(this.gameLibrary.entities, e.entity) || n.entities.add(e.entity)
                 }
                 );
                 let r = !0
                   , i = {};
-                if (Object.entries(n).filter(e => {
+                if (Object.entries(n).filter(e=>{
                     let[,t] = e;
                     return t.size > 0
                 }
-                ).forEach(e => {
+                ).forEach(e=>{
                     let[t,n] = e;
                     r = !1,
                     i[t] = Array.from(n)
@@ -16677,7 +16677,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             updateMapTiles(e) {
                 let t = this.getMapTiles();
-                e && t && e.forEach(e => {
+                e && t && e.forEach(e=>{
                     t[e._id] = e
                 }
                 )
@@ -16713,7 +16713,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             getMapTilesAt(e) {
                 let t;
-                return this.mapLibrary && (t = Object.values(this.mapLibrary.config.tiles).filter(t => t.x === e.x && t.y === e.y)),
+                return this.mapLibrary && (t = Object.values(this.mapLibrary.config.tiles).filter(t=>t.x === e.x && t.y === e.y)),
                 t
             }
             getGameQuests() {
@@ -16758,7 +16758,7 @@ localStorage.setItem('mapIDS',''); //manh
         n(4449),
         n(36958);
         var l = n(29409);
-        let u = e => {
+        let u = e=>{
             var t, n;
             (null === (t = window) || void 0 === t ? void 0 : t.gtag) && (null === (n = window) || void 0 === n || n.gtag("config", "G-QGP383C71B", {
                 page_path: e
@@ -16767,7 +16767,7 @@ localStorage.setItem('mapIDS',''); //manh
         ;
         var c = n(53059);
         n(35466);
-        var d = e => {
+        var d = e=>{
             let {children: t} = e
               , [n,r] = (0,
             i.useState)("")
@@ -16775,9 +16775,9 @@ localStorage.setItem('mapIDS',''); //manh
             i.useState)(void 0)
               , [s,l] = (0,
             i.useState)(!0)
-              , u = () => {
+              , u = ()=>{
                 l(!0),
-                c.Z.loadLibraries().finally( () => {
+                c.Z.loadLibraries().finally(()=>{
                     c.Z.isClientPasswordInvalid() ? a(!0) : a(!1),
                     l(!1)
                 }
@@ -16785,24 +16785,24 @@ localStorage.setItem('mapIDS',''); //manh
             }
             ;
             return (0,
-            i.useEffect)( () => {
+            i.useEffect)(()=>{
                 u()
             }
             , []),
             t
         }
-          , f = e => {
+          , f = e=>{
             let {Component: t, pageProps: n} = e
               , c = (0,
             o.useRouter)();
             return (0,
-            i.useEffect)( () => {
-                let e = e => {
+            i.useEffect)(()=>{
+                let e = e=>{
                     u(e)
                 }
                 ;
                 return c.events.on("routeChangeComplete", e),
-                () => {
+                ()=>{
                     c.events.off("routeChangeComplete", e)
                 }
             }
@@ -16841,7 +16841,7 @@ localStorage.setItem('mapIDS',''); //manh
         function i(e, t) {
             if (e in r) {
                 let n = r[e];
-                r[e] = (e, r) => {
+                r[e] = (e,r)=>{
                     n(e, r),
                     t(e, r)
                 }
@@ -16881,7 +16881,7 @@ localStorage.setItem('mapIDS',''); //manh
             return l.e.get(i.eH) ? void 0 : (0,
             i.sG)(l.h.getState())
         }
-        let h = e => {
+        let h = e=>{
             var t;
             let {slot: n, item: r, adjustment: o, sourceSlot: s} = e
               , u = l.h.getState()
@@ -16896,11 +16896,11 @@ localStorage.setItem('mapIDS',''); //manh
             let g = null === (t = h.players[p]) || void 0 === t ? void 0 : t.items;
             if (!g)
                 return;
-            let m = g.map(e => e)
-              , v = m.find(e => e.slot === n);
+            let m = g.map(e=>e)
+              , v = m.find(e=>e.slot === n);
             if (v && !r) {
                 let e = v.quantity + o;
-                m = m.filter(e => e.slot !== n),
+                m = m.filter(e=>e.slot !== n),
                 e > 0 && m.push({
                     ...v,
                     quantity: e
@@ -16908,7 +16908,7 @@ localStorage.setItem('mapIDS',''); //manh
             } else {
                 if (!r)
                     return;
-                m = m.filter(e => e.slot !== n && e.originalSlot !== s),
+                m = m.filter(e=>e.slot !== n && e.originalSlot !== s),
                 o > 0 && m.push({
                     item: r,
                     quantity: o,
@@ -16926,7 +16926,7 @@ localStorage.setItem('mapIDS',''); //manh
             })
         }
         ;
-        o.rV.inventory.serverStateChange.subscribe(e => {
+        o.rV.inventory.serverStateChange.subscribe(e=>{
             var t;
             let n = l.h.getState()
               , r = (0,
@@ -16940,7 +16940,7 @@ localStorage.setItem('mapIDS',''); //manh
             if (!d)
                 return;
             let h = !1
-              , p = d.filter(e => {
+              , p = d.filter(e=>{
                 var t;
                 let n = null === (t = s.slots) || void 0 === t ? void 0 : t[e.originalSlot.toString()];
                 return !!n && n.item === e.item && !(n.quantity < e.quantity) || (h = !0,
@@ -16959,7 +16959,7 @@ localStorage.setItem('mapIDS',''); //manh
         (0,
         r.H)(i.sU.type, h),
         (0,
-        r.H)(i.gJ.type, (e, t) => {
+        r.H)(i.gJ.type, (e,t)=>{
             var n;
             let {slot: r, mouseButton: o} = e
               , l = t.getState()
@@ -16978,7 +16978,7 @@ localStorage.setItem('mapIDS',''); //manh
             s.B6)(l)
               , m = (0,
             s.xM)(l)
-              , v = p.find(e => e.slot === r);
+              , v = p.find(e=>e.slot === r);
             0 === o ? g ? h({
                 slot: r,
                 item: g.id,
@@ -17010,7 +17010,7 @@ localStorage.setItem('mapIDS',''); //manh
           , i = n(53059)
           , o = n(51309);
         let a = (0,
-        r.hg)("game/authenticatedWallet", async (e, t) => {
+        r.hg)("game/authenticatedWallet", async(e,t)=>{
             try {
                 let n = await i.Z.loadLibraries(e.mapId);
                 if (!i.Z.isValid())
@@ -17129,16 +17129,16 @@ localStorage.setItem('mapIDS',''); //manh
                 }
             },
             reducers: {
-                checkAuthentication: (e, t) => {
+                checkAuthentication: (e,t)=>{
                     e.loading = !0,
                     e.mapId = t.payload.mapId
                 }
                 ,
-                walletRequired: (e, t) => {
+                walletRequired: (e,t)=>{
                     e.showWalletNotFoundWarning = !1 !== t.payload
                 }
                 ,
-                setConnected: (e, t) => {
+                setConnected: (e,t)=>{
                     e.errorMessage = "",
                     e.connected = t.payload.connected,
                     e.provider = t.payload.provider,
@@ -17152,7 +17152,7 @@ localStorage.setItem('mapIDS',''); //manh
                     t.payload.connected && (e.errorMessage = void 0)
                 }
                 ,
-                continueAsGuest: (e, t) => {
+                continueAsGuest: (e,t)=>{
                     var n;
                     e.errorMessage = void 0,
                     e.authenticated = !0,
@@ -17162,7 +17162,7 @@ localStorage.setItem('mapIDS',''); //manh
                     e.sessionToken = null
                 }
                 ,
-                createPlayer: (e, t) => {
+                createPlayer: (e,t)=>{
                     if (e.errorMessage = void 0,
                     e.sessionToken)
                         console.log("waiting for middleware to createplayer"),
@@ -17179,17 +17179,17 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ,
-                loadingDone: e => {
+                loadingDone: e=>{
                     e.loading = !1
                 }
                 ,
-                authenticate: (e, t) => {
+                authenticate: (e,t)=>{
                     e.errorMessage = void 0,
                     e.mapId = t.payload.mapId,
                     e.loading = !0
                 }
                 ,
-                updatedPlayer: (e, t) => {
+                updatedPlayer: (e,t)=>{
                     t.payload.username && (e.username = t.payload.username),
                     t.payload.playerId && (e.playerId = t.payload.playerId),
                     t.payload.playerAvatar && (e.playerAvatar = {
@@ -17200,7 +17200,7 @@ localStorage.setItem('mapIDS',''); //manh
                     t.payload.cryptoWallets && (e.cryptoWallets = t.payload.cryptoWallets)
                 }
                 ,
-                authenticatedPlayer: (e, t) => {
+                authenticatedPlayer: (e,t)=>{
                     if (e.loading = !1,
                     e.username = t.payload.username,
                     e.playerId = t.payload.playerId,
@@ -17222,7 +17222,7 @@ localStorage.setItem('mapIDS',''); //manh
                     e.errorMessage = void 0
                 }
                 ,
-                authenticateError: (e, t) => {
+                authenticateError: (e,t)=>{
                     var n;
                     e.errorMessage = null === (n = t.payload) || void 0 === n ? void 0 : n.message,
                     e.loading = !1,
@@ -17231,7 +17231,7 @@ localStorage.setItem('mapIDS',''); //manh
                     e.errorMessage && console.log("set error message", JSON.stringify(e.errorMessage))
                 }
                 ,
-                serviceNotification: (e, t) => {
+                serviceNotification: (e,t)=>{
                     var n, r;
                     e.noticeDialog.visible = !0,
                     e.noticeDialog.msgKey = t.payload.message,
@@ -17239,11 +17239,11 @@ localStorage.setItem('mapIDS',''); //manh
                     e.noticeDialog.allowReload = null === (r = t.payload.allowReload) || void 0 === r || r
                 }
                 ,
-                closeNotification: e => {
+                closeNotification: e=>{
                     e.noticeDialog.allowClose && (e.noticeDialog.visible = !1)
                 }
                 ,
-                loggedOut: e => {
+                loggedOut: e=>{
                     e.loading = !1,
                     e.errorMessage = void 0,
                     e.provider = void 0,
@@ -17258,16 +17258,16 @@ localStorage.setItem('mapIDS',''); //manh
                     e.cryptoWallets = void 0
                 }
                 ,
-                setIsAccountDirty: (e, t) => {
+                setIsAccountDirty: (e,t)=>{
                     e.isAccountDirty = t.payload
                 }
             },
-            extraReducers: e => {
-                e.addCase("game/ROOM_LOADED", e => {
+            extraReducers: e=>{
+                e.addCase("game/ROOM_LOADED", e=>{
                     e.noticeDialog.visible = !1
                 }
                 ),
-                e.addCase("game/SVR_CANNOTCONNECT", (e, t) => {
+                e.addCase("game/SVR_CANNOTCONNECT", (e,t)=>{
                     var n;
                     e.loading = !0,
                     e.authenticated = !1,
@@ -17281,12 +17281,12 @@ localStorage.setItem('mapIDS',''); //manh
                     e.errorMessage = null === (n = t.payload) || void 0 === n ? void 0 : n.message
                 }
                 ),
-                e.addCase("game/PLAYER_AVATAR", (e, t) => {
+                e.addCase("game/PLAYER_AVATAR", (e,t)=>{
                     t.payload.success ? (t.payload.username && (e.username = t.payload.username),
                     t.payload.playerAvatar && (e.playerAvatar = t.payload.playerAvatar)) : "username-already-exists" === t.payload.message ? e.errorMessage = ["nameInUse", "Name in use"] : e.errorMessage = ["internalServerError", "Task Failed Successfully. msg: UpdateAvatar"]
                 }
                 ),
-                e.addCase("game/SERVICE_COMMAND", (e, t) => {
+                e.addCase("game/SERVICE_COMMAND", (e,t)=>{
                     var n, r, i, u, c, d;
                     let f = null == t ? void 0 : null === (r = t.payload) || void 0 === r ? void 0 : null === (n = r.command) || void 0 === n ? void 0 : n.toLowerCase();
                     "notice" === f ? (e.noticeDialog.visible = !0,
@@ -17304,23 +17304,23 @@ localStorage.setItem('mapIDS',''); //manh
                 )
             }
         })
-          , f = e => e.auth.playerAvatar
-          , h = e => e.auth.authenticated
-          , p = e => e.auth.username
-          , g = e => ({
+          , f = e=>e.auth.playerAvatar
+          , h = e=>e.auth.authenticated
+          , p = e=>e.auth.username
+          , g = e=>({
             email: e.auth.email,
             password: e.auth.password,
             newuser: e.auth.newuser
         })
-          , m = e => ({
+          , m = e=>({
             method_id: e.auth.methodid,
             code: e.auth.code
         })
-          , v = e => e.auth.connected && e.auth.provider
-          , y = e => e.auth.loading
-          , b = e => e.auth.errorMessage
-          , E = e => e.auth.cryptoWallets
-          , _ = e => e.auth.noticeDialog
+          , v = e=>e.auth.connected && e.auth.provider
+          , y = e=>e.auth.loading
+          , b = e=>e.auth.errorMessage
+          , E = e=>e.auth.cryptoWallets
+          , _ = e=>e.auth.noticeDialog
           , {checkAuthentication: w, setConnected: O, walletRequired: A, continueAsGuest: S, createPlayer: P, loadingDone: I, authenticate: R, authenticatedPlayer: T, updatedPlayer: x, authenticateError: k, loggedOut: C, setIsAccountDirty: N, closeNotification: L, serviceNotification: M} = d.actions;
         t.Co = d.reducer
     },
@@ -17377,7 +17377,7 @@ localStorage.setItem('mapIDS',''); //manh
           , s = n(80919)
           , l = n(96721)
           , u = n(73913);
-        let c = (e, t, n, r) => {
+        let c = (e,t,n,r)=>{
             if (e && !t) {
                 let n = u.l.getInstance().getEntityByUniqueId(e);
                 t = null == n ? void 0 : n.entity
@@ -17403,19 +17403,19 @@ localStorage.setItem('mapIDS',''); //manh
             name: "craftingSlice",
             initialState: d,
             reducers: {
-                selectCraftable: (e, t) => {
+                selectCraftable: (e,t)=>{
                     e.ui = {
                         ...e.ui,
                         selectedCraftable: t.payload.id
                     }
                 }
                 ,
-                closeCraftingDialog: e => {
+                closeCraftingDialog: e=>{
                     e.showCrafting && c(e.ui.table_mid, e.ui.table_entity, "uiclose"),
                     e.showCrafting = !1
                 }
                 ,
-                showCraftingWindow: (e, t) => {
+                showCraftingWindow: (e,t)=>{
                     let {craftType: n, source: r, achievement: i, state: o, quantity: a, finish: s, tableTier: l} = t.payload
                       , u = null == o ? void 0 : o.startsWith("update:");
                     (!u || e.showCrafting && e.ui.table_mid === r) && (e.showCrafting && e.ui.table_mid && e.ui.table_entity && e.ui.craftType !== n && c(e.ui.table_mid, e.ui.table_entity, "uiclose"),
@@ -17430,8 +17430,8 @@ localStorage.setItem('mapIDS',''); //manh
                     e.showCrafting = !0)
                 }
             },
-            extraReducers: e => {
-                e.addCase("game/ROOM_LEAVE", e => {
+            extraReducers: e=>{
+                e.addCase("game/ROOM_LEAVE", e=>{
                     e.achievements = {},
                     e.showCrafting = !1,
                     e.ui = {
@@ -17439,19 +17439,19 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ),
-                e.addCase("game/PLAYER_ACHIEVEMENT_ADD", (e, t) => {
+                e.addCase("game/PLAYER_ACHIEVEMENT_ADD", (e,t)=>{
                     e.achievements[t.payload.achievement.achievementId] = t.payload.achievement
                 }
                 ),
-                e.addCase("game/PLAYER_ACHIEVEMENT_CHANGED", (e, t) => {
+                e.addCase("game/PLAYER_ACHIEVEMENT_CHANGED", (e,t)=>{
                     e.achievements[t.payload.achievement.achievementId] = t.payload.achievement
                 }
                 ),
-                e.addCase("game/PLAYER_ACHIEVEMENT_REMOVED", (e, t) => {
+                e.addCase("game/PLAYER_ACHIEVEMENT_REMOVED", (e,t)=>{
                     delete e.achievements[t.payload.achievement.achievementId]
                 }
                 ),
-                e.addCase("game/SERVER_BUILD_NODE", (e, t) => {
+                e.addCase("game/SERVER_BUILD_NODE", (e,t)=>{
                     if (e.ui.table_mid && "entity" === t.payload.type && "remove" === t.payload.action) {
                         let n = t.payload._id
                           , r = u.l.getInstance().getEntityByUniqueId(e.ui.table_mid);
@@ -17463,23 +17463,23 @@ localStorage.setItem('mapIDS',''); //manh
         })
           , {selectCraftable: h, closeCraftingDialog: p, showCraftingWindow: g} = f.actions;
         t.ZP = f.reducer;
-        let m = e => e.crafting.showCrafting
-          , v = e => e.crafting.achievements
-          , y = e => e.crafting.ui
-          , b = e => e.crafting.ui.selectedCraftable ? e.crafting.achievements[e.crafting.ui.selectedCraftable] || {
+        let m = e=>e.crafting.showCrafting
+          , v = e=>e.crafting.achievements
+          , y = e=>e.crafting.ui
+          , b = e=>e.crafting.ui.selectedCraftable ? e.crafting.achievements[e.crafting.ui.selectedCraftable] || {
             achievementId: e.crafting.ui.selectedCraftable
         } : null
-          , E = e => e.crafting.ui.entityState
+          , E = e=>e.crafting.ui.entityState
           , _ = (0,
-        i.P1)([b, a.RQ, E], (e, t, n) => r => {
+        i.P1)([b, a.RQ, E], (e,t,n)=>r=>{
             if (!e || "busy" === n)
                 return !1;
             let i = o.Z.getGameAchievement(e.achievementId);
-            return !!i && !!i.craftable && i.craftable.requiredItems.every(e => t(e.id) >= e.quantity * r)
+            return !!i && !!i.craftable && i.craftable.requiredItems.every(e=>t(e.id) >= e.quantity * r)
         }
         )
           , w = (0,
-        i.P1)([b], e => {
+        i.P1)([b], e=>{
             var t;
             if (!e)
                 return [];
@@ -17488,14 +17488,14 @@ localStorage.setItem('mapIDS',''); //manh
         }
         )
           , O = (0,
-        i.P1)([b, a.xK], (e, t) => n => {
+        i.P1)([b, a.xK], (e,t)=>n=>{
             let r = Object.values(t.slots);
             if (e) {
                 var i;
                 let t = o.Z.getGameAchievement(e.achievementId);
                 if (!t)
                     return !1;
-                if (null === (i = t.craftable) || void 0 === i ? void 0 : i.requiredItems.some(e => r.filter(t => t.item === e.id).some(t => t.quantity === e.quantity)))
+                if (null === (i = t.craftable) || void 0 === i ? void 0 : i.requiredItems.some(e=>r.filter(t=>t.item === e.id).some(t=>t.quantity === e.quantity)))
                     return !0
             }
             if (t.size > r.length)
@@ -17503,20 +17503,20 @@ localStorage.setItem('mapIDS',''); //manh
             let a = o.Z.getGameItem(n);
             if (!a)
                 return !1;
-            let s = r.filter(e => e.item === n).reduce( (e, t) => e + t.quantity, 0);
+            let s = r.filter(e=>e.item === n).reduce((e,t)=>e + t.quantity, 0);
             return !!s && (!a.inventory.maxQuantity || a.inventory.maxQuantity - s % a.inventory.maxQuantity > 0)
         }
         )
-          , A = e => {
+          , A = e=>{
             let t = b(e);
             if (!t)
                 return [];
             let n = o.Z.getGameAchievement(t.achievementId);
-            return n && n.craftable ? n.craftable.requiredItems.filter(t => t.unconsumable && t.quantity > (0,
+            return n && n.craftable ? n.craftable.requiredItems.filter(t=>t.unconsumable && t.quantity > (0,
             a.RQ)(e)(t.id)) : []
         }
-          , S = e => e.crafting.ui.craftType
-          , P = e => {
+          , S = e=>e.crafting.ui.craftType
+          , P = e=>{
             var t;
             return !!((null === (t = e.crafting.ui) || void 0 === t ? void 0 : t.entityState) && ["crafting", "ready"].includes(e.crafting.ui.entityState))
         }
@@ -17531,7 +17531,7 @@ localStorage.setItem('mapIDS',''); //manh
         var r = n(66741)
           , i = n(73913);
         let o = (0,
-        r.hg)("game/fetchWorlds", async () => i.l.getInstance().worldService.fetchWorldData())
+        r.hg)("game/fetchWorlds", async()=>i.l.getInstance().worldService.fetchWorldData())
     },
     74800: function(e, t, n) {
         "use strict";
@@ -17791,30 +17791,30 @@ localStorage.setItem('mapIDS',''); //manh
                 isActive: !1
             }
         }
-          , g = (e, t) => {
+          , g = (e,t)=>{
             var n;
             let {key: r, level: i} = t.payload;
             (null === (n = e.player) || void 0 === n ? void 0 : n.full) && (e.player.full.levels || (e.player.full.levels = {}),
             r && i && (e.player.full.levels[r] = i))
         }
-          , m = (e, t) => {
+          , m = (e,t)=>{
             let {key: n, level: r} = t.payload;
             e.room && e.room.levels && (e.room.levels[n] = r)
         }
-          , v = (e, t) => {
+          , v = (e,t)=>{
             var n, r, i;
             if (e.npc_dialog.queue.length > 0) {
                 let n = e.npc_dialog.queue[e.npc_dialog.queue.length - 1];
-                if (t.npcId === n.npcId && t.event === n.event && t.mid === n.event && t.pet === n.pet && (null === (r = t.messages) || void 0 === r ? void 0 : r.length) === (null === (i = n.messages) || void 0 === i ? void 0 : i.length) && t.messages.every( (e, t) => n.messages[t] === e))
+                if (t.npcId === n.npcId && t.event === n.event && t.mid === n.event && t.pet === n.pet && (null === (r = t.messages) || void 0 === r ? void 0 : r.length) === (null === (i = n.messages) || void 0 === i ? void 0 : i.length) && t.messages.every((e,t)=>n.messages[t] === e))
                     return !1
             }
-            if (t.pet && (e.npc_dialog.isActive && e.npc_dialog.pet || e.npc_dialog.queue.some(e => {
+            if (t.pet && (e.npc_dialog.isActive && e.npc_dialog.pet || e.npc_dialog.queue.some(e=>{
                 var n, r;
-                return e.pet && (null === (n = e.messages) || void 0 === n ? void 0 : n.length) === (null === (r = t.messages) || void 0 === r ? void 0 : r.length) && e.messages.every( (e, n) => e === t.messages[n])
+                return e.pet && (null === (n = e.messages) || void 0 === n ? void 0 : n.length) === (null === (r = t.messages) || void 0 === r ? void 0 : r.length) && e.messages.every((e,n)=>e === t.messages[n])
             }
             )))
                 return;
-            let o = null === (n = t.messages) || void 0 === n ? void 0 : n.some(e => !e.includes(" ") && !!e.includes("_") && "" === (f.ZP.t(e, {
+            let o = null === (n = t.messages) || void 0 === n ? void 0 : n.some(e=>!e.includes(" ") && !!e.includes("_") && "" === (f.ZP.t(e, {
                 ns: "quest",
                 defaultValue: ""
             }) || f.ZP.t(e, {
@@ -17824,7 +17824,7 @@ localStorage.setItem('mapIDS',''); //manh
             return e.npc_dialog.queue.push(t),
             o
         }
-          , y = e => {
+          , y = e=>{
             if (e.npc_dialog.queue.length > 0) {
                 let t = e.npc_dialog.queue[0];
                 e.npc_dialog.isActive = !0,
@@ -17846,34 +17846,34 @@ localStorage.setItem('mapIDS',''); //manh
             name: "game",
             initialState: p,
             reducers: {
-                mapSelected: (e, t) => {
+                mapSelected: (e,t)=>{
                     e.room.mapId = t.payload.mapId,
                     e.room.lastSavedAt = t.payload.lastSavedAt
                 }
                 ,
-                dialogNext: e => {
+                dialogNext: e=>{
                     let {messages: t} = e.npc_dialog
                       , {currentMessageIndex: n} = e.npc_dialog;
                     n += 1,
                     t && n < t.length ? e.npc_dialog.currentMessageIndex = n : y(e)
                 }
                 ,
-                dialogBack: e => {
+                dialogBack: e=>{
                     e.npc_dialog.currentMessageIndex = Math.max(e.npc_dialog.currentMessageIndex - 1, 0)
                 }
                 ,
-                togglePlayersOnline: e => {
+                togglePlayersOnline: e=>{
                     e.playersOnline.isVisible = !e.playersOnline.isVisible
                 }
                 ,
-                setPlayerOnlineInfo: (e, t) => {
+                setPlayerOnlineInfo: (e,t)=>{
                     e.playerOnlineInfo = {
                         isVisible: !0,
                         ...t.payload
                     }
                 }
                 ,
-                unsetPlayerOnlineInfo: e => {
+                unsetPlayerOnlineInfo: e=>{
                     e.playerOnlineInfo = {
                         isVisible: !1,
                         mid: "",
@@ -17881,26 +17881,26 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ,
-                toggleQuestLog: e => {
+                toggleQuestLog: e=>{
                     e.questLog.isVisible = !e.questLog.isVisible
                 }
                 ,
-                toggleSkills: e => {
+                toggleSkills: e=>{
                     e.showSkills = !e.showSkills
                 }
                 ,
-                setWorld: (e, t) => {
+                setWorld: (e,t)=>{
                     e.room.worldId = t.payload.worldId,
                     e.room.mapId = t.payload.mapId,
                     e.criticalMessage.text = "Loading...",
                     e.criticalMessage.isActive = !0
                 }
                 ,
-                dismissURLDisclaimer: e => {
+                dismissURLDisclaimer: e=>{
                     e.urlDisclaimer.isActive = !1
                 }
                 ,
-                logOut: e => {
+                logOut: e=>{
                     e.loading = !0,
                     e.connected = !1,
                     e.needNfts = !1,
@@ -17915,7 +17915,7 @@ localStorage.setItem('mapIDS',''); //manh
                     e.criticalMessage.isActive = !1
                 }
                 ,
-                updateLookAt: (e, t) => {
+                updateLookAt: (e,t)=>{
                     let {mouse: n, text: r, style: i} = t.payload;
                     e.lookAtText = {
                         isActive: !0,
@@ -17926,27 +17926,27 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ,
-                roomWarpBegan: (e, t) => {
+                roomWarpBegan: (e,t)=>{
                     var n;
                     (null === (n = t.payload) || void 0 === n ? void 0 : n.abort) ? e.warping = !1 : e.warping = !0
                 }
                 ,
-                roomWarpLoading: (e, t) => {
+                roomWarpLoading: (e,t)=>{
                     e.room.mapId = t.payload.mapId,
                     e.loading = !0
                 }
                 ,
-                closeModal: e => {
+                closeModal: e=>{
                     e.currentModal = ""
                 }
                 ,
-                toggleModal: (e, t) => {
+                toggleModal: (e,t)=>{
                     let n = t.payload.dialog;
                     n === e.currentModal ? e.currentModal = "" : (e.currentModal = n,
                     "nftpicker" === n && (e.needNfts = !0))
                 }
                 ,
-                openPetPicker: (e, t) => {
+                openPetPicker: (e,t)=>{
                     var n, r, i, o;
                     (null === (n = e.player) || void 0 === n ? void 0 : n.core.isGuest) || (e.needNfts = !0,
                     e.petPicker.mode = null !== (o = null === (r = t.payload) || void 0 === r ? void 0 : r.mode) && void 0 !== o ? o : "hatched",
@@ -17958,15 +17958,15 @@ localStorage.setItem('mapIDS',''); //manh
                     e.farmDetails.isActive = !1)
                 }
                 ,
-                closePetPicker: e => {
+                closePetPicker: e=>{
                     e.petPicker.isVisible = !1
                 }
                 ,
-                mintedPet: e => {
+                mintedPet: e=>{
                     e.petPicker.refresh = Date.now() + 6e5
                 }
                 ,
-                togglePetDetails: (e, t) => {
+                togglePetDetails: (e,t)=>{
                     var n;
                     (null === (n = t.payload) || void 0 === n ? void 0 : n.petId) ? (e.petDetails.mid = t.payload.petId,
                     e.petDetails.isVisible = !0,
@@ -17976,40 +17976,40 @@ localStorage.setItem('mapIDS',''); //manh
                     e.petDetails.firstReveal = !1)
                 }
                 ,
-                toggleSidePanel: e => {
+                toggleSidePanel: e=>{
                     e.sidePanel.isActive = !e.sidePanel.isActive
                 }
                 ,
-                activateSidePanel: e => {
+                activateSidePanel: e=>{
                     e.sidePanel.isActive = !0
                 }
                 ,
-                activateFarmUpgradePanel: e => {
+                activateFarmUpgradePanel: e=>{
                     e.farmUpgradePanel.isActive = !0
                 }
                 ,
-                deactivateFarmUpgradePanel: e => {
+                deactivateFarmUpgradePanel: e=>{
                     e.farmUpgradePanel.isActive = !1
                 }
                 ,
-                updateTemplateName: (e, t) => {
+                updateTemplateName: (e,t)=>{
                     e.room.templateName = t.payload.newTemplate
                 }
                 ,
-                openSettings: e => {
+                openSettings: e=>{
                     e.showSettings = !0
                 }
                 ,
-                closeSettings: e => {
+                closeSettings: e=>{
                     e.showSettings = !1
                 }
                 ,
-                clearRealmRefresh: e => {
+                clearRealmRefresh: e=>{
                     e.realmrefresh = !1
                 }
             },
-            extraReducers: e => {
-                e.addCase("game/ROOM_LEAVE", e => {
+            extraReducers: e=>{
+                e.addCase("game/ROOM_LEAVE", e=>{
                     e.playerOnlineInfo.isVisible = !1,
                     e.lookAtText.isActive = !1,
                     e.npc_dialog.isActive = !1,
@@ -18023,7 +18023,7 @@ localStorage.setItem('mapIDS',''); //manh
                     e.room.levels = {}
                 }
                 ),
-                e.addCase("game/ROOM_LOADED", (e, t) => {
+                e.addCase("game/ROOM_LOADED", (e,t)=>{
                     e.player = t.payload.player,
                     e.playerOnlineInfo.isVisible = !1,
                     e.lookAtText.isActive = !1,
@@ -18044,7 +18044,7 @@ localStorage.setItem('mapIDS',''); //manh
                     e.petDetails.isVisible = !1
                 }
                 ),
-                e.addCase("game/PLAYER_AVATAR", (e, t) => {
+                e.addCase("game/PLAYER_AVATAR", (e,t)=>{
                     if (t.payload.success)
                         switch (e.currentModal) {
                         case "avatar":
@@ -18055,7 +18055,7 @@ localStorage.setItem('mapIDS',''); //manh
                         }
                 }
                 ),
-                e.addCase("game/ROOM_WARP", e => {
+                e.addCase("game/ROOM_WARP", e=>{
                     e.lookAtText.isActive = !1,
                     e.npc_dialog.isActive = !1,
                     e.sidePanel.isActive = !1,
@@ -18068,14 +18068,14 @@ localStorage.setItem('mapIDS',''); //manh
                     e.room.lastSavedAt = void 0
                 }
                 ),
-                e.addCase("game/SLOW_LOAD", (e, t) => {
+                e.addCase("game/SLOW_LOAD", (e,t)=>{
                     var n;
                     (null === (n = t.payload) || void 0 === n ? void 0 : n.retry) ? (t.payload.retry <= 2 ? e.criticalMessage.text = "Retrying Connection" : e.criticalMessage.text = "Retrying Connection x".concat(t.payload.retry - 1),
                     e.criticalMessage.isActive = !0) : e.criticalMessage.isActive || (e.criticalMessage.text = "Still Loading...",
                     e.criticalMessage.isActive = !0)
                 }
                 ),
-                e.addCase("game/GAME_INITIATED", e => {
+                e.addCase("game/GAME_INITIATED", e=>{
                     e.loading = !1,
                     e.warping = !1,
                     e.connected = !0,
@@ -18083,15 +18083,15 @@ localStorage.setItem('mapIDS',''); //manh
                     e.room.lastSavedAt = void 0
                 }
                 ),
-                e.addCase("game/PLAYER_JOINED", e => {
+                e.addCase("game/PLAYER_JOINED", e=>{
                     e.playersOnline.updated += 1
                 }
                 ),
-                e.addCase("game/PLAYER_REMOVED", e => {
+                e.addCase("game/PLAYER_REMOVED", e=>{
                     e.playersOnline.updated += 1
                 }
                 ),
-                u.rV.soundControl.addReduxCase(e, (e, t) => {
+                u.rV.soundControl.addReduxCase(e, (e,t)=>{
                     let {payload: {soundControlKey: n, mute: r, volume: i}} = t;
                     void 0 !== r && (e.soundState[n].mute = r,
                     (0,
@@ -18102,25 +18102,25 @@ localStorage.setItem('mapIDS',''); //manh
                     s.Ul)("".concat(n, "_volume"), i.toString()))
                 }
                 ),
-                u.rV.enhancedControl.addReduxCase(e, (e, t) => {
+                u.rV.enhancedControl.addReduxCase(e, (e,t)=>{
                     let {payload: {enabled: n}} = t;
                     void 0 !== n && (e.enhancedState.enabled = n,
                     (0,
                     s.Ul)("enhanced_enabled", n ? "1" : "0"),
-                    setTimeout( () => {
+                    setTimeout(()=>{
                         window.location.reload()
                     }
                     , 2e3))
                 }
                 ),
-                u.rV.joystickControl.addReduxCase(e, (e, t) => {
+                u.rV.joystickControl.addReduxCase(e, (e,t)=>{
                     let {payload: {enabled: n}} = t;
                     void 0 !== n && (e.joystickState.enabled = n,
                     (0,
                     s.Ul)("joystick_disabled", n ? "0" : "1"))
                 }
                 ),
-                e.addCase("game/LINK_OPEN", (e, t) => {
+                e.addCase("game/LINK_OPEN", (e,t)=>{
                     let {link: n, msgKey: r} = t.payload;
                     r || (0,
                     s.fI)(n) ? (e.urlDisclaimer.isActive = !0,
@@ -18129,7 +18129,7 @@ localStorage.setItem('mapIDS',''); //manh
                     s.T1)(n) ? window.location.href = n : window.open(n, "_blank")
                 }
                 ),
-                e.addCase("game/GAME_OBJECT_MOUSEOVER", (e, t) => {
+                e.addCase("game/GAME_OBJECT_MOUSEOVER", (e,t)=>{
                     let {mouse: n, text: r, style: i} = t.payload;
                     e.lookAtText = {
                         isActive: !!r,
@@ -18140,14 +18140,14 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ),
-                e.addCase("game/GAME_OBJECT_MOUSEOUT", e => {
+                e.addCase("game/GAME_OBJECT_MOUSEOUT", e=>{
                     e.lookAtText = {
                         ...e.lookAtText,
                         isActive: !1
                     }
                 }
                 ),
-                e.addCase("game/LIBRARY", (e, t) => {
+                e.addCase("game/LIBRARY", (e,t)=>{
                     var n;
                     e.gameLibraryLoaded = !!t.payload,
                     (null === (n = d.Z.getTenants()) || void 0 === n ? void 0 : n[(0,
@@ -18156,23 +18156,23 @@ localStorage.setItem('mapIDS',''); //manh
                     e.gameLibraryLoaded = !1)
                 }
                 ),
-                u.rV.inventory.serverStateChange.addReduxCase(e, (e, t) => {
+                u.rV.inventory.serverStateChange.addReduxCase(e, (e,t)=>{
                     var n;
                     let {inventory: r} = t.payload;
                     r && (null === (n = e.player) || void 0 === n ? void 0 : n.full.inventory) && (e.player.full.inventory = r)
                 }
                 ),
-                u.rV.wardrobe.serverStateChange.addReduxCase(e, (e, t) => {
+                u.rV.wardrobe.serverStateChange.addReduxCase(e, (e,t)=>{
                     e.player && (e.player.full.wardrobe = t.payload.wardrobe)
                 }
                 ),
-                e.addCase("game/PLAYER_COIN_INVENTORY_CHANGE", (e, t) => {
+                e.addCase("game/PLAYER_COIN_INVENTORY_CHANGE", (e,t)=>{
                     var n;
                     let {coinInventory: r} = t.payload;
                     r && (null === (n = e.player) || void 0 === n ? void 0 : n.full.coinInventory) && (e.player.full.coinInventory = r)
                 }
                 ),
-                e.addCase("game/PLAYER_QUESTPROGRESS_ADDED", (e, t) => {
+                e.addCase("game/PLAYER_QUESTPROGRESS_ADDED", (e,t)=>{
                     var n;
                     let {quests: r} = t.payload;
                     r && (null === (n = e.player) || void 0 === n ? void 0 : n.full.quests) && (e.player.full.quests = r)
@@ -18180,7 +18180,7 @@ localStorage.setItem('mapIDS',''); //manh
                 ),
                 e.addCase("game/PLAYER_LEVEL_ADD", g),
                 e.addCase("game/PLAYER_LEVEL_CHANGE", g),
-                e.addCase("game/SVR_CANNOTCONNECT", (e, t) => {
+                e.addCase("game/SVR_CANNOTCONNECT", (e,t)=>{
                     var n, r;
                     e.loading = !0,
                     e.connected = !1,
@@ -18192,45 +18192,45 @@ localStorage.setItem('mapIDS',''); //manh
                     (null === (r = t.payload) || void 0 === r ? void 0 : r.message) && (e.criticalMessage.isActive = !0)
                 }
                 ),
-                e.addCase("game/NPC_SPEAKS", (e, t) => {
+                e.addCase("game/NPC_SPEAKS", (e,t)=>{
                     let n = t.payload;
                     "function" != typeof n.forEach && (n = [n]),
-                    n.reduce( (t, n) => v(e, n) || t, !1) && (0,
+                    n.reduce((t,n)=>v(e, n) || t, !1) && (0,
                     h.W)(!0),
                     e.npc_dialog.isActive || y(e)
                 }
                 ),
-                e.addCase("game/PLAYER_ENERGY_CHANGE", (e, t) => {
+                e.addCase("game/PLAYER_ENERGY_CHANGE", (e,t)=>{
                     var n;
                     let {energy: r} = t.payload;
                     r && (null === (n = e.player) || void 0 === n ? void 0 : n.full.energy) && (e.player.full.energy = r)
                 }
                 ),
-                e.addCase(a.b.fulfilled, (e, t) => {
+                e.addCase(a.b.fulfilled, (e,t)=>{
                     e.worlds = t.payload
                 }
                 ),
-                e.addCase("game/PRESENT_FARM_DETAILS", e => {
+                e.addCase("game/PRESENT_FARM_DETAILS", e=>{
                     e.farmDetails.isActive = !0
                 }
                 ),
-                e.addCase("game/DISMISS_FARM_DETAILS", e => {
+                e.addCase("game/DISMISS_FARM_DETAILS", e=>{
                     e.farmDetails.isActive = !1
                 }
                 ),
-                e.addCase("game/PLAYER_EXP_CHANGE", (e, t) => {
+                e.addCase("game/PLAYER_EXP_CHANGE", (e,t)=>{
                     e.player && (e.player.full.levels = {
                         ...t.payload.levels
                     })
                 }
                 ),
-                e.addCase("game/PLAYER_MEMBERSHIPS_CHANGE", (e, t) => {
+                e.addCase("game/PLAYER_MEMBERSHIPS_CHANGE", (e,t)=>{
                     e.player && (e.player.core.memberships = t.payload.memberships)
                 }
                 ),
                 e.addCase("game/ROOM_LEVEL_ADD", m),
                 e.addCase("game/ROOM_LEVEL_CHANGED", m),
-                e.addCase("game/BOOKMARK_MAP", (e, t) => {
+                e.addCase("game/BOOKMARK_MAP", (e,t)=>{
                     var n;
                     let {mapId: r, bookmark: i, environ: o} = t.payload
                       , a = null === (n = e.player) || void 0 === n ? void 0 : n.full.bookmarks;
@@ -18238,18 +18238,18 @@ localStorage.setItem('mapIDS',''); //manh
                     i && r ? a.bookmarkedMaps.push({
                         mapId: r,
                         environ: o
-                    }) : !i && r && (a.bookmarkedMaps = a.bookmarkedMaps.filter(e => {
+                    }) : !i && r && (a.bookmarkedMaps = a.bookmarkedMaps.filter(e=>{
                         var t;
                         return (null !== (t = null == e ? void 0 : e.mapId) && void 0 !== t ? t : e) !== r
                     }
                     )))
                 }
                 ),
-                e.addCase("game/".concat(u.fb.SET_TOS_ACCEPTED), e => {
+                e.addCase("game/".concat(u.fb.SET_TOS_ACCEPTED), e=>{
                     e.player && (e.player.full.tosVersion = c.sV)
                 }
                 ),
-                e.addCase("game/".concat(u.fb.PLAYER_PET_CHANGE), (e, t) => {
+                e.addCase("game/".concat(u.fb.PLAYER_PET_CHANGE), (e,t)=>{
                     if (e.player) {
                         var n, r, i, o;
                         ((null === (n = e.player.full.pet) || void 0 === n ? void 0 : n.tokenId) !== (null === (r = t.payload.full.pet) || void 0 === r ? void 0 : r.tokenId) || (null === (i = e.player.full.pet) || void 0 === i ? void 0 : i.avatar.id) !== (null === (o = t.payload.full.pet) || void 0 === o ? void 0 : o.avatar.id)) && (e.petDetails.isVisible = !1),
@@ -18258,7 +18258,7 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ),
-                e.addCase("game/".concat(u.fb.CLIENT_CMD), (e, t) => {
+                e.addCase("game/".concat(u.fb.CLIENT_CMD), (e,t)=>{
                     let n = t.payload;
                     "petmint" === n.detail ? e.petPicker.refresh = Date.now() + 9e5 : "realmmint" === n.detail && (e.realmrefresh = !0)
                 }
@@ -18315,11 +18315,11 @@ localStorage.setItem('mapIDS',''); //manh
                 activeRow: 0
             },
             reducers: {
-                closeStorage: e => {
+                closeStorage: e=>{
                     e.openStorage.isOpen = !1
                 }
                 ,
-                setActiveRow: (e, t) => {
+                setActiveRow: (e,t)=>{
                     let {payload: n} = t;
                     e.activeRow = n,
                     i.rV.inventory.changeActiveRow.emit({
@@ -18327,7 +18327,7 @@ localStorage.setItem('mapIDS',''); //manh
                     })
                 }
                 ,
-                selectEquipment: (e, t) => {
+                selectEquipment: (e,t)=>{
                     var n, r, i, o, a;
                     e.selectedEquipment = null !== (o = null === (n = t.payload.slot) || void 0 === n ? void 0 : n.slot) && void 0 !== o ? o : -1,
                     e.storageMid = t.payload.mid,
@@ -18337,7 +18337,7 @@ localStorage.setItem('mapIDS',''); //manh
                     (null === (i = e.selectedItem) || void 0 === i ? void 0 : i.id) === e.highlightedItem && (e.highlightedItem = void 0)
                 }
                 ,
-                resetEquipment: e => {
+                resetEquipment: e=>{
                     i.ZP.emitEventNow(i.qM.RELEASE_FROM_CURSOR),
                     e.selectedEquipment = -1,
                     e.storageMid = void 0,
@@ -18346,11 +18346,11 @@ localStorage.setItem('mapIDS',''); //manh
                     e.placeable = void 0
                 }
                 ,
-                closeInventoryWindow: e => {
+                closeInventoryWindow: e=>{
                     e.openStorage.isOpen = !1
                 }
                 ,
-                toggleInventoryWindow: e => {
+                toggleInventoryWindow: e=>{
                     e.openStorage.isOpen && !e.openStorage.mid ? e.openStorage.isOpen = !1 : e.openStorage = {
                         isOpen: !0,
                         mid: void 0,
@@ -18358,10 +18358,10 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ,
-                moveEquipmentSlot: (e, t) => {}
+                moveEquipmentSlot: (e,t)=>{}
             },
-            extraReducers: e => {
-                e.addCase("game/ROOM_LOADED", (e, t) => {
+            extraReducers: e=>{
+                e.addCase("game/ROOM_LOADED", (e,t)=>{
                     var n, r, i, o, a, s;
                     e.selectedEquipment = -1,
                     e.storageMid = void 0,
@@ -18374,14 +18374,14 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ),
-                e.addCase("game/".concat(i.fb.PLAYER_PET_CHANGE), e => {
+                e.addCase("game/".concat(i.fb.PLAYER_PET_CHANGE), e=>{
                     e.openStorage = {
                         isOpen: !1,
                         updated: 0
                     }
                 }
                 ),
-                e.addCase("game/PLAYER_OPEN_STORAGE", (e, t) => {
+                e.addCase("game/PLAYER_OPEN_STORAGE", (e,t)=>{
                     let n = t.payload.storageId;
                     n ? e.openStorage = {
                         isOpen: !0,
@@ -18393,7 +18393,7 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ),
-                e.addCase("game/ENTITY_ADD", (e, t) => {
+                e.addCase("game/ENTITY_ADD", (e,t)=>{
                     let n = t.payload
                       , r = n.mapEntity_id;
                     e.openStorage.mid && r === e.openStorage.mid && (e.openStorage = {
@@ -18403,7 +18403,7 @@ localStorage.setItem('mapIDS',''); //manh
                     })
                 }
                 ),
-                e.addCase("game/ROOM_LEAVE", e => {
+                e.addCase("game/ROOM_LEAVE", e=>{
                     e.openStorage = {
                         isOpen: !1,
                         updated: 0
@@ -18415,18 +18415,18 @@ localStorage.setItem('mapIDS',''); //manh
                     e.highlightedItem = void 0
                 }
                 ),
-                e.addCase("game/ENTITY_UPDATE", (e, t) => {
+                e.addCase("game/ENTITY_UPDATE", (e,t)=>{
                     t.payload.mid === e.openStorage.mid && (e.openStorage.updated += 1)
                 }
                 ),
-                e.addCase("game/ENTITY_REMOVE", (e, t) => {
+                e.addCase("game/ENTITY_REMOVE", (e,t)=>{
                     t.payload.mid === e.openStorage.mid && (e.openStorage = {
                         isOpen: !1,
                         updated: 0
                     })
                 }
                 ),
-                e.addCase("game/SERVER_BUILD_NODE", (e, t) => {
+                e.addCase("game/SERVER_BUILD_NODE", (e,t)=>{
                     if (e.openStorage.mid && "entity" === t.payload.type && "remove" === t.payload.action) {
                         let n = t.payload._id
                           , r = o.l.getInstance().getEntityByUniqueId(e.openStorage.mid);
@@ -18437,7 +18437,7 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ),
-                e.addCase("game/".concat(i.fb.CLIENT_CMD), (e, t) => {
+                e.addCase("game/".concat(i.fb.CLIENT_CMD), (e,t)=>{
                     let n = t.payload;
                     if ("itemhighlight" === n.detail) {
                         var r;
@@ -18445,7 +18445,7 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ),
-                i.rV.inventory.serverStateChange.addReduxCase(e, (e, t) => {
+                i.rV.inventory.serverStateChange.addReduxCase(e, (e,t)=>{
                     let {inventory: n} = t.payload;
                     e.activeRow = n.activeRow,
                     function(e) {
@@ -18479,7 +18479,7 @@ localStorage.setItem('mapIDS',''); //manh
                         } else
                             t = n.currentPlayer.full.inventory;
                         if (null == t ? void 0 : t.slots) {
-                            let n = Object.values((t = JSON.parse(JSON.stringify(t))).slots).find(t => t.slot === e.selectedEquipment);
+                            let n = Object.values((t = JSON.parse(JSON.stringify(t))).slots).find(t=>t.slot === e.selectedEquipment);
                             (null == n ? void 0 : n.quantity) ? (e.selectedQty = n.quantity,
                             e.selectedSlot = n) : (e.selectedEquipment = -1,
                             e.storageMid = void 0,
@@ -18491,19 +18491,19 @@ localStorage.setItem('mapIDS',''); //manh
                     }(e)
                 }
                 ),
-                i.rV.attachToCursor.addReduxCase(e, (e, t) => {
+                i.rV.attachToCursor.addReduxCase(e, (e,t)=>{
                     var n, r;
                     e.placeable = (null === (n = t.payload) || void 0 === n ? void 0 : n.placing) || (null === (r = t.payload) || void 0 === r ? void 0 : r.moving)
                 }
                 ),
-                e.addCase("game/PLAYER_INVENTORY_NEW", (e, t) => {
+                e.addCase("game/PLAYER_INVENTORY_NEW", (e,t)=>{
                     let {item: n} = t.payload;
                     e.highlightedItem = n
                 }
                 )
             }
         })
-          , s = e => ({
+          , s = e=>({
             slot: e.storage.selectedEquipment,
             storage: e.storage.storageMid,
             quantity: e.storage.selectedQty,
@@ -18511,12 +18511,12 @@ localStorage.setItem('mapIDS',''); //manh
             invslot: e.storage.selectedSlot,
             placeable: e.storage.placeable
         })
-          , l = e => {
+          , l = e=>{
             if (e.game.player)
                 return e.storage.selectedItem
         }
-          , u = e => e.storage.openStorage
-          , c = e => e.storage.activeRow
+          , u = e=>e.storage.openStorage
+          , c = e=>e.storage.activeRow
           , {closeStorage: d, closeInventoryWindow: f, toggleInventoryWindow: h, resetEquipment: p, selectEquipment: g, setActiveRow: m, moveEquipmentSlot: v} = a.actions;
         t.ZP = a.reducer
     },
@@ -18665,14 +18665,14 @@ localStorage.setItem('mapIDS',''); //manh
         var r = n(68697)
           , i = n(4152)
           , o = n(25904);
-        let a = e => e.game.gameLibraryLoaded
-          , s = e => e.game.npc_dialog.isActive
-          , l = e => e.game.playersOnline
-          , u = e => e.game.questLog
-          , c = e => "nftpicker" === e.game.currentModal
-          , d = e => e.game.petPicker
-          , f = e => e.game.petDetails
-          , h = e => {
+        let a = e=>e.game.gameLibraryLoaded
+          , s = e=>e.game.npc_dialog.isActive
+          , l = e=>e.game.playersOnline
+          , u = e=>e.game.questLog
+          , c = e=>"nftpicker" === e.game.currentModal
+          , d = e=>e.game.petPicker
+          , f = e=>e.game.petDetails
+          , h = e=>{
             var t;
             let {npc_dialog: n} = e.game;
             return {
@@ -18681,36 +18681,36 @@ localStorage.setItem('mapIDS',''); //manh
                 isFirstDialog: 0 === n.currentMessageIndex
             }
         }
-          , p = e => {
+          , p = e=>{
             var t;
             return e.game.npc_dialog.isActive || e.game.currentModal || e.game.questLog.isVisible || e.game.petPicker.isVisible || (null === (t = e.game.urlDisclaimer) || void 0 === t ? void 0 : t.isActive) && e.game.urlDisclaimer.URL || e.ui.confirmDialog.isVisible || e.game.petDetails.isVisible && e.game.petDetails.firstReveal || e.generalStore.isOpen || e.ui.imageDialog.isVisible && !e.ui.imageDialog.modeless || "none" !== e.marketplace.mode
         }
-          , g = e => e.game.lookAtText
-          , m = e => e.game.npc_dialog
-          , v = e => e.game.criticalMessage
-          , y = e => e.game.player
-          , b = e => {
+          , g = e=>e.game.lookAtText
+          , m = e=>e.game.npc_dialog
+          , v = e=>e.game.criticalMessage
+          , y = e=>e.game.player
+          , b = e=>{
             var t;
             let n = null === (t = e.game.player) || void 0 === t ? void 0 : t.full.bookmarks;
             return (null == n ? void 0 : n.bookmarkedMaps) || []
         }
-          , E = e => {
+          , E = e=>{
             var t, n;
             return (null === (n = e.game.player) || void 0 === n ? void 0 : null === (t = n.full.bookmarks) || void 0 === t ? void 0 : t.size) || i.DEFAULT_BOOKMARKS
         }
-          , _ = e => e.game.loading || !e.auth.authenticated
-          , w = e => e.game.warping
-          , O = e => e.game.needNfts
-          , A = e => !!e.game.connected && e.game.sessionId
-          , S = e => {
+          , _ = e=>e.game.loading || !e.auth.authenticated
+          , w = e=>e.game.warping
+          , O = e=>e.game.needNfts
+          , A = e=>!!e.game.connected && e.game.sessionId
+          , S = e=>{
             var t;
             return null === (t = e.game.player) || void 0 === t ? void 0 : t.full.inventory
         }
-          , P = e => {
+          , P = e=>{
             var t;
             return null === (t = e.game.player) || void 0 === t ? void 0 : t.full.wardrobe
         }
-          , I = e => {
+          , I = e=>{
             var t;
             let n = new Date
               , r = e.game.player
@@ -18718,42 +18718,42 @@ localStorage.setItem('mapIDS',''); //manh
             return !!i && n < i
         }
           , R = (0,
-        r.P1)([S], e => t => {
+        r.P1)([S], e=>t=>{
             if (!e || !e || !e.slots || 0 === Object.keys(e.slots).length)
                 return 0;
-            let n = Object.values(e.slots).filter(e => e.item === t);
-            return n.length ? n.reduce( (e, t) => e + t.quantity, 0) : 0
+            let n = Object.values(e.slots).filter(e=>e.item === t);
+            return n.length ? n.reduce((e,t)=>e + t.quantity, 0) : 0
         }
         )
           , T = (0,
-        r.P1)([y], e => t => t.filter(t => !(0,
+        r.P1)([y], e=>t=>t.filter(t=>!(0,
         o.aG)(null == e ? void 0 : e.core.memberships, t)))
-          , x = e => e.game.soundState
-          , k = e => e.game.enhancedState
-          , C = e => e.game.joystickState
-          , N = e => e.game.playersOnline.updated
-          , L = e => e.game.playerOnlineInfo
-          , M = e => e.game.currentModal
+          , x = e=>e.game.soundState
+          , k = e=>e.game.enhancedState
+          , C = e=>e.game.joystickState
+          , N = e=>e.game.playersOnline.updated
+          , L = e=>e.game.playerOnlineInfo
+          , M = e=>e.game.currentModal
           , D = (0,
-        r.P1)([e => {
+        r.P1)([e=>{
             var t;
             return null === (t = e.game.player) || void 0 === t ? void 0 : t.full.levels
         }
-        ], e => t => (0,
+        ], e=>t=>(0,
         o.aG)(e, t))
-          , j = e => t => e.game.room.levels[t]
-          , U = e => e.auth.authenticated && e.auth.username && e.auth.playerAvatar && !e.game.room.worldId
-          , $ = e => !e.game.room.worldId
-          , V = e => e.game.worlds
-          , B = e => e.game.room.mapId
-          , F = e => e.game.room.roomType
-          , q = e => e.game.room.worldId
-          , G = e => e.game.room.templateName
-          , Y = e => e.game.urlDisclaimer
-          , Z = e => e.game.showSkills
-          , z = e => e.game.showSettings
+          , j = e=>t=>e.game.room.levels[t]
+          , U = e=>e.auth.authenticated && e.auth.username && e.auth.playerAvatar && !e.game.room.worldId
+          , $ = e=>!e.game.room.worldId
+          , V = e=>e.game.worlds
+          , B = e=>e.game.room.mapId
+          , F = e=>e.game.room.roomType
+          , q = e=>e.game.room.worldId
+          , G = e=>e.game.room.templateName
+          , Y = e=>e.game.urlDisclaimer
+          , Z = e=>e.game.showSkills
+          , z = e=>e.game.showSettings
           , H = (0,
-        r.P1)([e => e.game.farmDetails, e => e.mapEditor.roomSettings], (e, t) => ({
+        r.P1)([e=>e.game.farmDetails, e=>e.mapEditor.roomSettings], (e,t)=>({
             ...e,
             farmName: t.name,
             ownership: t.ownership,
@@ -18761,9 +18761,9 @@ localStorage.setItem('mapIDS',''); //manh
             guild: t.guild,
             labels: t.labels
         }))
-          , W = e => e.game.sidePanel.isActive
-          , K = e => e.game.farmUpgradePanel.isActive
-          , J = e => e.game.realmrefresh
+          , W = e=>e.game.sidePanel.isActive
+          , K = e=>e.game.farmUpgradePanel.isActive
+          , J = e=>e.game.realmrefresh
     },
     72936: function(e, t, n) {
         "use strict";
@@ -18783,7 +18783,7 @@ localStorage.setItem('mapIDS',''); //manh
           , o = n(80919);
         function a(e) {
             let t = Date.now()
-              , n = (e = e.filter(e => "sys" !== e.creator_id || t - e.createdAt < 3e4)).length - 1500;
+              , n = (e = e.filter(e=>"sys" !== e.creator_id || t - e.createdAt < 3e4)).length - 1500;
             return n > 0 && (e = e.slice(n)),
             e
         }
@@ -18838,23 +18838,23 @@ localStorage.setItem('mapIDS',''); //manh
                 }]
             },
             reducers: {
-                closeChat: e => {
+                closeChat: e=>{
                     e.isVisible = !1
                 }
                 ,
-                toggleChat: e => {
+                toggleChat: e=>{
                     e.isVisible ? (e.isVisible = !1,
                     e.openedNow = !1) : (e.isVisible = !0,
                     e.openedNow = !0,
                     e.newMessage = !1)
                 }
             },
-            extraReducers: e => {
-                e.addCase("game/roomWarpBegan", e => {
+            extraReducers: e=>{
+                e.addCase("game/roomWarpBegan", e=>{
                     e.openedNow = !1
                 }
                 ),
-                e.addCase("game/ROOM_LOADED", (e, t) => {
+                e.addCase("game/ROOM_LOADED", (e,t)=>{
                     e.messages = [{
                         createdAt: 0,
                         creator_id: "sys",
@@ -18862,13 +18862,13 @@ localStorage.setItem('mapIDS',''); //manh
                         creatorName: ""
                     }],
                     e.openedNow = !1,
-                    t.payload.messages && t.payload.messages.filter(e => !s(e) || (l(e),
-                    !1)).forEach(t => e.messages.push(t)),
+                    t.payload.messages && t.payload.messages.filter(e=>!s(e) || (l(e),
+                    !1)).forEach(t=>e.messages.push(t)),
                     e.chatEnabled = "private" !== t.payload.roomType && "tutorial" !== t.payload.roomType
                 }
                 ),
-                e.addCase("game/PLAYER_REMOVED", (e, t) => {
-                    if (e.messages.slice(-20).some(e => e.creator_id === t.payload.id)) {
+                e.addCase("game/PLAYER_REMOVED", (e,t)=>{
+                    if (e.messages.slice(-20).some(e=>e.creator_id === t.payload.id)) {
                         let n = {
                             creator_id: "sys",
                             createdAt: new Date().getTime(),
@@ -18880,7 +18880,7 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ),
-                e.addCase("game/CHAT_MESSAGE_RCV", (e, t) => {
+                e.addCase("game/CHAT_MESSAGE_RCV", (e,t)=>{
                     let n = t.payload;
                     if (n.message) {
                         if (s(n) && !(n = l(n)))
@@ -18893,7 +18893,7 @@ localStorage.setItem('mapIDS',''); //manh
                 )
             }
         })
-          , c = e => e.chat
+          , c = e=>e.chat
           , {toggleChat: d, closeChat: f} = u.actions;
         t.ZP = u.reducer
     },
@@ -18926,32 +18926,32 @@ localStorage.setItem('mapIDS',''); //manh
                 isOpen: !1
             },
             reducers: {
-                openStoreModal: (e, t) => {
+                openStoreModal: (e,t)=>{
                     e.storeId = t.payload,
                     e.isOpen = !0
                 }
                 ,
-                closeStoreModal: e => {
+                closeStoreModal: e=>{
                     e.isOpen = !1
                 }
                 ,
-                buyStoreItem: (e, t) => {}
+                buyStoreItem: (e,t)=>{}
                 ,
-                sellStoreItem: (e, t) => {}
+                sellStoreItem: (e,t)=>{}
             },
-            extraReducers: e => {
-                e.addCase("game/ROOM_LEAVE", e => {
+            extraReducers: e=>{
+                e.addCase("game/ROOM_LEAVE", e=>{
                     e.isOpen = !1
                 }
                 ),
-                i.rV.store.updated.addReduxCase(e, (e, t) => {
+                i.rV.store.updated.addReduxCase(e, (e,t)=>{
                     let {payload: n} = t;
                     n.items && n.storeId === e.storeId && (e.nextResetTimestamp = n.resetTime && n.resetTime + o.l.getInstance().serverTimeDelta)
                 }
                 )
             }
         })
-          , s = e => e.generalStore
+          , s = e=>e.generalStore
           , {openStoreModal: l, closeStoreModal: u, buyStoreItem: c, sellStoreItem: d} = a.actions;
         t.ZP = a.reducer
     },
@@ -18979,7 +18979,7 @@ localStorage.setItem('mapIDS',''); //manh
           , s = (0,
         r.cn)(a)
           , l = (0,
-        r.cn)(e => e(s), (e, t, n) => {
+        r.cn)(e=>e(s), (e,t,n)=>{
             t(u, !1);
             let r = n && Object.keys(n).at(0);
             if (!r) {
@@ -18996,11 +18996,11 @@ localStorage.setItem('mapIDS',''); //manh
         )
           , u = (0,
         r.cn)(!1);
-        i.rV.guildSellOrders.fill.subscribe( () => {
+        i.rV.guildSellOrders.fill.subscribe(()=>{
             o.e.set(u, !0)
         }
         ),
-        i.rV.guildSellOrders.fetch.subscribe( () => {
+        i.rV.guildSellOrders.fetch.subscribe(()=>{
             o.e.set(u, !0)
         }
         );
@@ -19026,7 +19026,7 @@ localStorage.setItem('mapIDS',''); //manh
         var r = n(66741)
           , i = n(53059);
         function o(e) {
-            return e.filter(e => {
+            return e.filter(e=>{
                 let t = e.itemId ? i.Z.getGameItem(e.itemId) : void 0
                   , n = e.currencyId ? i.Z.getGameCurrency(e.currencyId) : void 0;
                 return !("item" === e.kind && e.itemId && !t || "coins" === e.kind && e.currencyId && !n)
@@ -19043,34 +19043,34 @@ localStorage.setItem('mapIDS',''); //manh
                 mailCount: 0
             },
             reducers: {
-                openMailbox: e => {
+                openMailbox: e=>{
                     e.isVisible = !0
                 }
                 ,
-                closeMailbox: e => {
+                closeMailbox: e=>{
                     e.isVisible = !1
                 }
             },
-            extraReducers: e => {
-                e.addCase("game/ROOM_LOADED", (e, t) => {
+            extraReducers: e=>{
+                e.addCase("game/ROOM_LOADED", (e,t)=>{
                     var n, r;
                     (null === (n = t.payload.player) || void 0 === n ? void 0 : n.full) && (e.mailCount = null !== (r = t.payload.player.full.messages) && void 0 !== r ? r : 0)
                 }
                 ),
-                e.addCase("game/MAIL_UPDATE", (e, t) => {
+                e.addCase("game/MAIL_UPDATE", (e,t)=>{
                     void 0 !== t.payload.messages && (e.mailCount = t.payload.messages)
                 }
                 ),
-                e.addCase("game/RECEIVE_MAIL", (e, t) => {
+                e.addCase("game/RECEIVE_MAIL", (e,t)=>{
                     e.isLoading = !1;
                     let n = o(t.payload.mail);
                     e.mail = n
                 }
                 ),
-                e.addCase("game/COLLECT_MAIL_ITEM_RESPONSE", (e, t) => {
+                e.addCase("game/COLLECT_MAIL_ITEM_RESPONSE", (e,t)=>{
                     if (t.payload.success) {
                         let n = t.payload.mailId
-                          , r = o(e.mail.filter(e => e._id != n));
+                          , r = o(e.mail.filter(e=>e._id != n));
                         e.mail = r
                     }
                 }
@@ -19078,8 +19078,8 @@ localStorage.setItem('mapIDS',''); //manh
             }
         })
           , {openMailbox: s, closeMailbox: l} = a.actions
-          , u = e => e.mailbox
-          , c = e => e.mailbox.mailCount;
+          , u = e=>e.mailbox
+          , c = e=>e.mailbox.mailCount;
         t.ZP = a.reducer
     },
     52677: function(e, t, n) {
@@ -19202,17 +19202,17 @@ localStorage.setItem('mapIDS',''); //manh
                 ...c
             },
             reducers: {
-                setMode: (e, t) => {
+                setMode: (e,t)=>{
                     e.mode = t.payload,
                     e.selectedItem = void 0
                 }
                 ,
-                setCategory: (e, t) => {
+                setCategory: (e,t)=>{
                     e.category = t.payload,
                     e.selectedItem = void 0
                 }
                 ,
-                paintObject: (e, t) => {
+                paintObject: (e,t)=>{
                     t.payload ? e.selectedItem = {
                         type: "object",
                         object: {
@@ -19229,7 +19229,7 @@ localStorage.setItem('mapIDS',''); //manh
                     } : void 0)
                 }
                 ,
-                paintEntity: (e, t) => {
+                paintEntity: (e,t)=>{
                     t.payload ? e.selectedItem = {
                         type: "entity",
                         entity: {
@@ -19246,7 +19246,7 @@ localStorage.setItem('mapIDS',''); //manh
                     } : void 0)
                 }
                 ,
-                selectObject: (e, t) => {
+                selectObject: (e,t)=>{
                     if (null == t ? void 0 : t.payload) {
                         let n = t.payload.object;
                         e.category = (null == n ? void 0 : n.wall) ? "walls" : "objects",
@@ -19266,7 +19266,7 @@ localStorage.setItem('mapIDS',''); //manh
                         e.selectedItem = void 0
                 }
                 ,
-                patchObjectConfig: (e, t) => {
+                patchObjectConfig: (e,t)=>{
                     var n, r;
                     (null === (n = e.selectedItem) || void 0 === n ? void 0 : n.type) === "object" ? (e.selectedItem.object.config = {
                         ...e.selectedItem.object.config,
@@ -19278,12 +19278,12 @@ localStorage.setItem('mapIDS',''); //manh
                     })
                 }
                 ,
-                updateObject: (e, t) => {
+                updateObject: (e,t)=>{
                     var n;
                     (null === (n = e.selectedItem) || void 0 === n ? void 0 : n.type) === "object" && t.payload && (e.selectedItem.object.configDirty = !1)
                 }
                 ,
-                selectEntity: (e, t) => {
+                selectEntity: (e,t)=>{
                     if (!t.payload) {
                         e.selectedItem = void 0;
                         return
@@ -19299,7 +19299,7 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ,
-                selectTile: (e, t) => {
+                selectTile: (e,t)=>{
                     if (!t.payload) {
                         e.selectedItem = void 0;
                         return
@@ -19319,7 +19319,7 @@ localStorage.setItem('mapIDS',''); //manh
                     } : void 0)
                 }
                 ,
-                updateRoomSettings: (e, t) => {
+                updateRoomSettings: (e,t)=>{
                     let n = {
                         ...e.roomSettings
                     };
@@ -19327,19 +19327,19 @@ localStorage.setItem('mapIDS',''); //manh
                     e.roomSettings = n
                 }
             },
-            extraReducers: e => {
-                u.rV.editor.on.addReduxCase(e, e => {
+            extraReducers: e=>{
+                u.rV.editor.on.addReduxCase(e, e=>{
                     e.isActive = !0,
                     e.category = "objects"
                 }
                 ),
-                u.rV.editor.off.addReduxCase(e, e => {
+                u.rV.editor.off.addReduxCase(e, e=>{
                     e.isActive = !1,
                     e.mode = "off",
                     e.selectedItem = void 0
                 }
                 ),
-                e.addCase("game/SERVER_BUILD_NODE", (e, t) => {
+                e.addCase("game/SERVER_BUILD_NODE", (e,t)=>{
                     var n, r, i, o, a, s;
                     let u = t.payload;
                     if ("object" === u.type && (null === (n = e.selectedItem) || void 0 === n ? void 0 : n.type) === "object" && (null === (i = e.selectedItem.object) || void 0 === i ? void 0 : null === (r = i.config) || void 0 === r ? void 0 : r._id) === u._id) {
@@ -19355,7 +19355,7 @@ localStorage.setItem('mapIDS',''); //manh
                     e.updateVersion += 1
                 }
                 ),
-                e.addCase("game/ENTITY_UPDATE", (e, t) => {
+                e.addCase("game/ENTITY_UPDATE", (e,t)=>{
                     var n, r, i;
                     if ((null === (n = e.selectedItem) || void 0 === n ? void 0 : n.type) === "entity") {
                         let n = t.payload;
@@ -19363,37 +19363,37 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ),
-                e.addCase("game/ROOM_NAME_CHANGED", (e, t) => {
+                e.addCase("game/ROOM_NAME_CHANGED", (e,t)=>{
                     e.roomSettings.name = t.payload,
                     e.updateVersion += 1
                 }
                 ),
-                e.addCase("game/ROOM_OWNER_CHANGED", (e, t) => {
+                e.addCase("game/ROOM_OWNER_CHANGED", (e,t)=>{
                     var n;
                     e.roomSettings.ownerAddress = null === (n = t.payload) || void 0 === n ? void 0 : n.toLowerCase()
                 }
                 ),
-                e.addCase("game/ROOM_LABELS_CHANGED", (e, t) => {
+                e.addCase("game/ROOM_LABELS_CHANGED", (e,t)=>{
                     e.roomSettings.labels = t.payload
                 }
                 ),
-                e.addCase("game/ROOM_PERMISSIONS_CHANGED", (e, t) => {
+                e.addCase("game/ROOM_PERMISSIONS_CHANGED", (e,t)=>{
                     e.roomSettings.permissions = t.payload
                 }
                 ),
-                e.addCase("game/ROOM_GUILD_CHANGED", (e, t) => {
+                e.addCase("game/ROOM_GUILD_CHANGED", (e,t)=>{
                     e.roomSettings.guild = t.payload
                 }
                 ),
-                e.addCase("game/ROOM_OWNERSHIP_CHANGED", (e, t) => {
+                e.addCase("game/ROOM_OWNERSHIP_CHANGED", (e,t)=>{
                     e.roomSettings.ownership = t.payload
                 }
                 ),
-                e.addCase("game/ROOM_MEMBERS_CHANGED", (e, t) => {
+                e.addCase("game/ROOM_MEMBERS_CHANGED", (e,t)=>{
                     e.roomSettings.members = t.payload
                 }
                 ),
-                e.addCase("game/ROOM_LEAVE", e => {
+                e.addCase("game/ROOM_LEAVE", e=>{
                     e.roomSettings = {
                         ...c.roomSettings
                     },
@@ -19407,63 +19407,63 @@ localStorage.setItem('mapIDS',''); //manh
         })
           , {setMode: f, setCategory: h, paintObject: p, selectObject: g, paintEntity: m, selectEntity: v, patchObjectConfig: y, updateObject: b, selectTile: E, updateRoomSettings: _} = d.actions;
         t.ZP = d.reducer;
-        let w = e => e.mapEditor.isActive
-          , O = e => t => t === e.mapEditor.mode
-          , A = e => e.mapEditor.category
-          , S = e => t => t === e.mapEditor.category
-          , P = e => {
+        let w = e=>e.mapEditor.isActive
+          , O = e=>t=>t === e.mapEditor.mode
+          , A = e=>e.mapEditor.category
+          , S = e=>t=>t === e.mapEditor.category
+          , P = e=>{
             let {selectedItem: t} = e.mapEditor;
             return {
                 selectedItem: t
             }
         }
-          , I = e => e.mapEditor.updateVersion
-          , R = e => {
+          , I = e=>e.mapEditor.updateVersion
+          , R = e=>{
             var t;
             return !!(null === (t = e.game.player) || void 0 === t ? void 0 : t.full.godmode)
         }
         ;
         function T(e, t) {
-            return !!e && !!t && 0 !== t.length && e.some(e => t.includes(e.toUpperCase()))
+            return !!e && !!t && 0 !== t.length && e.some(e=>t.includes(e.toUpperCase()))
         }
-        let x = e => {
+        let x = e=>{
             var t;
             let n = U(e);
             return T(null === (t = e.mapEditor.roomSettings.permissions) || void 0 === t ? void 0 : t.editFarmConfig, n)
         }
-          , k = e => {
+          , k = e=>{
             var t;
             let n = U(e);
             return T(null === (t = e.mapEditor.roomSettings.permissions) || void 0 === t ? void 0 : t.editMapMembers, n)
         }
-          , C = e => {
+          , C = e=>{
             var t;
             let n = U(e);
             return T(null === (t = e.mapEditor.roomSettings.permissions) || void 0 === t ? void 0 : t.build, n)
         }
-          , N = (e, t) => {
+          , N = (e,t)=>{
             var n;
-            return null == e || null === (n = e.useTargets) || void 0 === n || !n.types.includes("mapLabels") || !e.useTargets.mapLabels || e.useTargets.mapLabels.every(e => t.includes(e))
+            return null == e || null === (n = e.useTargets) || void 0 === n || !n.types.includes("mapLabels") || !e.useTargets.mapLabels || e.useTargets.mapLabels.every(e=>t.includes(e))
         }
-          , L = e => {
+          , L = e=>{
             var t;
             let n = U(e);
             return T(null === (t = e.mapEditor.roomSettings.permissions) || void 0 === t ? void 0 : t.remove, n)
         }
-          , M = e => {
+          , M = e=>{
             var t;
             let n = U(e);
             return !!n && 0 !== n.length && (!!n.includes("OWNER") || T(null === (t = e.mapEditor.roomSettings.permissions) || void 0 === t ? void 0 : t.surplusAccess, n))
         }
-          , D = e => {
+          , D = e=>{
             var t;
             let n = U(e);
             return !!n && 0 !== n.length && (!!n.includes("OWNER") || T(null === (t = e.mapEditor.roomSettings.permissions) || void 0 === t ? void 0 : t.storageAccess, n))
         }
-          , j = e => {
+          , j = e=>{
             var t, n, r;
             if (!s()(e.mapEditor.roomSettings.ownerAddress)) {
-                let t = !!(null === (r = e.game.player) || void 0 === r ? void 0 : r.full.cryptoWallets.find(t => {
+                let t = !!(null === (r = e.game.player) || void 0 === r ? void 0 : r.full.cryptoWallets.find(t=>{
                     var n;
                     return t.address.toLowerCase() === (null === (n = e.mapEditor.roomSettings.ownerAddress) || void 0 === n ? void 0 : n.toLowerCase())
                 }
@@ -19473,7 +19473,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             return !!((null === (t = e.game.room) || void 0 === t ? void 0 : t.mapId) && (null === (n = e.game.player) || void 0 === n ? void 0 : n.full.farms) && e.game.player.full.farms.includes(e.game.room.mapId))
         }
-          , U = e => {
+          , U = e=>{
             var t, n, r;
             if (null === (t = e.game.player) || void 0 === t ? void 0 : t.full.godmode)
                 return ["GOD", "OWNER", "MANAGER", "ANY"];
@@ -19481,29 +19481,29 @@ localStorage.setItem('mapIDS',''); //manh
                 return ["OWNER", "MANAGER", "ANY"];
             if (e.mapEditor.roomSettings.members && e.mapEditor.roomSettings.members.length > 0) {
                 let t = null === (r = e.game.player) || void 0 === r ? void 0 : null === (n = r.core.mid) || void 0 === n ? void 0 : n.toLowerCase()
-                  , i = e.mapEditor.roomSettings.members.find(n => {
+                  , i = e.mapEditor.roomSettings.members.find(n=>{
                     var r, i;
                     return (null === (r = e.game.player) || void 0 === r ? void 0 : r.core.mid) && (null === (i = n.member) || void 0 === i ? void 0 : i.toLowerCase()) === t
                 }
                 );
                 if (null == i ? void 0 : i.roles)
-                    return [...i.roles.map(e => e.toUpperCase()), "ANY"]
+                    return [...i.roles.map(e=>e.toUpperCase()), "ANY"]
             }
             return ["ANY"]
         }
-          , $ = e => {
+          , $ = e=>{
             var t, n;
             return (null === (t = e.mapEditor.selectedItem) || void 0 === t ? void 0 : t.type) === "object" ? null === (n = e.mapEditor.selectedItem) || void 0 === n ? void 0 : n.object : void 0
         }
-          , V = e => {
+          , V = e=>{
             var t, n;
             return (null === (t = e.mapEditor.selectedItem) || void 0 === t ? void 0 : t.type) === "tile" ? null === (n = e.mapEditor.selectedItem) || void 0 === n ? void 0 : n.tile : void 0
         }
-          , B = e => {
+          , B = e=>{
             var t, n;
             return (null === (t = e.mapEditor.selectedItem) || void 0 === t ? void 0 : t.type) === "entity" ? null === (n = e.mapEditor.selectedItem) || void 0 === n ? void 0 : n.entity : void 0
         }
-          , F = e => e.mapEditor.roomSettings
+          , F = e=>e.mapEditor.roomSettings
     },
     71936: function(e, t, n) {
         "use strict";
@@ -19548,34 +19548,34 @@ localStorage.setItem('mapIDS',''); //manh
                 mode: "none"
             },
             reducers: {
-                openMarketplace: (e, t) => {
+                openMarketplace: (e,t)=>{
                     e.mode = "marketplace",
                     e.initialCategory = t.payload.initialCategory
                 }
                 ,
-                openListings: e => {
+                openListings: e=>{
                     e.mode = "listings"
                 }
                 ,
-                close: e => {
+                close: e=>{
                     e.mode = "none"
                 }
                 ,
-                reloadListings: e => {
+                reloadListings: e=>{
                     e.reload = Date.now()
                 }
                 ,
-                handlePurchaseSuccess: e => {
+                handlePurchaseSuccess: e=>{
                     delete e.purchase
                 }
             },
-            extraReducers: e => {
-                e.addCase("game/".concat(i.fb.MARKETPLACE_SEND), (e, t) => {
+            extraReducers: e=>{
+                e.addCase("game/".concat(i.fb.MARKETPLACE_SEND), (e,t)=>{
                     let {payload: n} = t;
                     "purchase" === n.subcommand && (e.purchase = "pending")
                 }
                 ),
-                e.addCase("game/".concat(i.fb.MARKETPLACE_RECEIVE), (e, t) => {
+                e.addCase("game/".concat(i.fb.MARKETPLACE_RECEIVE), (e,t)=>{
                     let {payload: n} = t;
                     switch (n.type) {
                     case "purchase-success":
@@ -19597,11 +19597,11 @@ localStorage.setItem('mapIDS',''); //manh
                 )
             }
         })
-          , a = e => "marketplace" === e.marketplace.mode
-          , s = e => e.marketplace.initialCategory
-          , l = e => "listings" === e.marketplace.mode
-          , u = e => e.marketplace.purchase
-          , c = e => e.marketplace.reload
+          , a = e=>"marketplace" === e.marketplace.mode
+          , s = e=>e.marketplace.initialCategory
+          , l = e=>"listings" === e.marketplace.mode
+          , u = e=>e.marketplace.purchase
+          , c = e=>e.marketplace.reload
           , {openMarketplace: d, openListings: f, reloadListings: h, close: p, handlePurchaseSuccess: g} = o.actions;
         t.ZP = o.reducer
     },
@@ -19629,12 +19629,12 @@ localStorage.setItem('mapIDS',''); //manh
           , c = ["mailbox", "inventory", "xp", "achievements", "currency"]
           , d = 1
           , f = (0,
-        a.cn)(null, (e, t, n) => {
+        a.cn)(null, (e,t,n)=>{
             let r = e(u).slice();
-            n.forEach(e => {
+            n.forEach(e=>{
                 var t, n, i;
                 if (e.deduplicationKey) {
-                    let t = r.findIndex(t => {
+                    let t = r.findIndex(t=>{
                         let {deduplicationKey: n} = t;
                         return e.deduplicationKey === n
                     }
@@ -19651,7 +19651,7 @@ localStorage.setItem('mapIDS',''); //manh
                                     ...e,
                                     ...t
                                 };
-                                return c.forEach(r => {
+                                return c.forEach(r=>{
                                     e[r] && t[r] && (n[r] = e[r].concat(t[r]))
                                 }
                                 ),
@@ -19665,7 +19665,7 @@ localStorage.setItem('mapIDS',''); //manh
                     let {key: t, textPropertyName: n} = e.stacking
                       , o = null === (i = e.text) || void 0 === i ? void 0 : i[n];
                     if (void 0 !== o) {
-                        let e = r.findIndex(e => {
+                        let e = r.findIndex(e=>{
                             let {stacking: n} = e;
                             return (null == n ? void 0 : n.key) === t
                         }
@@ -19694,24 +19694,24 @@ localStorage.setItem('mapIDS',''); //manh
         }
         )
           , h = (0,
-        a.cn)(e => e(u).find(t => "trade" !== t.source || e(o.eH)))
+        a.cn)(e=>e(u).find(t=>"trade" !== t.source || e(o.eH)))
           , p = (0,
-        a.cn)(null, (e, t, n) => {
+        a.cn)(null, (e,t,n)=>{
             let r = e(u)
-              , i = n ? r.findIndex(e => e.reactKey === n.reactKey) : -1;
+              , i = n ? r.findIndex(e=>e.reactKey === n.reactKey) : -1;
             t(u, r.slice(Math.max(i + 1, 1)))
         }
         );
         (0,
-        l.H)("game/".concat(r.fb.ROOM_LEAVE), () => {
+        l.H)("game/".concat(r.fb.ROOM_LEAVE), ()=>{
             s.e.set(u, [])
         }
         ),
         (0,
-        l.H)("game/".concat(r.fb.TRADE_RECEIVE), e => {
+        l.H)("game/".concat(r.fb.TRADE_RECEIVE), e=>{
             if ("request" === e.subcommand) {
                 let t = i.l.getInstance().getSessionId()
-                  , n = Object.keys(e.trade.players).find(e => e !== t)
+                  , n = Object.keys(e.trade.players).find(e=>e !== t)
                   , r = n ? i.l.getInstance().getPlayerCoreBySessionId(n) : void 0;
                 s.e.set(f, [{
                     source: "trade",
@@ -19745,22 +19745,22 @@ localStorage.setItem('mapIDS',''); //manh
                 isVisible: !1
             },
             reducers: {
-                openPlot: e => {
+                openPlot: e=>{
                     e.isVisible = !0
                 }
                 ,
-                closePlot: e => {
+                closePlot: e=>{
                     e.isVisible = !1
                 }
             },
-            extraReducers: e => {
-                e.addCase("game/ROOM_LEAVE", e => {
+            extraReducers: e=>{
+                e.addCase("game/ROOM_LEAVE", e=>{
                     e.isVisible = !1
                 }
                 )
             }
         })
-          , i = e => e.plot.isVisible
+          , i = e=>e.plot.isVisible
           , {openPlot: o, closePlot: a} = r.actions;
         t.ZP = r.reducer
     },
@@ -19788,20 +19788,20 @@ localStorage.setItem('mapIDS',''); //manh
                 mid: ""
             },
             reducers: {
-                openReportPlayerWindow: (e, t) => {
+                openReportPlayerWindow: (e,t)=>{
                     let {payload: n} = t;
                     e.open = !0,
                     e.mid = n.mid
                 }
                 ,
-                closeReportPlayerWindow: e => {
+                closeReportPlayerWindow: e=>{
                     e.open = !1,
                     e.mid = ""
                 }
             }
         })
-          , i = e => e.report.open
-          , o = e => e.report.mid
+          , i = e=>e.report.open
+          , o = e=>e.report.mid
           , {openReportPlayerWindow: a, closeReportPlayerWindow: s} = r.actions;
         t.ZP = r.reducer
     },
@@ -19821,7 +19821,7 @@ localStorage.setItem('mapIDS',''); //manh
         let a = (0,
         r.cn)("")
           , s = (0,
-        r.cn)({}, (e, t, n) => {
+        r.cn)({}, (e,t,n)=>{
             if ("clear" === n) {
                 t(s, {});
                 return
@@ -19832,7 +19832,7 @@ localStorage.setItem('mapIDS',''); //manh
             })
         }
         );
-        i.rV.sellOrders.fill.subscribe(e => {
+        i.rV.sellOrders.fill.subscribe(e=>{
             var t;
             let {storeId: n, sellOrderIndex: r} = e
               , i = null !== (t = o.e.get(s)[n]) && void 0 !== t ? t : {
@@ -19858,7 +19858,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         );
         let l = [];
-        i.rV.sellOrders.fetch.subscribe(e => {
+        i.rV.sellOrders.fetch.subscribe(e=>{
             let {storeId: t} = e;
             o.e.set(s, {
                 [t]: {
@@ -19911,16 +19911,16 @@ localStorage.setItem('mapIDS',''); //manh
                 otherTradeValue: null
             },
             reducers: {
-                acceptTrade: e => {
+                acceptTrade: e=>{
                     o.e.set(a, !1)
                 }
                 ,
-                adjustTrade: (e, t) => {}
+                adjustTrade: (e,t)=>{}
                 ,
-                dropTradeItem: (e, t) => {}
+                dropTradeItem: (e,t)=>{}
             },
-            extraReducers: e => {
-                e.addCase("game/".concat(i.fb.TRADE_RECEIVE), (e, t) => {
+            extraReducers: e=>{
+                e.addCase("game/".concat(i.fb.TRADE_RECEIVE), (e,t)=>{
                     let {payload: n} = t;
                     switch (n.subcommand) {
                     case "request":
@@ -19945,12 +19945,12 @@ localStorage.setItem('mapIDS',''); //manh
                 )
             }
         })
-          , l = e => e.trade.trade
-          , u = e => ({
+          , l = e=>e.trade.trade
+          , u = e=>({
             tradeValue: e.trade.tradeValue,
             otherTradeValue: e.trade.otherTradeValue
         })
-          , c = e => e.trade.tradeId
+          , c = e=>e.trade.tradeId
           , {acceptTrade: d, adjustTrade: f, dropTradeItem: h} = s.actions;
         t.ZP = s.reducer
     },
@@ -20043,11 +20043,11 @@ localStorage.setItem('mapIDS',''); //manh
                 expandHUD: !1
             },
             reducers: {
-                gameDimension: (e, t) => {
+                gameDimension: (e,t)=>{
                     e.dimension = t.payload
                 }
                 ,
-                portalConfig: (e, t) => {
+                portalConfig: (e,t)=>{
                     e.portalDialog = {
                         isVisible: !0,
                         mid_portal: t.payload.source,
@@ -20056,19 +20056,19 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ,
-                showHUD: (e, t) => {
+                showHUD: (e,t)=>{
                     e.hideHUD = !t.payload
                 }
                 ,
-                expandHUD: (e, t) => {
+                expandHUD: (e,t)=>{
                     void 0 === t.payload ? e.expandHUD = !e.expandHUD : e.expandHUD = !!t.payload
                 }
                 ,
-                clearHighlight: (e, t) => {
+                clearHighlight: (e,t)=>{
                     e.highlightButton === t.payload && (e.highlightButton = void 0)
                 }
                 ,
-                portalClose: e => {
+                portalClose: e=>{
                     e.portalDialog = {
                         isVisible: !1,
                         mid_portal: "",
@@ -20076,7 +20076,7 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ,
-                entityInput: (e, t) => {
+                entityInput: (e,t)=>{
                     e.entityInput = {
                         isVisible: !0,
                         mid_portal: t.payload.source,
@@ -20085,26 +20085,26 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ,
-                entityInputClose: e => {
+                entityInputClose: e=>{
                     e.entityInput = {
                         isVisible: !1
                     }
                 }
                 ,
-                confirmDialog: (e, t) => {
+                confirmDialog: (e,t)=>{
                     e.confirmDialog = {
                         isVisible: !0,
                         ...t.payload
                     }
                 }
                 ,
-                confirmDialogClose: e => {
+                confirmDialogClose: e=>{
                     e.confirmDialog = {
                         isVisible: !1
                     }
                 }
                 ,
-                imagePopup: (e, t) => {
+                imagePopup: (e,t)=>{
                     e.imageDialog = {
                         isVisible: !0,
                         url: t.payload.url,
@@ -20114,15 +20114,15 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 ,
-                imagePopupClose: e => {
+                imagePopupClose: e=>{
                     e.imageDialog = {
                         isVisible: !1,
                         isIframe: !1
                     }
                 }
             },
-            extraReducers: e => {
-                e.addCase("game/ROOM_LOADED", e => {
+            extraReducers: e=>{
+                e.addCase("game/ROOM_LOADED", e=>{
                     e.portalDialog = {
                         isVisible: !1,
                         mid_portal: "",
@@ -20134,7 +20134,7 @@ localStorage.setItem('mapIDS',''); //manh
                     e.hideHUD = !1
                 }
                 ),
-                e.addCase("game/".concat(i.fb.CLIENT_CMD), (e, t) => {
+                e.addCase("game/".concat(i.fb.CLIENT_CMD), (e,t)=>{
                     let n = t.payload;
                     if ("buttonhighlight" === n.detail) {
                         var r;
@@ -20145,14 +20145,14 @@ localStorage.setItem('mapIDS',''); //manh
             }
         })
           , {gameDimension: a, showHUD: s, expandHUD: l, portalConfig: u, portalClose: c, imagePopup: d, imagePopupClose: f, entityInput: h, entityInputClose: p, confirmDialog: g, confirmDialogClose: m, clearHighlight: v} = o.actions
-          , y = e => e.ui.portalDialog
-          , b = e => e.ui.imageDialog
-          , E = e => e.ui.entityInput
-          , _ = e => e.ui.confirmDialog
-          , w = e => e.ui.hideHUD
-          , O = e => e.ui.expandHUD
-          , A = e => e.ui.highlightButton
-          , S = e => e.ui.dimension;
+          , y = e=>e.ui.portalDialog
+          , b = e=>e.ui.imageDialog
+          , E = e=>e.ui.entityInput
+          , _ = e=>e.ui.confirmDialog
+          , w = e=>e.ui.hideHUD
+          , O = e=>e.ui.expandHUD
+          , A = e=>e.ui.highlightButton
+          , S = e=>e.ui.dimension;
         t.ZP = o.reducer
     },
     29409: function(e, t, n) {
@@ -20191,10 +20191,10 @@ localStorage.setItem('mapIDS',''); //manh
             [d.v4.type]: {
                 event: l.qM.BUILD_OBJECT
             }
-        }).forEach(e => {
+        }).forEach(e=>{
             let[t,n] = e;
             (0,
-            s.H)(t, e => {
+            s.H)(t, e=>{
                 l.ZP.emitEventNow(n.event, n.adapter ? n.adapter(e) : e)
             }
             )
@@ -20206,8 +20206,8 @@ localStorage.setItem('mapIDS',''); //manh
           , g = n(73913)
           , m = n(35466);
         (0,
-        s.H)(f.uy.type, (e, t) => {
-            (async () => {
+        s.H)(f.uy.type, (e,t)=>{
+            (async()=>{
                 await l.ZP.init(),
                 await p.Z.initGame(),
                 await p.Z.initRoom({
@@ -20219,8 +20219,8 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ),
         (0,
-        s.H)(f.Hi.type, (e, t) => {
-            (async () => {
+        s.H)(f.Hi.type, (e,t)=>{
+            (async()=>{
                 try {
                     let n = await p.Z.loadLibraries(e.mapId);
                     t.dispatch({
@@ -20240,7 +20240,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ),
         (0,
-        s.H)(h.iM.type, (e, t) => {
+        s.H)(h.iM.type, (e,t)=>{
             e.mapId && t.dispatch((0,
             f.Hi)({
                 mapId: e.mapId,
@@ -20249,7 +20249,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ),
         (0,
-        s.H)(h.z1.type, (e, t) => {
+        s.H)(h.z1.type, (e,t)=>{
             e.mapId && t.dispatch((0,
             f.Hi)({
                 mapId: e.mapId,
@@ -20258,8 +20258,8 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ),
         (0,
-        s.H)(f.ni.type, () => {
-            (async () => {
+        s.H)(f.ni.type, ()=>{
+            (async()=>{
                 (0,
                 m.r$)(),
                 await p.Z.killScene();
@@ -20273,8 +20273,8 @@ localStorage.setItem('mapIDS',''); //manh
           , y = n(60922)
           , b = n(53059)
           , E = n(4602);
-        let _ = e => "left" === e ? g.l.getInstance().peekLeftMap() : "right" === e ? g.l.getInstance().peekRightMap() : e
-          , w = (e, t, n) => {
+        let _ = e=>"left" === e ? g.l.getInstance().peekLeftMap() : "right" === e ? g.l.getInstance().peekRightMap() : e
+          , w = (e,t,n)=>{
             let r = null == e ? void 0 : e.match(/\d+$/)
               , i = null == t ? void 0 : t.match(/\d+$/);
             if (!r && !i)
@@ -20286,7 +20286,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             return r && i && r[0] === i[0] ? "quick" : o
         }
-          , O = (e, t) => {
+          , O = (e,t)=>{
             if (!t)
                 return e;
             let n = null == e ? void 0 : e.match(/\d+$/);
@@ -20294,14 +20294,14 @@ localStorage.setItem('mapIDS',''); //manh
             (0,
             m.En)(t)
         }
-          , A = async e => {
+          , A = async e=>{
             (0,
             y.q4)(e) && (await (0,
             E.W)(!0),
             b.Z.clearGameLibrary(),
             await b.Z.loadLibraries())
         }
-          , S = async (e, t) => {
+          , S = async(e,t)=>{
             var n, r, i;
             let o = (0,
             y.GU)()
@@ -20315,7 +20315,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             return e.id
         }
-          , P = (e, t) => {
+          , P = (e,t)=>{
             clearTimeout(r),
             e.dispatch((0,
             f.tD)({
@@ -20325,7 +20325,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ;
         (0,
-        s.H)("game/ROOM_WARP", (e, t) => {
+        s.H)("game/ROOM_WARP", (e,t)=>{
             let n = t.getState()
               , o = (0,
             v.Xt)(n)
@@ -20350,7 +20350,7 @@ localStorage.setItem('mapIDS',''); //manh
                     i = e.source,
                     u || (n = b.Z.loadMap(c)).catch(console.warn),
                     p.Z.freezeRoom(d),
-                    r = setTimeout(async () => {
+                    r = setTimeout(async()=>{
                         let a;
                         if (r = void 0,
                         i = void 0,
@@ -20379,7 +20379,7 @@ localStorage.setItem('mapIDS',''); //manh
                                         if (e.mid && c)
                                             (o = c[e.mid]) || (a = u.get(e.mid));
                                         else if (e.entity)
-                                            u.forEach(t => {
+                                            u.forEach(t=>{
                                                 t.entity === e.entity && (a = t)
                                             }
                                             );
@@ -20391,7 +20391,7 @@ localStorage.setItem('mapIDS',''); //manh
                                                     break
                                                 }
                                             }
-                                            o || null == u || u.forEach(t => {
+                                            o || null == u || u.forEach(t=>{
                                                 t.label === e.label && (a = t)
                                             }
                                             )
@@ -20478,32 +20478,32 @@ localStorage.setItem('mapIDS',''); //manh
           , k = n(11941);
         let C = 0;
         function buyAndSell(r)
-        {
-            if (document.getElementById("#btnBuy")) {
-                document.getElementById("#btnBuy").addEventListener("click", function() {
-                    console.log("Buy");
-                    ec.dispatch({
-                        type: "game/PRESENT_UI",
-                        payload: {
-                            ui: "marketplace",
-                            source: ""
-                        }
-                    });
-                })
-            };
-            if (document.getElementById("#btnSell")) {
-                document.getElementById("#btnSell").addEventListener("click", function() {
-                    console.log("Sell");
-                    ec.dispatch({
-                        type: "game/PRESENT_UI",
-                        payload: {
-                            ui: "marketplace-listings",
-                            source: ""
-                        }
-                    });
-                })
-            };
-        }
+{
+    if (document.getElementById("#btnBuy")) {
+        document.getElementById("#btnBuy").addEventListener("click", function() {
+            console.log("Buy");
+            ec.dispatch({
+                type: "game/PRESENT_UI",
+                payload: {
+                    ui: "marketplace",
+                    source: ""
+                }
+            });
+        })
+    };
+    if (document.getElementById("#btnSell")) {
+        document.getElementById("#btnSell").addEventListener("click", function() {
+            console.log("Sell");
+            ec.dispatch({
+                type: "game/PRESENT_UI",
+                payload: {
+                    ui: "marketplace-listings",
+                    source: ""
+                }
+            });
+        })
+    };
+}
         l.rV.gameObjectClicked.subscribe(e => {
             buyAndSell(r)
             var t, n, r, i, o, a, s;
@@ -20673,7 +20673,7 @@ localStorage.setItem('mapIDS',''); //manh
           , L = n.n(N);
         let M = 0;
         (0,
-        s.H)("game/PLAYER_CLICKED", (e, t) => {
+        s.H)("game/PLAYER_CLICKED", (e,t)=>{
             let n = Date.now();
             if (n - M < 150)
                 return;
@@ -20732,7 +20732,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ),
         (0,
-        s.H)(d.r5.type, e => {
+        s.H)(d.r5.type, e=>{
             switch (e.path) {
             case "permissions.use":
                 l.ZP.emitEventNow(l.Yi.ROOM_PERMISSIONS, {
@@ -20757,12 +20757,12 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ),
         (0,
-        s.H)("mapEditor/addMember", e => {
+        s.H)("mapEditor/addMember", e=>{
             l.ZP.emitEventNow(l.Yi.ROOM_MEMBERS, e)
         }
         ),
         (0,
-        s.H)("game/PLAYER_COLLIDED_WITH_OBJECT", e => {
+        s.H)("game/PLAYER_COLLIDED_WITH_OBJECT", e=>{
             if (null == e ? void 0 : e.onCollide) {
                 let t = e.onCollide;
                 t.teleport && l.ZP.emitEventNow(l.fb.ROOM_WARP, {
@@ -20783,7 +20783,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ),
         (0,
-        s.H)("game/PLAYER_UNCOLLIDED_WITH_OBJECT", e => {
+        s.H)("game/PLAYER_UNCOLLIDED_WITH_OBJECT", e=>{
             if (null == e ? void 0 : e.onCollide) {
                 let t = e.onCollide;
                 t.teleport && l.ZP.emitEventNow(l.fb.ROOM_WARP, {
@@ -20803,7 +20803,7 @@ localStorage.setItem('mapIDS',''); //manh
             if (navigator.serviceWorker && "PushManager"in window)
                 return navigator.serviceWorker.register("/workers/push-worker.js?v=1").then(function(e) {
                     return o = e
-                }).catch( () => {
+                }).catch(()=>{
                     o = void 0
                 }
                 )
@@ -20863,7 +20863,7 @@ localStorage.setItem('mapIDS',''); //manh
         let H = "craft:"
           , W = !1;
         (0,
-        s.H)("game/PRESENT_UI", (e, t) => {
+        s.H)("game/PRESENT_UI", (e,t)=>{
             var n, r, i, o, a, s, h, p, m, v, y, E, _;
             let {ui: w, source: O} = e
               , A = e.params;
@@ -21056,13 +21056,13 @@ localStorage.setItem('mapIDS',''); //manh
             case "webpush":
                 if (W)
                     break;
-                G().then(e => {
+                G().then(e=>{
                     e && t.dispatch((0,
                     u.VG)({
                         prompt: null == A ? void 0 : A[0],
                         yesno: !0,
-                        callback: e => {
-                            "yes" === e ? q().then(e => {
+                        callback: e=>{
+                            "yes" === e ? q().then(e=>{
                                 if (e) {
                                     let t = JSON.parse(JSON.stringify(e));
                                     l.ZP.emitEventNow(l.Yi.PUSH_SUBSCRIBE, {
@@ -21076,7 +21076,7 @@ localStorage.setItem('mapIDS',''); //manh
                                     })
                                 }
                             }
-                            ).catch(e => {
+                            ).catch(e=>{
                                 console.log(e)
                             }
                             ) : "no" === e && (W = !0)
@@ -21110,7 +21110,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ),
         (0,
-        s.H)(I.oi.type, e => {
+        s.H)(I.oi.type, e=>{
             let {sourceIndex: t, targetIndex: n, sourceContainer: r, targetContainer: i} = e;
             (t !== n || r !== i) && l.rV.inventory.swapItems.emit(e)
         }
@@ -21118,7 +21118,7 @@ localStorage.setItem('mapIDS',''); //manh
         var K = n(75268)
           , J = n(25904);
         (0,
-        s.H)("game/".concat(l.fb.PLAYER_EXP_CHANGE), (e, t) => {
+        s.H)("game/".concat(l.fb.PLAYER_EXP_CHANGE), (e,t)=>{
             var n, r, i;
             let o = null === (n = t.getState().game.player) || void 0 === n ? void 0 : n.full;
             if (!o)
@@ -21127,35 +21127,35 @@ localStorage.setItem('mapIDS',''); //manh
               , s = e.levels
               , l = []
               , u = o.quests;
-            !Y.Skills.every(e => {
+            !Y.Skills.every(e=>{
                 var t, n;
                 return ((null === (t = a[e]) || void 0 === t ? void 0 : t.level) || 0) === ((null === (n = s[e]) || void 0 === n ? void 0 : n.level) || 0)
             }
-            ) && (null === (r = Object.values(b.Z.getGameItems() || {}).filter(e => {
+            ) && (null === (r = Object.values(b.Z.getGameItems() || {}).filter(e=>{
                 var t, n;
-                return null == e ? void 0 : null === (n = e.requirements) || void 0 === n ? void 0 : null === (t = n.levels) || void 0 === t ? void 0 : t.some(e => {
+                return null == e ? void 0 : null === (n = e.requirements) || void 0 === n ? void 0 : null === (t = n.levels) || void 0 === t ? void 0 : t.some(e=>{
                     let {levelType: t, level: n} = e;
                     return !!Y.Skills.includes(t) && n >= 0
                 }
                 )
             }
-            )) || void 0 === r || r.filter(e => {
+            )) || void 0 === r || r.filter(e=>{
                 var t, n;
-                return (null === (t = e.requirements.levels) || void 0 === t ? void 0 : t.some(e => {
+                return (null === (t = e.requirements.levels) || void 0 === t ? void 0 : t.some(e=>{
                     var t;
                     return e.level > ((null === (t = a[e.levelType]) || void 0 === t ? void 0 : t.level) || 0)
                 }
-                )) && e.requirements.levels.every(e => {
+                )) && e.requirements.levels.every(e=>{
                     var t;
                     return ((null === (t = s[e.levelType]) || void 0 === t ? void 0 : t.level) || 0) >= e.level
                 }
-                ) && (!(null === (n = e.requirements) || void 0 === n ? void 0 : n.quests) || e.requirements.quests.every(e => {
+                ) && (!(null === (n = e.requirements) || void 0 === n ? void 0 : n.quests) || e.requirements.quests.every(e=>{
                     var t;
                     return null === (t = u[e]) || void 0 === t ? void 0 : t.isComplete
                 }
                 ))
             }
-            ).forEach(e => l.push({
+            ).forEach(e=>l.push({
                 source: "item",
                 icon: e.image,
                 text: {
@@ -21165,11 +21165,11 @@ localStorage.setItem('mapIDS',''); //manh
                 },
                 deduplicationKey: "notifications.itemUnlocked-".concat(e.id)
             })),
-            null === (i = Object.values(b.Z.getGameAchievements() || {}).filter(e => {
+            null === (i = Object.values(b.Z.getGameAchievements() || {}).filter(e=>{
                 var t;
                 return (null === (t = e.craftable) || void 0 === t ? void 0 : t.autoGrant) && e.craftable.requiredLevel > 0
             }
-            )) || void 0 === i || i.filter(e => {
+            )) || void 0 === i || i.filter(e=>{
                 var t, n;
                 if (!e.craftable || (0,
                 J.aG)(o.achievements, e.id))
@@ -21181,7 +21181,7 @@ localStorage.setItem('mapIDS',''); //manh
                 let l = (null === (t = a[i]) || void 0 === t ? void 0 : t.level) || 0;
                 return ((null === (n = s[i]) || void 0 === n ? void 0 : n.level) || 0) >= r && l < r
             }
-            ).forEach(e => {
+            ).forEach(e=>{
                 let t = e.craftable.requiredSkill;
                 l.push({
                     source: "achievement",
@@ -21200,7 +21200,7 @@ localStorage.setItem('mapIDS',''); //manh
         ),
         n(69980),
         (0,
-        s.H)(I.$Z.type, (e, t) => {
+        s.H)(I.$Z.type, (e,t)=>{
             let {mid: n, item: r} = e;
             !n && r && function(e, t) {
                 if (e) {
@@ -21276,12 +21276,12 @@ localStorage.setItem('mapIDS',''); //manh
         }
         let en = new Map;
         (0,
-        s.H)("game/CLIENT_CMD", e => {
+        s.H)("game/CLIENT_CMD", e=>{
             var t, n, r, i, o, a, s, u, c, d;
             let {detail: f, source: h, params: p} = e;
             switch (f) {
             case "petHatch":
-                h && X.Z.hatchPet(h).then(e => {
+                h && X.Z.hatchPet(h).then(e=>{
                     var t, n;
                     "success" === e ? l.ZP.sendEventDelayed(T.mY.clickEntity, {
                         mid: h,
@@ -21299,7 +21299,7 @@ localStorage.setItem('mapIDS',''); //manh
                 try {
                     let e = parseInt((null !== (t = null == p ? void 0 : p[0]) && void 0 !== t ? t : 1).toString())
                       , n = null == p ? void 0 : p[1];
-                    h && n && et(n).then(t => {
+                    h && n && et(n).then(t=>{
                         t && (l.ZP.emitEventNow("TEXTURE_UPDATE", {
                             mid: h,
                             layer: e,
@@ -21322,14 +21322,14 @@ localStorage.setItem('mapIDS',''); //manh
                 try {
                     let e = ec.getState()
                       , t = null !== (d = null == p ? void 0 : p[0]) && void 0 !== d ? d : "cbRoninCall"
-                      , l = null === (i = e.game.player) || void 0 === i ? void 0 : null === (r = i.full) || void 0 === r ? void 0 : null === (n = r.cryptoWallets) || void 0 === n ? void 0 : n.map(e => e.address);
+                      , l = null === (i = e.game.player) || void 0 === i ? void 0 : null === (r = i.full) || void 0 === r ? void 0 : null === (n = r.cryptoWallets) || void 0 === n ? void 0 : n.map(e=>e.address);
                     null === (c = window.ronin) || void 0 === c || null === (u = c.provider) || void 0 === u || null === (s = u[t]) || void 0 === s || s.call(u, {
                         userId: null === (a = e.game.player) || void 0 === a ? void 0 : null === (o = a.core) || void 0 === o ? void 0 : o.mid,
                         addresses: l
-                    }).then(e => {
+                    }).then(e=>{
                         console.log("Ronin injected function result: ", e)
                     }
-                    ).catch(e => {
+                    ).catch(e=>{
                         console.log("Ronin injected function ERROR: ", e)
                     }
                     )
@@ -21341,7 +21341,7 @@ localStorage.setItem('mapIDS',''); //manh
         );
         var er = n(32701);
         (0,
-        s.H)("game/PLAYER_COIN_INVENTORY_CHANGE", e => {
+        s.H)("game/PLAYER_COIN_INVENTORY_CHANGE", e=>{
             e.added > 0 && ((null == e ? void 0 : e.currencyId) === "cur_pixel" && (0,
             er.T)("pixel"),
             (null == e ? void 0 : e.currencyId) === "cur_coins" && (0,
@@ -21371,9 +21371,9 @@ localStorage.setItem('mapIDS',''); //manh
                 mapEditor: d.ZP,
                 crafting: D.ZP
             },
-            middleware: e => e().concat(e => t => n => {
+            middleware: e=>e().concat(e=>t=>n=>{
                 if (n.type === h.Kx.type)
-                    (async () => {
+                    (async()=>{
                         try {
                             var t, r, i, o;
                             let a = null !== (i = (0,
@@ -21423,7 +21423,7 @@ localStorage.setItem('mapIDS',''); //manh
                     ;
                 else if (h.MD.match(n)) {
                     let {username: t, avatar: r} = n.payload;
-                    (async () => {
+                    (async()=>{
                         if (ei.Z.sessionToken) {
                             var n, i, o, a;
                             try {
@@ -21453,8 +21453,8 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                     )()
                 } else
-                    n.type === f.ni.type && (async () => {
-                        ei.Z.sessionToken && ei.Z.signOut().catch(e => {
+                    n.type === f.ni.type && (async()=>{
+                        ei.Z.sessionToken && ei.Z.signOut().catch(e=>{
                             console.log("error signing out", e)
                         }
                         ),
@@ -21464,7 +21464,7 @@ localStorage.setItem('mapIDS',''); //manh
                     )();
                 return t(n)
             }
-            ).concat(e => t => n => {
+            ).concat(e=>t=>n=>{
                 let r = s.q[n.type];
                 return r && r(n.payload, e),
                 t(n)
@@ -23297,7 +23297,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
         });
         var r, i, o, a, s = n(67294), l = Object.defineProperty, u = {};
-        ( (e, t) => {
+        ((e,t)=>{
             for (var n in t)
                 l(e, n, {
                     get: t[n],
@@ -23305,28 +23305,28 @@ localStorage.setItem('mapIDS',''); //manh
                 })
         }
         )(u, {
-            assign: () => B,
-            colors: () => U,
-            createStringInterpolator: () => i,
-            skipAnimation: () => $,
-            to: () => o,
-            willAdvance: () => V
+            assign: ()=>B,
+            colors: ()=>U,
+            createStringInterpolator: ()=>i,
+            skipAnimation: ()=>$,
+            to: ()=>o,
+            willAdvance: ()=>V
         });
         var c = P()
-          , d = e => w(e, c)
+          , d = e=>w(e, c)
           , f = P();
-        d.write = e => w(e, f);
+        d.write = e=>w(e, f);
         var h = P();
-        d.onStart = e => w(e, h);
+        d.onStart = e=>w(e, h);
         var p = P();
-        d.onFrame = e => w(e, p);
+        d.onFrame = e=>w(e, p);
         var g = P();
-        d.onFinish = e => w(e, g);
+        d.onFinish = e=>w(e, g);
         var m = [];
-        d.setTimeout = (e, t) => {
+        d.setTimeout = (e,t)=>{
             let n = d.now() + t
-              , r = () => {
-                let e = m.findIndex(e => e.cancel == r);
+              , r = ()=>{
+                let e = m.findIndex(e=>e.cancel == r);
                 ~e && m.splice(e, 1),
                 E -= ~e ? 1 : 0
             }
@@ -23341,8 +23341,8 @@ localStorage.setItem('mapIDS',''); //manh
             i
         }
         ;
-        var v = e => ~(~m.findIndex(t => t.time > e) || ~m.length);
-        d.cancel = e => {
+        var v = e=>~(~m.findIndex(t=>t.time > e) || ~m.length);
+        d.cancel = e=>{
             h.delete(e),
             p.delete(e),
             g.delete(e),
@@ -23350,13 +23350,13 @@ localStorage.setItem('mapIDS',''); //manh
             f.delete(e)
         }
         ,
-        d.sync = e => {
+        d.sync = e=>{
             _ = !0,
             d.batchedUpdates(e),
             _ = !1
         }
         ,
-        d.throttle = e => {
+        d.throttle = e=>{
             let t;
             function n() {
                 try {
@@ -23370,7 +23370,7 @@ localStorage.setItem('mapIDS',''); //manh
                 d.onStart(n)
             }
             return r.handler = e,
-            r.cancel = () => {
+            r.cancel = ()=>{
                 h.delete(n),
                 t = null
             }
@@ -23378,14 +23378,14 @@ localStorage.setItem('mapIDS',''); //manh
             r
         }
         ;
-        var y = "undefined" != typeof window ? window.requestAnimationFrame : () => {}
+        var y = "undefined" != typeof window ? window.requestAnimationFrame : ()=>{}
         ;
-        d.use = e => y = e,
-        d.now = "undefined" != typeof performance ? () => performance.now() : Date.now,
-        d.batchedUpdates = e => e(),
+        d.use = e=>y = e,
+        d.now = "undefined" != typeof performance ? ()=>performance.now() : Date.now,
+        d.batchedUpdates = e=>e(),
         d.catch = console.error,
         d.frameLoop = "always",
-        d.advance = () => {
+        d.advance = ()=>{
             "demand" !== d.frameLoop ? console.warn("Cannot call the manual advancement of rafz whilst frameLoop is not set as demand") : S()
         }
         ;
@@ -23408,7 +23408,7 @@ localStorage.setItem('mapIDS',''); //manh
         function S() {
             let e = b
               , t = v(b = d.now());
-            if (t && (I(m.splice(0, t), e => e.handler()),
+            if (t && (I(m.splice(0, t), e=>e.handler()),
             E -= t),
             !E) {
                 b = -1;
@@ -23428,19 +23428,19 @@ localStorage.setItem('mapIDS',''); //manh
                     E += t != e || e.has(n) ? 0 : 1,
                     e.add(n)
                 },
-                delete: n => (E -= t == e && e.has(n) ? 1 : 0,
+                delete: n=>(E -= t == e && e.has(n) ? 1 : 0,
                 e.delete(n)),
                 flush(n) {
                     t.size && (e = new Set,
                     E -= t.size,
-                    I(t, t => t(n) && e.add(t)),
+                    I(t, t=>t(n) && e.add(t)),
                     E += e.size,
                     t = e)
                 }
             }
         }
         function I(e, t) {
-            e.forEach(e => {
+            e.forEach(e=>{
                 try {
                     t(e)
                 } catch (e) {
@@ -23450,18 +23450,18 @@ localStorage.setItem('mapIDS',''); //manh
             )
         }
         function R() {}
-        var T = (e, t, n) => Object.defineProperty(e, t, {
+        var T = (e,t,n)=>Object.defineProperty(e, t, {
             value: n,
             writable: !0,
             configurable: !0
         })
           , x = {
             arr: Array.isArray,
-            obj: e => !!e && "Object" === e.constructor.name,
-            fun: e => "function" == typeof e,
-            str: e => "string" == typeof e,
-            num: e => "number" == typeof e,
-            und: e => void 0 === e
+            obj: e=>!!e && "Object" === e.constructor.name,
+            fun: e=>"function" == typeof e,
+            str: e=>"string" == typeof e,
+            num: e=>"number" == typeof e,
+            und: e=>void 0 === e
         };
         function k(e, t) {
             if (x.arr(e)) {
@@ -23474,7 +23474,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             return e === t
         }
-        var C = (e, t) => e.forEach(t);
+        var C = (e,t)=>e.forEach(t);
         function N(e, t, n) {
             if (x.arr(e)) {
                 for (let r = 0; r < e.length; r++)
@@ -23484,7 +23484,7 @@ localStorage.setItem('mapIDS',''); //manh
             for (let r in e)
                 e.hasOwnProperty(r) && t.call(n, e[r], r)
         }
-        var L = e => x.und(e) ? [] : x.arr(e) ? e : [e];
+        var L = e=>x.und(e) ? [] : x.arr(e) ? e : [e];
         function M(e, t) {
             if (e.size) {
                 let n = Array.from(e);
@@ -23492,12 +23492,12 @@ localStorage.setItem('mapIDS',''); //manh
                 C(n, t)
             }
         }
-        var D = (e, ...t) => M(e, e => e(...t))
-          , j = () => "undefined" == typeof window || !window.navigator || /ServerSideRendering|^Deno\//.test(window.navigator.userAgent)
+        var D = (e,...t)=>M(e, e=>e(...t))
+          , j = ()=>"undefined" == typeof window || !window.navigator || /ServerSideRendering|^Deno\//.test(window.navigator.userAgent)
           , U = null
           , $ = !1
           , V = R
-          , B = e => {
+          , B = e=>{
             e.to && (o = e.to),
             e.now && (d.now = e.now),
             void 0 !== e.colors && (U = e.colors),
@@ -23524,7 +23524,7 @@ localStorage.setItem('mapIDS',''); //manh
             advance: K,
             sort(e) {
                 if (Y)
-                    d.onFrame( () => Z.sort(e));
+                    d.onFrame(()=>Z.sort(e));
                 else {
                     let t = q.indexOf(e);
                     ~t && (q.splice(t, 1),
@@ -23548,7 +23548,7 @@ localStorage.setItem('mapIDS',''); //manh
             q.splice(function(e, t) {
                 let n = e.findIndex(t);
                 return n < 0 ? e.length : n
-            }(q, t => t.priority > e.priority), 0, e)
+            }(q, t=>t.priority > e.priority), 0, e)
         }
         function K(e) {
             let t = G;
@@ -23612,7 +23612,7 @@ localStorage.setItem('mapIDS',''); //manh
               , a = (255 & n) / 255;
             return `rgba(${r}, ${i}, ${o}, ${a})`
         }
-        var eg = (e, t, n) => {
+        var eg = (e,t,n)=>{
             if (x.fun(e))
                 return e;
             if (x.arr(e))
@@ -23627,8 +23627,8 @@ localStorage.setItem('mapIDS',''); //manh
               , o = e.range || [0, 1]
               , a = e.extrapolateLeft || e.extrapolate || "extend"
               , s = e.extrapolateRight || e.extrapolate || "extend"
-              , l = e.easing || (e => e);
-            return t => {
+              , l = e.easing || (e=>e);
+            return t=>{
                 let n = function(e, t) {
                     for (var n = 1; n < t.length - 1 && !(t[n] >= e); ++n)
                         ;
@@ -23655,12 +23655,12 @@ localStorage.setItem('mapIDS',''); //manh
         }
           , em = Symbol.for("FluidValue.get")
           , ev = Symbol.for("FluidValue.observers")
-          , ey = e => !!(e && e[em])
-          , eb = e => e && e[em] ? e[em]() : e
-          , eE = e => e[ev] || null;
+          , ey = e=>!!(e && e[em])
+          , eb = e=>e && e[em] ? e[em]() : e
+          , eE = e=>e[ev] || null;
         function e_(e, t) {
             let n = e[ev];
-            n && n.forEach(e => {
+            n && n.forEach(e=>{
                 e.eventObserved ? e.eventObserved(t) : e(t)
             }
             )
@@ -23672,7 +23672,7 @@ localStorage.setItem('mapIDS',''); //manh
                 eO(this, e)
             }
         }
-          , eO = (e, t) => eP(e, em, t);
+          , eO = (e,t)=>eP(e, em, t);
         function eA(e, t) {
             if (e[em]) {
                 let n = e[ev];
@@ -23690,7 +23690,7 @@ localStorage.setItem('mapIDS',''); //manh
                 e.observerRemoved && e.observerRemoved(r, t)
             }
         }
-        var eP = (e, t, n) => Object.defineProperty(e, t, {
+        var eP = (e,t,n)=>Object.defineProperty(e, t, {
             value: n,
             writable: !0,
             configurable: !0
@@ -23700,7 +23700,7 @@ localStorage.setItem('mapIDS',''); //manh
           , eT = RegExp(`(${eI.source})(%|[a-z]+)`, "i")
           , ex = /rgba\(([0-9\.-]+), ([0-9\.-]+), ([0-9\.-]+), ([0-9\.-]+)\)/gi
           , ek = /var\((--[a-zA-Z0-9-_]+),? ?([a-zA-Z0-9 ()%#.,-]+)?\)/
-          , eC = e => {
+          , eC = e=>{
             let[t,n] = eN(e);
             if (!t || j())
                 return e;
@@ -23717,39 +23717,39 @@ localStorage.setItem('mapIDS',''); //manh
                 return n;
             return e
         }
-          , eN = e => {
+          , eN = e=>{
             let t = ek.exec(e);
             if (!t)
                 return [, ];
             let[,n,r] = t;
             return [n, r]
         }
-          , eL = (e, t, n, r, i) => `rgba(${Math.round(t)}, ${Math.round(n)}, ${Math.round(r)}, ${i})`
-          , eM = e => {
+          , eL = (e,t,n,r,i)=>`rgba(${Math.round(t)}, ${Math.round(n)}, ${Math.round(r)}, ${i})`
+          , eM = e=>{
             a || (a = U ? RegExp(`(${Object.keys(U).join("|")})(?!\\w)`, "g") : /^\b$/);
-            let t = e.output.map(e => eb(e).replace(ek, eC).replace(eR, ep).replace(a, ep))
-              , n = t.map(e => e.match(eI).map(Number))
-              , r = n[0].map( (e, t) => n.map(e => {
+            let t = e.output.map(e=>eb(e).replace(ek, eC).replace(eR, ep).replace(a, ep))
+              , n = t.map(e=>e.match(eI).map(Number))
+              , r = n[0].map((e,t)=>n.map(e=>{
                 if (!(t in e))
                     throw Error('The arity of each "output" value must be equal');
                 return e[t]
             }
-            )).map(t => eg({
+            )).map(t=>eg({
                 ...e,
                 output: t
             }));
-            return e => {
-                let n = !eT.test(t[0]) && t.find(e => eT.test(e))?.replace(eI, "")
+            return e=>{
+                let n = !eT.test(t[0]) && t.find(e=>eT.test(e))?.replace(eI, "")
                   , i = 0;
-                return t[0].replace(eI, () => `${r[i++](e)}${n || ""}`).replace(ex, eL)
+                return t[0].replace(eI, ()=>`${r[i++](e)}${n || ""}`).replace(ex, eL)
             }
         }
           , eD = "react-spring: "
-          , ej = e => {
+          , ej = e=>{
             let t = !1;
             if ("function" != typeof e)
                 throw TypeError(`${eD}once requires a function parameter`);
-            return (...n) => {
+            return (...n)=>{
                 t || (e(...n),
                 t = !0)
             }
@@ -23760,11 +23760,11 @@ localStorage.setItem('mapIDS',''); //manh
             return x.str(e) && ("#" == e[0] || /\d/.test(e) || !j() && ek.test(e) || e in (U || {}))
         }
         var eB = j() ? s.useEffect : s.useLayoutEffect
-          , eF = () => {
+          , eF = ()=>{
             let e = (0,
             s.useRef)(!1);
-            return eB( () => (e.current = !0,
-            () => {
+            return eB(()=>(e.current = !0,
+            ()=>{
                 e.current = !1
             }
             ), []),
@@ -23775,28 +23775,28 @@ localStorage.setItem('mapIDS',''); //manh
             let e = (0,
             s.useState)()[1]
               , t = eF();
-            return () => {
+            return ()=>{
                 t.current && e(Math.random())
             }
         }
-        var eG = e => (0,
+        var eG = e=>(0,
         s.useEffect)(e, eY)
           , eY = [];
         function eZ(e) {
             let t = (0,
             s.useRef)();
             return (0,
-            s.useEffect)( () => {
+            s.useEffect)(()=>{
                 t.current = e
             }
             ),
             t.current
         }
         var ez = Symbol.for("Animated:node")
-          , eH = e => !!e && e[ez] === e
-          , eW = e => e && e[ez]
-          , eK = (e, t) => T(e, ez, t)
-          , eJ = e => e && e[ez] && e[ez].getPayload()
+          , eH = e=>!!e && e[ez] === e
+          , eW = e=>e && e[ez]
+          , eK = (e,t)=>T(e, ez, t)
+          , eJ = e=>e && e[ez] && e[ez].getPayload()
           , eX = class {
             constructor() {
                 eK(this, this)
@@ -23886,7 +23886,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             getValue(e) {
                 let t = {};
-                return N(this.source, (n, r) => {
+                return N(this.source, (n,r)=>{
                     eH(n) ? t[r] = n.getValue(e) : ey(n) ? t[r] = eb(n) : e || (t[r] = n)
                 }
                 ),
@@ -23897,7 +23897,7 @@ localStorage.setItem('mapIDS',''); //manh
                 this.payload = this._makePayload(e)
             }
             reset() {
-                this.payload && C(this.payload, e => e.reset())
+                this.payload && C(this.payload, e=>e.reset())
             }
             _makePayload(e) {
                 if (e) {
@@ -23909,7 +23909,7 @@ localStorage.setItem('mapIDS',''); //manh
             _addToPayload(e) {
                 e1.dependencies && ey(e) && e1.dependencies.add(e);
                 let t = eJ(e);
-                t && C(t, e => this.add(e))
+                t && C(t, e=>this.add(e))
             }
         }
           , e3 = class extends e2 {
@@ -23920,11 +23920,11 @@ localStorage.setItem('mapIDS',''); //manh
                 return new e3(e)
             }
             getValue() {
-                return this.source.map(e => e.getValue())
+                return this.source.map(e=>e.getValue())
             }
             setValue(e) {
                 let t = this.getPayload();
-                return e.length == t.length ? t.map( (t, n) => t.setValue(e[n])).some(Boolean) : (super.setValue(e.map(e4)),
+                return e.length == t.length ? t.map((t,n)=>t.setValue(e[n])).some(Boolean) : (super.setValue(e.map(e4)),
                 !0)
             }
         }
@@ -23936,14 +23936,14 @@ localStorage.setItem('mapIDS',''); //manh
             let t = eW(e);
             return t ? t.constructor : x.arr(e) ? e3 : eV(e) ? e0 : eQ
         }
-        var e5 = (e, t) => {
+        var e5 = (e,t)=>{
             let n = !x.fun(e) || e.prototype && e.prototype.isReactComponent;
             return (0,
-            s.forwardRef)( (r, i) => {
+            s.forwardRef)((r,i)=>{
                 let o = (0,
                 s.useRef)(null)
                   , a = n && (0,
-                s.useCallback)(e => {
+                s.useCallback)(e=>{
                     o.current = (i && (x.fun(i) ? i(e) : i.current = e),
                     e)
                 }
@@ -23960,25 +23960,25 @@ localStorage.setItem('mapIDS',''); //manh
                     [e, n]
                 }(r, t)
                   , c = eq()
-                  , f = () => {
+                  , f = ()=>{
                     let e = o.current;
                     (!n || e) && !1 === (!!e && t.applyAnimatedValues(e, l.getValue(!0))) && c()
                 }
                   , h = new e8(f,u)
                   , p = (0,
                 s.useRef)();
-                eB( () => (p.current = h,
-                C(u, e => eA(e, h)),
-                () => {
-                    p.current && (C(p.current.deps, e => eS(e, p.current)),
+                eB(()=>(p.current = h,
+                C(u, e=>eA(e, h)),
+                ()=>{
+                    p.current && (C(p.current.deps, e=>eS(e, p.current)),
                     d.cancel(p.current.update))
                 }
                 )),
                 (0,
                 s.useEffect)(f, []),
-                eG( () => () => {
+                eG(()=>()=>{
                     let e = p.current;
-                    C(e.deps, t => eS(t, e))
+                    C(e.deps, t=>eS(t, e))
                 }
                 );
                 let g = t.getComponentProps(l.getValue());
@@ -23999,15 +23999,15 @@ localStorage.setItem('mapIDS',''); //manh
             }
         }
           , e9 = Symbol.for("AnimatedComponent")
-          , e7 = e => x.str(e) ? e : e && x.str(e.displayName) ? e.displayName : x.fun(e) && e.name || null;
+          , e7 = e=>x.str(e) ? e : e && x.str(e.displayName) ? e.displayName : x.fun(e) && e.name || null;
         function te(e, ...t) {
             return x.fun(e) ? e(...t) : e
         }
-        var tt = (e, t) => !0 === e || !!(t && e && (x.fun(e) ? e(t) : L(e).includes(t)))
-          , tn = (e, t) => x.obj(e) ? t && e[t] : e
-          , tr = (e, t) => !0 === e.default ? e[t] : e.default ? e.default[t] : void 0
-          , ti = e => e
-          , to = (e, t=ti) => {
+        var tt = (e,t)=>!0 === e || !!(t && e && (x.fun(e) ? e(t) : L(e).includes(t)))
+          , tn = (e,t)=>x.obj(e) ? t && e[t] : e
+          , tr = (e,t)=>!0 === e.default ? e[t] : e.default ? e.default[t] : void 0
+          , ti = e=>e
+          , to = (e,t=ti)=>{
             let n = ta;
             e.default && !0 !== e.default && (n = Object.keys(e = e.default));
             let r = {};
@@ -24056,7 +24056,7 @@ localStorage.setItem('mapIDS',''); //manh
             let t = function(e) {
                 let t = {}
                   , n = 0;
-                if (N(e, (e, r) => {
+                if (N(e, (e,r)=>{
                     !ts[r] && (t[r] = e,
                     n++)
                 }
@@ -24068,7 +24068,7 @@ localStorage.setItem('mapIDS',''); //manh
                 let n = {
                     to: t
                 };
-                return N(e, (e, r) => r in t || (n[r] = e)),
+                return N(e, (e,r)=>r in t || (n[r] = e)),
                 n
             }
             return {
@@ -24090,7 +24090,7 @@ localStorage.setItem('mapIDS',''); //manh
             friction: 26,
             mass: 1,
             damping: 1,
-            easing: e => e,
+            easing: e=>e,
             clamp: !1
         }
           , tf = class {
@@ -24122,7 +24122,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ;
         function tm(e, {key: t, props: n, defaultProps: r, state: i, actions: o}) {
-            return new Promise( (a, s) => {
+            return new Promise((a,s)=>{
                 let l, c;
                 let f = tt(n.cancel ?? r?.cancel, t);
                 if (f)
@@ -24166,19 +24166,19 @@ localStorage.setItem('mapIDS',''); //manh
             }
             )
         }
-        var tv = (e, t) => 1 == t.length ? t[0] : t.some(e => e.cancelled) ? tE(e.get()) : t.every(e => e.noop) ? ty(e.get()) : tb(e.get(), t.every(e => e.finished))
-          , ty = e => ({
+        var tv = (e,t)=>1 == t.length ? t[0] : t.some(e=>e.cancelled) ? tE(e.get()) : t.every(e=>e.noop) ? ty(e.get()) : tb(e.get(), t.every(e=>e.finished))
+          , ty = e=>({
             value: e,
             noop: !0,
             finished: !0,
             cancelled: !1
         })
-          , tb = (e, t, n=!1) => ({
+          , tb = (e,t,n=!1)=>({
             value: e,
             finished: t,
             cancelled: n
         })
-          , tE = e => ({
+          , tE = e=>({
             value: e,
             cancelled: !0,
             finished: !1
@@ -24186,24 +24186,24 @@ localStorage.setItem('mapIDS',''); //manh
         function t_(e, t, n, r) {
             let {callId: i, parentId: o, onRest: a} = t
               , {asyncTo: s, promise: l} = n;
-            return o || e !== s || t.reset ? n.promise = (async () => {
+            return o || e !== s || t.reset ? n.promise = (async()=>{
                 let c, f, h;
                 n.asyncId = i,
                 n.asyncTo = e;
-                let p = to(t, (e, t) => "onRest" === t ? void 0 : e)
-                  , g = new Promise( (e, t) => (c = e,
+                let p = to(t, (e,t)=>"onRest" === t ? void 0 : e)
+                  , g = new Promise((e,t)=>(c = e,
                 f = t))
-                  , m = e => {
+                  , m = e=>{
                     let t = i <= (n.cancelId || 0) && tE(r) || i !== n.asyncId && tb(r, !1);
                     if (t)
                         throw e.result = t,
                         f(e),
                         e
                 }
-                  , v = (e, t) => {
+                  , v = (e,t)=>{
                     let o = new tO
                       , a = new tA;
-                    return (async () => {
+                    return (async()=>{
                         if (u.skipAnimation)
                             throw tw(n),
                             a.result = tb(r, !1),
@@ -24217,13 +24217,13 @@ localStorage.setItem('mapIDS',''); //manh
                             to: e
                         };
                         s.parentId = i,
-                        N(p, (e, t) => {
+                        N(p, (e,t)=>{
                             x.und(s[t]) && (s[t] = e)
                         }
                         );
                         let l = await r.start(s);
                         return m(o),
-                        n.paused && await new Promise(e => {
+                        n.paused && await new Promise(e=>{
                             n.resumeQueue.add(e)
                         }
                         ),
@@ -24237,7 +24237,7 @@ localStorage.setItem('mapIDS',''); //manh
                     tb(r, !1);
                 try {
                     let t;
-                    t = x.arr(e) ? (async e => {
+                    t = x.arr(e) ? (async e=>{
                         for (let t of e)
                             await v(t)
                     }
@@ -24256,7 +24256,7 @@ localStorage.setItem('mapIDS',''); //manh
                     n.asyncTo = o ? s : void 0,
                     n.promise = o ? l : void 0)
                 }
-                return x.fun(a) && d.batchedUpdates( () => {
+                return x.fun(a) && d.batchedUpdates(()=>{
                     a(h, r, r.item)
                 }
                 ),
@@ -24265,7 +24265,7 @@ localStorage.setItem('mapIDS',''); //manh
             )() : l
         }
         function tw(e, t) {
-            M(e.timeouts, e => e.cancel()),
+            M(e.timeouts, e=>e.cancel()),
             e.pauseQueue.clear(),
             e.resumeQueue.clear(),
             e.asyncId = e.asyncTo = e.promise = void 0,
@@ -24281,7 +24281,7 @@ localStorage.setItem('mapIDS',''); //manh
                 super("SkipAnimationSignal")
             }
         }
-          , tS = e => e instanceof tI
+          , tS = e=>e instanceof tI
           , tP = 1
           , tI = class extends ew {
             constructor() {
@@ -24336,11 +24336,11 @@ localStorage.setItem('mapIDS',''); //manh
             }
         }
           , tR = Symbol.for("SpringPhase")
-          , tT = e => (1 & e[tR]) > 0
-          , tx = e => (2 & e[tR]) > 0
-          , tk = e => (4 & e[tR]) > 0
-          , tC = (e, t) => t ? e[tR] |= 3 : e[tR] &= -3
-          , tN = (e, t) => t ? e[tR] |= 4 : e[tR] &= -5
+          , tT = e=>(1 & e[tR]) > 0
+          , tx = e=>(2 & e[tR]) > 0
+          , tk = e=>(4 & e[tR]) > 0
+          , tC = (e,t)=>t ? e[tR] |= 3 : e[tR] &= -3
+          , tN = (e,t)=>t ? e[tR] |= 4 : e[tR] &= -5
           , tL = class extends tI {
             constructor(e, t) {
                 if (super(),
@@ -24376,7 +24376,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             get velocity() {
                 let e = eW(this);
-                return e instanceof eQ ? e.lastVelocity || 0 : e.getPayload().map(e => e.lastVelocity || 0)
+                return e instanceof eQ ? e.lastVelocity || 0 : e.getPayload().map(e=>e.lastVelocity || 0)
             }
             get hasAnimated() {
                 return tT(this)
@@ -24398,7 +24398,7 @@ localStorage.setItem('mapIDS',''); //manh
                   , {config: o} = r
                   , a = eJ(r.to);
                 !a && ey(r.to) && (i = L(eb(r.to))),
-                r.values.forEach( (s, l) => {
+                r.values.forEach((s,l)=>{
                     if (s.done)
                         return;
                     let u = s.constructor == e0 ? 1 : a ? a[l].lastPosition : i[l]
@@ -24467,7 +24467,7 @@ localStorage.setItem('mapIDS',''); //manh
                     n && this._onChange(l)
             }
             set(e) {
-                return d.batchedUpdates( () => {
+                return d.batchedUpdates(()=>{
                     this._stop(),
                     this._focus(e),
                     this._set(e)
@@ -24488,7 +24488,7 @@ localStorage.setItem('mapIDS',''); //manh
             finish() {
                 if (tx(this)) {
                     let {to: e, config: t} = this.animation;
-                    d.batchedUpdates( () => {
+                    d.batchedUpdates(()=>{
                         this._onStart(),
                         t.decay || this._set(e, !1),
                         this._stop()
@@ -24508,13 +24508,13 @@ localStorage.setItem('mapIDS',''); //manh
                     ...t,
                     to: e
                 }],
-                Promise.all(n.map(e => this._update(e))).then(e => tv(this, e))
+                Promise.all(n.map(e=>this._update(e))).then(e=>tv(this, e))
             }
             stop(e) {
                 let {to: t} = this.animation;
                 return this._focus(this.get()),
                 tw(this._state, e && this._lastCallId),
-                d.batchedUpdates( () => this._stop(t, e)),
+                d.batchedUpdates(()=>this._stop(t, e)),
                 this
             }
             reset() {
@@ -24541,7 +24541,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             _update({...e}, t) {
                 let {key: n, defaultProps: r} = this;
-                e.default && Object.assign(r, to(e, (e, t) => /^on/.test(t) ? tn(e, n) : e)),
+                e.default && Object.assign(r, to(e, (e,t)=>/^on/.test(t) ? tn(e, n) : e)),
                 tV(this, e, "onProps"),
                 tB(this, "onProps", e, this);
                 let i = this._prepareNode(e);
@@ -24554,13 +24554,13 @@ localStorage.setItem('mapIDS',''); //manh
                     defaultProps: r,
                     state: o,
                     actions: {
-                        pause: () => {
+                        pause: ()=>{
                             tk(this) || (tN(this, !0),
                             D(o.pauseQueue),
                             tB(this, "onPause", tb(this, tM(this, this.animation.to)), this))
                         }
                         ,
-                        resume: () => {
+                        resume: ()=>{
                             tk(this) && (tN(this, !1),
                             tx(this) && this._resume(),
                             D(o.resumeQueue),
@@ -24569,7 +24569,7 @@ localStorage.setItem('mapIDS',''); //manh
                         ,
                         start: this._merge.bind(this, i)
                     }
-                }).then(n => {
+                }).then(n=>{
                     if (e.loop && n.finished && !(t && n.noop)) {
                         let t = tD(e);
                         if (t)
@@ -24655,11 +24655,11 @@ localStorage.setItem('mapIDS',''); //manh
                 A || E || this._set(l)),
                 P)) {
                     let {onRest: e} = s;
-                    C(t$, e => tV(this, t, e));
+                    C(t$, e=>tV(this, t, e));
                     let r = tb(this, tM(this, l));
                     D(this._pendingCalls, r),
                     this._pendingCalls.add(n),
-                    s.changed && d.batchedUpdates( () => {
+                    s.changed && d.batchedUpdates(()=>{
                         s.changed = !E,
                         e?.(r, this),
                         E ? te(a.onRest, r) : s.onStart?.(r, this)
@@ -24693,7 +24693,7 @@ localStorage.setItem('mapIDS',''); //manh
                     if (!e || !k(n, e.getValue())) {
                         let r = e6(n);
                         e && e.constructor == r ? e.setValue(n) : eK(this, r.create(n)),
-                        e && d.batchedUpdates( () => {
+                        e && d.batchedUpdates(()=>{
                             this._onChange(n, t)
                         }
                         )
@@ -24715,7 +24715,7 @@ localStorage.setItem('mapIDS',''); //manh
             _start() {
                 let e = this.animation;
                 eW(this).reset(eb(e.to)),
-                e.immediate || (e.fromValues = e.values.map(e => e.lastPosition)),
+                e.immediate || (e.fromValues = e.values.map(e=>e.lastPosition)),
                 tx(this) || (tC(this, !0),
                 tk(this) || this._resume())
             }
@@ -24726,7 +24726,7 @@ localStorage.setItem('mapIDS',''); //manh
                 if (tx(this)) {
                     tC(this, !1);
                     let n = this.animation;
-                    C(n.values, e => {
+                    C(n.values, e=>{
                         e.done = !0
                     }
                     ),
@@ -24774,7 +24774,7 @@ localStorage.setItem('mapIDS',''); //manh
             e
         }
         function tU(e, t) {
-            N(e, (e, n) => null != e && t.add(n))
+            N(e, (e,n)=>null != e && t.add(n))
         }
         var t$ = ["onStart", "onRest", "onChange", "onPause", "onResume"];
         function tV(e, t, n) {
@@ -24814,7 +24814,7 @@ localStorage.setItem('mapIDS',''); //manh
                 })
             }
             get idle() {
-                return !this._state.asyncTo && Object.values(this.springs).every(e => e.idle && !e.isDelayed && !e.isPaused)
+                return !this._state.asyncTo && Object.values(this.springs).every(e=>e.idle && !e.isDelayed && !e.isPaused)
             }
             get item() {
                 return this._item
@@ -24824,7 +24824,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             get() {
                 let e = {};
-                return this.each( (t, n) => e[n] = t.get()),
+                return this.each((t,n)=>e[n] = t.get()),
                 e
             }
             set(e) {
@@ -24847,10 +24847,10 @@ localStorage.setItem('mapIDS',''); //manh
                 if (!!e !== e && (t = e),
                 t) {
                     let n = this.springs;
-                    C(L(t), t => n[t].stop(!!e))
+                    C(L(t), t=>n[t].stop(!!e))
                 } else
                     tw(this._state, this._lastAsyncId),
-                    this.each(t => t.stop(!!e));
+                    this.each(t=>t.stop(!!e));
                 return this
             }
             pause(e) {
@@ -24860,7 +24860,7 @@ localStorage.setItem('mapIDS',''); //manh
                     });
                 else {
                     let t = this.springs;
-                    C(L(e), e => t[e].pause())
+                    C(L(e), e=>t[e].pause())
                 }
                 return this
             }
@@ -24871,7 +24871,7 @@ localStorage.setItem('mapIDS',''); //manh
                     });
                 else {
                     let t = this.springs;
-                    C(L(e), e => t[e].resume())
+                    C(L(e), e=>t[e].resume())
                 }
                 return this
             }
@@ -24883,20 +24883,20 @@ localStorage.setItem('mapIDS',''); //manh
                   , r = this._active.size > 0
                   , i = this._changed.size > 0;
                 (r && !this._started || i && !this._started) && (this._started = !0,
-                M(e, ([e,t]) => {
+                M(e, ([e,t])=>{
                     t.value = this.get(),
                     e(t, this, this._item)
                 }
                 ));
                 let o = !r && this._started
                   , a = i || o && n.size ? this.get() : null;
-                i && t.size && M(t, ([e,t]) => {
+                i && t.size && M(t, ([e,t])=>{
                     t.value = a,
                     e(t, this, this._item)
                 }
                 ),
                 o && (this._started = !1,
-                M(n, ([e,t]) => {
+                M(n, ([e,t])=>{
                     t.value = a,
                     e(t, this, this._item)
                 }
@@ -24916,7 +24916,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ;
         function tY(e, t) {
-            return Promise.all(t.map(t => tZ(e, t))).then(t => tv(e, t))
+            return Promise.all(t.map(t=>tZ(e, t))).then(t=>tv(e, t))
         }
         async function tZ(e, t, n) {
             let {keys: r, to: i, from: o, loop: a, onRest: s, onResolve: l} = t
@@ -24927,11 +24927,11 @@ localStorage.setItem('mapIDS',''); //manh
             let c = x.arr(i) || x.fun(i) ? i : void 0;
             c ? (t.to = void 0,
             t.onRest = void 0,
-            u && (u.onRest = void 0)) : C(tF, n => {
+            u && (u.onRest = void 0)) : C(tF, n=>{
                 let r = t[n];
                 if (x.fun(r)) {
                     let i = e._events[n];
-                    t[n] = ({finished: e, cancelled: t}) => {
+                    t[n] = ({finished: e, cancelled: t})=>{
                         let n = i.get(r);
                         n ? (e || (n.finished = !1),
                         t && (n.cancelled = !0)) : i.set(r, {
@@ -24948,7 +24948,7 @@ localStorage.setItem('mapIDS',''); //manh
             let f = e._state;
             !f.paused === t.pause ? (f.paused = t.pause,
             D(t.pause ? f.pauseQueue : f.resumeQueue)) : f.paused && (t.pause = !0);
-            let h = (r || Object.keys(e.springs)).map(n => e.springs[n].start(t))
+            let h = (r || Object.keys(e.springs)).map(n=>e.springs[n].start(t))
               , p = !0 === t.cancel || !0 === tr(t, "cancel");
             (c || p && f.asyncId) && h.push(tm(++e._lastAsyncId, {
                 props: t,
@@ -24963,7 +24963,7 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
             })),
-            f.paused && await new Promise(e => {
+            f.paused && await new Promise(e=>{
                 f.resumeQueue.add(e)
             }
             );
@@ -24974,27 +24974,27 @@ localStorage.setItem('mapIDS',''); //manh
                     return tJ(e, [n]),
                     tZ(e, n, !0)
             }
-            return l && d.batchedUpdates( () => l(g, e, e.item)),
+            return l && d.batchedUpdates(()=>l(g, e, e.item)),
             g
         }
         function tz(e, t) {
             let n = {
                 ...e.springs
             };
-            return t && C(L(t), e => {
+            return t && C(L(t), e=>{
                 x.und(e.keys) && (e = tj(e)),
                 x.obj(e.to) || (e = {
                     ...e,
                     to: void 0
                 }),
-                tK(n, e, e => tW(e))
+                tK(n, e, e=>tW(e))
             }
             ),
             tH(e, n),
             n
         }
         function tH(e, t) {
-            N(t, (t, n) => {
+            N(t, (t,n)=>{
                 e.springs[n] || (e.springs[n] = t,
                 eA(t, e))
             }
@@ -25007,25 +25007,25 @@ localStorage.setItem('mapIDS',''); //manh
             n
         }
         function tK(e, t, n) {
-            t.keys && C(t.keys, r => {
+            t.keys && C(t.keys, r=>{
                 (e[r] || (e[r] = n(r)))._prepareNode(t)
             }
             )
         }
         function tJ(e, t) {
-            C(t, t => {
-                tK(e.springs, t, t => tW(t, e))
+            C(t, t=>{
+                tK(e.springs, t, t=>tW(t, e))
             }
             )
         }
-        var tX = ({children: e, ...t}) => {
+        var tX = ({children: e, ...t})=>{
             let n = (0,
             s.useContext)(tQ)
               , r = t.pause || !!n.pause
               , i = t.immediate || !!n.immediate;
             t = function(e, t) {
                 let[n] = (0,
-                s.useState)( () => ({
+                s.useState)(()=>({
                     inputs: t,
                     result: e()
                 }))
@@ -25045,13 +25045,13 @@ localStorage.setItem('mapIDS',''); //manh
                     result: e()
                 }) : o = n,
                 (0,
-                s.useEffect)( () => {
+                s.useEffect)(()=>{
                     r.current = o,
                     i == n && (n.inputs = n.result = void 0)
                 }
                 , [o]),
                 o.result
-            }( () => ({
+            }(()=>({
                 pause: r,
                 immediate: i
             }), [r, i]);
@@ -25067,12 +25067,12 @@ localStorage.setItem('mapIDS',''); //manh
         tX);
         tX.Provider = tQ.Provider,
         tX.Consumer = tQ.Consumer;
-        var t0 = () => {
+        var t0 = ()=>{
             let e = []
               , t = function(t) {
                 e$(`${eD}Directly calling start instead of using the api object is deprecated in v9 (use ".start" instead), this will be removed in later 0.X.0 versions`);
                 let r = [];
-                return C(e, (e, i) => {
+                return C(e, (e,i)=>{
                     if (x.und(t))
                         r.push(e.start());
                     else {
@@ -25094,17 +25094,17 @@ localStorage.setItem('mapIDS',''); //manh
             }
             ,
             t.pause = function() {
-                return C(e, e => e.pause(...arguments)),
+                return C(e, e=>e.pause(...arguments)),
                 this
             }
             ,
             t.resume = function() {
-                return C(e, e => e.resume(...arguments)),
+                return C(e, e=>e.resume(...arguments)),
                 this
             }
             ,
             t.set = function(t) {
-                C(e, (e, n) => {
+                C(e, (e,n)=>{
                     let r = x.fun(t) ? t(n, e) : t;
                     r && e.set(r)
                 }
@@ -25113,7 +25113,7 @@ localStorage.setItem('mapIDS',''); //manh
             ,
             t.start = function(t) {
                 let n = [];
-                return C(e, (e, r) => {
+                return C(e, (e,r)=>{
                     if (x.und(t))
                         n.push(e.start());
                     else {
@@ -25126,12 +25126,12 @@ localStorage.setItem('mapIDS',''); //manh
             }
             ,
             t.stop = function() {
-                return C(e, e => e.stop(...arguments)),
+                return C(e, e=>e.stop(...arguments)),
                 this
             }
             ,
             t.update = function(t) {
-                return C(e, (e, n) => e.update(this._getProps(t, e, n))),
+                return C(e, (e,n)=>e.update(this._getProps(t, e, n))),
                 this
             }
             ;
@@ -25148,19 +25148,19 @@ localStorage.setItem('mapIDS',''); //manh
                 let r = x.fun(t) && t;
                 r && !n && (n = []);
                 let i = (0,
-                s.useMemo)( () => r || 3 == arguments.length ? t0() : void 0, [])
+                s.useMemo)(()=>r || 3 == arguments.length ? t0() : void 0, [])
                   , o = (0,
                 s.useRef)(0)
                   , a = eq()
                   , l = (0,
-                s.useMemo)( () => ({
+                s.useMemo)(()=>({
                     ctrls: [],
                     queue: [],
                     flush(e, t) {
                         let n = tz(e, t);
-                        return !(o.current > 0) || l.queue.length || Object.keys(n).some(t => !e.springs[t]) ? new Promise(r => {
+                        return !(o.current > 0) || l.queue.length || Object.keys(n).some(t=>!e.springs[t]) ? new Promise(r=>{
                             tH(e, n),
-                            l.queue.push( () => {
+                            l.queue.push(()=>{
                                 r(tY(e, t))
                             }
                             ),
@@ -25185,8 +25185,8 @@ localStorage.setItem('mapIDS',''); //manh
                     }
                 }
                 (0,
-                s.useMemo)( () => {
-                    C(u.current.slice(e, d), e => {
+                s.useMemo)(()=>{
+                    C(u.current.slice(e, d), e=>{
                         e.ref?.delete(e),
                         i?.delete(e),
                         e.stop(!0)
@@ -25197,11 +25197,11 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 , [e]),
                 (0,
-                s.useMemo)( () => {
+                s.useMemo)(()=>{
                     f(0, Math.min(d, e))
                 }
                 , n);
-                let h = u.current.map( (e, t) => tz(e, c[t]))
+                let h = u.current.map((e,t)=>tz(e, c[t]))
                   , p = (0,
                 s.useContext)(tX)
                   , g = eZ(p)
@@ -25210,13 +25210,13 @@ localStorage.setItem('mapIDS',''); //manh
                         return !0;
                     return !1
                 }(p);
-                eB( () => {
+                eB(()=>{
                     o.current++,
                     l.ctrls = u.current;
                     let {queue: e} = l;
                     e.length && (l.queue = [],
-                    C(e, e => e())),
-                    C(u.current, (e, t) => {
+                    C(e, e=>e())),
+                    C(u.current, (e,t)=>{
                         i?.add(e),
                         m && e.start({
                             default: p
@@ -25233,11 +25233,11 @@ localStorage.setItem('mapIDS',''); //manh
                     )
                 }
                 ),
-                eG( () => () => {
-                    C(l.ctrls, e => e.stop(!0))
+                eG(()=>()=>{
+                    C(l.ctrls, e=>e.stop(!0))
                 }
                 );
-                let v = h.map(e => ({
+                let v = h.map(e=>({
                     ...e
                 }));
                 return i ? [v, i] : v
@@ -25266,16 +25266,16 @@ localStorage.setItem('mapIDS',''); //manh
             }
             _start() {
                 this.idle && !t4(this._active) && (this.idle = !1,
-                C(eJ(this), e => {
+                C(eJ(this), e=>{
                     e.done = !1
                 }
                 ),
-                u.skipAnimation ? (d.batchedUpdates( () => this.advance()),
+                u.skipAnimation ? (d.batchedUpdates(()=>this.advance()),
                 t6(this)) : Z.start(this))
             }
             _attach() {
                 let e = 1;
-                C(L(this.source), t => {
+                C(L(this.source), t=>{
                     ey(t) && eA(t, this),
                     tS(t) && (t.idle || this._active.add(t),
                     e = Math.max(e, t.priority + 1))
@@ -25285,7 +25285,7 @@ localStorage.setItem('mapIDS',''); //manh
                 this._start()
             }
             _detach() {
-                C(L(this.source), e => {
+                C(L(this.source), e=>{
                     ey(e) && eS(e, this)
                 }
                 ),
@@ -25294,7 +25294,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             eventObserved(e) {
                 "change" == e.type ? e.idle ? this.advance() : (this._active.add(e.parent),
-                this._start()) : "idle" == e.type ? this._active.delete(e.parent) : "priority" == e.type && (this.priority = L(this.source).reduce( (e, t) => Math.max(e, (tS(t) ? t.priority : 0) + 1), 0))
+                this._start()) : "idle" == e.type ? this._active.delete(e.parent) : "priority" == e.type && (this.priority = L(this.source).reduce((e,t)=>Math.max(e, (tS(t) ? t.priority : 0) + 1), 0))
             }
         }
         ;
@@ -25306,7 +25306,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         function t6(e) {
             e.idle || (e.idle = !0,
-            C(eJ(e), e => {
+            C(eJ(e), e=>{
                 e.done = !0
             }
             ),
@@ -25317,7 +25317,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         u.assign({
             createStringInterpolator: eM,
-            to: (e, t) => new t2(e,t)
+            to: (e,t)=>new t2(e,t)
         }),
         Z.advance;
         var t5 = n(73935)
@@ -25366,32 +25366,32 @@ localStorage.setItem('mapIDS',''); //manh
             strokeOpacity: !0,
             strokeWidth: !0
         }
-          , ne = (e, t) => e + t.charAt(0).toUpperCase() + t.substring(1)
+          , ne = (e,t)=>e + t.charAt(0).toUpperCase() + t.substring(1)
           , nt = ["Webkit", "Ms", "Moz", "O"];
-        t7 = Object.keys(t7).reduce( (e, t) => (nt.forEach(n => e[ne(n, t)] = e[t]),
+        t7 = Object.keys(t7).reduce((e,t)=>(nt.forEach(n=>e[ne(n, t)] = e[t]),
         e), t7);
         var nn = /^(matrix|translate|scale|rotate|skew)/
           , nr = /^(translate)/
           , ni = /^(rotate|skew)/
-          , no = (e, t) => x.num(e) && 0 !== e ? e + t : e
-          , na = (e, t) => x.arr(e) ? e.every(e => na(e, t)) : x.num(e) ? e === t : parseFloat(e) === t
+          , no = (e,t)=>x.num(e) && 0 !== e ? e + t : e
+          , na = (e,t)=>x.arr(e) ? e.every(e=>na(e, t)) : x.num(e) ? e === t : parseFloat(e) === t
           , ns = class extends e2 {
             constructor({x: e, y: t, z: n, ...r}) {
                 let i = []
                   , o = [];
                 (e || t || n) && (i.push([e || 0, t || 0, n || 0]),
-                o.push(e => [`translate3d(${e.map(e => no(e, "px")).join(",")})`, na(e, 0)])),
-                N(r, (e, t) => {
+                o.push(e=>[`translate3d(${e.map(e=>no(e, "px")).join(",")})`, na(e, 0)])),
+                N(r, (e,t)=>{
                     if ("transform" === t)
                         i.push([e || ""]),
-                        o.push(e => [e, "" === e]);
+                        o.push(e=>[e, "" === e]);
                     else if (nn.test(t)) {
                         if (delete r[t],
                         x.und(e))
                             return;
                         let n = nr.test(t) ? "px" : ni.test(t) ? "deg" : "";
                         i.push(L(e)),
-                        o.push("rotate3d" === t ? ([e,t,r,i]) => [`rotate3d(${e},${t},${r},${no(i, n)})`, na(i, 0)] : e => [`${t}(${e.map(e => no(e, n)).join(",")})`, na(e, t.startsWith("scale") ? 1 : 0)])
+                        o.push("rotate3d" === t ? ([e,t,r,i])=>[`rotate3d(${e},${t},${r},${no(i, n)})`, na(i, 0)] : e=>[`${t}(${e.map(e=>no(e, n)).join(",")})`, na(e, t.startsWith("scale") ? 1 : 0)])
                     }
                 }
                 ),
@@ -25412,7 +25412,7 @@ localStorage.setItem('mapIDS',''); //manh
             _get() {
                 let e = ""
                   , t = !0;
-                return C(this.inputs, (n, r) => {
+                return C(this.inputs, (n,r)=>{
                     let i = eb(n[0])
                       , [o,a] = this.transforms[r](x.arr(i) ? i : n.map(eb));
                     e += " " + o,
@@ -25422,10 +25422,10 @@ localStorage.setItem('mapIDS',''); //manh
                 t ? "none" : e
             }
             observerAdded(e) {
-                1 == e && C(this.inputs, e => C(e, e => ey(e) && eA(e, this)))
+                1 == e && C(this.inputs, e=>C(e, e=>ey(e) && eA(e, this)))
             }
             observerRemoved(e) {
-                0 == e && C(this.inputs, e => C(e, e => ey(e) && eS(e, this)))
+                0 == e && C(this.inputs, e=>C(e, e=>ey(e) && eS(e, this)))
             }
             eventObserved(e) {
                 "change" == e.type && (this._value = null),
@@ -25589,19 +25589,19 @@ localStorage.setItem('mapIDS',''); //manh
                 yellowgreen: 2597139199
             }
         });
-        var nu = ( (e, {applyAnimatedValues: t= () => !1, createAnimatedStyle: n=e => new e2(e), getComponentProps: r=e => e}={}) => {
+        var nu = ((e,{applyAnimatedValues: t=()=>!1, createAnimatedStyle: n=e=>new e2(e), getComponentProps: r=e=>e}={})=>{
             let i = {
                 applyAnimatedValues: t,
                 createAnimatedStyle: n,
                 getComponentProps: r
             }
-              , o = e => {
+              , o = e=>{
                 let t = e7(e) || "Anonymous";
                 return (e = x.str(e) ? o[e] || (o[e] = e5(e, i)) : e[e9] || (e[e9] = e5(e, i))).displayName = `Animated(${t})`,
                 e
             }
             ;
-            return N(e, (t, n) => {
+            return N(e, (t,n)=>{
                 x.arr(e) && (n = e7(t)),
                 o[n] = o(t)
             }
@@ -25617,7 +25617,7 @@ localStorage.setItem('mapIDS',''); //manh
                 let n = "filter" === e.nodeName || e.parentNode && "filter" === e.parentNode.nodeName
                   , {style: r, children: i, scrollTop: o, scrollLeft: a, viewBox: s, ...l} = t
                   , u = Object.values(l)
-                  , c = Object.keys(l).map(t => n || e.hasAttribute(t) ? t : t9[t] || (t9[t] = t.replace(/([A-Z])/g, e => "-" + e.toLowerCase())));
+                  , c = Object.keys(l).map(t=>n || e.hasAttribute(t) ? t : t9[t] || (t9[t] = t.replace(/([A-Z])/g, e=>"-" + e.toLowerCase())));
                 for (let t in void 0 !== i && (e.textContent = i),
                 r)
                     if (r.hasOwnProperty(t)) {
@@ -25625,7 +25625,7 @@ localStorage.setItem('mapIDS',''); //manh
                         let n = null == (d = r[t]) || "boolean" == typeof d || "" === d ? "" : "number" != typeof d || 0 === d || t8.test(t) || t7.hasOwnProperty(t) && t7[t] ? ("" + d).trim() : d + "px";
                         t8.test(t) ? e.style.setProperty(t, n) : e.style[t] = n
                     }
-                c.forEach( (t, n) => {
+                c.forEach((t,n)=>{
                     e.setAttribute(t, u[n])
                 }
                 ),
@@ -25633,8 +25633,8 @@ localStorage.setItem('mapIDS',''); //manh
                 void 0 !== a && (e.scrollLeft = a),
                 void 0 !== s && e.setAttribute("viewBox", s)
             },
-            createAnimatedStyle: e => new ns(e),
-            getComponentProps: ({scrollTop: e, scrollLeft: t, ...n}) => n
+            createAnimatedStyle: e=>new ns(e),
+            getComponentProps: ({scrollTop: e, scrollLeft: t, ...n})=>n
         }).animated
     },
     87066: function(e, t, n) {
@@ -25673,22 +25673,22 @@ localStorage.setItem('mapIDS',''); //manh
         let {toString: p} = Object.prototype
           , {getPrototypeOf: g} = Object
           , m = (r = Object.create(null),
-        e => {
+        e=>{
             let t = p.call(e);
             return r[t] || (r[t] = t.slice(8, -1).toLowerCase())
         }
         )
-          , v = e => (e = e.toLowerCase(),
-        t => m(t) === e)
-          , y = e => t => typeof t === e
+          , v = e=>(e = e.toLowerCase(),
+        t=>m(t) === e)
+          , y = e=>t=>typeof t === e
           , {isArray: b} = Array
           , E = y("undefined")
           , _ = v("ArrayBuffer")
           , w = y("string")
           , O = y("function")
           , A = y("number")
-          , S = e => null !== e && "object" == typeof e
-          , P = e => {
+          , S = e=>null !== e && "object" == typeof e
+          , P = e=>{
             if ("object" !== m(e))
                 return !1;
             let t = g(e);
@@ -25729,16 +25729,16 @@ localStorage.setItem('mapIDS',''); //manh
             return null
         }
         let U = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : "undefined" != typeof window ? window : global
-          , $ = e => !E(e) && e !== U
+          , $ = e=>!E(e) && e !== U
           , V = (i = "undefined" != typeof Uint8Array && g(Uint8Array),
-        e => i && e instanceof i)
+        e=>i && e instanceof i)
           , B = v("HTMLFormElement")
-          , F = ( ({hasOwnProperty: e}) => (t, n) => e.call(t, n))(Object.prototype)
+          , F = (({hasOwnProperty: e})=>(t,n)=>e.call(t, n))(Object.prototype)
           , q = v("RegExp")
-          , G = (e, t) => {
+          , G = (e,t)=>{
             let n = Object.getOwnPropertyDescriptors(e)
               , r = {};
-            D(n, (n, i) => {
+            D(n, (n,i)=>{
                 let o;
                 !1 !== (o = t(n, i, e)) && (r[i] = o || n)
             }
@@ -25757,15 +25757,15 @@ localStorage.setItem('mapIDS',''); //manh
         s = O(U.postMessage),
         a ? setImmediate : s ? (l = `axios@${Math.random()}`,
         u = [],
-        U.addEventListener("message", ({source: e, data: t}) => {
+        U.addEventListener("message", ({source: e, data: t})=>{
             e === U && t === l && u.length && u.shift()()
         }
         , !1),
-        e => {
+        e=>{
             u.push(e),
             U.postMessage(l, "*")
         }
-        ) : e => setTimeout(e))
+        ) : e=>setTimeout(e))
           , K = "undefined" != typeof queueMicrotask ? queueMicrotask.bind(U) : void 0 !== h && h.nextTick || W;
         var J = {
             isArray: b,
@@ -25773,7 +25773,7 @@ localStorage.setItem('mapIDS',''); //manh
             isBuffer: function(e) {
                 return null !== e && !E(e) && null !== e.constructor && !E(e.constructor) && O(e.constructor.isBuffer) && e.constructor.isBuffer(e)
             },
-            isFormData: e => {
+            isFormData: e=>{
                 let t;
                 return e && ("function" == typeof FormData && e instanceof FormData || O(e.append) && ("formdata" === (t = m(e)) || "object" === t && O(e.toString) && "[object FormData]" === e.toString()))
             }
@@ -25783,7 +25783,7 @@ localStorage.setItem('mapIDS',''); //manh
             },
             isString: w,
             isNumber: A,
-            isBoolean: e => !0 === e || !1 === e,
+            isBoolean: e=>!0 === e || !1 === e,
             isObject: S,
             isPlainObject: P,
             isReadableStream: C,
@@ -25796,7 +25796,7 @@ localStorage.setItem('mapIDS',''); //manh
             isBlob: T,
             isRegExp: q,
             isFunction: O,
-            isStream: e => S(e) && O(e.pipe),
+            isStream: e=>S(e) && O(e.pipe),
             isURLSearchParams: k,
             isTypedArray: V,
             isFileList: x,
@@ -25804,7 +25804,7 @@ localStorage.setItem('mapIDS',''); //manh
             merge: function e() {
                 let {caseless: t} = $(this) && this || {}
                   , n = {}
-                  , r = (r, i) => {
+                  , r = (r,i)=>{
                     let o = t && j(n, i) || i;
                     P(n[o]) && P(r) ? n[o] = e(n[o], r) : P(r) ? n[o] = e({}, r) : b(r) ? n[o] = r.slice() : n[o] = r
                 }
@@ -25813,17 +25813,17 @@ localStorage.setItem('mapIDS',''); //manh
                     arguments[e] && D(arguments[e], r);
                 return n
             },
-            extend: (e, t, n, {allOwnKeys: r}={}) => (D(t, (t, r) => {
+            extend: (e,t,n,{allOwnKeys: r}={})=>(D(t, (t,r)=>{
                 n && O(t) ? e[r] = f(t, n) : e[r] = t
             }
             , {
                 allOwnKeys: r
             }),
             e),
-            trim: e => e.trim ? e.trim() : e.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, ""),
-            stripBOM: e => (65279 === e.charCodeAt(0) && (e = e.slice(1)),
+            trim: e=>e.trim ? e.trim() : e.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, ""),
+            stripBOM: e=>(65279 === e.charCodeAt(0) && (e = e.slice(1)),
             e),
-            inherits: (e, t, n, r) => {
+            inherits: (e,t,n,r)=>{
                 e.prototype = Object.create(t.prototype, r),
                 e.prototype.constructor = e,
                 Object.defineProperty(e, "super", {
@@ -25832,7 +25832,7 @@ localStorage.setItem('mapIDS',''); //manh
                 n && Object.assign(e.prototype, n)
             }
             ,
-            toFlatObject: (e, t, n, r) => {
+            toFlatObject: (e,t,n,r)=>{
                 let i, o, a;
                 let s = {};
                 if (t = t || {},
@@ -25850,7 +25850,7 @@ localStorage.setItem('mapIDS',''); //manh
             ,
             kindOf: m,
             kindOfTest: v,
-            endsWith: (e, t, n) => {
+            endsWith: (e,t,n)=>{
                 e = String(e),
                 (void 0 === n || n > e.length) && (n = e.length),
                 n -= t.length;
@@ -25858,7 +25858,7 @@ localStorage.setItem('mapIDS',''); //manh
                 return -1 !== r && r === n
             }
             ,
-            toArray: e => {
+            toArray: e=>{
                 if (!e)
                     return null;
                 if (b(e))
@@ -25872,7 +25872,7 @@ localStorage.setItem('mapIDS',''); //manh
                 return n
             }
             ,
-            forEachEntry: (e, t) => {
+            forEachEntry: (e,t)=>{
                 let n;
                 let r = (e && e[Symbol.iterator]).call(e);
                 for (; (n = r.next()) && !n.done; ) {
@@ -25881,7 +25881,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }
             }
             ,
-            matchAll: (e, t) => {
+            matchAll: (e,t)=>{
                 let n;
                 let r = [];
                 for (; null !== (n = e.exec(t)); )
@@ -25893,8 +25893,8 @@ localStorage.setItem('mapIDS',''); //manh
             hasOwnProperty: F,
             hasOwnProp: F,
             reduceDescriptors: G,
-            freezeMethods: e => {
-                G(e, (t, n) => {
+            freezeMethods: e=>{
+                G(e, (t,n)=>{
                     if (O(e) && -1 !== ["arguments", "caller", "callee"].indexOf(n))
                         return !1;
                     if (O(e[n])) {
@@ -25903,7 +25903,7 @@ localStorage.setItem('mapIDS',''); //manh
                             t.writable = !1;
                             return
                         }
-                        t.set || (t.set = () => {
+                        t.set || (t.set = ()=>{
                             throw Error("Can not rewrite read-only method '" + n + "'")
                         }
                         )
@@ -25912,10 +25912,10 @@ localStorage.setItem('mapIDS',''); //manh
                 )
             }
             ,
-            toObjectSet: (e, t) => {
+            toObjectSet: (e,t)=>{
                 let n = {};
-                return (e => {
-                    e.forEach(e => {
+                return (e=>{
+                    e.forEach(e=>{
                         n[e] = !0
                     }
                     )
@@ -25924,17 +25924,17 @@ localStorage.setItem('mapIDS',''); //manh
                 n
             }
             ,
-            toCamelCase: e => e.toLowerCase().replace(/[-_\s]([a-z\d])(\w*)/g, function(e, t, n) {
+            toCamelCase: e=>e.toLowerCase().replace(/[-_\s]([a-z\d])(\w*)/g, function(e, t, n) {
                 return t.toUpperCase() + n
             }),
-            noop: () => {}
+            noop: ()=>{}
             ,
-            toFiniteNumber: (e, t) => null != e && Number.isFinite(e = +e) ? e : t,
+            toFiniteNumber: (e,t)=>null != e && Number.isFinite(e = +e) ? e : t,
             findKey: j,
             global: U,
             isContextDefined: $,
             ALPHABET: z,
-            generateString: (e=16, t=z.ALPHA_DIGIT) => {
+            generateString: (e=16,t=z.ALPHA_DIGIT)=>{
                 let n = ""
                   , {length: r} = t;
                 for (; e--; )
@@ -25945,16 +25945,16 @@ localStorage.setItem('mapIDS',''); //manh
             isSpecCompliantForm: function(e) {
                 return !!(e && O(e.append) && "FormData" === e[Symbol.toStringTag] && e[Symbol.iterator])
             },
-            toJSONObject: e => {
+            toJSONObject: e=>{
                 let t = Array(10)
-                  , n = (e, r) => {
+                  , n = (e,r)=>{
                     if (S(e)) {
                         if (t.indexOf(e) >= 0)
                             return;
                         if (!("toJSON"in e)) {
                             t[r] = e;
                             let i = b(e) ? [] : {};
-                            return D(e, (e, t) => {
+                            return D(e, (e,t)=>{
                                 let o = n(e, r + 1);
                                 E(o) || (i[t] = o)
                             }
@@ -25970,7 +25970,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             ,
             isAsyncFn: H,
-            isThenable: e => e && (S(e) || O(e)) && O(e.then) && O(e.catch),
+            isThenable: e=>e && (S(e) || O(e)) && O(e.then) && O(e.catch),
             setImmediate: W,
             asap: K
         };
@@ -26004,7 +26004,7 @@ localStorage.setItem('mapIDS',''); //manh
         });
         let Q = X.prototype
           , ee = {};
-        ["ERR_BAD_OPTION_VALUE", "ERR_BAD_OPTION", "ECONNABORTED", "ETIMEDOUT", "ERR_NETWORK", "ERR_FR_TOO_MANY_REDIRECTS", "ERR_DEPRECATED", "ERR_BAD_RESPONSE", "ERR_BAD_REQUEST", "ERR_CANCELED", "ERR_NOT_SUPPORT", "ERR_INVALID_URL"].forEach(e => {
+        ["ERR_BAD_OPTION_VALUE", "ERR_BAD_OPTION", "ECONNABORTED", "ETIMEDOUT", "ERR_NETWORK", "ERR_FR_TOO_MANY_REDIRECTS", "ERR_DEPRECATED", "ERR_BAD_RESPONSE", "ERR_BAD_REQUEST", "ERR_CANCELED", "ERR_NOT_SUPPORT", "ERR_INVALID_URL"].forEach(e=>{
             ee[e] = {
                 value: e
             }
@@ -26014,11 +26014,11 @@ localStorage.setItem('mapIDS',''); //manh
         Object.defineProperty(Q, "isAxiosError", {
             value: !0
         }),
-        X.from = (e, t, n, r, i, o) => {
+        X.from = (e,t,n,r,i,o)=>{
             let a = Object.create(Q);
             return J.toFlatObject(e, a, function(e) {
                 return e !== Error.prototype
-            }, e => "isAxiosError" !== e),
+            }, e=>"isAxiosError" !== e),
             X.call(a, e.message, t, n, r, i),
             a.cause = e,
             a.name = e.name,
@@ -26209,7 +26209,7 @@ localStorage.setItem('mapIDS',''); //manh
           , eO = function(e) {
             if (J.isFormData(e) && J.isFunction(e.entries)) {
                 let t = {};
-                return J.forEachEntry(e, (e, n) => {
+                return J.forEachEntry(e, (e,n)=>{
                     !function e(t, n, r, i) {
                         let o = t[i++];
                         if ("__proto__" === o)
@@ -26228,7 +26228,7 @@ localStorage.setItem('mapIDS',''); //manh
                             return r
                         }(r[o]))),
                         !a
-                    }(J.matchAll(/\w+|\[(\w*)]/g, e).map(e => "[]" === e[0] ? "" : e[1] || e[0]), n, t, 0)
+                    }(J.matchAll(/\w+|\[(\w*)]/g, e).map(e=>"[]" === e[0] ? "" : e[1] || e[0]), n, t, 0)
                 }
                 ),
                 t
@@ -26328,12 +26328,12 @@ localStorage.setItem('mapIDS',''); //manh
                 }
             }
         };
-        J.forEach(["delete", "get", "head", "post", "put", "patch"], e => {
+        J.forEach(["delete", "get", "head", "post", "put", "patch"], e=>{
             eA.headers[e] = {}
         }
         );
         let eS = J.toObjectSet(["age", "authorization", "content-length", "content-type", "etag", "expires", "from", "host", "if-modified-since", "if-unmodified-since", "last-modified", "location", "max-forwards", "proxy-authorization", "referer", "retry-after", "user-agent"]);
-        var eP = e => {
+        var eP = e=>{
             let t, n, r;
             let i = {};
             return e && e.split("\n").forEach(function(e) {
@@ -26352,7 +26352,7 @@ localStorage.setItem('mapIDS',''); //manh
         function eT(e) {
             return !1 === e || null == e ? e : J.isArray(e) ? e.map(eT) : String(e)
         }
-        let ex = e => /^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(e.trim());
+        let ex = e=>/^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(e.trim());
         function ek(e, t, n, r, i) {
             if (J.isFunction(r))
                 return r.call(this, t, n);
@@ -26377,7 +26377,7 @@ localStorage.setItem('mapIDS',''); //manh
                     let o = J.findKey(r, i);
                     o && void 0 !== r[o] && !0 !== n && (void 0 !== n || !1 === r[o]) || (r[o || t] = eT(e))
                 }
-                let o = (e, t) => J.forEach(e, (e, n) => i(e, n, t));
+                let o = (e,t)=>J.forEach(e, (e,n)=>i(e, n, t));
                 if (J.isPlainObject(e) || e instanceof this.constructor)
                     o(e, t);
                 else if (J.isString(e) && (e = e.trim()) && !ex(e))
@@ -26447,14 +26447,14 @@ localStorage.setItem('mapIDS',''); //manh
             normalize(e) {
                 let t = this
                   , n = {};
-                return J.forEach(this, (r, i) => {
+                return J.forEach(this, (r,i)=>{
                     let o = J.findKey(n, i);
                     if (o) {
                         t[o] = eT(r),
                         delete t[i];
                         return
                     }
-                    let a = e ? i.trim().toLowerCase().replace(/([a-z\d])(\w*)/g, (e, t, n) => t.toUpperCase() + n) : String(i).trim();
+                    let a = e ? i.trim().toLowerCase().replace(/([a-z\d])(\w*)/g, (e,t,n)=>t.toUpperCase() + n) : String(i).trim();
                     a !== i && delete t[i],
                     t[a] = eT(r),
                     n[a] = !0
@@ -26467,7 +26467,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             toJSON(e) {
                 let t = Object.create(null);
-                return J.forEach(this, (n, r) => {
+                return J.forEach(this, (n,r)=>{
                     null != n && !1 !== n && (t[r] = e && J.isArray(n) ? n.join(", ") : n)
                 }
                 ),
@@ -26477,7 +26477,7 @@ localStorage.setItem('mapIDS',''); //manh
                 return Object.entries(this.toJSON())[Symbol.iterator]()
             }
             toString() {
-                return Object.entries(this.toJSON()).map( ([e,t]) => e + ": " + t).join("\n")
+                return Object.entries(this.toJSON()).map(([e,t])=>e + ": " + t).join("\n")
             }
             get[Symbol.toStringTag]() {
                 return "AxiosHeaders"
@@ -26487,7 +26487,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             static concat(e, ...t) {
                 let n = new this(e);
-                return t.forEach(e => n.set(e)),
+                return t.forEach(e=>n.set(e)),
                 n
             }
             static accessor(e) {
@@ -26499,7 +26499,7 @@ localStorage.setItem('mapIDS',''); //manh
                     let r = eR(e);
                     t[r] || (!function(e, t) {
                         let n = J.toCamelCase(" " + t);
-                        ["get", "set", "has"].forEach(r => {
+                        ["get", "set", "has"].forEach(r=>{
                             Object.defineProperty(e, r + n, {
                                 value: function(e, n, i) {
                                     return this[r].call(this, t, e, n, i)
@@ -26538,10 +26538,10 @@ localStorage.setItem('mapIDS',''); //manh
             !n.status || !r || r(n.status) ? e(n) : t(new X("Request failed with status code " + n.status,[X.ERR_BAD_REQUEST, X.ERR_BAD_RESPONSE][Math.floor(n.status / 100) - 4],n.config,n.request,n))
         }
         eC.accessor(["Content-Type", "Content-Length", "Accept", "Accept-Encoding", "User-Agent", "Authorization"]),
-        J.reduceDescriptors(eC.prototype, ({value: e}, t) => {
+        J.reduceDescriptors(eC.prototype, ({value: e},t)=>{
             let n = t[0].toUpperCase() + t.slice(1);
             return {
-                get: () => e,
+                get: ()=>e,
                 set(e) {
                     this[n] = e
                 }
@@ -26578,7 +26578,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
         }
           , eU = function(e, t) {
-            let n, r, i = 0, o = 1e3 / t, a = (t, o=Date.now()) => {
+            let n, r, i = 0, o = 1e3 / t, a = (t,o=Date.now())=>{
                 i = o,
                 n = null,
                 r && (clearTimeout(r),
@@ -26586,22 +26586,22 @@ localStorage.setItem('mapIDS',''); //manh
                 e.apply(null, t)
             }
             ;
-            return [ (...e) => {
+            return [(...e)=>{
                 let t = Date.now()
                   , s = t - i;
                 s >= o ? a(e, t) : (n = e,
-                r || (r = setTimeout( () => {
+                r || (r = setTimeout(()=>{
                     r = null,
                     a(n)
                 }
                 , o - s)))
             }
-            , () => n && a(n)]
+            , ()=>n && a(n)]
         };
-        let e$ = (e, t, n=3) => {
+        let e$ = (e,t,n=3)=>{
             let r = 0
               , i = ej(50, 250);
-            return eU(n => {
+            return eU(n=>{
                 let o = n.loaded
                   , a = n.lengthComputable ? n.total : void 0
                   , s = o - r
@@ -26621,15 +26621,15 @@ localStorage.setItem('mapIDS',''); //manh
             }
             , n)
         }
-          , eV = (e, t) => {
+          , eV = (e,t)=>{
             let n = null != e;
-            return [r => t[0]({
+            return [r=>t[0]({
                 lengthComputable: n,
                 total: e,
                 loaded: r
             }), t[1]]
         }
-          , eB = e => (...t) => J.asap( () => e(...t));
+          , eB = e=>(...t)=>J.asap(()=>e(...t));
         var eF = ew.hasStandardBrowserEnv ? function() {
             let e;
             let t = ew.navigator && /(msie|trident)/i.test(ew.navigator.userAgent)
@@ -26676,13 +26676,13 @@ localStorage.setItem('mapIDS',''); //manh
             }
         } : {
             write() {},
-            read: () => null,
+            read: ()=>null,
             remove() {}
         };
         function eG(e, t) {
             return e && !/^([a-z][a-z\d+\-.]*:)?\/\//i.test(t) ? t ? e.replace(/\/?\/$/, "") + "/" + t.replace(/^\/+/, "") : e : t
         }
-        let eY = e => e instanceof eC ? {
+        let eY = e=>e instanceof eC ? {
             ...e
         } : e;
         function eZ(e, t) {
@@ -26735,7 +26735,7 @@ localStorage.setItem('mapIDS',''); //manh
                 socketPath: a,
                 responseEncoding: a,
                 validateStatus: s,
-                headers: (e, t) => i(eY(e), eY(t), !0)
+                headers: (e,t)=>i(eY(e), eY(t), !0)
             };
             return J.forEach(Object.keys(Object.assign({}, e, t)), function(r) {
                 let o = l[r] || i
@@ -26744,7 +26744,7 @@ localStorage.setItem('mapIDS',''); //manh
             }),
             n
         }
-        var ez = e => {
+        var ez = e=>{
             let t;
             let n = eZ({}, e)
               , {data: r, withXSRFToken: i, xsrfHeaderName: o, xsrfCookieName: a, headers: s, auth: l} = n;
@@ -26755,7 +26755,7 @@ localStorage.setItem('mapIDS',''); //manh
                 if (ew.hasStandardBrowserEnv || ew.hasStandardBrowserWebWorkerEnv)
                     s.setContentType(void 0);
                 else if (!1 !== (t = s.getContentType())) {
-                    let[e,...n] = t ? t.split(";").map(e => e.trim()).filter(Boolean) : [];
+                    let[e,...n] = t ? t.split(";").map(e=>e.trim()).filter(Boolean) : [];
                     s.setContentType([e || "multipart/form-data", ...n].join("; "))
                 }
             }
@@ -26835,7 +26835,7 @@ localStorage.setItem('mapIDS',''); //manh
                 f && g.upload && ([i,a] = e$(f),
                 g.upload.addEventListener("progress", i),
                 g.upload.addEventListener("loadend", a)),
-                (l.cancelToken || l.signal) && (r = t => {
+                (l.cancelToken || l.signal) && (r = t=>{
                     g && (n(!t || t.type ? new eM(null,e,g) : t),
                     g.abort(),
                     g = null)
@@ -26855,7 +26855,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             )
         }
-          , eW = (e, t) => {
+          , eW = (e,t)=>{
             let {length: n} = e = e ? e.filter(Boolean) : [];
             if (t || n) {
                 let n, r = new AbortController, i = function(e) {
@@ -26865,23 +26865,23 @@ localStorage.setItem('mapIDS',''); //manh
                         let t = e instanceof Error ? e : this.reason;
                         r.abort(t instanceof X ? t : new eM(t instanceof Error ? t.message : t))
                     }
-                }, o = t && setTimeout( () => {
+                }, o = t && setTimeout(()=>{
                     o = null,
                     i(new X(`timeout ${t} of ms exceeded`,X.ETIMEDOUT))
                 }
-                , t), a = () => {
+                , t), a = ()=>{
                     e && (o && clearTimeout(o),
                     o = null,
-                    e.forEach(e => {
+                    e.forEach(e=>{
                         e.unsubscribe ? e.unsubscribe(i) : e.removeEventListener("abort", i)
                     }
                     ),
                     e = null)
                 }
                 ;
-                e.forEach(e => e.addEventListener("abort", i));
+                e.forEach(e=>e.addEventListener("abort", i));
                 let {signal: s} = r;
-                return s.unsubscribe = () => J.asap(a),
+                return s.unsubscribe = ()=>J.asap(a),
                 s
             }
         }
@@ -26902,11 +26902,11 @@ localStorage.setItem('mapIDS',''); //manh
             for await(let r of e)
                 yield*eK(ArrayBuffer.isView(r) ? r : await n(String(r)), t)
         }
-          , eX = (e, t, n, r, i) => {
+          , eX = (e,t,n,r,i)=>{
             let o;
             let a = eJ(e, t, i)
               , s = 0
-              , l = e => {
+              , l = e=>{
                 !o && (o = !0,
                 r && r(e))
             }
@@ -26931,7 +26931,7 @@ localStorage.setItem('mapIDS',''); //manh
                         e
                     }
                 },
-                cancel: e => (l(e),
+                cancel: e=>(l(e),
                 a.return())
             },{
                 highWaterMark: 2
@@ -26940,15 +26940,15 @@ localStorage.setItem('mapIDS',''); //manh
           , eQ = "function" == typeof fetch && "function" == typeof Request && "function" == typeof Response
           , e0 = eQ && "function" == typeof ReadableStream
           , e1 = eQ && ("function" == typeof TextEncoder ? (o = new TextEncoder,
-        e => o.encode(e)) : async e => new Uint8Array(await new Response(e).arrayBuffer()))
-          , e2 = (e, ...t) => {
+        e=>o.encode(e)) : async e=>new Uint8Array(await new Response(e).arrayBuffer()))
+          , e2 = (e,...t)=>{
             try {
                 return !!e(...t)
             } catch (e) {
                 return !1
             }
         }
-          , e3 = e0 && e2( () => {
+          , e3 = e0 && e2(()=>{
             let e = !1
               , t = new Request(ew.origin,{
                 body: new ReadableStream,
@@ -26961,19 +26961,19 @@ localStorage.setItem('mapIDS',''); //manh
             return e && !t
         }
         )
-          , e4 = e0 && e2( () => J.isReadableStream(new Response("").body))
+          , e4 = e0 && e2(()=>J.isReadableStream(new Response("").body))
           , e6 = {
-            stream: e4 && (e => e.body)
+            stream: e4 && (e=>e.body)
         };
         eQ && (c = new Response,
-        ["text", "arrayBuffer", "blob", "formData", "stream"].forEach(e => {
-            e6[e] || (e6[e] = J.isFunction(c[e]) ? t => t[e]() : (t, n) => {
+        ["text", "arrayBuffer", "blob", "formData", "stream"].forEach(e=>{
+            e6[e] || (e6[e] = J.isFunction(c[e]) ? t=>t[e]() : (t,n)=>{
                 throw new X(`Response type '${e}' is not supported`,X.ERR_NOT_SUPPORT,n)
             }
             )
         }
         ));
-        let e5 = async e => {
+        let e5 = async e=>{
             if (null == e)
                 return 0;
             if (J.isBlob(e))
@@ -26988,18 +26988,18 @@ localStorage.setItem('mapIDS',''); //manh
             return J.isArrayBufferView(e) || J.isArrayBuffer(e) ? e.byteLength : (J.isURLSearchParams(e) && (e += ""),
             J.isString(e)) ? (await e1(e)).byteLength : void 0
         }
-          , e8 = async (e, t) => {
+          , e8 = async(e,t)=>{
             let n = J.toFiniteNumber(e.getContentLength());
             return null == n ? e5(t) : n
         }
           , e9 = {
             http: null,
             xhr: eH,
-            fetch: eQ && (async e => {
+            fetch: eQ && (async e=>{
                 let t, n, {url: r, method: i, data: o, signal: a, cancelToken: s, timeout: l, onDownloadProgress: u, onUploadProgress: c, responseType: d, headers: f, withCredentials: h="same-origin", fetchOptions: p} = ez(e);
                 d = d ? (d + "").toLowerCase() : "text";
                 let g = eW([a, s && s.toAbortSignal()], l)
-                  , m = g && g.unsubscribe && ( () => {
+                  , m = g && g.unsubscribe && (()=>{
                     g.unsubscribe()
                 }
                 );
@@ -27031,13 +27031,13 @@ localStorage.setItem('mapIDS',''); //manh
                       , l = e4 && ("stream" === d || "response" === d);
                     if (e4 && (u || l && m)) {
                         let e = {};
-                        ["status", "statusText", "headers"].forEach(t => {
+                        ["status", "statusText", "headers"].forEach(t=>{
                             e[t] = s[t]
                         }
                         );
                         let t = J.toFiniteNumber(s.headers.get("content-length"))
                           , [n,r] = u && eV(t, e$(eB(u), !0)) || [];
-                        s = new Response(eX(s.body, 65536, n, () => {
+                        s = new Response(eX(s.body, 65536, n, ()=>{
                             r && r(),
                             m && m()
                         }
@@ -27046,7 +27046,7 @@ localStorage.setItem('mapIDS',''); //manh
                     d = d || "text";
                     let v = await e6[J.findKey(e6, d) || "text"](s, e);
                     return !l && m && m(),
-                    await new Promise( (n, r) => {
+                    await new Promise((n,r)=>{
                         eD(n, r, {
                             data: v,
                             headers: eC.from(s.headers),
@@ -27068,7 +27068,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             )
         };
-        J.forEach(e9, (e, t) => {
+        J.forEach(e9, (e,t)=>{
             if (e) {
                 try {
                     Object.defineProperty(e, "name", {
@@ -27081,9 +27081,9 @@ localStorage.setItem('mapIDS',''); //manh
             }
         }
         );
-        let e7 = e => `- ${e}`
-          , te = e => J.isFunction(e) || null === e || !1 === e;
-        var tt = e => {
+        let e7 = e=>`- ${e}`
+          , te = e=>J.isFunction(e) || null === e || !1 === e;
+        var tt = e=>{
             let t, n;
             let {length: r} = e = J.isArray(e) ? e : [e]
               , i = {};
@@ -27097,7 +27097,7 @@ localStorage.setItem('mapIDS',''); //manh
                 i[r || "#" + o] = n
             }
             if (!n) {
-                let e = Object.entries(i).map( ([e,t]) => `adapter ${e} ` + (!1 === t ? "is not supported by the environment" : "is not available in the build"));
+                let e = Object.entries(i).map(([e,t])=>`adapter ${e} ` + (!1 === t ? "is not supported by the environment" : "is not available in the build"));
                 throw new X("There is no suitable adapter to dispatch the request " + (r ? e.length > 1 ? "since :\n" + e.map(e7).join("\n") : " " + e7(e[0]) : "as no adapter specified"),"ERR_NOT_SUPPORT")
             }
             return n
@@ -27127,7 +27127,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         let ti = "1.7.6"
           , to = {};
-        ["object", "boolean", "number", "function", "string", "symbol"].forEach( (e, t) => {
+        ["object", "boolean", "number", "function", "string", "symbol"].forEach((e,t)=>{
             to[e] = function(n) {
                 return typeof n === e || "a" + (t < 1 ? "n " : " ") + e
             }
@@ -27138,7 +27138,7 @@ localStorage.setItem('mapIDS',''); //manh
             function r(e, t) {
                 return "[Axios v" + ti + "] Transitional option '" + e + "'" + t + (n ? ". " + n : "")
             }
-            return (n, i, o) => {
+            return (n,i,o)=>{
                 if (!1 === e)
                     throw new X(r(i, " has been removed" + (t ? " in " + t : "")),X.ERR_DEPRECATED);
                 return t && !ta[i] && (ta[i] = !0,
@@ -27210,7 +27210,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }, !0)),
                 t.method = (t.method || this.defaults.method || "get").toLowerCase();
                 let s = a && J.merge(a.common, a[t.method]);
-                a && J.forEach(["delete", "get", "head", "post", "put", "patch", "common"], e => {
+                a && J.forEach(["delete", "get", "head", "post", "put", "patch", "common"], e=>{
                     delete a[e]
                 }
                 ),
@@ -27296,7 +27296,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 );
                 let n = this;
-                this.promise.then(e => {
+                this.promise.then(e=>{
                     if (!n._listeners)
                         return;
                     let t = n._listeners.length;
@@ -27305,9 +27305,9 @@ localStorage.setItem('mapIDS',''); //manh
                     n._listeners = null
                 }
                 ),
-                this.promise.then = e => {
+                this.promise.then = e=>{
                     let t;
-                    let r = new Promise(e => {
+                    let r = new Promise(e=>{
                         n.subscribe(e),
                         t = e
                     }
@@ -27343,12 +27343,12 @@ localStorage.setItem('mapIDS',''); //manh
             }
             toAbortSignal() {
                 let e = new AbortController
-                  , t = t => {
+                  , t = t=>{
                     e.abort(t)
                 }
                 ;
                 return this.subscribe(t),
-                e.signal.unsubscribe = () => this.unsubscribe(t),
+                e.signal.unsubscribe = ()=>this.unsubscribe(t),
                 e.signal
             }
             static source() {
@@ -27427,7 +27427,7 @@ localStorage.setItem('mapIDS',''); //manh
             NotExtended: 510,
             NetworkAuthenticationRequired: 511
         };
-        Object.entries(td).forEach( ([e,t]) => {
+        Object.entries(td).forEach(([e,t])=>{
             td[t] = e
         }
         );
@@ -27470,7 +27470,7 @@ localStorage.setItem('mapIDS',''); //manh
         ,
         tf.mergeConfig = eZ,
         tf.AxiosHeaders = eC,
-        tf.formToJSON = e => eO(J.isHTMLForm(e) ? new FormData(e) : e),
+        tf.formToJSON = e=>eO(J.isHTMLForm(e) ? new FormData(e) : e),
         tf.getAdapter = tt,
         tf.HttpStatusCode = td,
         tf.default = tf;
@@ -27621,7 +27621,7 @@ localStorage.setItem('mapIDS',''); //manh
                 this.observers = {}
             }
             on(e, t) {
-                return e.split(" ").forEach(e => {
+                return e.split(" ").forEach(e=>{
                     this.observers[e] || (this.observers[e] = new Map);
                     let n = this.observers[e].get(t) || 0;
                     this.observers[e].set(t, n + 1)
@@ -27641,13 +27641,13 @@ localStorage.setItem('mapIDS',''); //manh
             emit(e) {
                 for (var t = arguments.length, n = Array(t > 1 ? t - 1 : 0), r = 1; r < t; r++)
                     n[r - 1] = arguments[r];
-                this.observers[e] && Array.from(this.observers[e].entries()).forEach(e => {
+                this.observers[e] && Array.from(this.observers[e].entries()).forEach(e=>{
                     let[t,r] = e;
                     for (let e = 0; e < r; e++)
                         t(...n)
                 }
                 ),
-                this.observers["*"] && Array.from(this.observers["*"].entries()).forEach(t => {
+                this.observers["*"] && Array.from(this.observers["*"].entries()).forEach(t=>{
                     let[r,i] = t;
                     for (let t = 0; t < i; t++)
                         r.apply(r, [e, ...n])
@@ -27655,9 +27655,9 @@ localStorage.setItem('mapIDS',''); //manh
                 )
             }
         }
-        let s = () => {
+        let s = ()=>{
             let e, t;
-            let n = new Promise( (n, r) => {
+            let n = new Promise((n,r)=>{
                 e = n,
                 t = r
             }
@@ -27666,17 +27666,17 @@ localStorage.setItem('mapIDS',''); //manh
             n.reject = t,
             n
         }
-          , l = e => null == e ? "" : "" + e
-          , u = (e, t, n) => {
-            e.forEach(e => {
+          , l = e=>null == e ? "" : "" + e
+          , u = (e,t,n)=>{
+            e.forEach(e=>{
                 t[e] && (n[e] = t[e])
             }
             )
         }
           , c = /###/g
-          , d = e => e && e.indexOf("###") > -1 ? e.replace(c, ".") : e
-          , f = e => !e || "string" == typeof e
-          , h = (e, t, n) => {
+          , d = e=>e && e.indexOf("###") > -1 ? e.replace(c, ".") : e
+          , f = e=>!e || "string" == typeof e
+          , h = (e,t,n)=>{
             let r = "string" != typeof t ? t : t.split(".")
               , i = 0;
             for (; i < r.length - 1; ) {
@@ -27692,7 +27692,7 @@ localStorage.setItem('mapIDS',''); //manh
                 k: d(r[i])
             }
         }
-          , p = (e, t, n) => {
+          , p = (e,t,n)=>{
             let {obj: r, k: i} = h(e, t, Object);
             if (void 0 !== r || 1 === t.length) {
                 r[i] = n;
@@ -27706,26 +27706,26 @@ localStorage.setItem('mapIDS',''); //manh
                 (s = h(e, a = a.slice(0, a.length - 1), Object)) && s.obj && void 0 !== s.obj[`${s.k}.${o}`] && (s.obj = void 0);
             s.obj[`${s.k}.${o}`] = n
         }
-          , g = (e, t, n, r) => {
+          , g = (e,t,n,r)=>{
             let {obj: i, k: o} = h(e, t, Object);
             i[o] = i[o] || [],
             i[o].push(n)
         }
-          , m = (e, t) => {
+          , m = (e,t)=>{
             let {obj: n, k: r} = h(e, t);
             if (n)
                 return n[r]
         }
-          , v = (e, t, n) => {
+          , v = (e,t,n)=>{
             let r = m(e, n);
             return void 0 !== r ? r : m(t, n)
         }
-          , y = (e, t, n) => {
+          , y = (e,t,n)=>{
             for (let r in t)
                 "__proto__" !== r && "constructor" !== r && (r in e ? "string" == typeof e[r] || e[r]instanceof String || "string" == typeof t[r] || t[r]instanceof String ? n && (e[r] = t[r]) : y(e[r], t[r], n) : e[r] = t[r]);
             return e
         }
-          , b = e => e.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+          , b = e=>e.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
         var E = {
             "&": "&amp;",
             "<": "&lt;",
@@ -27734,7 +27734,7 @@ localStorage.setItem('mapIDS',''); //manh
             "'": "&#39;",
             "/": "&#x2F;"
         };
-        let _ = e => "string" == typeof e ? e.replace(/[&<>"'\/]/g, e => E[e]) : e;
+        let _ = e=>"string" == typeof e ? e.replace(/[&<>"'\/]/g, e=>E[e]) : e;
         class w {
             constructor(e) {
                 this.capacity = e,
@@ -27754,13 +27754,13 @@ localStorage.setItem('mapIDS',''); //manh
         }
         let O = [" ", ",", "?", "!", ";"]
           , A = new w(20)
-          , S = (e, t, n) => {
+          , S = (e,t,n)=>{
             t = t || "",
             n = n || "";
-            let r = O.filter(e => 0 > t.indexOf(e) && 0 > n.indexOf(e));
+            let r = O.filter(e=>0 > t.indexOf(e) && 0 > n.indexOf(e));
             if (0 === r.length)
                 return !0;
-            let i = A.getRegExp(`(${r.map(e => "?" === e ? "\\?" : e).join("|")})`)
+            let i = A.getRegExp(`(${r.map(e=>"?" === e ? "\\?" : e).join("|")})`)
               , o = !i.test(e);
             if (!o) {
                 let t = e.indexOf(n);
@@ -27794,7 +27794,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             return i
         }
-          , I = e => e && e.indexOf("_") > 0 ? e.replace("_", "-") : e;
+          , I = e=>e && e.indexOf("_") > 0 ? e.replace("_", "-") : e;
         class R extends a {
             constructor(e) {
                 let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
@@ -27887,7 +27887,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             hasLanguageSomeTranslations(e) {
                 let t = this.getDataByLanguage(e);
-                return !!(t && Object.keys(t) || []).find(e => t[e] && Object.keys(t[e]).length > 0)
+                return !!(t && Object.keys(t) || []).find(e=>t[e] && Object.keys(t[e]).length > 0)
             }
             toJSON() {
                 return this.data
@@ -27899,7 +27899,7 @@ localStorage.setItem('mapIDS',''); //manh
                 this.processors[e.name] = e
             },
             handle(e, t, n, r, i) {
-                return e.forEach(e => {
+                return e.forEach(e=>{
                     this.processors[e] && (t = this.processors[e].process(t, n, r, i))
                 }
                 ),
@@ -28058,16 +28058,16 @@ localStorage.setItem('mapIDS',''); //manh
                                 e.push(n[t]);
                         else
                             "all" === this.options.saveMissingTo ? e = this.languageUtils.toResolveHierarchy(t.lng || this.language) : e.push(t.lng || this.language);
-                        let r = (e, n, r) => {
+                        let r = (e,n,r)=>{
                             let i = f && r !== d ? r : v;
                             this.options.missingKeyHandler ? this.options.missingKeyHandler(e, s, n, i, y, t) : this.backendConnector && this.backendConnector.saveMissing && this.backendConnector.saveMissing(e, s, n, i, y, t),
                             this.emit("missingKey", e, s, n, d)
                         }
                         ;
-                        this.options.saveMissing && (this.options.saveMissingPlurals && u ? e.forEach(e => {
+                        this.options.saveMissing && (this.options.saveMissingPlurals && u ? e.forEach(e=>{
                             let n = this.pluralResolver.getSuffixes(e, t);
                             g && t[`defaultValue${this.options.pluralSeparator}zero`] && 0 > n.indexOf(`${this.options.pluralSeparator}zero`) && n.push(`${this.options.pluralSeparator}zero`),
-                            n.forEach(n => {
+                            n.forEach(n=>{
                                 r([e], o + n, t[`defaultValue${n}`] || m)
                             }
                             )
@@ -28138,7 +28138,7 @@ localStorage.setItem('mapIDS',''); //manh
             resolve(e) {
                 let t, n, r, i, o, a = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                 return "string" == typeof e && (e = [e]),
-                e.forEach(e => {
+                e.forEach(e=>{
                     if (this.isValidLookup(t))
                         return;
                     let s = this.extractFromKey(e, a)
@@ -28150,11 +28150,11 @@ localStorage.setItem('mapIDS',''); //manh
                       , d = c && !a.ordinal && 0 === a.count && this.pluralResolver.shouldUseIntlApi()
                       , f = void 0 !== a.context && ("string" == typeof a.context || "number" == typeof a.context) && "" !== a.context
                       , h = a.lngs ? a.lngs : this.languageUtils.toResolveHierarchy(a.lng || this.language, a.fallbackLng);
-                    u.forEach(e => {
+                    u.forEach(e=>{
                         this.isValidLookup(t) || (o = e,
                         !x[`${h[0]}-${e}`] && this.utils && this.utils.hasLoadedNamespace && !this.utils.hasLoadedNamespace(o) && (x[`${h[0]}-${e}`] = !0,
                         this.logger.warn(`key "${n}" for languages "${h.join(", ")}" won't get resolved as namespace "${o}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!")),
-                        h.forEach(n => {
+                        h.forEach(n=>{
                             let o;
                             if (this.isValidLookup(t))
                                 return;
@@ -28227,7 +28227,7 @@ localStorage.setItem('mapIDS',''); //manh
                 return !1
             }
         }
-        let C = e => e.charAt(0).toUpperCase() + e.slice(1);
+        let C = e=>e.charAt(0).toUpperCase() + e.slice(1);
         class N {
             constructor(e) {
                 this.options = e,
@@ -28251,7 +28251,7 @@ localStorage.setItem('mapIDS',''); //manh
                 if ("string" == typeof e && e.indexOf("-") > -1) {
                     let t = ["hans", "hant", "latn", "cyrl", "cans", "mong", "arab"]
                       , n = e.split("-");
-                    return this.options.lowerCaseLng ? n = n.map(e => e.toLowerCase()) : 2 === n.length ? (n[0] = n[0].toLowerCase(),
+                    return this.options.lowerCaseLng ? n = n.map(e=>e.toLowerCase()) : 2 === n.length ? (n[0] = n[0].toLowerCase(),
                     n[1] = n[1].toUpperCase(),
                     t.indexOf(n[1].toLowerCase()) > -1 && (n[1] = C(n[1].toLowerCase()))) : 3 === n.length && (n[0] = n[0].toLowerCase(),
                     2 === n[1].length && (n[1] = n[1].toUpperCase()),
@@ -28268,20 +28268,20 @@ localStorage.setItem('mapIDS',''); //manh
             }
             getBestMatchFromCodes(e) {
                 let t;
-                return e ? (e.forEach(e => {
+                return e ? (e.forEach(e=>{
                     if (t)
                         return;
                     let n = this.formatLanguageCode(e);
                     (!this.options.supportedLngs || this.isSupportedCode(n)) && (t = n)
                 }
                 ),
-                !t && this.options.supportedLngs && e.forEach(e => {
+                !t && this.options.supportedLngs && e.forEach(e=>{
                     if (t)
                         return;
                     let n = this.getLanguagePartFromCode(e);
                     if (this.isSupportedCode(n))
                         return t = n;
-                    t = this.options.supportedLngs.find(e => {
+                    t = this.options.supportedLngs.find(e=>{
                         if (e === n || !(0 > e.indexOf("-") && 0 > n.indexOf("-")) && (e.indexOf("-") > 0 && 0 > n.indexOf("-") && e.substring(0, e.indexOf("-")) === n || 0 === e.indexOf(n) && n.length > 1))
                             return e
                     }
@@ -28310,14 +28310,14 @@ localStorage.setItem('mapIDS',''); //manh
             toResolveHierarchy(e, t) {
                 let n = this.getFallbackCodes(t || this.options.fallbackLng || [], e)
                   , r = []
-                  , i = e => {
+                  , i = e=>{
                     e && (this.isSupportedCode(e) ? r.push(e) : this.logger.warn(`rejecting language code not found in supportedLngs: ${e}`))
                 }
                 ;
                 return "string" == typeof e && (e.indexOf("-") > -1 || e.indexOf("_") > -1) ? ("languageOnly" !== this.options.load && i(this.formatLanguageCode(e)),
                 "languageOnly" !== this.options.load && "currentOnly" !== this.options.load && i(this.getScriptPartFromCode(e)),
                 "currentOnly" !== this.options.load && i(this.getLanguagePartFromCode(e))) : "string" == typeof e && i(this.formatLanguageCode(e)),
-                n.forEach(e => {
+                n.forEach(e=>{
                     0 > r.indexOf(e) && i(this.formatLanguageCode(e))
                 }
                 ),
@@ -28418,28 +28418,28 @@ localStorage.setItem('mapIDS',''); //manh
             fc: 22
         }]
           , M = {
-            1: e => Number(e > 1),
-            2: e => Number(1 != e),
-            3: e => 0,
-            4: e => Number(e % 10 == 1 && e % 100 != 11 ? 0 : e % 10 >= 2 && e % 10 <= 4 && (e % 100 < 10 || e % 100 >= 20) ? 1 : 2),
-            5: e => Number(0 == e ? 0 : 1 == e ? 1 : 2 == e ? 2 : e % 100 >= 3 && e % 100 <= 10 ? 3 : e % 100 >= 11 ? 4 : 5),
-            6: e => Number(1 == e ? 0 : e >= 2 && e <= 4 ? 1 : 2),
-            7: e => Number(1 == e ? 0 : e % 10 >= 2 && e % 10 <= 4 && (e % 100 < 10 || e % 100 >= 20) ? 1 : 2),
-            8: e => Number(1 == e ? 0 : 2 == e ? 1 : 8 != e && 11 != e ? 2 : 3),
-            9: e => Number(e >= 2),
-            10: e => Number(1 == e ? 0 : 2 == e ? 1 : e < 7 ? 2 : e < 11 ? 3 : 4),
-            11: e => Number(1 == e || 11 == e ? 0 : 2 == e || 12 == e ? 1 : e > 2 && e < 20 ? 2 : 3),
-            12: e => Number(e % 10 != 1 || e % 100 == 11),
-            13: e => Number(0 !== e),
-            14: e => Number(1 == e ? 0 : 2 == e ? 1 : 3 == e ? 2 : 3),
-            15: e => Number(e % 10 == 1 && e % 100 != 11 ? 0 : e % 10 >= 2 && (e % 100 < 10 || e % 100 >= 20) ? 1 : 2),
-            16: e => Number(e % 10 == 1 && e % 100 != 11 ? 0 : 0 !== e ? 1 : 2),
-            17: e => Number(1 == e || e % 10 == 1 && e % 100 != 11 ? 0 : 1),
-            18: e => Number(0 == e ? 0 : 1 == e ? 1 : 2),
-            19: e => Number(1 == e ? 0 : 0 == e || e % 100 > 1 && e % 100 < 11 ? 1 : e % 100 > 10 && e % 100 < 20 ? 2 : 3),
-            20: e => Number(1 == e ? 0 : 0 == e || e % 100 > 0 && e % 100 < 20 ? 1 : 2),
-            21: e => Number(e % 100 == 1 ? 1 : e % 100 == 2 ? 2 : e % 100 == 3 || e % 100 == 4 ? 3 : 0),
-            22: e => Number(1 == e ? 0 : 2 == e ? 1 : (e < 0 || e > 10) && e % 10 == 0 ? 2 : 3)
+            1: e=>Number(e > 1),
+            2: e=>Number(1 != e),
+            3: e=>0,
+            4: e=>Number(e % 10 == 1 && e % 100 != 11 ? 0 : e % 10 >= 2 && e % 10 <= 4 && (e % 100 < 10 || e % 100 >= 20) ? 1 : 2),
+            5: e=>Number(0 == e ? 0 : 1 == e ? 1 : 2 == e ? 2 : e % 100 >= 3 && e % 100 <= 10 ? 3 : e % 100 >= 11 ? 4 : 5),
+            6: e=>Number(1 == e ? 0 : e >= 2 && e <= 4 ? 1 : 2),
+            7: e=>Number(1 == e ? 0 : e % 10 >= 2 && e % 10 <= 4 && (e % 100 < 10 || e % 100 >= 20) ? 1 : 2),
+            8: e=>Number(1 == e ? 0 : 2 == e ? 1 : 8 != e && 11 != e ? 2 : 3),
+            9: e=>Number(e >= 2),
+            10: e=>Number(1 == e ? 0 : 2 == e ? 1 : e < 7 ? 2 : e < 11 ? 3 : 4),
+            11: e=>Number(1 == e || 11 == e ? 0 : 2 == e || 12 == e ? 1 : e > 2 && e < 20 ? 2 : 3),
+            12: e=>Number(e % 10 != 1 || e % 100 == 11),
+            13: e=>Number(0 !== e),
+            14: e=>Number(1 == e ? 0 : 2 == e ? 1 : 3 == e ? 2 : 3),
+            15: e=>Number(e % 10 == 1 && e % 100 != 11 ? 0 : e % 10 >= 2 && (e % 100 < 10 || e % 100 >= 20) ? 1 : 2),
+            16: e=>Number(e % 10 == 1 && e % 100 != 11 ? 0 : 0 !== e ? 1 : 2),
+            17: e=>Number(1 == e || e % 10 == 1 && e % 100 != 11 ? 0 : 1),
+            18: e=>Number(0 == e ? 0 : 1 == e ? 1 : 2),
+            19: e=>Number(1 == e ? 0 : 0 == e || e % 100 > 1 && e % 100 < 11 ? 1 : e % 100 > 10 && e % 100 < 20 ? 2 : 3),
+            20: e=>Number(1 == e ? 0 : 0 == e || e % 100 > 0 && e % 100 < 20 ? 1 : 2),
+            21: e=>Number(e % 100 == 1 ? 1 : e % 100 == 2 ? 2 : e % 100 == 3 || e % 100 == 4 ? 3 : 0),
+            22: e=>Number(1 == e ? 0 : 2 == e ? 1 : (e < 0 || e > 10) && e % 10 == 0 ? 2 : 3)
         }
           , D = ["v1", "v2", "v3"]
           , j = ["v4"]
@@ -28451,10 +28451,10 @@ localStorage.setItem('mapIDS',''); //manh
             many: 4,
             other: 5
         }
-          , $ = () => {
+          , $ = ()=>{
             let e = {};
-            return L.forEach(t => {
-                t.lngs.forEach(n => {
+            return L.forEach(t=>{
+                t.lngs.forEach(n=>{
                     e[n] = {
                         numbers: t.nr,
                         plurals: M[t.fc]
@@ -28512,12 +28512,12 @@ localStorage.setItem('mapIDS',''); //manh
             }
             getPluralFormsOfKey(e, t) {
                 let n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};
-                return this.getSuffixes(e, n).map(e => `${t}${e}`)
+                return this.getSuffixes(e, n).map(e=>`${t}${e}`)
             }
             getSuffixes(e) {
                 let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}
                   , n = this.getRule(e, t);
-                return n ? this.shouldUseIntlApi() ? n.resolvedOptions().pluralCategories.sort( (e, t) => U[e] - U[t]).map(e => `${this.options.prepend}${t.ordinal ? `ordinal${this.options.prepend}` : ""}${e}`) : n.numbers.map(n => this.getSuffix(e, n, t)) : []
+                return n ? this.shouldUseIntlApi() ? n.resolvedOptions().pluralCategories.sort((e,t)=>U[e] - U[t]).map(e=>`${this.options.prepend}${t.ordinal ? `ordinal${this.options.prepend}` : ""}${e}`) : n.numbers.map(n=>this.getSuffix(e, n, t)) : []
             }
             getSuffix(e, t) {
                 let n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {}
@@ -28529,7 +28529,7 @@ localStorage.setItem('mapIDS',''); //manh
                 let n = e.noAbs ? e.plurals(t) : e.plurals(Math.abs(t))
                   , r = e.numbers[n];
                 this.options.simplifyPluralSuffix && 2 === e.numbers.length && 1 === e.numbers[0] && (2 === r ? r = "plural" : 1 === r && (r = ""));
-                let i = () => this.options.prepend && r.toString() ? this.options.prepend + r.toString() : r.toString();
+                let i = ()=>this.options.prepend && r.toString() ? this.options.prepend + r.toString() : r.toString();
                 return "v1" === this.options.compatibilityJSON ? 1 === r ? "" : "number" == typeof r ? `_plural_${r.toString()}` : i() : "v2" === this.options.compatibilityJSON || this.options.simplifyPluralSuffix && 2 === e.numbers.length && 1 === e.numbers[0] ? i() : this.options.prepend && n.toString() ? this.options.prepend + n.toString() : n.toString()
             }
             shouldUseIntlApi() {
@@ -28543,13 +28543,13 @@ localStorage.setItem('mapIDS',''); //manh
             return !o && i && "string" == typeof n && void 0 === (o = P(e, n, r)) && (o = P(t, n, r)),
             o
         }
-          , F = e => e.replace(/\$/g, "$$$$");
+          , F = e=>e.replace(/\$/g, "$$$$");
         class q {
             constructor() {
                 let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
                 this.logger = o.create("interpolator"),
                 this.options = e,
-                this.format = e.interpolation && e.interpolation.format || (e => e),
+                this.format = e.interpolation && e.interpolation.format || (e=>e),
                 this.init(e)
             }
             init() {
@@ -28577,7 +28577,7 @@ localStorage.setItem('mapIDS',''); //manh
                 this.options && this.init(this.options)
             }
             resetRegExp() {
-                let e = (e, t) => e && e.source === t ? (e.lastIndex = 0,
+                let e = (e,t)=>e && e.source === t ? (e.lastIndex = 0,
                 e) : RegExp(t, "g");
                 this.regexp = e(this.regexp, `${this.prefix}(.+?)${this.suffix}`),
                 this.regexpUnescape = e(this.regexpUnescape, `${this.prefix}${this.unescapePrefix}(.+?)${this.unescapeSuffix}${this.suffix}`),
@@ -28586,7 +28586,7 @@ localStorage.setItem('mapIDS',''); //manh
             interpolate(e, t, n, r) {
                 let i, o, a;
                 let s = this.options && this.options.interpolation && this.options.interpolation.defaultVariables || {}
-                  , u = e => {
+                  , u = e=>{
                     if (0 > e.indexOf(this.formatSeparator)) {
                         let i = B(t, s, e, this.options.keySeparator, this.options.ignoreJSONStructure);
                         return this.alwaysFormat ? this.format(i, void 0, n, {
@@ -28610,11 +28610,11 @@ localStorage.setItem('mapIDS',''); //manh
                   , d = r && r.interpolation && void 0 !== r.interpolation.skipOnVariables ? r.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables;
                 return [{
                     regex: this.regexpUnescape,
-                    safeValue: e => F(e)
+                    safeValue: e=>F(e)
                 }, {
                     regex: this.regexp,
-                    safeValue: e => this.escapeValue ? F(this.escape(e)) : F(e)
-                }].forEach(t => {
+                    safeValue: e=>this.escapeValue ? F(this.escape(e)) : F(e)
+                }].forEach(t=>{
                     for (a = 0; i = t.regex.exec(e); ) {
                         let n = i[1].trim();
                         if (void 0 === (o = u(n))) {
@@ -28643,7 +28643,7 @@ localStorage.setItem('mapIDS',''); //manh
                 e
             }
             nest(e, t) {
-                let n, r, i, o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {}, a = (e, t) => {
+                let n, r, i, o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {}, a = (e,t)=>{
                     let n = this.nestingOptionsSeparator;
                     if (0 > e.indexOf(n))
                         return e;
@@ -28675,7 +28675,7 @@ localStorage.setItem('mapIDS',''); //manh
                     delete i.defaultValue;
                     let u = !1;
                     if (-1 !== n[0].indexOf(this.formatSeparator) && !/{.*}/.test(n[1])) {
-                        let e = n[1].split(this.formatSeparator).map(e => e.trim());
+                        let e = n[1].split(this.formatSeparator).map(e=>e.trim());
                         n[1] = e.shift(),
                         s = e,
                         u = !0
@@ -28685,7 +28685,7 @@ localStorage.setItem('mapIDS',''); //manh
                     "string" != typeof r && (r = l(r)),
                     r || (this.logger.warn(`missed to resolve ${n[1]} for nesting ${e}`),
                     r = ""),
-                    u && (r = s.reduce( (e, t) => this.format(e, t, o.lng, {
+                    u && (r = s.reduce((e,t)=>this.format(e, t, o.lng, {
                         ...o,
                         interpolationkey: n[1].trim()
                     }), r.trim())),
@@ -28695,14 +28695,14 @@ localStorage.setItem('mapIDS',''); //manh
                 return e
             }
         }
-        let G = e => {
+        let G = e=>{
             let t = e.toLowerCase().trim()
               , n = {};
             if (e.indexOf("(") > -1) {
                 let r = e.split("(");
                 t = r[0].toLowerCase().trim();
                 let i = r[1].substring(0, r[1].length - 1);
-                "currency" === t && 0 > i.indexOf(":") ? n.currency || (n.currency = i.trim()) : "relativetime" === t && 0 > i.indexOf(":") ? n.range || (n.range = i.trim()) : i.split(";").forEach(e => {
+                "currency" === t && 0 > i.indexOf(":") ? n.currency || (n.currency = i.trim()) : "relativetime" === t && 0 > i.indexOf(":") ? n.range || (n.range = i.trim()) : i.split(";").forEach(e=>{
                     if (e) {
                         let[t,...r] = e.split(":")
                           , i = r.join(":").trim().replace(/^'+|'+$/g, "")
@@ -28720,9 +28720,9 @@ localStorage.setItem('mapIDS',''); //manh
                 formatOptions: n
             }
         }
-          , Y = e => {
+          , Y = e=>{
             let t = {};
-            return (n, r, i) => {
+            return (n,r,i)=>{
                 let o = i;
                 i && i.interpolationkey && i.formatParams && i.formatParams[i.interpolationkey] && i[i.interpolationkey] && (o = {
                     ...o,
@@ -28742,40 +28742,40 @@ localStorage.setItem('mapIDS',''); //manh
                 this.logger = o.create("formatter"),
                 this.options = e,
                 this.formats = {
-                    number: Y( (e, t) => {
+                    number: Y((e,t)=>{
                         let n = new Intl.NumberFormat(e,{
                             ...t
                         });
-                        return e => n.format(e)
+                        return e=>n.format(e)
                     }
                     ),
-                    currency: Y( (e, t) => {
+                    currency: Y((e,t)=>{
                         let n = new Intl.NumberFormat(e,{
                             ...t,
                             style: "currency"
                         });
-                        return e => n.format(e)
+                        return e=>n.format(e)
                     }
                     ),
-                    datetime: Y( (e, t) => {
+                    datetime: Y((e,t)=>{
                         let n = new Intl.DateTimeFormat(e,{
                             ...t
                         });
-                        return e => n.format(e)
+                        return e=>n.format(e)
                     }
                     ),
-                    relativetime: Y( (e, t) => {
+                    relativetime: Y((e,t)=>{
                         let n = new Intl.RelativeTimeFormat(e,{
                             ...t
                         });
-                        return e => n.format(e, t.range || "day")
+                        return e=>n.format(e, t.range || "day")
                     }
                     ),
-                    list: Y( (e, t) => {
+                    list: Y((e,t)=>{
                         let n = new Intl.ListFormat(e,{
                             ...t
                         });
-                        return e => n.format(e)
+                        return e=>n.format(e)
                     }
                     )
                 },
@@ -28797,11 +28797,11 @@ localStorage.setItem('mapIDS',''); //manh
             format(e, t, n) {
                 let r = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : {}
                   , i = t.split(this.formatSeparator);
-                if (i.length > 1 && i[0].indexOf("(") > 1 && 0 > i[0].indexOf(")") && i.find(e => e.indexOf(")") > -1)) {
-                    let e = i.findIndex(e => e.indexOf(")") > -1);
+                if (i.length > 1 && i[0].indexOf("(") > 1 && 0 > i[0].indexOf(")") && i.find(e=>e.indexOf(")") > -1)) {
+                    let e = i.findIndex(e=>e.indexOf(")") > -1);
                     i[0] = [i[0], ...i.splice(1, e)].join(this.formatSeparator)
                 }
-                return i.reduce( (e, t) => {
+                return i.reduce((e,t)=>{
                     let {formatName: i, formatOptions: o} = G(t);
                     if (this.formats[i]) {
                         let t = e;
@@ -28824,7 +28824,7 @@ localStorage.setItem('mapIDS',''); //manh
                 , e)
             }
         }
-        let z = (e, t) => {
+        let z = (e,t)=>{
             void 0 !== e.pending[t] && (delete e.pending[t],
             e.pendingCount--)
         }
@@ -28853,9 +28853,9 @@ localStorage.setItem('mapIDS',''); //manh
                   , o = {}
                   , a = {}
                   , s = {};
-                return e.forEach(e => {
+                return e.forEach(e=>{
                     let r = !0;
-                    t.forEach(t => {
+                    t.forEach(t=>{
                         let a = `${e}|${t}`;
                         !n.reload && this.store.hasResourceBundle(e, t) ? this.state[a] = 2 : this.state[a] < 0 || (1 === this.state[a] ? void 0 === o[a] && (o[a] = !0) : (this.state[a] = 1,
                         r = !1,
@@ -28892,14 +28892,14 @@ localStorage.setItem('mapIDS',''); //manh
                 this.state[e] = t ? -1 : 2,
                 t && n && (this.state[e] = 0);
                 let a = {};
-                this.queue.forEach(n => {
+                this.queue.forEach(n=>{
                     g(n.loaded, [i], o),
                     z(n, e),
                     t && n.errors.push(t),
-                    0 !== n.pendingCount || n.done || (Object.keys(n.loaded).forEach(e => {
+                    0 !== n.pendingCount || n.done || (Object.keys(n.loaded).forEach(e=>{
                         a[e] || (a[e] = {});
                         let t = n.loaded[e];
-                        t.length && t.forEach(t => {
+                        t.length && t.forEach(t=>{
                             void 0 === a[e][t] && (a[e][t] = !0)
                         }
                         )
@@ -28910,7 +28910,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 ),
                 this.emit("loaded", a),
-                this.queue = this.queue.filter(e => !e.done)
+                this.queue = this.queue.filter(e=>!e.done)
             }
             read(e, t, n) {
                 let r = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 0
@@ -28930,14 +28930,14 @@ localStorage.setItem('mapIDS',''); //manh
                     return
                 }
                 this.readingCalls++;
-                let a = (a, s) => {
+                let a = (a,s)=>{
                     if (this.readingCalls--,
                     this.waitingReads.length > 0) {
                         let e = this.waitingReads.shift();
                         this.read(e.lng, e.ns, e.fcName, e.tried, e.wait, e.callback)
                     }
                     if (a && s && r < this.maxRetries) {
-                        setTimeout( () => {
+                        setTimeout(()=>{
                             this.read.call(this, e, t, n, r + 1, 2 * i, o)
                         }
                         , i);
@@ -28949,7 +28949,7 @@ localStorage.setItem('mapIDS',''); //manh
                 if (2 === s.length) {
                     try {
                         let n = s(e, t);
-                        n && "function" == typeof n.then ? n.then(e => a(null, e)).catch(a) : a(null, n)
+                        n && "function" == typeof n.then ? n.then(e=>a(null, e)).catch(a) : a(null, n)
                     } catch (e) {
                         a(e)
                     }
@@ -28969,7 +28969,7 @@ localStorage.setItem('mapIDS',''); //manh
                 if (!i.toLoad.length)
                     return i.pending.length || r(),
                     null;
-                i.toLoad.forEach(e => {
+                i.toLoad.forEach(e=>{
                     this.loadOne(e)
                 }
                 )
@@ -28987,7 +28987,7 @@ localStorage.setItem('mapIDS',''); //manh
                   , n = e.split("|")
                   , r = n[0]
                   , i = n[1];
-                this.read(r, i, "read", void 0, void 0, (n, o) => {
+                this.read(r, i, "read", void 0, void 0, (n,o)=>{
                     n && this.logger.warn(`${t}loading namespace ${i} for language ${r} failed`, n),
                     !n && o && this.logger.log(`${t}loaded namespace ${i} for language ${r}`, o),
                     this.loaded(e, n, o)
@@ -28996,7 +28996,7 @@ localStorage.setItem('mapIDS',''); //manh
             }
             saveMissing(e, t, n, r, i) {
                 let o = arguments.length > 5 && void 0 !== arguments[5] ? arguments[5] : {}
-                  , a = arguments.length > 6 && void 0 !== arguments[6] ? arguments[6] : () => {}
+                  , a = arguments.length > 6 && void 0 !== arguments[6] ? arguments[6] : ()=>{}
                 ;
                 if (this.services.utils && this.services.utils.hasLoadedNamespace && !this.services.utils.hasLoadedNamespace(t)) {
                     this.logger.warn(`did not save key "${n}" as the namespace "${t}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!");
@@ -29012,7 +29012,7 @@ localStorage.setItem('mapIDS',''); //manh
                         if (l.length < 6)
                             try {
                                 let i;
-                                (i = 5 === l.length ? l(e, t, n, r, s) : l(e, t, n, r)) && "function" == typeof i.then ? i.then(e => a(null, e)).catch(a) : a(null, i)
+                                (i = 5 === l.length ? l(e, t, n, r, s) : l(e, t, n, r)) && "function" == typeof i.then ? i.then(e=>a(null, e)).catch(a) : a(null, i)
                             } catch (e) {
                                 a(e)
                             }
@@ -29023,7 +29023,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }
             }
         }
-        let W = () => ({
+        let W = ()=>({
             debug: !1,
             initImmediate: !0,
             ns: ["translation"],
@@ -29056,14 +29056,14 @@ localStorage.setItem('mapIDS',''); //manh
             parseMissingKeyHandler: !1,
             appendNamespaceToMissingKey: !1,
             appendNamespaceToCIMode: !1,
-            overloadTranslationOptionHandler: e => {
+            overloadTranslationOptionHandler: e=>{
                 let t = {};
                 if ("object" == typeof e[1] && (t = e[1]),
                 "string" == typeof e[1] && (t.defaultValue = e[1]),
                 "string" == typeof e[2] && (t.tDescription = e[2]),
                 "object" == typeof e[2] || "object" == typeof e[3]) {
                     let n = e[3] || e[2];
-                    Object.keys(n).forEach(e => {
+                    Object.keys(n).forEach(e=>{
                         t[e] = n[e]
                     }
                     )
@@ -29073,7 +29073,7 @@ localStorage.setItem('mapIDS',''); //manh
             ,
             interpolation: {
                 escapeValue: !0,
-                format: e => e,
+                format: e=>e,
                 prefix: "{{",
                 suffix: "}}",
                 formatSeparator: ",",
@@ -29085,14 +29085,14 @@ localStorage.setItem('mapIDS',''); //manh
                 skipOnVariables: !0
             }
         })
-          , K = e => ("string" == typeof e.ns && (e.ns = [e.ns]),
+          , K = e=>("string" == typeof e.ns && (e.ns = [e.ns]),
         "string" == typeof e.fallbackLng && (e.fallbackLng = [e.fallbackLng]),
         "string" == typeof e.fallbackNS && (e.fallbackNS = [e.fallbackNS]),
         e.supportedLngs && 0 > e.supportedLngs.indexOf("cimode") && (e.supportedLngs = e.supportedLngs.concat(["cimode"])),
         e)
-          , J = () => {}
-          , X = e => {
-            Object.getOwnPropertyNames(Object.getPrototypeOf(e)).forEach(t => {
+          , J = ()=>{}
+          , X = e=>{
+            Object.getOwnPropertyNames(Object.getPrototypeOf(e)).forEach(t=>{
                 "function" == typeof e[t] && (e[t] = e[t].bind(e))
             }
             )
@@ -29114,7 +29114,7 @@ localStorage.setItem('mapIDS',''); //manh
                     if (!this.options.initImmediate)
                         return this.init(e, t),
                         this;
-                    setTimeout( () => {
+                    setTimeout(()=>{
                         this.init(e, t)
                     }
                     , 0)
@@ -29140,7 +29140,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }),
                 void 0 !== t.keySeparator && (this.options.userDefinedKeySeparator = t.keySeparator),
                 void 0 !== t.nsSeparator && (this.options.userDefinedNsSeparator = t.nsSeparator);
-                let i = e => e ? "function" == typeof e ? new e : e : null;
+                let i = e=>e ? "function" == typeof e ? new e : e : null;
                 if (!this.options.isClone) {
                     let t;
                     this.modules.logger ? o.init(i(this.modules.logger), this.options) : o.init(null, this.options),
@@ -29179,7 +29179,7 @@ localStorage.setItem('mapIDS',''); //manh
                             r[i - 1] = arguments[i];
                         e.emit(t, ...r)
                     }),
-                    this.modules.external.forEach(e => {
+                    this.modules.external.forEach(e=>{
                         e.init && e.init(this)
                     }
                     )
@@ -29191,13 +29191,13 @@ localStorage.setItem('mapIDS',''); //manh
                     e.length > 0 && "dev" !== e[0] && (this.options.lng = e[0])
                 }
                 this.services.languageDetector || this.options.lng || this.logger.warn("init: no languageDetector is used and no lng is defined"),
-                ["getResource", "hasResourceBundle", "getResourceBundle", "getDataByLanguage"].forEach(t => {
+                ["getResource", "hasResourceBundle", "getResourceBundle", "getDataByLanguage"].forEach(t=>{
                     this[t] = function() {
                         return e.store[t](...arguments)
                     }
                 }
                 ),
-                ["addResource", "addResources", "addResourceBundle", "removeResourceBundle"].forEach(t => {
+                ["addResource", "addResources", "addResourceBundle", "removeResourceBundle"].forEach(t=>{
                     this[t] = function() {
                         return e.store[t](...arguments),
                         e
@@ -29205,8 +29205,8 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 );
                 let a = s()
-                  , l = () => {
-                    let e = (e, t) => {
+                  , l = ()=>{
+                    let e = (e,t)=>{
                         this.isInitializing = !1,
                         this.isInitialized && !this.initializedStoreOnce && this.logger.warn("init: i18next is already initialized. You should call init just once!"),
                         this.isInitialized = !0,
@@ -29233,16 +29233,16 @@ localStorage.setItem('mapIDS',''); //manh
                     if (r && "cimode" === r.toLowerCase() && (!this.options.preload || 0 === this.options.preload.length))
                         return n();
                     let e = []
-                      , t = t => {
-                        t && "cimode" !== t && this.services.languageUtils.toResolveHierarchy(t).forEach(t => {
+                      , t = t=>{
+                        t && "cimode" !== t && this.services.languageUtils.toResolveHierarchy(t).forEach(t=>{
                             "cimode" !== t && 0 > e.indexOf(t) && e.push(t)
                         }
                         )
                     }
                     ;
-                    r ? t(r) : this.services.languageUtils.getFallbackCodes(this.options.fallbackLng).forEach(e => t(e)),
-                    this.options.preload && this.options.preload.forEach(e => t(e)),
-                    this.services.backendConnector.load(e, this.options.ns, e => {
+                    r ? t(r) : this.services.languageUtils.getFallbackCodes(this.options.fallbackLng).forEach(e=>t(e)),
+                    this.options.preload && this.options.preload.forEach(e=>t(e)),
+                    this.services.backendConnector.load(e, this.options.ns, e=>{
                         e || this.resolvedLanguage || !this.language || this.setResolvedLanguage(this.language),
                         n(e)
                     }
@@ -29259,7 +29259,7 @@ localStorage.setItem('mapIDS',''); //manh
                 e || (e = this.languages),
                 t || (t = this.options.ns),
                 n || (n = J),
-                this.services.backendConnector.reload(e, t, e => {
+                this.services.backendConnector.reload(e, t, e=>{
                     r.resolve(),
                     n(e)
                 }
@@ -29295,13 +29295,13 @@ localStorage.setItem('mapIDS',''); //manh
                 this.isLanguageChangingTo = e;
                 let r = s();
                 this.emit("languageChanging", e);
-                let i = e => {
+                let i = e=>{
                     this.language = e,
                     this.languages = this.services.languageUtils.toResolveHierarchy(e),
                     this.resolvedLanguage = void 0,
                     this.setResolvedLanguage(e)
                 }
-                  , o = (e, o) => {
+                  , o = (e,o)=>{
                     o ? (i(o),
                     this.translator.changeLanguage(o),
                     this.isLanguageChangingTo = void 0,
@@ -29314,13 +29314,13 @@ localStorage.setItem('mapIDS',''); //manh
                         return n.t(...arguments)
                     })
                 }
-                  , a = t => {
+                  , a = t=>{
                     e || t || !this.services.languageDetector || (t = []);
                     let n = "string" == typeof t ? t : this.services.languageUtils.getBestMatchFromCodes(t);
                     n && (this.language || i(n),
                     this.translator.language || this.translator.changeLanguage(n),
                     this.services.languageDetector && this.services.languageDetector.cacheUserLanguage && this.services.languageDetector.cacheUserLanguage(n)),
-                    this.loadResources(n, e => {
+                    this.loadResources(n, e=>{
                         o(e, n)
                     }
                     )
@@ -29346,7 +29346,7 @@ localStorage.setItem('mapIDS',''); //manh
                     o.ns = o.ns || i.ns,
                     "" !== o.keyPrefix && (o.keyPrefix = o.keyPrefix || n || i.keyPrefix);
                     let c = r.options.keySeparator || ".";
-                    return a = o.keyPrefix && Array.isArray(e) ? e.map(e => `${o.keyPrefix}${c}${e}`) : o.keyPrefix ? `${o.keyPrefix}${c}${e}` : e,
+                    return a = o.keyPrefix && Array.isArray(e) ? e.map(e=>`${o.keyPrefix}${c}${e}`) : o.keyPrefix ? `${o.keyPrefix}${c}${e}` : e,
                     r.t(a, o)
                 };
                 return "string" == typeof e ? i.lng = e : i.lngs = e,
@@ -29376,7 +29376,7 @@ localStorage.setItem('mapIDS',''); //manh
                   , i = this.languages[this.languages.length - 1];
                 if ("cimode" === n.toLowerCase())
                     return !0;
-                let o = (e, t) => {
+                let o = (e,t)=>{
                     let n = this.services.backendConnector.state[`${e}|${t}`];
                     return -1 === n || 0 === n || 2 === n
                 }
@@ -29391,11 +29391,11 @@ localStorage.setItem('mapIDS',''); //manh
             loadNamespaces(e, t) {
                 let n = s();
                 return this.options.ns ? ("string" == typeof e && (e = [e]),
-                e.forEach(e => {
+                e.forEach(e=>{
                     0 > this.options.ns.indexOf(e) && this.options.ns.push(e)
                 }
                 ),
-                this.loadResources(e => {
+                this.loadResources(e=>{
                     n.resolve(),
                     t && t(e)
                 }
@@ -29407,9 +29407,9 @@ localStorage.setItem('mapIDS',''); //manh
                 let n = s();
                 "string" == typeof e && (e = [e]);
                 let r = this.options.preload || []
-                  , i = e.filter(e => 0 > r.indexOf(e) && this.services.languageUtils.isSupportedCode(e));
+                  , i = e.filter(e=>0 > r.indexOf(e) && this.services.languageUtils.isSupportedCode(e));
                 return i.length ? (this.options.preload = r.concat(i),
-                this.loadResources(e => {
+                this.loadResources(e=>{
                     n.resolve(),
                     t && t(e)
                 }
@@ -29438,7 +29438,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                   , i = new Q(r);
                 return (void 0 !== e.debug || void 0 !== e.prefix) && (i.logger = i.logger.clone(e)),
-                ["store", "services", "language"].forEach(e => {
+                ["store", "services", "language"].forEach(e=>{
                     i[e] = this[e]
                 }
                 ),
@@ -29504,13 +29504,13 @@ localStorage.setItem('mapIDS',''); //manh
           , i = n(15103);
         let o = (0,
         r.createContext)(void 0)
-          , a = e => {
+          , a = e=>{
             let t = (0,
             r.useContext)(o);
             return (null == e ? void 0 : e.store) || t || (0,
             i.K7)()
         }
-          , s = ({children: e, store: t}) => {
+          , s = ({children: e, store: t})=>{
             let n = (0,
             r.useRef)();
             return t || n.current || (n.current = (0,
@@ -29520,8 +29520,8 @@ localStorage.setItem('mapIDS',''); //manh
                 value: t || n.current
             }, e)
         }
-          , l = e => "function" == typeof (null == e ? void 0 : e.then)
-          , u = r.use || (e => {
+          , l = e=>"function" == typeof (null == e ? void 0 : e.then)
+          , u = r.use || (e=>{
             if ("pending" === e.status)
                 throw e;
             if ("fulfilled" === e.status)
@@ -29529,11 +29529,11 @@ localStorage.setItem('mapIDS',''); //manh
             if ("rejected" === e.status)
                 throw e.reason;
             throw e.status = "pending",
-            e.then(t => {
+            e.then(t=>{
                 e.status = "fulfilled",
                 e.value = t
             }
-            , t => {
+            , t=>{
                 e.status = "rejected",
                 e.reason = t
             }
@@ -29545,18 +29545,18 @@ localStorage.setItem('mapIDS',''); //manh
             return [function(e, t) {
                 let n = a(t)
                   , [[i,o,s],c] = (0,
-                r.useReducer)(t => {
+                r.useReducer)(t=>{
                     let r = n.get(e);
                     return Object.is(t[0], r) && t[1] === n && t[2] === e ? t : [r, n, e]
                 }
-                , void 0, () => [n.get(e), n, e])
+                , void 0, ()=>[n.get(e), n, e])
                   , d = i;
                 (o !== n || s !== e) && (c(),
                 d = n.get(e));
                 let f = null == t ? void 0 : t.delay;
                 return (0,
-                r.useEffect)( () => {
-                    let t = n.sub(e, () => {
+                r.useEffect)(()=>{
+                    let t = n.sub(e, ()=>{
                         if ("number" == typeof f) {
                             setTimeout(c, f);
                             return
@@ -29574,7 +29574,7 @@ localStorage.setItem('mapIDS',''); //manh
             }(e, t), function(e, t) {
                 let n = a(t);
                 return (0,
-                r.useCallback)( (...t) => {
+                r.useCallback)((...t)=>{
                     if (!("write"in e))
                         throw Error("not writable atom");
                     return n.set(e, ...t)
@@ -29601,54 +29601,54 @@ localStorage.setItem('mapIDS',''); //manh
         function o(e, t) {
             let n = `atom${++i}`
               , r = {
-                toString: () => n
+                toString: ()=>n
             };
             return "function" == typeof e ? r.read = e : (r.init = e,
-            r.read = e => e(r),
-            r.write = (e, t, n) => t(r, "function" == typeof n ? n(e(r)) : n)),
+            r.read = e=>e(r),
+            r.write = (e,t,n)=>t(r, "function" == typeof n ? n(e(r)) : n)),
             t && (r.write = t),
             r
         }
-        let a = e => "init"in e
-          , s = e => !!e.write
+        let a = e=>"init"in e
+          , s = e=>!!e.write
           , l = new WeakMap
-          , u = (e, t) => {
+          , u = (e,t)=>{
             l.set(e, t),
-            e.catch( () => {}
-            ).finally( () => l.delete(e))
+            e.catch(()=>{}
+            ).finally(()=>l.delete(e))
         }
-          , c = (e, t) => {
+          , c = (e,t)=>{
             let n = l.get(e);
             n && (l.delete(e),
             n(t))
         }
-          , d = (e, t) => {
+          , d = (e,t)=>{
             e.status = "fulfilled",
             e.value = t
         }
-          , f = (e, t) => {
+          , f = (e,t)=>{
             e.status = "rejected",
             e.reason = t
         }
-          , h = e => "function" == typeof (null == e ? void 0 : e.then)
-          , p = (e, t) => "v"in e && "v"in t && Object.is(e.v, t.v)
-          , g = (e, t) => "e"in e && "e"in t && Object.is(e.e, t.e)
-          , m = e => "v"in e && e.v instanceof Promise
-          , v = (e, t) => "v"in e && "v"in t && e.v.orig && e.v.orig === t.v.orig
-          , y = e => {
+          , h = e=>"function" == typeof (null == e ? void 0 : e.then)
+          , p = (e,t)=>"v"in e && "v"in t && Object.is(e.v, t.v)
+          , g = (e,t)=>"e"in e && "e"in t && Object.is(e.e, t.e)
+          , m = e=>"v"in e && e.v instanceof Promise
+          , v = (e,t)=>"v"in e && "v"in t && e.v.orig && e.v.orig === t.v.orig
+          , y = e=>{
             if ("e"in e)
                 throw e.e;
             return e.v
         }
-          , b = () => {
+          , b = ()=>{
             let e, t;
             let n = new WeakMap
               , r = new WeakMap
               , i = new Map;
             e = new Set,
             t = new Set;
-            let o = e => n.get(e)
-              , l = (e, t) => {
+            let o = e=>n.get(e)
+              , l = (e,t)=>{
                 Object.freeze(t);
                 let r = n.get(e);
                 if (n.set(e, t),
@@ -29658,10 +29658,10 @@ localStorage.setItem('mapIDS',''); //manh
                     c(r.v, e)
                 }
             }
-              , b = (e, t, n) => {
+              , b = (e,t,n)=>{
                 let r = new Map
                   , i = !1;
-                n.forEach( (n, o) => {
+                n.forEach((n,o)=>{
                     n || o !== e || (n = t),
                     n ? (r.set(o, n),
                     t.d.get(o) !== n && (i = !0)) : console.warn("[Bug] atom state not found")
@@ -29669,7 +29669,7 @@ localStorage.setItem('mapIDS',''); //manh
                 ),
                 (i || t.d.size !== r.size) && (t.d = r)
             }
-              , E = (e, t, n) => {
+              , E = (e,t,n)=>{
                 let r = o(e)
                   , i = {
                     d: (null == r ? void 0 : r.d) || new Map,
@@ -29686,12 +29686,12 @@ localStorage.setItem('mapIDS',''); //manh
                 return l(e, i),
                 i
             }
-              , _ = (e, t, n, i) => {
+              , _ = (e,t,n,i)=>{
                 if (h(t)) {
                     let a;
-                    let s = new Promise( (i, l) => {
+                    let s = new Promise((i,l)=>{
                         let u = !1;
-                        t.then(t => {
+                        t.then(t=>{
                             if (!u) {
                                 u = !0;
                                 let a = o(e)
@@ -29701,7 +29701,7 @@ localStorage.setItem('mapIDS',''); //manh
                                 r.has(e) && (null == a ? void 0 : a.d) !== l.d && C(e, l, null == a ? void 0 : a.d)
                             }
                         }
-                        , t => {
+                        , t=>{
                             if (!u) {
                                 u = !0;
                                 let i = o(e)
@@ -29712,16 +29712,16 @@ localStorage.setItem('mapIDS',''); //manh
                             }
                         }
                         ),
-                        a = e => {
+                        a = e=>{
                             u || (u = !0,
-                            e.then(e => d(s, e), e => f(s, e)),
+                            e.then(e=>d(s, e), e=>f(s, e)),
                             i(e))
                         }
                     }
                     );
                     return s.orig = t,
                     s.status = "pending",
-                    u(s, e => {
+                    u(s, e=>{
                         e && a(e),
                         null == i || i()
                     }
@@ -29730,7 +29730,7 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 return E(e, t, n)
             }
-              , w = (e, t, n) => {
+              , w = (e,t,n)=>{
                 let r = o(e)
                   , i = {
                     d: (null == r ? void 0 : r.d) || new Map,
@@ -29740,15 +29740,15 @@ localStorage.setItem('mapIDS',''); //manh
                 r && g(r, i) && r.d === i.d) ? r : (l(e, i),
                 i)
             }
-              , O = (e, t) => {
+              , O = (e,t)=>{
                 let n, i;
                 let l = o(e);
-                if (!t && l && (r.has(e) || Array.from(l.d).every( ([t,n]) => t === e || O(t) === n)))
+                if (!t && l && (r.has(e) || Array.from(l.d).every(([t,n])=>t === e || O(t) === n)))
                     return l;
                 let u = new Map
                   , c = !0;
                 try {
-                    let t = e.read(t => {
+                    let t = e.read(t=>{
                         if (t === e) {
                             let e = o(t);
                             if (e)
@@ -29770,7 +29770,7 @@ localStorage.setItem('mapIDS',''); //manh
                         },
                         get setSelf() {
                             return s(e) || console.warn("setSelf function cannot be used with read-only atom"),
-                            !i && s(e) && (i = (...t) => {
+                            !i && s(e) && (i = (...t)=>{
                                 if (c && console.warn("setSelf function cannot be called in sync"),
                                 !c)
                                     return T(e, ...t)
@@ -29779,38 +29779,38 @@ localStorage.setItem('mapIDS',''); //manh
                             i
                         }
                     });
-                    return _(e, t, u, () => null == n ? void 0 : n.abort())
+                    return _(e, t, u, ()=>null == n ? void 0 : n.abort())
                 } catch (t) {
                     return w(e, t, u)
                 } finally {
                     c = !1
                 }
             }
-              , A = e => {
+              , A = e=>{
                 let t = r.get(e);
                 return t || (t = x(e)),
                 t
             }
-              , S = (e, t) => !t.l.size && (!t.t.size || 1 === t.t.size && t.t.has(e))
-              , P = e => {
+              , S = (e,t)=>!t.l.size && (!t.t.size || 1 === t.t.size && t.t.has(e))
+              , P = e=>{
                 let t = r.get(e);
                 t && S(e, t) && k(e)
             }
-              , I = e => {
+              , I = e=>{
                 let t = new Map
                   , n = new WeakMap
-                  , a = e => {
+                  , a = e=>{
                     var t;
                     let n = new Set(null == (t = r.get(e)) ? void 0 : t.t);
-                    return i.forEach( (t, r) => {
+                    return i.forEach((t,r)=>{
                         var i;
                         (null == (i = o(r)) ? void 0 : i.d.has(e)) && n.add(r)
                     }
                     ),
                     n
                 }
-                  , s = e => {
-                    a(e).forEach(r => {
+                  , s = e=>{
+                    a(e).forEach(r=>{
                         r !== e && (t.set(r, (t.get(r) || new Set).add(e)),
                         n.set(r, (n.get(r) || 0) + 1),
                         s(r))
@@ -29819,8 +29819,8 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 ;
                 s(e);
-                let l = e => {
-                    a(e).forEach(r => {
+                let l = e=>{
+                    a(e).forEach(r=>{
                         var i;
                         if (r !== e) {
                             let e = n.get(r);
@@ -29832,7 +29832,7 @@ localStorage.setItem('mapIDS',''); //manh
                                       , n = O(r, !0);
                                     e = !t || !p(t, n)
                                 }
-                                e || t.forEach(e => e.delete(r))
+                                e || t.forEach(e=>e.delete(r))
                             }
                             l(r)
                         }
@@ -29842,9 +29842,9 @@ localStorage.setItem('mapIDS',''); //manh
                 ;
                 l(e)
             }
-              , R = (t, ...n) => {
+              , R = (t,...n)=>{
                 let r = !0
-                  , i = t.write(e => y(O(e)), (n, ...i) => {
+                  , i = t.write(e=>y(O(e)), (n,...i)=>{
                     let s;
                     if (n === t) {
                         if (!a(n))
@@ -29856,7 +29856,7 @@ localStorage.setItem('mapIDS',''); //manh
                         s = R(n, ...i);
                     if (!r) {
                         let t = N();
-                        e.forEach(e => e({
+                        e.forEach(e=>e({
                             type: "async-write",
                             flushed: t
                         }))
@@ -29867,19 +29867,19 @@ localStorage.setItem('mapIDS',''); //manh
                 return r = !1,
                 i
             }
-              , T = (t, ...n) => {
+              , T = (t,...n)=>{
                 let r = R(t, ...n)
                   , i = N();
-                return e.forEach(e => e({
+                return e.forEach(e=>e({
                     type: "write",
                     flushed: i
                 })),
                 r
             }
-              , x = (e, n, i) => {
+              , x = (e,n,i)=>{
                 var a;
                 let l = i || [];
-                null == (a = o(e)) || a.d.forEach( (t, n) => {
+                null == (a = o(e)) || a.d.forEach((t,n)=>{
                     let i = r.get(n);
                     i ? i.t.add(e) : n !== e && x(n, e, l)
                 }
@@ -29893,16 +29893,16 @@ localStorage.setItem('mapIDS',''); //manh
                 t.add(e),
                 s(e) && e.onMount) {
                     let {onMount: t} = e;
-                    l.push( () => {
-                        let n = t( (...t) => T(e, ...t));
+                    l.push(()=>{
+                        let n = t((...t)=>T(e, ...t));
                         n && (u.u = n)
                     }
                     )
                 }
-                return i || l.forEach(e => e()),
+                return i || l.forEach(e=>e()),
                 u
             }
-              , k = e => {
+              , k = e=>{
                 var n;
                 let i = null == (n = r.get(e)) ? void 0 : n.u;
                 i && i(),
@@ -29910,7 +29910,7 @@ localStorage.setItem('mapIDS',''); //manh
                 t.delete(e);
                 let a = o(e);
                 a ? (m(a) && c(a.v),
-                a.d.forEach( (t, n) => {
+                a.d.forEach((t,n)=>{
                     if (n !== e) {
                         let t = r.get(n);
                         t && (t.t.delete(e),
@@ -29919,9 +29919,9 @@ localStorage.setItem('mapIDS',''); //manh
                 }
                 )) : console.warn("[Bug] could not find atom state to unmount", e)
             }
-              , C = (e, t, n) => {
+              , C = (e,t,n)=>{
                 let i = new Set(t.d.keys());
-                null == n || n.forEach( (t, n) => {
+                null == n || n.forEach((t,n)=>{
                     if (i.has(n)) {
                         i.delete(n);
                         return
@@ -29931,23 +29931,23 @@ localStorage.setItem('mapIDS',''); //manh
                     S(n, o) && k(n))
                 }
                 ),
-                i.forEach(t => {
+                i.forEach(t=>{
                     let n = r.get(t);
                     n ? n.t.add(e) : r.has(e) && x(t, e)
                 }
                 )
             }
-              , N = () => {
+              , N = ()=>{
                 let e;
                 for (e = new Set; i.size; ) {
                     let t = Array.from(i);
                     i.clear(),
-                    t.forEach( ([t,n]) => {
+                    t.forEach(([t,n])=>{
                         let i = o(t);
                         if (i) {
                             let o = r.get(t);
                             o && i.d !== (null == n ? void 0 : n.d) && C(t, i, null == n ? void 0 : n.d),
-                            o && !(n && !m(n) && (p(n, i) || g(n, i))) && (o.l.forEach(e => e()),
+                            o && !(n && !m(n) && (p(n, i) || g(n, i))) && (o.l.forEach(e=>e()),
                             e.add(t))
                         } else
                             console.warn("[Bug] no atom state to flush")
@@ -29958,44 +29958,44 @@ localStorage.setItem('mapIDS',''); //manh
             }
             ;
             return {
-                get: e => y(O(e)),
+                get: e=>y(O(e)),
                 set: T,
-                sub: (t, n) => {
+                sub: (t,n)=>{
                     let r = A(t)
                       , i = N()
                       , o = r.l;
                     return o.add(n),
-                    e.forEach(e => e({
+                    e.forEach(e=>e({
                         type: "sub",
                         flushed: i
                     })),
-                    () => {
+                    ()=>{
                         o.delete(n),
                         P(t),
-                        e.forEach(e => e({
+                        e.forEach(e=>e({
                             type: "unsub"
                         }))
                     }
                 }
                 ,
-                dev_subscribe_store: (t, n) => {
+                dev_subscribe_store: (t,n)=>{
                     if (2 !== n)
                         throw Error("The current StoreListener revision is 2.");
                     return e.add(t),
-                    () => {
+                    ()=>{
                         e.delete(t)
                     }
                 }
                 ,
-                dev_get_mounted_atoms: () => t.values(),
-                dev_get_atom_state: e => n.get(e),
-                dev_get_mounted: e => r.get(e),
-                dev_restore_atoms: t => {
+                dev_get_mounted_atoms: ()=>t.values(),
+                dev_get_atom_state: e=>n.get(e),
+                dev_get_mounted: e=>r.get(e),
+                dev_restore_atoms: t=>{
                     for (let[e,n] of t)
                         a(e) && (_(e, n),
                         I(e));
                     let n = N();
-                    e.forEach(e => e({
+                    e.forEach(e=>e({
                         type: "restore",
                         flushed: n
                     }))
@@ -30004,7 +30004,7 @@ localStorage.setItem('mapIDS',''); //manh
         }
         ;
         "number" == typeof globalThis.__NUMBER_OF_JOTAI_INSTANCES__ ? ++globalThis.__NUMBER_OF_JOTAI_INSTANCES__ : globalThis.__NUMBER_OF_JOTAI_INSTANCES__ = 1;
-        let E = () => (r || (1 !== globalThis.__NUMBER_OF_JOTAI_INSTANCES__ && console.warn("Detected multiple Jotai instances. It may cause unexpected behavior with the default store. https://github.com/pmndrs/jotai/discussions/2044"),
+        let E = ()=>(r || (1 !== globalThis.__NUMBER_OF_JOTAI_INSTANCES__ && console.warn("Detected multiple Jotai instances. It may cause unexpected behavior with the default store. https://github.com/pmndrs/jotai/discussions/2044"),
         r = b()),
         r)
     },
@@ -30022,21 +30022,21 @@ localStorage.setItem('mapIDS',''); //manh
         var i = n(67294);
         n(71739),
         Object.create(null);
-        let o = (...e) => {
+        let o = (...e)=>{
             console?.warn && (f(e[0]) && (e[0] = `react-i18next:: ${e[0]}`),
             console.warn(...e))
         }
           , a = {}
-          , s = (...e) => {
+          , s = (...e)=>{
             f(e[0]) && a[e[0]] || (f(e[0]) && (a[e[0]] = new Date),
             o(...e))
         }
-          , l = (e, t) => () => {
+          , l = (e,t)=>()=>{
             if (e.isInitialized)
                 t();
             else {
-                let n = () => {
-                    setTimeout( () => {
+                let n = ()=>{
+                    setTimeout(()=>{
                         e.off("initialized", n)
                     }
                     , 0),
@@ -30046,27 +30046,27 @@ localStorage.setItem('mapIDS',''); //manh
                 e.on("initialized", n)
             }
         }
-          , u = (e, t, n) => {
+          , u = (e,t,n)=>{
             e.loadNamespaces(t, l(e, n))
         }
-          , c = (e, t, n, r) => {
+          , c = (e,t,n,r)=>{
             f(n) && (n = [n]),
-            n.forEach(t => {
+            n.forEach(t=>{
                 0 > e.options.ns.indexOf(t) && e.options.ns.push(t)
             }
             ),
             e.loadLanguages(t, l(e, r))
         }
-          , d = (e, t, n={}) => t.languages && t.languages.length ? t.hasLoadedNamespace(e, {
+          , d = (e,t,n={})=>t.languages && t.languages.length ? t.hasLoadedNamespace(e, {
             lng: n.lng,
-            precheck: (t, r) => {
+            precheck: (t,r)=>{
                 if (n.bindI18n?.indexOf("languageChanging") > -1 && t.services.backendConnector.backend && t.isLanguageChangingTo && !r(t.isLanguageChangingTo, e))
                     return !1
             }
         }) : (s("i18n.languages were undefined or empty", t.languages),
         !0)
-          , f = e => "string" == typeof e
-          , h = e => "object" == typeof e && null !== e
+          , f = e=>"string" == typeof e
+          , h = e=>"object" == typeof e && null !== e
           , p = /&(?:amp|#38|lt|#60|gt|#62|apos|#39|quot|#34|nbsp|#160|copy|#169|reg|#174|hellip|#8230|#x2F|#47);/g
           , g = {
             "&amp;": "&",
@@ -30090,7 +30090,7 @@ localStorage.setItem('mapIDS',''); //manh
             "&#x2F;": "/",
             "&#47;": "/"
         }
-          , m = e => g[e]
+          , m = e=>g[e]
           , v = {
             bindI18n: "languageChanged",
             bindI18nStore: "",
@@ -30099,19 +30099,19 @@ localStorage.setItem('mapIDS',''); //manh
             transWrapTextNodes: "",
             transKeepBasicHtmlNodesFor: ["br", "strong", "i", "p"],
             useSuspense: !0,
-            unescape: e => e.replace(p, m)
+            unescape: e=>e.replace(p, m)
         }
-          , y = (e={}) => {
+          , y = (e={})=>{
             v = {
                 ...v,
                 ...e
             }
         }
-          , b = () => v
-          , E = e => {
+          , b = ()=>v
+          , E = e=>{
             r = e
         }
-          , _ = () => r
+          , _ = ()=>r
           , w = {
             type: "3rdParty",
             init(e) {
@@ -30126,7 +30126,7 @@ localStorage.setItem('mapIDS',''); //manh
                 this.usedNamespaces = {}
             }
             addUsedNamespaces(e) {
-                e.forEach(e => {
+                e.forEach(e=>{
                     this.usedNamespaces[e] ??= !0
                 }
                 )
@@ -30135,20 +30135,20 @@ localStorage.setItem('mapIDS',''); //manh
                 return Object.keys(this.usedNamespaces)
             }
         }
-        let S = (e, t) => {
+        let S = (e,t)=>{
             let n = (0,
             i.useRef)();
             return (0,
-            i.useEffect)( () => {
+            i.useEffect)(()=>{
                 n.current = t ? n.current : e
             }
             , [e, t]),
             n.current
         }
-          , P = (e, t, n, r) => e.getFixedT(t, n, r)
-          , I = (e, t, n, r) => (0,
+          , P = (e,t,n,r)=>e.getFixedT(t, n, r)
+          , I = (e,t,n,r)=>(0,
         i.useCallback)(P(e, t, n, r), [e, t, n, r])
-          , R = (e, t={}) => {
+          , R = (e,t={})=>{
             let {i18n: n} = t
               , {i18n: r, defaultNS: o} = (0,
             i.useContext)(O) || {}
@@ -30156,7 +30156,7 @@ localStorage.setItem('mapIDS',''); //manh
             if (a && !a.reportNamespaces && (a.reportNamespaces = new A),
             !a) {
                 s("You will need to pass in an i18next instance by using initReactI18next");
-                let e = (e, t) => f(t) ? t : h(t) && f(t.defaultValue) ? t.defaultValue : Array.isArray(e) ? e[e.length - 1] : e
+                let e = (e,t)=>f(t) ? t : h(t) && f(t.defaultValue) ? t.defaultValue : Array.isArray(e) ? e[e.length - 1] : e
                   , t = [e, {}, !1];
                 return t.t = e,
                 t.i18n = {},
@@ -30173,10 +30173,10 @@ localStorage.setItem('mapIDS',''); //manh
               , m = e || o || a.options?.defaultNS;
             m = f(m) ? [m] : m || ["translation"],
             a.reportNamespaces.addUsedNamespaces?.(m);
-            let v = (a.isInitialized || a.initializedStoreOnce) && m.every(e => d(e, a, l))
+            let v = (a.isInitialized || a.initializedStoreOnce) && m.every(e=>d(e, a, l))
               , y = I(a, t.lng || null, "fallback" === l.nsMode ? m : m[0], g)
-              , E = () => y
-              , w = () => P(a, t.lng || null, "fallback" === l.nsMode ? m : m[0], g)
+              , E = ()=>y
+              , w = ()=>P(a, t.lng || null, "fallback" === l.nsMode ? m : m[0], g)
               , [R,T] = (0,
             i.useState)(E)
               , x = m.join();
@@ -30185,32 +30185,32 @@ localStorage.setItem('mapIDS',''); //manh
               , C = (0,
             i.useRef)(!0);
             (0,
-            i.useEffect)( () => {
+            i.useEffect)(()=>{
                 let {bindI18n: e, bindI18nStore: n} = l;
                 C.current = !0,
-                v || p || (t.lng ? c(a, t.lng, m, () => {
+                v || p || (t.lng ? c(a, t.lng, m, ()=>{
                     C.current && T(w)
                 }
-                ) : u(a, m, () => {
+                ) : u(a, m, ()=>{
                     C.current && T(w)
                 }
                 )),
                 v && k && k !== x && C.current && T(w);
-                let r = () => {
+                let r = ()=>{
                     C.current && T(w)
                 }
                 ;
                 return e && a?.on(e, r),
                 n && a?.store.on(n, r),
-                () => {
+                ()=>{
                     C.current = !1,
-                    a && e?.split(" ").forEach(e => a.off(e, r)),
-                    n && a && n.split(" ").forEach(e => a.store.off(e, r))
+                    a && e?.split(" ").forEach(e=>a.off(e, r)),
+                    n && a && n.split(" ").forEach(e=>a.store.off(e, r))
                 }
             }
             , [a, x]),
             (0,
-            i.useEffect)( () => {
+            i.useEffect)(()=>{
                 C.current && v && T(E)
             }
             , [a, g, v]);
@@ -30220,8 +30220,8 @@ localStorage.setItem('mapIDS',''); //manh
             N.ready = v,
             v || !v && !p)
                 return N;
-            throw new Promise(e => {
-                t.lng ? c(a, t.lng, m, () => e()) : u(a, m, () => e())
+            throw new Promise(e=>{
+                t.lng ? c(a, t.lng, m, ()=>e()) : u(a, m, ()=>e())
             }
             )
         }
