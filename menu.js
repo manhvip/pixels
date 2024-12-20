@@ -95,6 +95,7 @@ tokenLabel.appendChild(secondLine);
       "#btnGeneralStore",
       "#btnSell",
       "#btnBuy",
+      "#btnBankInterior", // Thêm BankInterior tại đây
     ];
   
     function createOrUpdateButton(selector) {
@@ -136,12 +137,10 @@ tokenLabel.appendChild(secondLine);
     const btnGeneralStore = createOrUpdateButton(buttonSelectors[9]);
     const btnSell = createOrUpdateButton(buttonSelectors[10]);
     const btnBuy = createOrUpdateButton(buttonSelectors[11]);
+    const btnBankInterior = createOrUpdateButton(buttonSelectors[12]);
     // Add elements to the invisible box
     invisibleBox.appendChild(tokenLabel);
     invisibleBox.appendChild(txtLand);
-  
-  
-    
     invisibleBox.appendChild(btnMoveToLand);
     invisibleBox.appendChild(btnSauna);
     invisibleBox.appendChild(btnHQ);
@@ -152,6 +151,7 @@ tokenLabel.appendChild(secondLine);
     invisibleBox.appendChild(btnDrunkenGoose);
     invisibleBox.appendChild(btnTerravillaPier);
     invisibleBox.appendChild(btnGeneralStore);
+    invisibleBox.appendChild(btnBankInterior);
     divSellBuy.appendChild(btnSell);
     divSellBuy.appendChild(btnBuy);
     invisibleBox.appendChild(divSellBuy);
@@ -207,7 +207,12 @@ tokenLabel.appendChild(secondLine);
         clickTelevila();
       });
     }
-    
+    if (btnBankInterior) {
+      btnBankInterior.addEventListener("click", () => {
+          localStorage.setItem('mapIDS', 'BankInterior'); // Map ID cho BankInterior
+          clickTelevila();
+      });
+    }
     if (btnTerravillaPier) {
       btnTerravillaPier.addEventListener("click", () => {
         localStorage.setItem('mapIDS', 'TerravillaPier');
@@ -234,6 +239,7 @@ tokenLabel.appendChild(secondLine);
       }, 13000);
       });
     }
+    
    
     function clickTelevila() {
       document.querySelector("#__next > div > div.room-layout > div > div:nth-child(1) > div > div.Hud_top__nZRRz.Hud_left__mQoqW > div > button:nth-child(4)").click();
