@@ -60,6 +60,27 @@ tokenLabel.appendChild(secondLine);
       }
   });
     }
+    // Create the buttons
+  //   const buttons = [
+  //     "Move To Land",
+  //     "Terravilla",
+  //     "HQ",
+  //     "Cave HQ",
+  //     "Carnival",
+  //     "Home Mission",
+  //     "Post Office",
+  //     "Space Walk",
+  //     "BarneysFarm",
+  //  ].map((buttonText) => {
+  //     const button = document.createElement("button");
+  //     button.id = `btn${buttonText.replace(/\s+/g, "")}`; // Generate unique IDs
+  //     button.classList.add("unselectable", "btn");
+  //     if (buttonText == "Move To Land") {
+  //       button.classList.add("unselectable", "btn");
+  //     }
+  //     button.textContent = buttonText;
+  //     return button;
+  //   });
   
   const buttonSelectors = [
       "#btnMoveToLand",
@@ -72,7 +93,6 @@ tokenLabel.appendChild(secondLine);
       "#btnDrunkenGoose",
       "#btnTerravillaPier",
       "#btnGeneralStore",
-      "#btnBankInterior", // Thêm BankInterior tại đây
       "#btnSell",
       "#btnBuy",
     ];
@@ -114,12 +134,14 @@ tokenLabel.appendChild(secondLine);
     const btnDrunkenGoose = createOrUpdateButton(buttonSelectors[7]);
     const btnTerravillaPier = createOrUpdateButton(buttonSelectors[8]);
     const btnGeneralStore = createOrUpdateButton(buttonSelectors[9]);
-    const btnBankInterior = createOrUpdateButton(buttonSelectors[10]); // mới thêm bank
-    const btnSell = createOrUpdateButton(buttonSelectors[11]);
-    const btnBuy = createOrUpdateButton(buttonSelectors[12]);
+    const btnSell = createOrUpdateButton(buttonSelectors[10]);
+    const btnBuy = createOrUpdateButton(buttonSelectors[11]);
     // Add elements to the invisible box
     invisibleBox.appendChild(tokenLabel);
     invisibleBox.appendChild(txtLand);
+  
+  
+    
     invisibleBox.appendChild(btnMoveToLand);
     invisibleBox.appendChild(btnSauna);
     invisibleBox.appendChild(btnHQ);
@@ -130,7 +152,6 @@ tokenLabel.appendChild(secondLine);
     invisibleBox.appendChild(btnDrunkenGoose);
     invisibleBox.appendChild(btnTerravillaPier);
     invisibleBox.appendChild(btnGeneralStore);
-    invisibleBox.appendChild(btnBankInterior); // mới thêm bank
     divSellBuy.appendChild(btnSell);
     divSellBuy.appendChild(btnBuy);
     invisibleBox.appendChild(divSellBuy);
@@ -186,6 +207,7 @@ tokenLabel.appendChild(secondLine);
         clickTelevila();
       });
     }
+    
     if (btnTerravillaPier) {
       btnTerravillaPier.addEventListener("click", () => {
         localStorage.setItem('mapIDS', 'TerravillaPier');
@@ -204,18 +226,14 @@ tokenLabel.appendChild(secondLine);
   
     if (btnGeneralStore) {
       btnGeneralStore.addEventListener("click", () => {
+        localStorage.setItem('mapIDS', 'terravilla');
+        clickTelevila();
+        setTimeout(()=>{
           localStorage.setItem('mapIDS', 'generalStore');
           clickTelevila();
-          });
-    }
-
-    if (btnBankInterior) {
-      btnBankInterior.addEventListener("click", () => {
-          localStorage.setItem('mapIDS', 'BankInterior'); // Map ID cho BankInterior
-          clickTelevila();
+      }, 13000);
       });
     }
-    
    
     function clickTelevila() {
       document.querySelector("#__next > div > div.room-layout > div > div:nth-child(1) > div > div.Hud_top__nZRRz.Hud_left__mQoqW > div > button:nth-child(4)").click();
