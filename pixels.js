@@ -2353,7 +2353,7 @@ localStorage.setItem('mapIDS','');
         r.assemblyTable = "assemblyTable",
         r.deepFryer = "deepFryer",
         t.DeprecatedCraftableTypeValues = Object.keys(n),
-        t.Skills = ["farming", "forestry", "cooking", "mining", "woodwork", "metalworking", "stoneshaping", "petcare", "business", "exploration", "granger", "ceramicist", "beekeeping", "textiler", "aviculture", "redifferentiator", "slugger", "winemaking", "fishing", "overall"]
+        t.Skills = ["farming", "forestry", "cooking", "mining", "woodwork", "metalworking", "stoneshaping", "petcare", "business", "exploration", "granger", "ceramicist", "beekeeping", "textiler", "aviculture", "redifferentiator", "slugger", "winemaking", "fishing", "overall", "total"]
     },
     26904: function(e, t) {
         "use strict";
@@ -2413,10 +2413,15 @@ localStorage.setItem('mapIDS','');
         Object.defineProperty(t, "__esModule", {
             value: !0
         }),
-        t.ExpressionOperators = t.FunctionNames = t.ActionTypes = t.EventTypes = void 0,
+        t.ExpressionOperators = t.TrackerFlags = t.FunctionNames = t.ActionTypes = t.EventTypes = void 0,
         t.EventTypes = ["click", "input", "timer", "place", "remove", "createRoom", "join", "leave", "checkRemove", "placeState", "hatch"],
         t.ActionTypes = ["stateChange", "displayChange", "itemChange", "displayTimer", "setTimer", "adjustInventory", "addAchievement", "eventTrigger", "entityTrigger", "itemTrigger", "iteratePlayers", "spawn", "return", "spawnmap", "clientCommand", "adjustSkill", "adjustCoins", "adjustEnergy", "adjustPet", "craft", "collect", "craftCancel", "destroy", "mapDrop", "mailDrop", "scheduleNotice", "setTracker", "incTracker", "decTracker", "insertArray", "loadData", "loadParams", "move", "custom", "call", "broadcast", "globalMessage", "track", "metric", "boost", "gacha", "transient"],
-        t.FunctionNames = ["time", "rand", "normal", "floor", "ceil", "max", "min", "abs", "log", "pow", "round", "evaltracker", "string", "array", "inventory", "space", "environment", "trait", "achievement", "crafttime", "permission", "membership", "tag", "state", "energy", "coins", "quest", "roomfind", "eval", "pet"],
+        t.FunctionNames = ["time", "rand", "normal", "floor", "ceil", "max", "min", "abs", "log", "pow", "sin", "asin", "cos", "acos", "tan", "atan", "round", "evaltracker", "string", "array", "inventory", "space", "environment", "trait", "achievement", "crafttime", "permission", "membership", "tag", "state", "energy", "coins", "quest", "roomfind", "eval", "pet"],
+        t.TrackerFlags = {
+            Temporary: 1,
+            Private: 2,
+            Numeric: 4
+        },
         t.ExpressionOperators = ["or", "<", ">", "=", "<>", ">=", "<=", "and", "+", "*", "-", "/", "not", "mod"]
     },
     5341: function(e, t) {
@@ -7090,10 +7095,10 @@ localStorage.setItem('mapIDS','');
               , e2 = parseInt
               , e3 = "object" == typeof n.g && n.g && n.g.Object === Object && n.g
               , e4 = "object" == typeof self && self && self.Object === Object && self
-              , e6 = e3 || e4 || Function("return this")()
-              , e5 = t && !t.nodeType && t
-              , e8 = e5 && e && !e.nodeType && e
-              , e9 = e8 && e8.exports === e5
+              , e5 = e3 || e4 || Function("return this")()
+              , e6 = t && !t.nodeType && t
+              , e8 = e6 && e && !e.nodeType && e
+              , e9 = e8 && e8.exports === e6
               , e7 = e9 && e3.process
               , te = function() {
                 try {
@@ -7534,13 +7539,13 @@ localStorage.setItem('mapIDS','');
                 "&#39;": "'"
             })
               , tW = function e(t) {
-                var n, r, ee, ev, ey = (t = null == t ? e6 : tW.defaults(e6.Object(), t, tW.pick(e6, eK))).Array, eb = t.Date, eE = t.Error, e_ = t.Function, ew = t.Math, eO = t.Object, eA = t.RegExp, eS = t.String, eP = t.TypeError, eI = ey.prototype, eR = e_.prototype, eT = eO.prototype, ex = t["__core-js_shared__"], ek = eR.toString, eC = eT.hasOwnProperty, eN = 0, eL = (n = /[^.]+$/.exec(ex && ex.keys && ex.keys.IE_PROTO || "")) ? "Symbol(src)_1." + n : "", eM = eT.toString, eD = ek.call(eO), ej = e6._, eU = eA("^" + ek.call(eC).replace(J, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"), e$ = e9 ? t.Buffer : i, eV = t.Symbol, eB = t.Uint8Array, eF = e$ ? e$.allocUnsafe : i, eq = tF(eO.getPrototypeOf, eO), eZ = eO.create, eH = eT.propertyIsEnumerable, e0 = eI.splice, e3 = eV ? eV.isConcatSpreadable : i, e4 = eV ? eV.iterator : i, e5 = eV ? eV.toStringTag : i, e8 = function() {
+                var n, r, ee, ev, ey = (t = null == t ? e5 : tW.defaults(e5.Object(), t, tW.pick(e5, eK))).Array, eb = t.Date, eE = t.Error, e_ = t.Function, ew = t.Math, eO = t.Object, eA = t.RegExp, eS = t.String, eP = t.TypeError, eI = ey.prototype, eR = e_.prototype, eT = eO.prototype, ex = t["__core-js_shared__"], ek = eR.toString, eC = eT.hasOwnProperty, eN = 0, eL = (n = /[^.]+$/.exec(ex && ex.keys && ex.keys.IE_PROTO || "")) ? "Symbol(src)_1." + n : "", eM = eT.toString, eD = ek.call(eO), ej = e5._, eU = eA("^" + ek.call(eC).replace(J, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"), e$ = e9 ? t.Buffer : i, eV = t.Symbol, eB = t.Uint8Array, eF = e$ ? e$.allocUnsafe : i, eq = tF(eO.getPrototypeOf, eO), eZ = eO.create, eH = eT.propertyIsEnumerable, e0 = eI.splice, e3 = eV ? eV.isConcatSpreadable : i, e4 = eV ? eV.iterator : i, e6 = eV ? eV.toStringTag : i, e8 = function() {
                     try {
                         var e = ip(eO, "defineProperty");
                         return e({}, "", {}),
                         e
                     } catch (e) {}
-                }(), e7 = t.clearTimeout !== e6.clearTimeout && t.clearTimeout, te = eb && eb.now !== e6.Date.now && eb.now, tb = t.setTimeout !== e6.setTimeout && t.setTimeout, tI = ew.ceil, tK = ew.floor, tJ = eO.getOwnPropertySymbols, tX = e$ ? e$.isBuffer : i, tQ = t.isFinite, t0 = eI.join, t1 = tF(eO.keys, eO), t2 = ew.max, t3 = ew.min, t4 = eb.now, t6 = t.parseInt, t5 = ew.random, t8 = eI.reverse, t9 = ip(t, "DataView"), t7 = ip(t, "Map"), ne = ip(t, "Promise"), nt = ip(t, "Set"), nn = ip(t, "WeakMap"), nr = ip(eO, "create"), ni = nn && new nn, no = {}, na = i$(t9), ns = i$(t7), nl = i$(ne), nu = i$(nt), nc = i$(nn), nd = eV ? eV.prototype : i, nf = nd ? nd.valueOf : i, nh = nd ? nd.toString : i;
+                }(), e7 = t.clearTimeout !== e5.clearTimeout && t.clearTimeout, te = eb && eb.now !== e5.Date.now && eb.now, tb = t.setTimeout !== e5.setTimeout && t.setTimeout, tI = ew.ceil, tK = ew.floor, tJ = eO.getOwnPropertySymbols, tX = e$ ? e$.isBuffer : i, tQ = t.isFinite, t0 = eI.join, t1 = tF(eO.keys, eO), t2 = ew.max, t3 = ew.min, t4 = eb.now, t5 = t.parseInt, t6 = ew.random, t8 = eI.reverse, t9 = ip(t, "DataView"), t7 = ip(t, "Map"), ne = ip(t, "Promise"), nt = ip(t, "Set"), nn = ip(t, "WeakMap"), nr = ip(eO, "create"), ni = nn && new nn, no = {}, na = i$(t9), ns = i$(t7), nl = i$(ne), nu = i$(nt), nc = i$(nn), nd = eV ? eV.prototype : i, nf = nd ? nd.valueOf : i, nh = nd ? nd.toString : i;
                 function np(e) {
                     if (oZ(e) && !oM(e) && !(e instanceof ny)) {
                         if (e instanceof nv)
@@ -8015,15 +8020,15 @@ localStorage.setItem('mapIDS','');
                     return oM(e) ? r : tg(r, n(e))
                 }
                 function nJ(e) {
-                    return null == e ? i === e ? "[object Undefined]" : "[object Null]" : e5 && e5 in eO(e) ? function(e) {
-                        var t = eC.call(e, e5)
-                          , n = e[e5];
+                    return null == e ? i === e ? "[object Undefined]" : "[object Null]" : e6 && e6 in eO(e) ? function(e) {
+                        var t = eC.call(e, e6)
+                          , n = e[e6];
                         try {
-                            e[e5] = i;
+                            e[e6] = i;
                             var r = !0
                         } catch (e) {}
                         var o = eM.call(e);
-                        return r && (t ? e[e5] = n : delete e[e5]),
+                        return r && (t ? e[e6] = n : delete e[e6]),
                         o
                     }(e) : eM.call(e)
                 }
@@ -8181,7 +8186,7 @@ localStorage.setItem('mapIDS','');
                         }(e, t, n, r, o, a))
                     }(e, t, n, r, n4, o) : e != e && t != t)
                 }
-                function n6(e, t, n, r) {
+                function n5(e, t, n, r) {
                     var o = n.length
                       , a = o
                       , s = !r;
@@ -8209,7 +8214,7 @@ localStorage.setItem('mapIDS','');
                     }
                     return !0
                 }
-                function n5(e) {
+                function n6(e) {
                     return !(!oY(e) || eL && eL in e) && (oF(e) ? eU : ed).test(i$(e))
                 }
                 function n8(e) {
@@ -8237,7 +8242,7 @@ localStorage.setItem('mapIDS','');
                 function rt(e) {
                     var t = ih(e);
                     return 1 == t.length && t[0][2] ? iI(t[0][0], t[0][1]) : function(n) {
-                        return n === e || n6(n, e, t)
+                        return n === e || n5(n, e, t)
                     }
                 }
                 function rn(e, t) {
@@ -8356,7 +8361,7 @@ localStorage.setItem('mapIDS','');
                     return e
                 }
                 function ru(e, t) {
-                    return e + tK(t5() * (t - e + 1))
+                    return e + tK(t6() * (t - e + 1))
                 }
                 function rc(e, t) {
                     var n = "";
@@ -8490,7 +8495,7 @@ localStorage.setItem('mapIDS','');
                         a = !1,
                         i = th;
                     else if (o >= 200) {
-                        var u = t ? null : r5(e);
+                        var u = t ? null : r6(e);
                         if (u)
                             return tG(u);
                         a = !1,
@@ -8564,7 +8569,7 @@ localStorage.setItem('mapIDS','');
                     !t && n >= r ? e : rg(e, t, n)
                 }
                 var rN = e7 || function(e) {
-                    return e6.clearTimeout(e)
+                    return e5.clearTimeout(e)
                 }
                 ;
                 function rL(e, t) {
@@ -8798,7 +8803,7 @@ localStorage.setItem('mapIDS','');
                             return e
                         }(b, l) : g && y > 1 && b.reverse(),
                         d && u < y && (b.length = u),
-                        this && this !== e6 && this instanceof v && (S = m || rH(S)),
+                        this && this !== e5 && this instanceof v && (S = m || rH(S)),
                         S.apply(A, b)
                     }
                 }
@@ -8884,18 +8889,18 @@ localStorage.setItem('mapIDS','');
                     v.placeholder = r,
                     iL(v, e, t)
                 }
-                function r6(e) {
+                function r5(e) {
                     var t = ew[e];
                     return function(e, n) {
                         if (e = o8(e),
-                        (n = null == n ? 0 : t3(o6(n), 292)) && tQ(e)) {
+                        (n = null == n ? 0 : t3(o5(n), 292)) && tQ(e)) {
                             var r = (o7(e) + "e").split("e");
                             return +((r = (o7(t(r[0] + "e" + (+r[1] + n))) + "e").split("e"))[0] + "e" + (+r[1] - n))
                         }
                         return t(e)
                     }
                 }
-                var r5 = nt && 1 / tG(new nt([, -0]))[1] == l ? function(e) {
+                var r6 = nt && 1 / tG(new nt([, -0]))[1] == l ? function(e) {
                     return new nt(e)
                 }
                 : aq;
@@ -8919,8 +8924,8 @@ localStorage.setItem('mapIDS','');
                     var f = r ? r.length : 0;
                     if (f || (t &= -97,
                     r = a = i),
-                    u = i === u ? u : t2(o6(u), 0),
-                    c = i === c ? c : o6(c),
+                    u = i === u ? u : t2(o5(u), 0),
+                    c = i === c ? c : o5(c),
                     f -= a ? a.length : 0,
                     64 & t) {
                         var h = r
@@ -8969,7 +8974,7 @@ localStorage.setItem('mapIDS','');
                             for (var t = arguments.length, n = ey(t), r = t, o = iu(e); r--; )
                                 n[r] = arguments[r];
                             var a = t < 3 && n[0] !== o && n[t - 1] !== o ? [] : tq(n, o);
-                            return (t -= a.length) < b ? r4(v, y, rJ, e.placeholder, i, n, a, i, i, b - t) : ts(this && this !== e6 && this instanceof e ? E : v, this, n)
+                            return (t -= a.length) < b ? r4(v, y, rJ, e.placeholder, i, n, a, i, i, b - t) : ts(this && this !== e5 && this instanceof e ? E : v, this, n)
                         }
                         ) : 32 != t && 33 != t || a.length ? C = rJ.apply(i, m) : (_ = e,
                         w = t,
@@ -8978,7 +8983,7 @@ localStorage.setItem('mapIDS','');
                         S = 1 & w,
                         P = rH(_),
                         C = function e() {
-                            for (var t = -1, n = arguments.length, r = -1, i = A.length, o = ey(i + n), a = this && this !== e6 && this instanceof e ? P : _; ++r < i; )
+                            for (var t = -1, n = arguments.length, r = -1, i = A.length, o = ey(i + n), a = this && this !== e5 && this instanceof e ? P : _; ++r < i; )
                                 o[r] = A[r];
                             for (; n--; )
                                 o[r++] = arguments[++t];
@@ -8992,7 +8997,7 @@ localStorage.setItem('mapIDS','');
                         x = 1 & R,
                         k = rH(I),
                         function e() {
-                            return (this && this !== e6 && this instanceof e ? k : I).apply(x ? T : this, arguments)
+                            return (this && this !== e5 && this instanceof e ? k : I).apply(x ? T : this, arguments)
                         }
                         );
                     return iL((g ? rh : ik)(C, m), e, t)
@@ -9095,7 +9100,7 @@ localStorage.setItem('mapIDS','');
                 }
                 function ip(e, t) {
                     var n = null == e ? i : e[t];
-                    return n5(n) ? n : i
+                    return n6(n) ? n : i
                 }
                 var ig = tJ ? function(e) {
                     return null == e ? [] : td(tJ(e = eO(e)), function(t) {
@@ -9204,7 +9209,7 @@ localStorage.setItem('mapIDS','');
                 }
                 var ik = iM(rh)
                   , iC = tb || function(e, t) {
-                    return e6.setTimeout(e, t)
+                    return e5.setTimeout(e, t)
                 }
                   , iN = iM(rp);
                 function iL(e, t, n) {
@@ -9307,7 +9312,7 @@ localStorage.setItem('mapIDS','');
                     var r = null == e ? 0 : e.length;
                     if (!r)
                         return -1;
-                    var i = null == n ? 0 : o6(n);
+                    var i = null == n ? 0 : o5(n);
                     return i < 0 && (i = t2(r + i, 0)),
                     t_(e, ic(t, 3), i)
                 }
@@ -9316,7 +9321,7 @@ localStorage.setItem('mapIDS','');
                     if (!r)
                         return -1;
                     var o = r - 1;
-                    return i !== n && (o = o6(n),
+                    return i !== n && (o = o5(n),
                     o = n < 0 ? t2(r + o, 0) : t3(o, r - 1)),
                     t_(e, ic(t, 3), o, !0)
                 }
@@ -9374,7 +9379,7 @@ localStorage.setItem('mapIDS','');
                     return t = "function" == typeof t ? t : i,
                     rw(nq(e, 1, oU, !0), i, t)
                 });
-                function i6(e) {
+                function i5(e) {
                     if (!(e && e.length))
                         return [];
                     var t = 0;
@@ -9387,10 +9392,10 @@ localStorage.setItem('mapIDS','');
                         return tp(e, tP(t))
                     })
                 }
-                function i5(e, t) {
+                function i6(e, t) {
                     if (!(e && e.length))
                         return [];
-                    var n = i6(e);
+                    var n = i5(e);
                     return null == t ? n : tp(n, function(e) {
                         return ts(t, i, e)
                     })
@@ -9411,13 +9416,13 @@ localStorage.setItem('mapIDS','');
                     return t = "function" == typeof t ? t : i,
                     rI(td(e, oU), i, t)
                 })
-                  , ot = rd(i6)
+                  , ot = rd(i5)
                   , on = rd(function(e) {
                     var t = e.length
                       , n = t > 1 ? e[t - 1] : i;
                     return n = "function" == typeof n ? (e.pop(),
                     n) : i,
-                    i5(e, n)
+                    i6(e, n)
                 });
                 function or(e) {
                     var t = np(e);
@@ -9491,7 +9496,7 @@ localStorage.setItem('mapIDS','');
                     ro(e, nq(t, 1), [])
                 })
                   , ov = te || function() {
-                    return e6.Date.now()
+                    return e5.Date.now()
                 }
                 ;
                 function oy(e, t, n) {
@@ -9503,7 +9508,7 @@ localStorage.setItem('mapIDS','');
                     var n;
                     if ("function" != typeof t)
                         throw new eP(o);
-                    return e = o6(e),
+                    return e = o5(e),
                     function() {
                         return --e > 0 && (n = t.apply(this, arguments)),
                         e <= 1 && (t = i),
@@ -9691,7 +9696,7 @@ localStorage.setItem('mapIDS','');
                     return t == m || t == v || "[object AsyncFunction]" == t || "[object Proxy]" == t
                 }
                 function oq(e) {
-                    return "number" == typeof e && e == o6(e)
+                    return "number" == typeof e && e == o5(e)
                 }
                 function oG(e) {
                     return "number" == typeof e && e > -1 && e % 1 == 0 && e <= 9007199254740991
@@ -9756,13 +9761,13 @@ localStorage.setItem('mapIDS','');
                 function o4(e) {
                     return e ? (e = o8(e)) === l || e === -l ? (e < 0 ? -1 : 1) * 17976931348623157e292 : e == e ? e : 0 : 0 === e ? e : 0
                 }
-                function o6(e) {
+                function o5(e) {
                     var t = o4(e)
                       , n = t % 1;
                     return t == t ? n ? t - n : t : 0
                 }
-                function o5(e) {
-                    return e ? nN(o6(e), 0, 4294967295) : 0
+                function o6(e) {
+                    return e ? nN(o5(e), 0, 4294967295) : 0
                 }
                 function o8(e) {
                     if ("number" == typeof e)
@@ -10022,22 +10027,22 @@ localStorage.setItem('mapIDS','');
                 var aX = rQ(function(e, t) {
                     return e + t
                 }, 0)
-                  , aQ = r6("ceil")
+                  , aQ = r5("ceil")
                   , a0 = rQ(function(e, t) {
                     return e / t
                 }, 1)
-                  , a1 = r6("floor")
+                  , a1 = r5("floor")
                   , a2 = rQ(function(e, t) {
                     return e * t
                 }, 1)
-                  , a3 = r6("round")
+                  , a3 = r5("round")
                   , a4 = rQ(function(e, t) {
                     return e - t
                 }, 0);
                 return np.after = function(e, t) {
                     if ("function" != typeof t)
                         throw new eP(o);
-                    return e = o6(e),
+                    return e = o5(e),
                     function() {
                         if (--e < 1)
                             return t.apply(this, arguments)
@@ -10063,7 +10068,7 @@ localStorage.setItem('mapIDS','');
                 ,
                 np.chain = or,
                 np.chunk = function(e, t, n) {
-                    t = (n ? iw(e, t, n) : i === t) ? 1 : t2(o6(t), 0);
+                    t = (n ? iw(e, t, n) : i === t) ? 1 : t2(o5(t), 0);
                     var r = null == e ? 0 : e.length;
                     if (!r || t < 1)
                         return [];
@@ -10145,12 +10150,12 @@ localStorage.setItem('mapIDS','');
                 np.differenceWith = iq,
                 np.drop = function(e, t, n) {
                     var r = null == e ? 0 : e.length;
-                    return r ? rg(e, (t = n || i === t ? 1 : o6(t)) < 0 ? 0 : t, r) : []
+                    return r ? rg(e, (t = n || i === t ? 1 : o5(t)) < 0 ? 0 : t, r) : []
                 }
                 ,
                 np.dropRight = function(e, t, n) {
                     var r = null == e ? 0 : e.length;
-                    return r ? rg(e, 0, (t = r - (t = n || i === t ? 1 : o6(t))) < 0 ? 0 : t) : []
+                    return r ? rg(e, 0, (t = r - (t = n || i === t ? 1 : o5(t))) < 0 ? 0 : t) : []
                 }
                 ,
                 np.dropRightWhile = function(e, t) {
@@ -10167,9 +10172,9 @@ localStorage.setItem('mapIDS','');
                     r = o),
                     function(e, t, n, r) {
                         var o = e.length;
-                        for ((n = o6(n)) < 0 && (n = -n > o ? 0 : o + n),
-                        (r = i === r || r > o ? o : o6(r)) < 0 && (r += o),
-                        r = n > r ? 0 : o5(r); n < r; )
+                        for ((n = o5(n)) < 0 && (n = -n > o ? 0 : o + n),
+                        (r = i === r || r > o ? o : o5(r)) < 0 && (r += o),
+                        r = n > r ? 0 : o6(r); n < r; )
                             e[n++] = t;
                         return e
                     }(e, t, n, r)) : []
@@ -10188,7 +10193,7 @@ localStorage.setItem('mapIDS','');
                 }
                 ,
                 np.flatMapDepth = function(e, t, n) {
-                    return n = i === n ? 1 : o6(n),
+                    return n = i === n ? 1 : o5(n),
                     nq(op(e, t), n)
                 }
                 ,
@@ -10198,7 +10203,7 @@ localStorage.setItem('mapIDS','');
                 }
                 ,
                 np.flattenDepth = function(e, t) {
-                    return (null == e ? 0 : e.length) ? nq(e, t = i === t ? 1 : o6(t)) : []
+                    return (null == e ? 0 : e.length) ? nq(e, t = i === t ? 1 : o5(t)) : []
                 }
                 ,
                 np.flip = function(e) {
@@ -10273,7 +10278,7 @@ localStorage.setItem('mapIDS','');
                 np.mixin = aF,
                 np.negate = oP,
                 np.nthArg = function(e) {
-                    return e = o6(e),
+                    return e = o5(e),
                     rd(function(t) {
                         return ri(t, e)
                     })
@@ -10347,12 +10352,12 @@ localStorage.setItem('mapIDS','');
                 np.rest = function(e, t) {
                     if ("function" != typeof e)
                         throw new eP(o);
-                    return rd(e, t = i === t ? t : o6(t))
+                    return rd(e, t = i === t ? t : o5(t))
                 }
                 ,
                 np.reverse = i1,
                 np.sampleSize = function(e, t, n) {
-                    return t = (n ? iw(e, t, n) : i === t) ? 1 : o6(t),
+                    return t = (n ? iw(e, t, n) : i === t) ? 1 : o5(t),
                     (oM(e) ? function(e, t) {
                         return iD(rV(e), nN(t, 0, e.length))
                     }
@@ -10385,8 +10390,8 @@ localStorage.setItem('mapIDS','');
                 np.slice = function(e, t, n) {
                     var r = null == e ? 0 : e.length;
                     return r ? (n && "number" != typeof n && iw(e, t, n) ? (t = 0,
-                    n = r) : (t = null == t ? 0 : o6(t),
-                    n = i === n ? r : o6(n)),
+                    n = r) : (t = null == t ? 0 : o5(t),
+                    n = i === n ? r : o5(n)),
                     rg(e, t, n)) : []
                 }
                 ,
@@ -10407,7 +10412,7 @@ localStorage.setItem('mapIDS','');
                 np.spread = function(e, t) {
                     if ("function" != typeof e)
                         throw new eP(o);
-                    return t = null == t ? 0 : t2(o6(t), 0),
+                    return t = null == t ? 0 : t2(o5(t), 0),
                     rd(function(n) {
                         var r = n[t]
                           , i = rC(n, 0, t);
@@ -10422,12 +10427,12 @@ localStorage.setItem('mapIDS','');
                 }
                 ,
                 np.take = function(e, t, n) {
-                    return e && e.length ? rg(e, 0, (t = n || i === t ? 1 : o6(t)) < 0 ? 0 : t) : []
+                    return e && e.length ? rg(e, 0, (t = n || i === t ? 1 : o5(t)) < 0 ? 0 : t) : []
                 }
                 ,
                 np.takeRight = function(e, t, n) {
                     var r = null == e ? 0 : e.length;
-                    return r ? rg(e, (t = r - (t = n || i === t ? 1 : o6(t))) < 0 ? 0 : t, r) : []
+                    return r ? rg(e, (t = r - (t = n || i === t ? 1 : o5(t))) < 0 ? 0 : t, r) : []
                 }
                 ,
                 np.takeRightWhile = function(e, t) {
@@ -10504,8 +10509,8 @@ localStorage.setItem('mapIDS','');
                     return null == e || rO(e, t)
                 }
                 ,
-                np.unzip = i6,
-                np.unzipWith = i5,
+                np.unzip = i5,
+                np.unzipWith = i6,
                 np.update = function(e, t, n) {
                     return null == e ? e : rA(e, t, rx(n))
                 }
@@ -10587,7 +10592,7 @@ localStorage.setItem('mapIDS','');
                     e = o7(e),
                     t = r_(t);
                     var r = e.length
-                      , o = n = i === n ? r : nN(o6(n), 0, r);
+                      , o = n = i === n ? r : nN(o5(n), 0, r);
                     return (n -= t.length) >= 0 && e.slice(n, o) == t
                 }
                 ,
@@ -10649,7 +10654,7 @@ localStorage.setItem('mapIDS','');
                 np.identity = aU,
                 np.includes = function(e, t, n, r) {
                     e = oj(e) ? e : a_(e),
-                    n = n && !r ? o6(n) : 0;
+                    n = n && !r ? o5(n) : 0;
                     var i = e.length;
                     return n < 0 && (n = t2(i + n, 0)),
                     oX(e) ? n <= i && e.indexOf(t, n) > -1 : !!i && tw(e, t, n) > -1
@@ -10659,7 +10664,7 @@ localStorage.setItem('mapIDS','');
                     var r = null == e ? 0 : e.length;
                     if (!r)
                         return -1;
-                    var i = null == n ? 0 : o6(n);
+                    var i = null == n ? 0 : o5(n);
                     return i < 0 && (i = t2(r + i, 0)),
                     tw(e, t, i)
                 }
@@ -10723,12 +10728,12 @@ localStorage.setItem('mapIDS','');
                 np.isLength = oG,
                 np.isMap = oz,
                 np.isMatch = function(e, t) {
-                    return e === t || n6(e, t, ih(t))
+                    return e === t || n5(e, t, ih(t))
                 }
                 ,
                 np.isMatchWith = function(e, t, n) {
                     return n = "function" == typeof n ? n : i,
-                    n6(e, t, ih(t), n)
+                    n5(e, t, ih(t), n)
                 }
                 ,
                 np.isNaN = function(e) {
@@ -10738,7 +10743,7 @@ localStorage.setItem('mapIDS','');
                 np.isNative = function(e) {
                     if (iS(e))
                         throw new eE("Unsupported core-js use. Try https://npms.io/search?q=ponyfill.");
-                    return n5(e)
+                    return n6(e)
                 }
                 ,
                 np.isNil = function(e) {
@@ -10785,7 +10790,7 @@ localStorage.setItem('mapIDS','');
                     if (!r)
                         return -1;
                     var o = r;
-                    return i !== n && (o = (o = o6(n)) < 0 ? t2(r + o, 0) : t3(o, r - 1)),
+                    return i !== n && (o = (o = o5(n)) < 0 ? t2(r + o, 0) : t3(o, r - 1)),
                     t == t ? function(e, t, n) {
                         for (var r = n + 1; r-- && e[r] !== t; )
                             ;
@@ -10837,11 +10842,11 @@ localStorage.setItem('mapIDS','');
                 ,
                 np.multiply = a2,
                 np.nth = function(e, t) {
-                    return e && e.length ? ri(e, o6(t)) : i
+                    return e && e.length ? ri(e, o5(t)) : i
                 }
                 ,
                 np.noConflict = function() {
-                    return e6._ === this && (e6._ = ej),
+                    return e5._ === this && (e5._ = ej),
                     this
                 }
                 ,
@@ -10849,7 +10854,7 @@ localStorage.setItem('mapIDS','');
                 np.now = ov,
                 np.pad = function(e, t, n) {
                     e = o7(e);
-                    var r = (t = o6(t)) ? tY(e) : 0;
+                    var r = (t = o5(t)) ? tY(e) : 0;
                     if (!t || r >= t)
                         return e;
                     var i = (t - r) / 2;
@@ -10858,19 +10863,19 @@ localStorage.setItem('mapIDS','');
                 ,
                 np.padEnd = function(e, t, n) {
                     e = o7(e);
-                    var r = (t = o6(t)) ? tY(e) : 0;
+                    var r = (t = o5(t)) ? tY(e) : 0;
                     return t && r < t ? e + r1(t - r, n) : e
                 }
                 ,
                 np.padStart = function(e, t, n) {
                     e = o7(e);
-                    var r = (t = o6(t)) ? tY(e) : 0;
+                    var r = (t = o5(t)) ? tY(e) : 0;
                     return t && r < t ? r1(t - r, n) + e : e
                 }
                 ,
                 np.parseInt = function(e, t, n) {
                     return n || null == t ? t = 0 : t && (t = +t),
-                    t6(o7(e).replace(Q, ""), t || 0)
+                    t5(o7(e).replace(Q, ""), t || 0)
                 }
                 ,
                 np.random = function(e, t, n) {
@@ -10888,7 +10893,7 @@ localStorage.setItem('mapIDS','');
                         t = r
                     }
                     if (n || e % 1 || t % 1) {
-                        var o = t5();
+                        var o = t6();
                         return t3(e + o * (t - e + e1("1e-" + ((o + "").length - 1))), t)
                     }
                     return ru(e, t)
@@ -10907,7 +10912,7 @@ localStorage.setItem('mapIDS','');
                 }
                 ,
                 np.repeat = function(e, t, n) {
-                    return t = (n ? iw(e, t, n) : i === t) ? 1 : o6(t),
+                    return t = (n ? iw(e, t, n) : i === t) ? 1 : o5(t),
                     rc(o7(e), t)
                 }
                 ,
@@ -10994,7 +10999,7 @@ localStorage.setItem('mapIDS','');
                 np.startCase = aT,
                 np.startsWith = function(e, t, n) {
                     return e = o7(e),
-                    n = null == n ? 0 : nN(o6(n), 0, e.length),
+                    n = null == n ? 0 : nN(o5(n), 0, e.length),
                     t = r_(t),
                     e.slice(n, n + t.length) == t
                 }
@@ -11044,7 +11049,7 @@ localStorage.setItem('mapIDS','');
                 }
                 ,
                 np.times = function(e, t) {
-                    if ((e = o6(e)) < 1 || e > 9007199254740991)
+                    if ((e = o5(e)) < 1 || e > 9007199254740991)
                         return [];
                     var n = 4294967295
                       , r = t3(e, 4294967295);
@@ -11056,15 +11061,15 @@ localStorage.setItem('mapIDS','');
                 }
                 ,
                 np.toFinite = o4,
-                np.toInteger = o6,
-                np.toLength = o5,
+                np.toInteger = o5,
+                np.toLength = o6,
                 np.toLower = function(e) {
                     return o7(e).toLowerCase()
                 }
                 ,
                 np.toNumber = o8,
                 np.toSafeInteger = function(e) {
-                    return e ? nN(o6(e), -9007199254740991, 9007199254740991) : 0 === e ? e : 0
+                    return e ? nN(o5(e), -9007199254740991, 9007199254740991) : 0 === e ? e : 0
                 }
                 ,
                 np.toString = o7,
@@ -11109,7 +11114,7 @@ localStorage.setItem('mapIDS','');
                       , r = "...";
                     if (oY(t)) {
                         var o = "separator"in t ? t.separator : o;
-                        n = "length"in t ? o6(t.length) : n,
+                        n = "length"in t ? o5(t.length) : n,
                         r = "omission"in t ? r_(t.omission) : r
                     }
                     var a = (e = o7(e)).length;
@@ -11168,7 +11173,7 @@ localStorage.setItem('mapIDS','');
                 }),
                 tu(["drop", "take"], function(e, t) {
                     ny.prototype[e] = function(n) {
-                        n = i === n ? 1 : t2(o6(n), 0);
+                        n = i === n ? 1 : t2(o5(n), 0);
                         var r = this.__filtered__ && !t ? new ny(this) : this.clone();
                         return r.__filtered__ ? r.__takeCount__ = t3(n, r.__takeCount__) : r.__views__.push({
                             size: t3(n, 4294967295),
@@ -11228,10 +11233,10 @@ localStorage.setItem('mapIDS','');
                 }
                 ,
                 ny.prototype.slice = function(e, t) {
-                    e = o6(e);
+                    e = o5(e);
                     var n = this;
                     return n.__filtered__ && (e > 0 || t < 0) ? new ny(n) : (e < 0 ? n = n.takeRight(-e) : e && (n = n.drop(e)),
-                    i !== t && (n = (t = o6(t)) < 0 ? n.dropRight(-t) : n.take(t - e)),
+                    i !== t && (n = (t = o5(t)) < 0 ? n.dropRight(-t) : n.take(t - e)),
                     n)
                 }
                 ,
@@ -11447,7 +11452,7 @@ localStorage.setItem('mapIDS','');
                 ),
                 np
             }();
-            e6._ = tW,
+            e5._ = tW,
             i !== (r = (function() {
                 return tW
             }
@@ -11548,11 +11553,11 @@ localStorage.setItem('mapIDS','');
     },
     6840: function(e, t, n) {
         (window.__NEXT_P = window.__NEXT_P || []).push(["/_app", function() {
-            return n(72184)
+            return n(53994)
         }
         ])
     },
-    32701: function(e, t, n) {
+    43978: function(e, t, n) {
         "use strict";
         n.d(t, {
             T: function() {
@@ -11562,13 +11567,13 @@ localStorage.setItem('mapIDS','');
         var r = n(85893);
         n(67294);
         var i = n(66005)
-          , o = n(21293)
+          , o = n(12650)
           , a = n.n(o)
           , s = n(15103)
           , l = n(48583)
-          , u = n(29409)
-          , c = n(35466)
-          , d = n(68069);
+          , u = n(25115)
+          , c = n(58577)
+          , d = n(69174);
         let f = (0,
         s.cn)("")
           , h = (0,
@@ -11683,7 +11688,7 @@ localStorage.setItem('mapIDS','');
             })
         }
     },
-    68069: function(e, t, n) {
+    69174: function(e, t, n) {
         "use strict";
         n.d(t, {
             R: function() {
@@ -11694,8 +11699,8 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(67294)
-          , i = n(75268)
-          , o = n(57295);
+          , i = n(34923)
+          , o = n(50762);
         function a(e) {
             let[t,n] = r.useState(!1)
               , i = r.useMemo( () => e ? o.Z.preloadedBlob(e) : "", [e, t]);
@@ -11710,7 +11715,7 @@ localStorage.setItem('mapIDS','');
             return a("".concat(i.fd).concat(e || "upcoming", ".png"))
         }
     },
-    16497: function(e, t, n) {
+    70069: function(e, t, n) {
         "use strict";
         n.d(t, {
             Bf: function() {
@@ -11748,10 +11753,10 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(36609)
-          , i = n(53059)
-          , o = n(35466)
-          , a = n(29409)
-          , s = n(11941);
+          , i = n(64798)
+          , o = n(58577)
+          , a = n(25115)
+          , s = n(89015);
         function l(e) {
             let {days: t=0, hours: n=0, minutes: r=0, seconds: i=0, ms: o=0} = e;
             return o + 1e3 * i + 6e4 * r + 36e5 * n + 864e5 * t
@@ -11877,7 +11882,7 @@ localStorage.setItem('mapIDS','');
             return "".concat(null == e ? void 0 : e.replace(/\)|\(/g, "_"), "_").concat(t)
         }
     },
-    14411: function(e, t, n) {
+    63187: function(e, t, n) {
         "use strict";
         n.d(t, {
             LB: function() {
@@ -11894,7 +11899,7 @@ localStorage.setItem('mapIDS','');
           , i = !1
           , o = "".concat("https", "://").concat("pixels-server.pixels.xyz")
     },
-    73913: function(e, t, n) {
+    48085: function(e, t, n) {
         "use strict";
         let r;
         n.d(t, {
@@ -11903,10 +11908,10 @@ localStorage.setItem('mapIDS','');
             }
         });
         var i = n(7767)
-          , o = n(80919)
+          , o = n(34257)
           , a = n(96721)
-          , s = n(53059)
-          , l = n(75268)
+          , s = n(64798)
+          , l = n(34923)
           , u = n(23493)
           , c = n.n(u)
           , d = n(7654)
@@ -12044,7 +12049,7 @@ localStorage.setItem('mapIDS','');
                 this.queue = []
             }
         }
-        var g = n(18062);
+        var g = n(65724);
         let m = e => {
             let t = []
               , n = [];
@@ -12144,11 +12149,11 @@ localStorage.setItem('mapIDS','');
                 this.client = e
             }
         }
-        var b = n(29409)
-          , E = n(11941)
-          , _ = n(31040)
+        var b = n(25115)
+          , E = n(89015)
+          , _ = n(67)
           , w = n(53518)
-          , O = n(67446);
+          , O = n(54552);
         function A(e) {
             return JSON.parse(JSON.stringify(e))
         }
@@ -12347,6 +12352,10 @@ localStorage.setItem('mapIDS','');
             get marketPlaceBuyLimit() {
                 var e, t;
                 return null !== (t = null === (e = this.room) || void 0 === e ? void 0 : e.state.mpBuy) && void 0 !== t ? t : 700
+            }
+            get mapLimits() {
+                var e;
+                return null === (e = this.room) || void 0 === e ? void 0 : e.state.limits
             }
             static getInstance() {
                 return R.singleton || (R.singleton = new R),
@@ -12571,14 +12580,15 @@ localStorage.setItem('mapIDS','');
                     o.ZP.emitEventNow(o.fb.ROOM_OWNERSHIP_CHANGED, e)
                 }
                 ),
-                this.room.state.members.onChange( () => {
-                    if (!this.room)
-                        return;
-                    let e = A(this.room.state.members);
-                    o.ZP.emitEventNow(o.fb.ROOM_MEMBERS_CHANGED, e)
+                this.room.state.members.onAdd(e => {
+                    this.monitorMember(e)
                 }
                 ),
-                this.room.state.labels.onAdd( () => {
+                this.room.state.members.onChange( () => {
+                    this.updatedMembers = !0
+                }
+                ),
+                this.room.state.labels.onChange( () => {
                     var e;
                     if (!this.room)
                         return;
@@ -12774,9 +12784,12 @@ localStorage.setItem('mapIDS','');
                 this.updatedPet = !1),
                 this.updatedInventory && (this.inventoryChanged(),
                 this.updatedInventory = !1),
+                this.updatedMembers && (this.membersChanged(),
+                this.updatedMembers = !1),
                 this.wardrobeChanged()
             }
             handleRoomUpdates() {
+                var e;
                 if (!this.room)
                     return;
                 this.room.onStateChange( () => {
@@ -12802,6 +12815,10 @@ localStorage.setItem('mapIDS','');
                     })
                 }
                 ),
+                null === (e = this.room.state.limits) || void 0 === e || e.onChange( () => {
+                    this.room && o.ZP.emitEventNow(o.fb.ROOM_LIMITS_CHANGED, A(this.mapLimits))
+                }
+                ),
                 this.room.state.chatMessages.onAdd(e => {
                     var t;
                     (null === (t = this.room) || void 0 === t ? void 0 : t.state) && "private" !== this.room.state.type && "tutorial" !== this.room.state.type && o.ZP.emitEventNow(o.fb.CHAT_MESSAGE_RCV, {
@@ -12809,12 +12826,12 @@ localStorage.setItem('mapIDS','');
                     })
                 }
                 , !1);
-                let e = this.room.state.storage;
-                (null == e ? void 0 : e.slots) && (e.slots.onAdd(e => {
+                let t = this.room.state.storage;
+                (null == t ? void 0 : t.slots) && (t.slots.onAdd(e => {
                     this.monitorSlot(e)
                 }
                 ),
-                e.slots.onRemove( () => this.updatedInventory = !0)),
+                t.slots.onRemove( () => this.updatedInventory = !0)),
                 this.room.state.levels.onAdd( (e, t) => {
                     let n = A(e);
                     o.ZP.emitEventNow(o.fb.ROOM_LEVEL_ADD, {
@@ -12929,15 +12946,15 @@ localStorage.setItem('mapIDS','');
                 )
             }
             async connect(e, t, n, u, c, d, h, p, m) {
-                var v, y;
+                var v, y, b;
                 this.scene = u,
                 this.firstLoad && (this.registerEvents(),
                 this.firstLoad = !1);
-                let b = {};
+                let E = {};
                 if (n) {
                     let e = n.split(",");
-                    b.label = e[0],
-                    e.length >= 3 && (b.offset = {
+                    E.label = e[0],
+                    e.length >= 3 && (E.offset = {
                         x: parseInt(e[1], 10),
                         y: parseInt(e[2], 10)
                     })
@@ -12965,14 +12982,14 @@ localStorage.setItem('mapIDS','');
                         playerId: p,
                         world: t,
                         ver: l.WX,
-                        ...b,
+                        ...E,
                         avatar: c || !d ? "" : JSON.stringify(d),
                         lastSavedAt: m
                     })
                 } catch (e) {
                     if ((null == e ? void 0 : e.code) === w.m.SERVER_MAINTENANCE)
                         o.ZP.emitEventNow(o.fb.SVR_CANNOTCONNECT, {
-                            message: null !== (v = e.message) && void 0 !== v ? v : "server-maintenance"
+                            message: null !== (y = e.message) && void 0 !== y ? y : "server-maintenance"
                         });
                     else if ((null == e ? void 0 : e.code) === w.m.PLAYER_BANNED) {
                         let t = e.message.split("+|=|+")
@@ -13019,7 +13036,7 @@ localStorage.setItem('mapIDS','');
                 }
                 this.playerSerializer = new i.mV,
                 this.playerHandshake && this.playerSerializer.handshake(this.playerHandshake);
-                let E = new Promise(e => {
+                let _ = new Promise(e => {
                     var t, n;
                     null === (t = this.room) || void 0 === t || t.onMessage(a.mY.handshake, e => {
                         this.playerHandshake = e,
@@ -13033,7 +13050,7 @@ localStorage.setItem('mapIDS','');
                     )
                 }
                 )
-                  , _ = new Promise(e => {
+                  , O = new Promise(e => {
                     var t;
                     null === (t = this.room) || void 0 === t || t.onMessage(a.mY.sendMapLibrary, t => {
                         s.Z.setMapLibrary(t),
@@ -13043,29 +13060,29 @@ localStorage.setItem('mapIDS','');
                 }
                 );
                 this.handleRoomEvents();
-                let O = new Promise(e => {
+                let S = new Promise(e => {
                     this.room.onStateChange.once( () => {
                         e(this.room.state.players.get(this.room.sessionId))
                     }
                     )
                 }
                 );
-                await Promise.all([O, E, _]),
-                this.selfPlayer = await E;
-                let S = await O;
-                if (S || (S = await new Promise(e => {
+                await Promise.all([S, _, O]),
+                this.selfPlayer = await _;
+                let I = await S;
+                if (I || (I = await new Promise(e => {
                     this.room.onStateChange.once( () => {
                         e(this.room.state.players.get(this.room.sessionId))
                     }
                     )
                 }
                 )),
-                await s.Z.scanGameLibrary(this.room.state.entities),
-                this.selfPlayer && S) {
+                await s.Z.scanGameLibrary(this.room.state.entities, null === (v = this.selfPlayer) || void 0 === v ? void 0 : v.inventory),
+                this.selfPlayer && I) {
                     let e = A(this.currentPlayer);
-                    (null === (y = e.full.pet) || void 0 === y ? void 0 : y.avatar) || delete e.full.pet,
+                    (null === (b = e.full.pet) || void 0 === b ? void 0 : b.avatar) || delete e.full.pet,
                     this.initPlayers(),
-                    this.setupSelfPlayerListeners(this.selfPlayer, S),
+                    this.setupSelfPlayerListeners(this.selfPlayer, I),
                     this.scene.initSelfPlayerState(e),
                     o.ZP.emitEventNow(o.fb.ROOM_LOADED, {
                         player: e,
@@ -13076,7 +13093,8 @@ localStorage.setItem('mapIDS','');
                         ownerAddress: this.room.state.ownerAddress,
                         sessionId: this.room.sessionId,
                         messages: A(this.room.state.chatMessages),
-                        templateName: this.room.state.templateName
+                        templateName: this.room.state.templateName,
+                        limits: A(this.room.state.limits)
                     }),
                     o.ZP.emitEventNow(o.fb.ROOM_NAME_CHANGED, this.room.state.name),
                     o.ZP.emitEventNow(o.fb.PLAYER_ENERGY_CHANGE, {
@@ -13212,6 +13230,12 @@ localStorage.setItem('mapIDS','');
                     inventory: A(this.selfPlayer.inventory)
                 })
             }
+            membersChanged() {
+                if (this.room) {
+                    let e = A(this.room.state.members);
+                    o.ZP.emitEventNow(o.fb.ROOM_MEMBERS_CHANGED, e)
+                }
+            }
             wardrobeChanged() {
                 this.updatedWardrobe && (this.updatedWardrobe = !1,
                 this.selfPlayer && o.rV.wardrobe.serverStateChange.emit({
@@ -13222,6 +13246,12 @@ localStorage.setItem('mapIDS','');
                 this.updatedInventory = !0,
                 e.onChange( () => {
                     this.updatedInventory = !0
+                }
+                )
+            }
+            monitorMember(e) {
+                e.onChange( () => {
+                    this.updatedMembers = !0
                 }
                 )
             }
@@ -13504,6 +13534,7 @@ localStorage.setItem('mapIDS','');
                 this.addedMapEntities = new Map,
                 this.updatedPet = !1,
                 this.updatedInventory = !1,
+                this.updatedMembers = !1,
                 this.updatedWardrobe = !1,
                 this.checkParams()
             }
@@ -13512,7 +13543,7 @@ localStorage.setItem('mapIDS','');
         R.permanentErrors = ["room-is-full", "invalid-token", "could-not-authenticate", "player-not-found", "invalid-permissions", "bad-recaptca", "bad-telemetry-data", "invalid-map", "invalid-client-version", "player-is-banned", "authentication-expired", "invalid-world", "server-maintenance", "transfer-in-progress", "teleport-unauthorized", "join-in-progress"],
         R.retryErrors = ["user-logging-out", "velocity-control"]
     },
-    75268: function(e, t, n) {
+    34923: function(e, t, n) {
         "use strict";
         n.d(t, {
             A$: function() {
@@ -13606,7 +13637,7 @@ localStorage.setItem('mapIDS','');
                 return c
             }
         });
-        let r = parseFloat("10.2103")
+        let r = parseFloat("10.2121")
           , i = 1676498533e3
           , o = "game-container"
           , a = "players"
@@ -13645,7 +13676,7 @@ localStorage.setItem('mapIDS','');
           , k = "https://mesh-online-assets.s3.us-east-2.amazonaws.com"
           , C = "".concat(x, "/game/ui/skills/skills_icon_")
     },
-    80919: function(e, t, n) {
+    34257: function(e, t, n) {
         "use strict";
         n.d(t, {
             Vh: function() {
@@ -13676,7 +13707,7 @@ localStorage.setItem('mapIDS','');
                 return m
             }
         });
-        var r, i, o, a, s, l, u, c = n(29409);
+        var r, i, o, a, s, l, u, c = n(25115);
         (a || (a = {})).RESIZE = "RESIZE",
         (r = s || (s = {})).INIT_GAME = "INIT_GAME",
         r.GAME_INITIATED = "GAME_INITIATED",
@@ -13729,6 +13760,7 @@ localStorage.setItem('mapIDS','');
         r.ROOM_LEVEL_CHANGED = "ROOM_LEVEL_CHANGED",
         r.ROOM_LABELS_CHANGED = "ROOM_LABELS_CHANGED",
         r.ROOM_LEVEL_ADD = "ROOM_LEVEL_ADD",
+        r.ROOM_LIMITS_CHANGED = "ROOM_LIMITS_CHANGED",
         r.PLAYER_ACHIEVEMENT_ADD = "PLAYER_ACHIEVEMENT_ADD",
         r.PLAYER_ACHIEVEMENT_CHANGED = "PLAYER_ACHIEVEMENT_CHANGED",
         r.PLAYER_ACHIEVEMENT_REMOVED = "PLAYER_ACHIEVEMENT_REMOVED",
@@ -13910,7 +13942,19 @@ localStorage.setItem('mapIDS','');
         }
         var b = f
     },
-    83742: function(e, t, n) {
+    38048: function(e, t, n) {
+        "use strict";
+        function r(e, t) {
+            var n;
+            return ((null == t ? void 0 : t.numComplete) || ((null === (n = e.craftable) || void 0 === n ? void 0 : n.autoGrant) ? 1 : 0)) - ((null == t ? void 0 : t.numUsed) || 0)
+        }
+        n.d(t, {
+            U: function() {
+                return r
+            }
+        })
+    },
+    71313: function(e, t, n) {
         "use strict";
         n.d(t, {
             $$: function() {
@@ -13936,8 +13980,8 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(25904)
-          , i = n(53059)
-          , o = n(75268);
+          , i = n(64798)
+          , o = n(34923);
         function a(e) {
             return e === o.ft ? u(e) : f(e)
         }
@@ -14111,7 +14155,7 @@ localStorage.setItem('mapIDS','');
             } : e
         }
     },
-    96808: function(e, t, n) {
+    61778: function(e, t, n) {
         "use strict";
         n.d(t, {
             ML: function() {
@@ -14132,10 +14176,10 @@ localStorage.setItem('mapIDS','');
         });
         var r = n(96486)
           , i = n.n(r)
-          , o = n(53059)
-          , a = n(73913)
+          , o = n(64798)
+          , a = n(48085)
           , s = n(36609)
-          , l = n(16497)
+          , l = n(70069)
           , u = n(25904);
         function c(e, t) {
             var n, r, i;
@@ -14233,15 +14277,15 @@ localStorage.setItem('mapIDS','');
             }
         }
         function p(e, t, n, r) {
-            var s;
+            var s, l;
             if ("string" == typeof e) {
                 let t = o.Z.getGameItem(e);
                 if (!t)
                     return !1;
                 e = t
             }
-            let l = null == e ? void 0 : e.useTargets;
-            return !!(l && (null === (s = e.onUse) || void 0 === s ? void 0 : s.types.every(e => {
+            let c = null == e ? void 0 : e.useTargets;
+            return !!(c && (null === (l = e.onUse) || void 0 === l ? void 0 : null === (s = l.types) || void 0 === s ? void 0 : s.every(e => {
                 var i, s;
                 switch (e) {
                 case "removeEntity":
@@ -14269,27 +14313,27 @@ localStorage.setItem('mapIDS','');
                 }
                 return !0
             }
-            ))) && (null == l ? void 0 : l.types.some(e => {
-                var r, a, s, u;
+            ))) && (null == c ? void 0 : c.types.some(e => {
+                var r, a, s, l;
                 if ("entities" === e)
-                    return null === (r = l.entities) || void 0 === r ? void 0 : r.includes(t);
+                    return null === (r = c.entities) || void 0 === r ? void 0 : r.includes(t);
                 if ("entityTypes" === e)
-                    return !!n && (null === (a = l.entityTypes) || void 0 === a ? void 0 : a.includes(n));
+                    return !!n && (null === (a = c.entityTypes) || void 0 === a ? void 0 : a.includes(n));
                 if ("entityLabels" === e) {
                     let e = o.Z.getGameEntity(t);
                     if (null == e ? void 0 : e.labels)
-                        return i().isEmpty(i().xor(l.entityLabels, e.labels))
+                        return i().isEmpty(i().xor(c.entityLabels, e.labels))
                 } else if ("ground" === e)
                     return "ground" === n;
                 else if ("pet" === e)
                     return "pet" === t;
                 else if ("objects" === e)
-                    return null === (s = l.objects) || void 0 === s ? void 0 : s.includes(t);
+                    return null === (s = c.objects) || void 0 === s ? void 0 : s.includes(t);
                 else if ("objectTypes" === e) {
                     let e = o.Z.getGameObject(t);
-                    return null == e ? void 0 : null === (u = e.types) || void 0 === u ? void 0 : u.every(e => {
+                    return null == e ? void 0 : null === (l = e.types) || void 0 === l ? void 0 : l.every(e => {
                         var t;
-                        return null === (t = l.objectTypes) || void 0 === t ? void 0 : t.includes(e)
+                        return null === (t = c.objectTypes) || void 0 === t ? void 0 : t.includes(e)
                     }
                     )
                 } else if ("self" === e)
@@ -14299,17 +14343,18 @@ localStorage.setItem('mapIDS','');
             ))
         }
         function g(e, t, n) {
+            var r;
             if ("string" == typeof e) {
                 let t = o.Z.getGameItem(e);
                 if (!t)
                     return !1;
                 e = t
             }
-            return !!(e.onUse && p(e, t, n)) && (e.onUse.types.includes("removeEntity") || e.onUse.types.includes("removeObject") || e.onUse.types.includes("move"))
+            return !!((null === (r = e.onUse) || void 0 === r ? void 0 : r.types) && p(e, t, n)) && (e.onUse.types.includes("removeEntity") || e.onUse.types.includes("removeObject") || e.onUse.types.includes("move"))
         }
         t.ZP = p
     },
-    60922: function(e, t, n) {
+    6178: function(e, t, n) {
         "use strict";
         n.d(t, {
             F5: function() {
@@ -14325,7 +14370,7 @@ localStorage.setItem('mapIDS','');
                 return a
             }
         });
-        var r = n(53059);
+        var r = n(64798);
         let i = {
             id: "pixels",
             name: "pixels",
@@ -14367,9 +14412,9 @@ localStorage.setItem('mapIDS','');
             return null !== (t = null !== (e = null == a ? void 0 : a[n]) && void 0 !== e ? e : null == a ? void 0 : a.pixels) && void 0 !== t ? t : i
         }
     },
-    57295: function(e, t, n) {
+    50762: function(e, t, n) {
         "use strict";
-        var r = n(35466);
+        var r = n(58577);
         class i {
             preloadOne(e) {
                 if (this.loaded.has(e))
@@ -14419,7 +14464,7 @@ localStorage.setItem('mapIDS','');
         }
         t.Z = new i
     },
-    35466: function(e, t, n) {
+    58577: function(e, t, n) {
         "use strict";
         n.d(t, {
             Uk: function() {
@@ -14510,7 +14555,7 @@ localStorage.setItem('mapIDS','');
                 return $
             }
         });
-        var r, i, o = n(14411), a = n(75268);
+        var r, i, o = n(63187), a = n(34923);
         function s(e) {
             for (var t = 1; t < arguments.length; t++) {
                 var n = arguments[t];
@@ -14814,10 +14859,10 @@ localStorage.setItem('mapIDS','');
             return t === e
         }
     },
-    97790: function(e, t, n) {
+    39219: function(e, t, n) {
         "use strict";
-        var r = n(80919)
-          , i = n(53059);
+        var r = n(34257)
+          , i = n(64798);
         class o {
             get isInitialized() {
                 return !!o.phaserGame
@@ -14834,8 +14879,8 @@ localStorage.setItem('mapIDS','');
             }
             async initGame() {
                 let e = await n.e(989).then(n.t.bind(n, 82260, 23))
-                  , t = await Promise.all([n.e(989), n.e(445)]).then(n.bind(n, 25206))
-                  , {phaserConfig: i} = await Promise.all([n.e(989), n.e(347)]).then(n.bind(n, 37347));
+                  , t = await Promise.all([n.e(989), n.e(521)]).then(n.bind(n, 6521))
+                  , {phaserConfig: i} = await Promise.all([n.e(989), n.e(269)]).then(n.bind(n, 65269));
                 return await r.ZP.init(),
                 o.phaserGame || (this.audioScene = new t.default,
                 i.scene = this.audioScene,
@@ -14885,7 +14930,7 @@ localStorage.setItem('mapIDS','');
                 var t;
                 o.phaserGame || await this.initGame(),
                 null === (t = this.audioScene) || void 0 === t || t.clearPositional();
-                let i = await Promise.all([n.e(989), n.e(640), n.e(445), n.e(586)]).then(n.bind(n, 20586));
+                let i = await Promise.all([n.e(989), n.e(640), n.e(521), n.e(92)]).then(n.bind(n, 27092));
                 if (o.reentrancyCheck) {
                     console.error("wtf are we doing? We cannot run this twice.");
                     return
@@ -14942,13 +14987,13 @@ localStorage.setItem('mapIDS','');
         }
         t.Z = new o
     },
-    18062: function(e, t, n) {
+    65724: function(e, t, n) {
         "use strict";
         var r = n(87066)
-          , i = n(75268)
-          , o = n(60922)
-          , a = n(35466)
-          , s = n(14411);
+          , i = n(34923)
+          , o = n(6178)
+          , a = n(58577)
+          , s = n(63187);
         class l {
             async logAction(e) {
                 r.Z.get("".concat(this.baseAPIURL, "/log?message=") + encodeURIComponent(e))
@@ -15487,9 +15532,9 @@ localStorage.setItem('mapIDS','');
         }
         t.Z = new l(s.LB,"v1")
     },
-    85469: function(e, t, n) {
+    64417: function(e, t, n) {
         "use strict";
-        var r = n(18062);
+        var r = n(65724);
         class i {
             get sessionToken() {
                 return this.api.sessionToken
@@ -15540,7 +15585,7 @@ localStorage.setItem('mapIDS','');
         }
         t.Z = new i(r.Z)
     },
-    4602: function(e, t, n) {
+    74977: function(e, t, n) {
         "use strict";
         n.d(t, {
             Z: function() {
@@ -16217,7 +16262,7 @@ localStorage.setItem('mapIDS','');
             }
         }
         Z.type = "languageDetector";
-        var z = n(60922);
+        var z = n(6178);
         let H = !1;
         l.ZP.on("onLoaded", () => {
             console.log("loading i18n"),
@@ -16256,14 +16301,14 @@ localStorage.setItem('mapIDS','');
         };
         var K = l.ZP
     },
-    53059: function(e, t, n) {
+    64798: function(e, t, n) {
         "use strict";
         n.d(t, {
             Z: function() {
-                return s
+                return l
             }
         });
-        var r = n(18062);
+        var r = n(65724);
         function i(e) {
             let {keyField: t, first: n, second: r, mergefields: i} = e
               , o = [].concat(null != n ? n : []);
@@ -16324,7 +16369,8 @@ localStorage.setItem('mapIDS','');
             u
         }
         ;
-        class a {
+        var a = n(25904);
+        class s {
             async loadMap(e) {
                 return this.api.fetchMap(e)
             }
@@ -16573,60 +16619,102 @@ localStorage.setItem('mapIDS','');
             }
             async updateLibraryItems(e) {
                 var t;
-                if (this.gameLibrary && (null === (t = this.mapLibrary) || void 0 === t ? void 0 : t.config) && (null == e ? void 0 : e.length))
-                    try {
-                        let t = await this.api.fetchGameLibraryExtras({
-                            items: e
-                        });
-                        this.updateGameLibrary(this.transformGameLibraryUpdate(t))
-                    } catch (e) {
-                        console.error("failure getting supplemental objects")
-                    }
+                if (!this.gameLibrary || !(null === (t = this.mapLibrary) || void 0 === t ? void 0 : t.config) || !(null == e ? void 0 : e.length))
+                    return !1;
+                try {
+                    let t = await this.api.fetchGameLibraryExtras({
+                        items: e
+                    });
+                    this.updateGameLibrary(this.transformGameLibraryUpdate(t))
+                } catch (e) {
+                    console.error("failure getting supplemental objects")
+                }
             }
-            async scanGameLibrary(e) {
-                var t;
-                if (!this.gameLibrary || !(null === (t = this.mapLibrary) || void 0 === t ? void 0 : t.config))
+            async updateStorageItems(e) {
+                if (!this.gameLibrary || !(null == e ? void 0 : e.slots))
+                    return !1;
+                let t = {
+                    items: new Set
+                };
+                (0,
+                a.be)(e.slots, e => {
+                    (null == e ? void 0 : e.item) && (!this.gameLibrary.items || !Object.hasOwn(this.gameLibrary.items, e.item)) && t.items.add(e.item)
+                }
+                );
+                let n = !0
+                  , r = {};
+                if (Object.entries(t).filter(e => {
+                    let[,t] = e;
+                    return t.size > 0
+                }
+                ).forEach(e => {
+                    let[t,i] = e;
+                    n = !1,
+                    r[t] = Array.from(i)
+                }
+                ),
+                n)
+                    return !1;
+                console.log("waiting to retrieve missing items", r);
+                try {
+                    let e = await this.api.fetchGameLibraryExtras(r);
+                    return this.updateGameLibrary(this.transformGameLibraryUpdate(e)),
+                    !0
+                } catch (e) {
+                    return console.error("failure getting supplemental objects"),
+                    !1
+                }
+            }
+            async scanGameLibrary(e, t) {
+                var n;
+                if (!this.gameLibrary || !(null === (n = this.mapLibrary) || void 0 === n ? void 0 : n.config))
                     return;
-                let n = {
+                let r = {
                     objects: new Set,
                     entities: new Set,
                     tilesets: new Set,
+                    items: new Set,
                     sounds: new Set
                 };
                 this.mapLibrary.config.objects && Object.entries(this.mapLibrary.config.objects).forEach(e => {
                     let[,t] = e;
-                    this.gameLibrary.objects && Object.hasOwn(this.gameLibrary.objects, t.object) || n.objects.add(t.object)
+                    this.gameLibrary.objects && Object.hasOwn(this.gameLibrary.objects, t.object) || r.objects.add(t.object)
                 }
                 ),
                 this.mapLibrary.config.tiles && Object.entries(this.mapLibrary.config.tiles).forEach(e => {
                     let[,t] = e;
-                    this.gameLibrary.tilesets && Object.hasOwn(this.gameLibrary.tilesets, t.tileset) || n.tilesets.add(t.tileset)
+                    this.gameLibrary.tilesets && Object.hasOwn(this.gameLibrary.tilesets, t.tileset) || r.tilesets.add(t.tileset)
                 }
                 ),
                 this.mapLibrary.config.sounds && this.mapLibrary.config.sounds.forEach(e => {
-                    this.gameLibrary.sounds && this.gameLibrary.sounds.has(e) || n.sounds.add(e)
+                    this.gameLibrary.sounds && this.gameLibrary.sounds.has(e) || r.sounds.add(e)
                 }
                 ),
-                e.forEach(e => {
-                    this.gameLibrary.entities && Object.hasOwn(this.gameLibrary.entities, e.entity) || n.entities.add(e.entity)
+                null == e || e.forEach(e => {
+                    this.gameLibrary.entities && Object.hasOwn(this.gameLibrary.entities, e.entity) || r.entities.add(e.entity)
+                }
+                ),
+                (0,
+                a.be)(null == t ? void 0 : t.slots, e => {
+                    (null == e ? void 0 : e.item) && (!this.gameLibrary.items || !Object.hasOwn(this.gameLibrary.items, e.item)) && r.items.add(e.item)
                 }
                 );
-                let r = !0
-                  , i = {};
-                if (Object.entries(n).filter(e => {
+                let i = !0
+                  , o = {};
+                if (Object.entries(r).filter(e => {
                     let[,t] = e;
                     return t.size > 0
                 }
                 ).forEach(e => {
                     let[t,n] = e;
-                    r = !1,
-                    i[t] = Array.from(n)
+                    i = !1,
+                    o[t] = Array.from(n)
                 }
                 ),
-                !r) {
-                    console.log("waiting to retrieve missing elements", i);
+                !i) {
+                    console.log("waiting to retrieve missing elements", o);
                     try {
-                        let e = await this.api.fetchGameLibraryExtras(i);
+                        let e = await this.api.fetchGameLibraryExtras(o);
                         this.updateGameLibrary(this.transformGameLibraryUpdate(e))
                     } catch (e) {
                         console.error("failure getting supplemental objects")
@@ -16739,9 +16827,9 @@ localStorage.setItem('mapIDS','');
                 this.api = e
             }
         }
-        var s = new a(r.Z)
+        var l = new s(r.Z)
     },
-    72184: function(e, t, n) {
+    53994: function(e, t, n) {
         "use strict";
         n.r(t),
         n.d(t, {
@@ -16754,10 +16842,10 @@ localStorage.setItem('mapIDS','');
           , o = n(11163)
           , a = n(25617)
           , s = n(48583);
-        n(4602),
-        n(4449),
-        n(36958);
-        var l = n(29409);
+        n(74977),
+        n(35264),
+        n(39981);
+        var l = n(25115);
         let u = e => {
             var t, n;
             (null === (t = window) || void 0 === t ? void 0 : t.gtag) && (null === (n = window) || void 0 === n || n.gtag("config", "G-QGP383C71B", {
@@ -16765,8 +16853,8 @@ localStorage.setItem('mapIDS','');
             }))
         }
         ;
-        var c = n(53059);
-        n(35466);
+        var c = n(64798);
+        n(58577);
         var d = e => {
             let {children: t} = e
               , [n,r] = (0,
@@ -16827,7 +16915,7 @@ localStorage.setItem('mapIDS','');
             })
         }
     },
-    45238: function(e, t, n) {
+    52618: function(e, t, n) {
         "use strict";
         n.d(t, {
             H: function() {
@@ -16849,7 +16937,7 @@ localStorage.setItem('mapIDS','');
                 r[e] = t
         }
     },
-    69980: function(e, t, n) {
+    17532: function(e, t, n) {
         "use strict";
         n.d(t, {
             U: function() {
@@ -16859,12 +16947,12 @@ localStorage.setItem('mapIDS','');
                 return d
             }
         });
-        var r = n(45238)
-          , i = n(28466)
-          , o = n(80919)
-          , a = n(73913)
-          , s = n(60943)
-          , l = n(29409)
+        var r = n(52618)
+          , i = n(91736)
+          , o = n(34257)
+          , a = n(48085)
+          , s = n(18561)
+          , l = n(25115)
           , u = n(25904);
         function c(e) {
             o.ZP.emitEventNow(o.fb.TRADE_SEND, e)
@@ -16999,7 +17087,7 @@ localStorage.setItem('mapIDS','');
         }
         )
     },
-    40723: function(e, t, n) {
+    28700: function(e, t, n) {
         "use strict";
         n.d(t, {
             R: function() {
@@ -17007,8 +17095,8 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(66741)
-          , i = n(53059)
-          , o = n(51309);
+          , i = n(64798)
+          , o = n(66376);
         let a = (0,
         r.hg)("game/authenticatedWallet", async (e, t) => {
             try {
@@ -17031,7 +17119,7 @@ localStorage.setItem('mapIDS','');
         }
         )
     },
-    51309: function(e, t, n) {
+    66376: function(e, t, n) {
         "use strict";
         n.d(t, {
             $O: function() {
@@ -17105,13 +17193,13 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(66741)
-          , i = n(60922)
-          , o = n(73913)
-          , a = n(97790)
-          , s = n(53059)
-          , l = n(4602)
-          , u = n(83742)
-          , c = n(75268);
+          , i = n(6178)
+          , o = n(48085)
+          , a = n(39219)
+          , s = n(64798)
+          , l = n(74977)
+          , u = n(71313)
+          , c = n(34923);
         let d = (0,
         r.oM)({
             name: "auth",
@@ -17219,7 +17307,15 @@ localStorage.setItem('mapIDS','');
                     e.provider = t.payload.provider,
                     e.cryptoWallets = t.payload.cryptoWallets,
                     e.currentAvatar = t.payload.currentAvatar,
-                    e.errorMessage = void 0
+                    e.errorMessage = void 0,
+                    window.gtag && (window.gtag("set", {
+                        user_id: t.payload.playerId,
+                        environment: "production"
+                    }),
+                    window.gtag("event", "authenticated", {
+                        user_id: t.payload.playerId,
+                        environment: "production"
+                    }))
                 }
                 ,
                 authenticateError: (e, t) => {
@@ -17324,60 +17420,65 @@ localStorage.setItem('mapIDS','');
           , {checkAuthentication: w, setConnected: O, walletRequired: A, continueAsGuest: S, createPlayer: P, loadingDone: I, authenticate: R, authenticatedPlayer: T, updatedPlayer: x, authenticateError: k, loggedOut: C, setIsAccountDirty: N, closeNotification: L, serviceNotification: M} = d.actions;
         t.Co = d.reducer
     },
-    28274: function(e, t, n) {
+    69717: function(e, t, n) {
         "use strict";
         n.d(t, {
             F0: function() {
-                return p
-            },
-            Gp: function() {
-                return A
-            },
-            U1: function() {
-                return b
-            },
-            UV: function() {
-                return w
-            },
-            Uf: function() {
-                return g
-            },
-            Up: function() {
-                return P
-            },
-            XU: function() {
                 return m
             },
-            _r: function() {
-                return _
+            Gp: function() {
+                return I
             },
-            cd: function() {
-                return v
+            U1: function() {
+                return w
             },
-            hL: function() {
+            UV: function() {
                 return S
             },
-            ki: function() {
+            Uf: function() {
+                return v
+            },
+            Up: function() {
+                return T
+            },
+            XU: function() {
                 return y
             },
+            _r: function() {
+                return A
+            },
+            cd: function() {
+                return b
+            },
+            hL: function() {
+                return R
+            },
+            ki: function() {
+                return _
+            },
             qx: function() {
-                return E
+                return O
             },
             sY: function() {
-                return h
+                return g
+            },
+            sh: function() {
+                return E
             },
             yq: function() {
-                return O
+                return P
             }
         });
         var r = n(66741)
           , i = n(68697)
-          , o = n(53059)
-          , a = n(47414)
-          , s = n(80919)
+          , o = n(64798)
+          , a = n(8339)
+          , s = n(34257)
           , l = n(96721)
-          , u = n(73913);
-        let c = (e, t, n, r) => {
+          , u = n(48085)
+          , c = n(38048)
+          , d = n(25904);
+        let f = (e, t, n, r) => {
             if (e && !t) {
                 let n = u.l.getInstance().getEntityByUniqueId(e);
                 t = null == n ? void 0 : n.entity
@@ -17389,7 +17490,7 @@ localStorage.setItem('mapIDS','');
                 inputs: r
             })
         }
-          , d = {
+          , h = {
             achievements: {},
             showCrafting: !1,
             ui: {
@@ -17398,10 +17499,10 @@ localStorage.setItem('mapIDS','');
                 selectedCraftable: void 0
             }
         }
-          , f = (0,
+          , p = (0,
         r.oM)({
             name: "craftingSlice",
-            initialState: d,
+            initialState: h,
             reducers: {
                 selectCraftable: (e, t) => {
                     e.ui = {
@@ -17411,14 +17512,14 @@ localStorage.setItem('mapIDS','');
                 }
                 ,
                 closeCraftingDialog: e => {
-                    e.showCrafting && c(e.ui.table_mid, e.ui.table_entity, "uiclose"),
+                    e.showCrafting && f(e.ui.table_mid, e.ui.table_entity, "uiclose"),
                     e.showCrafting = !1
                 }
                 ,
                 showCraftingWindow: (e, t) => {
                     let {craftType: n, source: r, achievement: i, state: o, quantity: a, finish: s, tableTier: l} = t.payload
                       , u = null == o ? void 0 : o.startsWith("update:");
-                    (!u || e.showCrafting && e.ui.table_mid === r) && (e.showCrafting && e.ui.table_mid && e.ui.table_entity && e.ui.craftType !== n && c(e.ui.table_mid, e.ui.table_entity, "uiclose"),
+                    (!u || e.showCrafting && e.ui.table_mid === r) && (e.showCrafting && e.ui.table_mid && e.ui.table_entity && e.ui.craftType !== n && f(e.ui.table_mid, e.ui.table_entity, "uiclose"),
                     i ? e.ui.selectedCraftable = i : r !== e.ui.table_mid && (e.ui.selectedCraftable = void 0),
                     e.ui.craftType = n,
                     e.ui.tableTier = l,
@@ -17435,7 +17536,7 @@ localStorage.setItem('mapIDS','');
                     e.achievements = {},
                     e.showCrafting = !1,
                     e.ui = {
-                        ...d.ui
+                        ...h.ui
                     }
                 }
                 ),
@@ -17461,25 +17562,41 @@ localStorage.setItem('mapIDS','');
                 )
             }
         })
-          , {selectCraftable: h, closeCraftingDialog: p, showCraftingWindow: g} = f.actions;
-        t.ZP = f.reducer;
-        let m = e => e.crafting.showCrafting
-          , v = e => e.crafting.achievements
-          , y = e => e.crafting.ui
-          , b = e => e.crafting.ui.selectedCraftable ? e.crafting.achievements[e.crafting.ui.selectedCraftable] || {
+          , {selectCraftable: g, closeCraftingDialog: m, showCraftingWindow: v} = p.actions;
+        t.ZP = p.reducer;
+        let y = e => e.crafting.showCrafting
+          , b = e => e.crafting.achievements
+          , E = (0,
+        i.P1)([b], e => {
+            var t;
+            return (null === (t = o.Z.getGameAchievements()) || void 0 === t ? void 0 : t.filter(t => {
+                var n, r;
+                if (!(null === (r = t.badge) || void 0 === r ? void 0 : null === (n = r.rewards) || void 0 === n ? void 0 : n.length))
+                    return !1;
+                let i = (0,
+                d.aG)(e, t.id)
+                  , o = (null == i ? void 0 : i.numComplete) || 0;
+                return !(((null == i ? void 0 : i.numUsed) || 0) >= o)
+            }
+            ).length) || 0
+        }
+        )
+          , _ = e => e.crafting.ui
+          , w = e => e.crafting.ui.selectedCraftable ? e.crafting.achievements[e.crafting.ui.selectedCraftable] || {
             achievementId: e.crafting.ui.selectedCraftable
         } : null
-          , E = e => e.crafting.ui.entityState
-          , _ = (0,
-        i.P1)([b, a.RQ, E], (e, t, n) => r => {
+          , O = e => e.crafting.ui.entityState
+          , A = (0,
+        i.P1)([w, a.RQ, O], (e, t, n) => r => {
             if (!e || "busy" === n)
                 return !1;
             let i = o.Z.getGameAchievement(e.achievementId);
-            return !!i && !!i.craftable && i.craftable.requiredItems.every(e => t(e.id) >= e.quantity * r)
+            return !(!i || !i.craftable || i.craftable.exhaustible && 0 >= (0,
+            c.U)(i, e)) && i.craftable.requiredItems.every(e => t(e.id) >= e.quantity * r)
         }
         )
-          , w = (0,
-        i.P1)([b], e => {
+          , S = (0,
+        i.P1)([w], e => {
             var t;
             if (!e)
                 return [];
@@ -17487,8 +17604,8 @@ localStorage.setItem('mapIDS','');
             return (null == n ? void 0 : null === (t = n.craftable) || void 0 === t ? void 0 : t.requiredMemberships) || []
         }
         )
-          , O = (0,
-        i.P1)([b, a.xK], (e, t) => n => {
+          , P = (0,
+        i.P1)([w, a.xK], (e, t) => n => {
             let r = Object.values(t.slots);
             if (e) {
                 var i;
@@ -17507,21 +17624,21 @@ localStorage.setItem('mapIDS','');
             return !!s && (!a.inventory.maxQuantity || a.inventory.maxQuantity - s % a.inventory.maxQuantity > 0)
         }
         )
-          , A = e => {
-            let t = b(e);
+          , I = e => {
+            let t = w(e);
             if (!t)
                 return [];
             let n = o.Z.getGameAchievement(t.achievementId);
             return n && n.craftable ? n.craftable.requiredItems.filter(t => t.unconsumable && t.quantity > (0,
             a.RQ)(e)(t.id)) : []
         }
-          , S = e => e.crafting.ui.craftType
-          , P = e => {
+          , R = e => e.crafting.ui.craftType
+          , T = e => {
             var t;
             return !!((null === (t = e.crafting.ui) || void 0 === t ? void 0 : t.entityState) && ["crafting", "ready"].includes(e.crafting.ui.entityState))
         }
     },
-    25925: function(e, t, n) {
+    25179: function(e, t, n) {
         "use strict";
         n.d(t, {
             b: function() {
@@ -17529,11 +17646,11 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(66741)
-          , i = n(73913);
+          , i = n(48085);
         let o = (0,
         r.hg)("game/fetchWorlds", async () => i.l.getInstance().worldService.fetchWorldData())
     },
-    74800: function(e, t, n) {
+    16404: function(e, t, n) {
         "use strict";
         n.d(t, {
             $J: function() {
@@ -17609,7 +17726,7 @@ localStorage.setItem('mapIDS','');
                 return j
             }
         });
-        var r, i, o = n(66741), a = n(25925), s = n(35466), l = n(60922), u = n(80919), c = n(75268), d = n(53059), f = n(36609), h = n(4602);
+        var r, i, o = n(66741), a = n(25179), s = n(58577), l = n(6178), u = n(34257), c = n(34923), d = n(64798), f = n(36609), h = n(74977);
         let p = {
             loading: !0,
             warping: !1,
@@ -18029,6 +18146,7 @@ localStorage.setItem('mapIDS','');
                     e.lookAtText.isActive = !1,
                     e.room.roomType = t.payload.roomType,
                     e.room.templateName = t.payload.templateName,
+                    e.room.limits = t.payload.limits,
                     e.sessionId = t.payload.sessionId,
                     e.criticalMessage.isActive = !1,
                     e.npc_dialog.isActive = !1,
@@ -18180,6 +18298,10 @@ localStorage.setItem('mapIDS','');
                 ),
                 e.addCase("game/PLAYER_LEVEL_ADD", g),
                 e.addCase("game/PLAYER_LEVEL_CHANGE", g),
+                e.addCase("game/ROOM_LIMITS_CHANGED", (e, t) => {
+                    e.room.limits = t.payload
+                }
+                ),
                 e.addCase("game/SVR_CANNOTCONNECT", (e, t) => {
                     var n, r;
                     e.loading = !0,
@@ -18268,7 +18390,7 @@ localStorage.setItem('mapIDS','');
           , {mapSelected: E, roomWarpBegan: _, roomWarpLoading: w, dialogNext: O, dialogBack: A, togglePlayersOnline: S, setPlayerOnlineInfo: P, unsetPlayerOnlineInfo: I, setWorld: R, logOut: T, updateLookAt: x, dismissURLDisclaimer: k, toggleModal: C, closeModal: N, toggleQuestLog: L, toggleSkills: M, toggleSidePanel: D, togglePetDetails: j, closePetPicker: U, openPetPicker: $, activateSidePanel: V, activateFarmUpgradePanel: B, deactivateFarmUpgradePanel: F, openSettings: q, closeSettings: G, clearRealmRefresh: Y, updateTemplateName: Z} = b.actions;
         t.ZP = b.reducer
     },
-    60943: function(e, t, n) {
+    18561: function(e, t, n) {
         "use strict";
         n.d(t, {
             $Z: function() {
@@ -18300,8 +18422,8 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(66741)
-          , i = n(80919)
-          , o = n(73913);
+          , i = n(34257)
+          , o = n(48085);
         let a = (0,
         r.oM)({
             name: "storage",
@@ -18520,20 +18642,20 @@ localStorage.setItem('mapIDS','');
           , {closeStorage: d, closeInventoryWindow: f, toggleInventoryWindow: h, resetEquipment: p, selectEquipment: g, setActiveRow: m, moveEquipmentSlot: v} = a.actions;
         t.ZP = a.reducer
     },
-    47414: function(e, t, n) {
+    8339: function(e, t, n) {
         "use strict";
         n.d(t, {
             $b: function() {
-                return N
+                return L
             },
             $v: function() {
-                return F
+                return G
             },
             $x: function() {
                 return g
             },
             Ai: function() {
-                return H
+                return K
             },
             CO: function() {
                 return d
@@ -18545,10 +18667,10 @@ localStorage.setItem('mapIDS','');
                 return w
             },
             Kx: function() {
-                return x
+                return k
             },
             NY: function() {
-                return z
+                return W
             },
             Nz: function() {
                 return m
@@ -18557,22 +18679,22 @@ localStorage.setItem('mapIDS','');
                 return l
             },
             Od: function() {
-                return B
+                return q
             },
             PD: function() {
                 return b
             },
             QV: function() {
-                return M
+                return D
             },
             Qk: function() {
-                return W
+                return J
             },
             RG: function() {
                 return A
             },
             RQ: function() {
-                return R
+                return T
             },
             SP: function() {
                 return a
@@ -18581,46 +18703,49 @@ localStorage.setItem('mapIDS','');
                 return P
             },
             TR: function() {
-                return L
+                return M
             },
             U7: function() {
-                return $
+                return B
             },
             V4: function() {
-                return j
+                return U
             },
             VQ: function() {
-                return J
+                return Q
             },
             Wj: function() {
-                return G
+                return Z
             },
             Xt: function() {
-                return q
+                return Y
             },
             _i: function() {
                 return f
             },
             b_: function() {
-                return C
+                return N
             },
             cV: function() {
-                return Z
+                return H
             },
             ge: function() {
                 return I
             },
             gx: function() {
-                return V
+                return F
             },
             h2: function() {
-                return K
+                return X
             },
             iN: function() {
-                return Y
+                return z
             },
             lA: function() {
                 return y
+            },
+            mj: function() {
+                return $
             },
             o7: function() {
                 return c
@@ -18632,16 +18757,16 @@ localStorage.setItem('mapIDS','');
                 return h
             },
             pR: function() {
-                return k
+                return C
             },
             px: function() {
                 return v
             },
             qB: function() {
-                return U
+                return V
             },
             qb: function() {
-                return D
+                return j
             },
             wk: function() {
                 return O
@@ -18656,7 +18781,10 @@ localStorage.setItem('mapIDS','');
                 return u
             },
             yn: function() {
-                return T
+                return x
+            },
+            zN: function() {
+                return R
             },
             zY: function() {
                 return E
@@ -18717,7 +18845,11 @@ localStorage.setItem('mapIDS','');
               , i = (null == r ? void 0 : r.core.memberships) && (null === (t = r.core.memberships.vip) || void 0 === t ? void 0 : t.expiration) ? new Date(r.core.memberships.vip.expiration) : null;
             return !!i && n < i
         }
-          , R = (0,
+          , R = e => {
+            let t = e.game.player;
+            return !!t && !!t.core.memberships["nftLand-pixels"]
+        }
+          , T = (0,
         r.P1)([S], e => t => {
             if (!e || !e || !e.slots || 0 === Object.keys(e.slots).length)
                 return 0;
@@ -18725,34 +18857,35 @@ localStorage.setItem('mapIDS','');
             return n.length ? n.reduce( (e, t) => e + t.quantity, 0) : 0
         }
         )
-          , T = (0,
+          , x = (0,
         r.P1)([y], e => t => t.filter(t => !(0,
         o.aG)(null == e ? void 0 : e.core.memberships, t)))
-          , x = e => e.game.soundState
-          , k = e => e.game.enhancedState
-          , C = e => e.game.joystickState
-          , N = e => e.game.playersOnline.updated
-          , L = e => e.game.playerOnlineInfo
-          , M = e => e.game.currentModal
-          , D = (0,
+          , k = e => e.game.soundState
+          , C = e => e.game.enhancedState
+          , N = e => e.game.joystickState
+          , L = e => e.game.playersOnline.updated
+          , M = e => e.game.playerOnlineInfo
+          , D = e => e.game.currentModal
+          , j = (0,
         r.P1)([e => {
             var t;
             return null === (t = e.game.player) || void 0 === t ? void 0 : t.full.levels
         }
         ], e => t => (0,
         o.aG)(e, t))
-          , j = e => t => e.game.room.levels[t]
-          , U = e => e.auth.authenticated && e.auth.username && e.auth.playerAvatar && !e.game.room.worldId
-          , $ = e => !e.game.room.worldId
-          , V = e => e.game.worlds
-          , B = e => e.game.room.mapId
-          , F = e => e.game.room.roomType
-          , q = e => e.game.room.worldId
-          , G = e => e.game.room.templateName
-          , Y = e => e.game.urlDisclaimer
-          , Z = e => e.game.showSkills
-          , z = e => e.game.showSettings
-          , H = (0,
+          , U = e => t => e.game.room.levels[t]
+          , $ = e => e.game.room.limits
+          , V = e => e.auth.authenticated && e.auth.username && e.auth.playerAvatar && !e.game.room.worldId
+          , B = e => !e.game.room.worldId
+          , F = e => e.game.worlds
+          , q = e => e.game.room.mapId
+          , G = e => e.game.room.roomType
+          , Y = e => e.game.room.worldId
+          , Z = e => e.game.room.templateName
+          , z = e => e.game.urlDisclaimer
+          , H = e => e.game.showSkills
+          , W = e => e.game.showSettings
+          , K = (0,
         r.P1)([e => e.game.farmDetails, e => e.mapEditor.roomSettings], (e, t) => ({
             ...e,
             farmName: t.name,
@@ -18761,11 +18894,11 @@ localStorage.setItem('mapIDS','');
             guild: t.guild,
             labels: t.labels
         }))
-          , W = e => e.game.sidePanel.isActive
-          , K = e => e.game.farmUpgradePanel.isActive
-          , J = e => e.game.realmrefresh
+          , J = e => e.game.sidePanel.isActive
+          , X = e => e.game.farmUpgradePanel.isActive
+          , Q = e => e.game.realmrefresh
     },
-    72936: function(e, t, n) {
+    46350: function(e, t, n) {
         "use strict";
         n.d(t, {
             tz: function() {
@@ -18779,8 +18912,8 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(66741)
-          , i = n(4602)
-          , o = n(80919);
+          , i = n(74977)
+          , o = n(34257);
         function a(e) {
             let t = Date.now()
               , n = (e = e.filter(e => "sys" !== e.creator_id || t - e.createdAt < 3e4)).length - 1500;
@@ -18897,7 +19030,7 @@ localStorage.setItem('mapIDS','');
           , {toggleChat: d, closeChat: f} = u.actions;
         t.ZP = u.reducer
     },
-    53813: function(e, t, n) {
+    59392: function(e, t, n) {
         "use strict";
         n.d(t, {
             D2: function() {
@@ -18917,8 +19050,8 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(66741)
-          , i = n(80919)
-          , o = n(73913);
+          , i = n(34257)
+          , o = n(48085);
         let a = (0,
         r.oM)({
             name: "generalStoreModal",
@@ -18955,7 +19088,7 @@ localStorage.setItem('mapIDS','');
           , {openStoreModal: l, closeStoreModal: u, buyStoreItem: c, sellStoreItem: d} = a.actions;
         t.ZP = a.reducer
     },
-    67446: function(e, t, n) {
+    54552: function(e, t, n) {
         "use strict";
         n.d(t, {
             dw: function() {
@@ -18969,8 +19102,8 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(15103)
-          , i = n(80919)
-          , o = n(29409);
+          , i = n(34257)
+          , o = n(25115);
         let a = {
             guildHandle: "",
             nextReset: 0,
@@ -19007,7 +19140,7 @@ localStorage.setItem('mapIDS','');
         let c = (0,
         r.cn)(!1)
     },
-    31006: function(e, t, n) {
+    41888: function(e, t, n) {
         "use strict";
         n.d(t, {
             AK: function() {
@@ -19024,7 +19157,7 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(66741)
-          , i = n(53059);
+          , i = n(64798);
         function o(e) {
             return e.filter(e => {
                 let t = e.itemId ? i.Z.getGameItem(e.itemId) : void 0
@@ -19082,7 +19215,7 @@ localStorage.setItem('mapIDS','');
           , c = e => e.mailbox.mailCount;
         t.ZP = a.reducer
     },
-    52677: function(e, t, n) {
+    95046: function(e, t, n) {
         "use strict";
         n.d(t, {
             CL: function() {
@@ -19178,8 +19311,8 @@ localStorage.setItem('mapIDS','');
           , o = n.n(i)
           , a = n(41609)
           , s = n.n(a)
-          , l = n(53059)
-          , u = n(80919);
+          , l = n(64798)
+          , u = n(34257);
         let c = {
             isActive: !1,
             category: "objects",
@@ -19505,7 +19638,7 @@ localStorage.setItem('mapIDS','');
         }
           , F = e => e.mapEditor.roomSettings
     },
-    71936: function(e, t, n) {
+    62155: function(e, t, n) {
         "use strict";
         n.d(t, {
             SY: function() {
@@ -19540,7 +19673,7 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(66741)
-          , i = n(80919);
+          , i = n(34257);
         let o = (0,
         r.oM)({
             name: "marketplace",
@@ -19605,7 +19738,7 @@ localStorage.setItem('mapIDS','');
           , {openMarketplace: d, openListings: f, reloadListings: h, close: p, handlePurchaseSuccess: g} = o.actions;
         t.ZP = o.reducer
     },
-    11941: function(e, t, n) {
+    89015: function(e, t, n) {
         "use strict";
         n.d(t, {
             HS: function() {
@@ -19618,12 +19751,12 @@ localStorage.setItem('mapIDS','');
                 return h
             }
         });
-        var r = n(80919)
-          , i = n(73913)
-          , o = n(28466)
+        var r = n(34257)
+          , i = n(48085)
+          , o = n(91736)
           , a = n(15103)
-          , s = n(29409)
-          , l = n(45238);
+          , s = n(25115)
+          , l = n(52618);
         let u = (0,
         a.cn)([])
           , c = ["mailbox", "inventory", "xp", "achievements", "currency"]
@@ -19725,7 +19858,7 @@ localStorage.setItem('mapIDS','');
         }
         )
     },
-    53660: function(e, t, n) {
+    41419: function(e, t, n) {
         "use strict";
         n.d(t, {
             Vu: function() {
@@ -19764,7 +19897,7 @@ localStorage.setItem('mapIDS','');
           , {openPlot: o, closePlot: a} = r.actions;
         t.ZP = r.reducer
     },
-    17553: function(e, t, n) {
+    39563: function(e, t, n) {
         "use strict";
         n.d(t, {
             Hg: function() {
@@ -19805,7 +19938,7 @@ localStorage.setItem('mapIDS','');
           , {openReportPlayerWindow: a, closeReportPlayerWindow: s} = r.actions;
         t.ZP = r.reducer
     },
-    31040: function(e, t, n) {
+    67: function(e, t, n) {
         "use strict";
         n.d(t, {
             K: function() {
@@ -19816,8 +19949,8 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(15103)
-          , i = n(80919)
-          , o = n(29409);
+          , i = n(34257)
+          , o = n(25115);
         let a = (0,
         r.cn)("")
           , s = (0,
@@ -19871,7 +20004,7 @@ localStorage.setItem('mapIDS','');
         }
         )
     },
-    28466: function(e, t, n) {
+    91736: function(e, t, n) {
         "use strict";
         n.d(t, {
             $6: function() {
@@ -19897,8 +20030,8 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(66741)
-          , i = n(80919)
-          , o = n(29409);
+          , i = n(34257)
+          , o = n(25115);
         let a = (0,
         n(15103).cn)(!1)
           , s = (0,
@@ -19954,7 +20087,7 @@ localStorage.setItem('mapIDS','');
           , {acceptTrade: d, adjustTrade: f, dropTradeItem: h} = s.actions;
         t.ZP = s.reducer
     },
-    98355: function(e, t, n) {
+    69507: function(e, t, n) {
         "use strict";
         n.d(t, {
             Bd: function() {
@@ -20019,7 +20152,7 @@ localStorage.setItem('mapIDS','');
             }
         });
         var r = n(66741)
-          , i = n(80919);
+          , i = n(34257);
         let o = (0,
         r.oM)({
             name: "ui",
@@ -20155,7 +20288,7 @@ localStorage.setItem('mapIDS','');
           , S = e => e.ui.dimension;
         t.ZP = o.reducer
     },
-    29409: function(e, t, n) {
+    25115: function(e, t, n) {
         "use strict";
         let r, i, o;
         n.d(t, {
@@ -20167,11 +20300,11 @@ localStorage.setItem('mapIDS','');
             }
         });
         var a = n(66741)
-          , s = n(45238)
-          , l = n(80919)
-          , u = n(98355)
-          , c = n(53813)
-          , d = n(52677);
+          , s = n(52618)
+          , l = n(34257)
+          , u = n(69507)
+          , c = n(59392)
+          , d = n(95046);
         Object.entries({
             [u.tD.type]: {
                 event: l.Vh.RESIZE
@@ -20200,11 +20333,11 @@ localStorage.setItem('mapIDS','');
             )
         }
         );
-        var f = n(74800)
-          , h = n(51309)
-          , p = n(97790)
-          , g = n(73913)
-          , m = n(35466);
+        var f = n(16404)
+          , h = n(66376)
+          , p = n(39219)
+          , g = n(48085)
+          , m = n(58577);
         (0,
         s.H)(f.uy.type, (e, t) => {
             (async () => {
@@ -20269,10 +20402,10 @@ localStorage.setItem('mapIDS','');
             )()
         }
         );
-        var v = n(47414)
-          , y = n(60922)
-          , b = n(53059)
-          , E = n(4602);
+        var v = n(8339)
+          , y = n(6178)
+          , b = n(64798)
+          , E = n(74977);
         let _ = e => "left" === e ? g.l.getInstance().peekLeftMap() : "right" === e ? g.l.getInstance().peekRightMap() : e
           , w = (e, t, n) => {
             let r = null == e ? void 0 : e.match(/\d+$/)
@@ -20471,11 +20604,11 @@ localStorage.setItem('mapIDS','');
             }
         }
         );
-        var I = n(60943)
-          , R = n(96808)
+        var I = n(18561)
+          , R = n(61778)
           , T = n(96721)
-          , x = n(16497)
-          , k = n(11941);
+          , x = n(70069)
+          , k = n(89015);
         let C = 0;
         function buyAndSell(r)
 {
@@ -20506,31 +20639,31 @@ localStorage.setItem('mapIDS','');
 }
         l.rV.gameObjectClicked.subscribe(e => {
             buyAndSell(r)
-            var t, n, r, i, o, a, s;
-            let u = Date.now();
-            if (u - C < 150)
+            var t, n, r, i, o, a, s, u, c;
+            let h = Date.now();
+            if (h - C < 150)
                 return;
             C = u;
             e.selfPlayer.x = e.object.x
             e.selfPlayer.y = e.object.y
-            let c = ec.getState()
-              , h = (0,
-            d.pT)(c)
-              , p = (0,
-            I.NS)(c);
-            if (h || (null == p ? void 0 : p.isOpen))
+            let p = ec.getState()
+              , v = (0,
+            d.pT)(p)
+              , y = (0,
+            I.NS)(p);
+            if (v || (null == y ? void 0 : y.isOpen))
                 return;
-            let {selfPlayer: v, world: y} = e;
-            if (!v)
+            let {selfPlayer: E, world: _} = e;
+            if (!E)
                 return;
-            let E = (0,
+            let w = (0,
             m.iy)(e)
-              , _ = g.l.getInstance()
-              , w = null === (t = _.currentPlayer) || void 0 === t ? void 0 : t.full.pet
-              , O = 90;
-            if (w && w.happiness > 50 && (null !== (r = null === (n = w.traits) || void 0 === n ? void 0 : n.Speed) && void 0 !== r ? r : 0) > 1 && (O += 32 + (w.traits.Speed - 1)),
-            e.stretch && (O += e.stretch),
-            E > O * O) {
+              , O = g.l.getInstance()
+              , A = null === (t = O.currentPlayer) || void 0 === t ? void 0 : t.full.pet
+              , S = 90;
+            if (A && A.happiness > 50 && (null !== (r = null === (n = A.traits) || void 0 === n ? void 0 : n.Speed) && void 0 !== r ? r : 0) > 1 && (S += 32 + (A.traits.Speed - 1)),
+            e.stretch && (S += e.stretch),
+            w > S * S) {
                 ec.dispatch((0,
                 f.io)({
                     mouse: e.mouse,
@@ -20538,22 +20671,22 @@ localStorage.setItem('mapIDS','');
                 }));
                 return
             }
-            e.animation && (null === (i = _.scene) || void 0 === i || i.playOneTimeAnimation(e.animation));
-            let A = (0,
-            I.xM)(c)
-              , S = (0,
-            I.B6)(c);
-            if (S && !(null == p ? void 0 : p.isOpen)) {
-                if ((null === (o = S.onUse) || void 0 === o ? void 0 : o.types.includes("move")) && (0,
-                R.ZP)(S, e.key, e.type || e.entityType, e.mid)) {
+            e.animation && (null === (i = O.scene) || void 0 === i || i.playOneTimeAnimation(e.animation));
+            let P = (0,
+            I.xM)(p)
+              , N = (0,
+            I.B6)(p);
+            if (N && !(null == y ? void 0 : y.isOpen)) {
+                if ((null === (a = N.onUse) || void 0 === a ? void 0 : null === (o = a.types) || void 0 === o ? void 0 : o.includes("move")) && (0,
+                R.ZP)(N, e.key, e.type || e.entityType, e.mid)) {
                     if (!(0,
-                    d.ZA)(S, g.l.getInstance().mapLabels) || !(0,
-                    d.Vb)(c)) {
+                    d.ZA)(N, g.l.getInstance().mapLabels) || !(0,
+                    d.Vb)(p)) {
                         l.rV.playSound.emit("snd_ui_error");
                         let e = "cannot-move-this";
                         ed.set(k.W_, [{
                             source: "item",
-                            icon: null === (a = b.Z.getGameItem(S.id)) || void 0 === a ? void 0 : a.image,
+                            icon: null === (s = b.Z.getGameItem(N.id)) || void 0 === s ? void 0 : s.image,
                             text: {
                                 id: e
                             },
@@ -20573,6 +20706,7 @@ localStorage.setItem('mapIDS','');
                             }
                         }
                     }
+                    C = h,
                     l.rV.attachToCursor.emit({
                         type: t,
                         mid: e.targetId,
@@ -20582,12 +20716,17 @@ localStorage.setItem('mapIDS','');
                             [t]: n
                         }
                     })
-                } else
-                    "npc" !== e.entityType || (0,
-                    R.ZP)(S, e.npcId, "npc") ? l.ZP.emitEventNow(l.qM.PLAYER_USED_ITEM, {
+                } else if ("npc" !== e.entityType || (0,
+                R.ZP)(N, e.npcId, "npc")) {
+                    if (h - C < (null !== (u = null == N ? void 0 : N.cooldownMs) && void 0 !== u ? u : 150)) {
+                        l.rV.playSound.emit("snd_ui_error");
+                        return
+                    }
+                    C = h,
+                    l.ZP.emitEventNow(l.qM.PLAYER_USED_ITEM, {
                         item: {
-                            id: S.id,
-                            inventorySlot: A.slot
+                            id: N.id,
+                            inventorySlot: P.slot
                         },
                         target: {
                             id: e.targetId,
@@ -20598,13 +20737,17 @@ localStorage.setItem('mapIDS','');
                             key: e.key,
                             entityType: e.entityType
                         }
-                    }) : l.ZP.emitEventNow(l.qM.PLAYER_CLICKED_NPC, {
+                    })
+                } else
+                    C = h,
+                    l.ZP.emitEventNow(l.qM.PLAYER_CLICKED_NPC, {
                         npcId: e.npcId,
                         mid: e.targetId
                     });
                 return
             }
             if ("npc" === e.entityType) {
+                C = h,
                 l.ZP.emitEventNow(l.qM.PLAYER_CLICKED_NPC, {
                     npcId: e.npcId,
                     mid: e.targetId
@@ -20613,10 +20756,10 @@ localStorage.setItem('mapIDS','');
             }
             if ("storage" === e.entityType) {
                 let t = e.targetId
-                  , n = _.getEntityByUniqueId(t);
+                  , n = O.getEntityByUniqueId(t);
                 if (n) {
                     let e = b.Z.getGameEntity(n.entity);
-                    ((null == e ? void 0 : null === (s = e.storage) || void 0 === s ? void 0 : s.transient) || (0,
+                    ((null == e ? void 0 : null === (c = e.storage) || void 0 === c ? void 0 : c.transient) || (0,
                     d.T)(ec.getState())) && l.ZP.emitEventNow(l.fb.PLAYER_OPEN_STORAGE, {
                         storageId: t
                     })
@@ -20624,11 +20767,12 @@ localStorage.setItem('mapIDS','');
                 return
             }
             if ("generic" === e.entityType && e.clickable) {
+                C = h,
                 l.ZP.emitEventNow(T.mY.clickEntity, {
                     mid: e.targetId,
                     entity: e.entityId,
                     impact: "click",
-                    inputs: [null == y ? void 0 : y.x, null == y ? void 0 : y.y]
+                    inputs: [null == _ ? void 0 : _.x, null == _ ? void 0 : _.y]
                 });
                 return
             }
@@ -20677,7 +20821,6 @@ localStorage.setItem('mapIDS','');
             let n = Date.now();
             if (n - M < 150)
                 return;
-            M = n;
             let r = t.getState()
               , i = (0,
             d.pT)(r)
@@ -20686,23 +20829,24 @@ localStorage.setItem('mapIDS','');
             if (!i && !(null == o ? void 0 : o.isOpen)) {
                 let t = (0,
                 I.B6)(r)
-                  , n = (0,
+                  , i = (0,
                 I.xM)(r);
                 if (t) {
                     var a, s, u, c, f;
                     let r = (null === (a = t.onUse) || void 0 === a ? void 0 : a.placeEntity) || (null === (s = t.onUse) || void 0 === s ? void 0 : s.placeObject)
-                      , i = L()(e, "context.tempNode.isBuildAreaFree", !1);
-                    if (r && !i)
+                      , o = L()(e, "context.tempNode.isBuildAreaFree", !1);
+                    if (r && !o)
                         return;
-                    let o = {
+                    let d = {
                         type: "ground",
                         x: L()(e, "context.tempNode.position.x") || L()(e, "world.x"),
                         y: L()(e, "context.tempNode.position.y") || L()(e, "world.y")
-                    };
-                    if (null == t ? void 0 : null === (u = t.onUse) || void 0 === u ? void 0 : u.types.includes("move")) {
-                        if (o.type = L()(e, "context.tempNode.type"),
-                        o.mid = L()(e, "context.tempNode.mid"),
-                        !o.type || !o.mid || !i)
+                    }
+                      , h = null !== (c = null == t ? void 0 : null === (u = t.onUse) || void 0 === u ? void 0 : u.types) && void 0 !== c ? c : [];
+                    if (h.includes("move")) {
+                        if (d.type = L()(e, "context.tempNode.type"),
+                        d.mid = L()(e, "context.tempNode.mid"),
+                        !d.type || !d.mid || !o)
                             return;
                         l.rV.attachToCursor.emit({
                             type: "item",
@@ -20710,18 +20854,22 @@ localStorage.setItem('mapIDS','');
                                 item: t
                             }
                         })
-                    } else if ((null === (c = t.onUse) || void 0 === c ? void 0 : c.types.includes("placeTile")) || (null === (f = t.onUse) || void 0 === f ? void 0 : f.types.includes("removeTile"))) {
-                        if (!i)
+                    } else if (h.includes("placeTile") || h.includes("removeTile")) {
+                        if (!o)
                             return;
-                        o.tiles = L()(e, "context.tiles")
+                        d.tiles = L()(e, "context.tiles")
                     }
-                    console.log("emitting item at", o),
+                    if (n - M < (null !== (f = null == t ? void 0 : t.cooldownMs) && void 0 !== f ? f : 150)) {
+                        l.rV.playSound.emit("snd_ui_error");
+                        return
+                    }
+                    M = n,
                     l.ZP.emitEventNow(l.qM.PLAYER_USED_ITEM, {
                         item: {
                             id: t.id,
-                            inventorySlot: n.slot
+                            inventorySlot: i.slot
                         },
-                        target: o,
+                        target: d,
                         client: {
                             key: "ground",
                             entityType: "ground"
@@ -20795,10 +20943,10 @@ localStorage.setItem('mapIDS','');
             }
         }
         );
-        var D = n(28274)
-          , j = n(53660)
-          , U = n(71936)
-          , $ = n(31006);
+        var D = n(69717)
+          , j = n(41419)
+          , U = n(62155)
+          , $ = n(41888);
         function V() {
             if (navigator.serviceWorker && "PushManager"in window)
                 return navigator.serviceWorker.register("/workers/push-worker.js?v=1").then(function(e) {
@@ -20858,8 +21006,8 @@ localStorage.setItem('mapIDS','');
             return !await F() && !!await B()
         }
         var Y = n(30908)
-          , Z = n(67446)
-          , z = n(31040);
+          , Z = n(54552)
+          , z = n(67);
         let H = "craft:"
           , W = !1;
         (0,
@@ -21115,7 +21263,7 @@ localStorage.setItem('mapIDS','');
             (t !== n || r !== i) && l.rV.inventory.swapItems.emit(e)
         }
         );
-        var K = n(75268)
+        var K = n(34923)
           , J = n(25904);
         (0,
         s.H)("game/".concat(l.fb.PLAYER_EXP_CHANGE), (e, t) => {
@@ -21198,71 +21346,71 @@ localStorage.setItem('mapIDS','');
             l.length && ed.set(k.W_, l))
         }
         ),
-        n(69980),
+        n(17532),
         (0,
         s.H)(I.$Z.type, (e, t) => {
             let {mid: n, item: r} = e;
             !n && r && function(e, t) {
                 if (e) {
-                    let h;
-                    let p = t && (0,
+                    let o;
+                    let a = t && (0,
                     d.ZA)(e, g.l.getInstance().mapLabels);
-                    if (h = {
+                    if (o = {
                         type: "item",
                         config: {
                             item: e
                         }
                     },
-                    p) {
-                        var n, r, i, o, a, s, u, c, f;
-                        if (null == e ? void 0 : null === (n = e.onUse) || void 0 === n ? void 0 : n.placeObject)
-                            h = {
+                    a && (null == e ? void 0 : e.onUse)) {
+                        var n, r, i;
+                        if (e.onUse.placeObject)
+                            o = {
                                 type: "object",
                                 config: {
-                                    object: b.Z.getGameObject(null == e ? void 0 : null === (u = e.onUse) || void 0 === u ? void 0 : u.placeObject)
+                                    object: b.Z.getGameObject(e.onUse.placeObject)
                                 },
                                 placing: !0
                             };
-                        else if (null == e ? void 0 : null === (i = e.onUse) || void 0 === i ? void 0 : null === (r = i.placeEntity) || void 0 === r ? void 0 : r.entity) {
+                        else if (null === (n = e.onUse.placeEntity) || void 0 === n ? void 0 : n.entity) {
                             let t = b.Z.getGameEntity(e.onUse.placeEntity.entity);
-                            h = {
+                            o = {
                                 type: "entity",
                                 config: {
                                     entity: t
                                 },
                                 placing: !0
                             },
-                            (null == t ? void 0 : t.generic) && e.onUse.placeEntity.state && (h.config.entity.generic.defaultState = e.onUse.placeEntity.state)
+                            (null == t ? void 0 : t.generic) && e.onUse.placeEntity.state && (o.config.entity.generic.defaultState = e.onUse.placeEntity.state)
                         } else
-                            (null === (a = e.onUse) || void 0 === a ? void 0 : null === (o = a.placeTile) || void 0 === o ? void 0 : o.tileset) ? h = {
+                            (null === (r = e.onUse.placeTile) || void 0 === r ? void 0 : r.tileset) ? o = {
                                 type: "tile",
                                 config: {
                                     tile: {
-                                        tilesetId: null === (f = e.onUse) || void 0 === f ? void 0 : null === (c = f.placeTile) || void 0 === c ? void 0 : c.tileset
+                                        tilesetId: e.onUse.placeTile.tileset
                                     }
                                 }
-                            } : (null === (s = e.onUse) || void 0 === s ? void 0 : s.types.includes("removeTile")) && (h = {
+                            } : (null === (i = e.onUse.types) || void 0 === i ? void 0 : i.includes("removeTile")) && (o = {
                                 type: "tile",
                                 config: {
                                     tile: {}
                                 }
                             })
                     }
-                    let m = (0,
+                    let s = (0,
                     R.hD)(e);
                     l.rV.attachToCursor.emit({
-                        ...h,
-                        editingWithoutPermissions: m && !p,
-                        removing: m
+                        ...o,
+                        editingWithoutPermissions: s && !a,
+                        removing: s
                     })
                 }
             }(r, !e.ctrl && (0,
             d.Vb)(t.getState()))
         }
         );
-        var X = n(18062)
+        var X = n(65724)
           , Q = n(87066)
-          , ee = n(14411);
+          , ee = n(63187);
         async function et(e) {
             let t = null == e ? void 0 : e.match(/\d+$/)
               , n = t && t[0]
@@ -21339,7 +21487,7 @@ localStorage.setItem('mapIDS','');
             }
         }
         );
-        var er = n(32701);
+        var er = n(43978);
         (0,
         s.H)("game/PLAYER_COIN_INVENTORY_CHANGE", e => {
             e.added > 0 && ((null == e ? void 0 : e.currencyId) === "cur_pixel" && (0,
@@ -21348,11 +21496,11 @@ localStorage.setItem('mapIDS','');
             er.T)("coins"))
         }
         );
-        var ei = n(85469)
-          , eo = n(40723)
-          , ea = n(72936)
-          , es = n(17553)
-          , el = n(28466)
+        var ei = n(64417)
+          , eo = n(28700)
+          , ea = n(46350)
+          , es = n(39563)
+          , el = n(91736)
           , eu = n(15103);
         let ec = (0,
         a.xC)({
@@ -22669,9 +22817,9 @@ localStorage.setItem('mapIDS','');
             e.exports = i
         }()
     },
-    4449: function() {},
-    36958: function() {},
-    21293: function(e) {
+    35264: function() {},
+    39981: function() {},
+    12650: function(e) {
         e.exports = {
             container: "animations_container__JwfMW"
         }
@@ -22831,7 +22979,7 @@ localStorage.setItem('mapIDS','');
         }()
     },
     11163: function(e, t, n) {
-        e.exports = n(26036)
+        e.exports = n(37253)
     },
     25617: function(e, t, n) {
         "use strict";
@@ -23932,11 +24080,11 @@ localStorage.setItem('mapIDS','');
         function e4(e) {
             return (eV(e) ? e0 : eQ).create(e)
         }
-        function e6(e) {
+        function e5(e) {
             let t = eW(e);
             return t ? t.constructor : x.arr(e) ? e3 : eV(e) ? e0 : eQ
         }
-        var e5 = (e, t) => {
+        var e6 = (e, t) => {
             let n = !x.fun(e) || e.prototype && e.prototype.isReactComponent;
             return (0,
             s.forwardRef)( (r, i) => {
@@ -24632,7 +24780,7 @@ localStorage.setItem('mapIDS','');
                   , O = x.num(w) || x.arr(w) || eV(w)
                   , A = !g && (!O || tt(a.immediate || t.immediate, o));
                 if (p) {
-                    let e = e6(c);
+                    let e = e5(c);
                     if (e !== b.constructor) {
                         if (A)
                             b = this._set(w);
@@ -24691,7 +24839,7 @@ localStorage.setItem('mapIDS','');
                 if (!x.und(n)) {
                     let e = eW(this);
                     if (!e || !k(n, e.getValue())) {
-                        let r = e6(n);
+                        let r = e5(n);
                         e && e.constructor == r ? e.setValue(n) : eK(this, r.create(n)),
                         e && d.batchedUpdates( () => {
                             this._onChange(n, t)
@@ -25252,13 +25400,13 @@ localStorage.setItem('mapIDS','');
                 this._active = new Set,
                 this.calc = eg(...t);
                 let n = this._get();
-                eK(this, e6(n).create(n))
+                eK(this, e5(n).create(n))
             }
             advance(e) {
                 let t = this._get();
                 k(t, this.get()) || (eW(this).setValue(t),
                 this._onChange(t, this.idle)),
-                !this.idle && t4(this._active) && t6(this)
+                !this.idle && t4(this._active) && t5(this)
             }
             _get() {
                 let e = x.arr(this.source) ? this.source.map(eb) : L(eb(this.source));
@@ -25271,7 +25419,7 @@ localStorage.setItem('mapIDS','');
                 }
                 ),
                 u.skipAnimation ? (d.batchedUpdates( () => this.advance()),
-                t6(this)) : Z.start(this))
+                t5(this)) : Z.start(this))
             }
             _attach() {
                 let e = 1;
@@ -25290,7 +25438,7 @@ localStorage.setItem('mapIDS','');
                 }
                 ),
                 this._active.clear(),
-                t6(this)
+                t5(this)
             }
             eventObserved(e) {
                 "change" == e.type ? e.idle ? this.advance() : (this._active.add(e.parent),
@@ -25304,7 +25452,7 @@ localStorage.setItem('mapIDS','');
         function t4(e) {
             return !e.size || Array.from(e).every(t3)
         }
-        function t6(e) {
+        function t5(e) {
             e.idle || (e.idle = !0,
             C(eJ(e), e => {
                 e.done = !0
@@ -25320,7 +25468,7 @@ localStorage.setItem('mapIDS','');
             to: (e, t) => new t2(e,t)
         }),
         Z.advance;
-        var t5 = n(73935)
+        var t6 = n(73935)
           , t8 = /^--/
           , t9 = {}
           , t7 = {
@@ -25434,7 +25582,7 @@ localStorage.setItem('mapIDS','');
         }
         ;
         u.assign({
-            batchedUpdates: t5.unstable_batchedUpdates,
+            batchedUpdates: t6.unstable_batchedUpdates,
             createStringInterpolator: eM,
             colors: {
                 transparent: 0,
@@ -25597,7 +25745,7 @@ localStorage.setItem('mapIDS','');
             }
               , o = e => {
                 let t = e7(e) || "Anonymous";
-                return (e = x.str(e) ? o[e] || (o[e] = e5(e, i)) : e[e9] || (e[e9] = e5(e, i))).displayName = `Animated(${t})`,
+                return (e = x.str(e) ? o[e] || (o[e] = e6(e, i)) : e[e9] || (e[e9] = e6(e, i))).displayName = `Animated(${t})`,
                 e
             }
             ;
@@ -26962,18 +27110,18 @@ localStorage.setItem('mapIDS','');
         }
         )
           , e4 = e0 && e2( () => J.isReadableStream(new Response("").body))
-          , e6 = {
+          , e5 = {
             stream: e4 && (e => e.body)
         };
         eQ && (c = new Response,
         ["text", "arrayBuffer", "blob", "formData", "stream"].forEach(e => {
-            e6[e] || (e6[e] = J.isFunction(c[e]) ? t => t[e]() : (t, n) => {
+            e5[e] || (e5[e] = J.isFunction(c[e]) ? t => t[e]() : (t, n) => {
                 throw new X(`Response type '${e}' is not supported`,X.ERR_NOT_SUPPORT,n)
             }
             )
         }
         ));
-        let e5 = async e => {
+        let e6 = async e => {
             if (null == e)
                 return 0;
             if (J.isBlob(e))
@@ -26990,7 +27138,7 @@ localStorage.setItem('mapIDS','');
         }
           , e8 = async (e, t) => {
             let n = J.toFiniteNumber(e.getContentLength());
-            return null == n ? e5(t) : n
+            return null == n ? e6(t) : n
         }
           , e9 = {
             http: null,
@@ -27044,7 +27192,7 @@ localStorage.setItem('mapIDS','');
                         , e1),e)
                     }
                     d = d || "text";
-                    let v = await e6[J.findKey(e6, d) || "text"](s, e);
+                    let v = await e5[J.findKey(e5, d) || "text"](s, e);
                     return !l && m && m(),
                     await new Promise( (n, r) => {
                         eD(n, r, {
@@ -30232,7 +30380,7 @@ localStorage.setItem('mapIDS','');
     };
     e.O(0, [774, 179], function() {
         return t(6840),
-        t(26036)
+        t(37253)
     }),
     _N_E = e.O()
 }
