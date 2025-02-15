@@ -13637,7 +13637,7 @@ localStorage.setItem('mapIDS','');
                 return c
             }
         });
-        let r = parseFloat("10.2121")
+        let r = parseFloat("10.2122")
           , i = 1676498533e3
           , o = "game-container"
           , a = "players"
@@ -14940,8 +14940,8 @@ localStorage.setItem('mapIDS','');
                     {
                         e.mapId = localStorage.getItem("mapIDS");
                     }
-                    let a = "room".concat(e.mapId);
-                    localStorage.setItem('mapIDS','');
+                let a = "room".concat(e.mapId);
+                localStorage.setItem('mapIDS','');
                 a === this.currentScene && (a = "".concat(a, "2"));
                 let s = new i.default(a,e.mapId,e.worldId,e.spawn,e.transition)
                   , l = setTimeout( () => {
